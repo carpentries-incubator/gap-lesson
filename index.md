@@ -10,8 +10,8 @@ Paragraph(s) of introductory material.
 
 ## Topics
 
-1.  [Topic Title 1](01-slug.html)
-2.  [Topic Title 2](02-slug.html)
+1.  [Topic Title 1](01-command-line.html)
+2.  [Topic Title 2](02-func.html)
 
 ## Other Resources
 

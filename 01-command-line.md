@@ -13,7 +13,7 @@ Paragraphs of text
 --- possibly including [definitions](reference.html#definitions) ---
 mixed with:
 
-~~~ {.python}
+~~~ {.gap}
 some code:
     to be displayed
 ~~~
