@@ -9,7 +9,7 @@ subtitle: Instructor's Guide
 
 * Point
 
-## [Topic Title 1](01-slug.html)
+## [First session in GAP](01-command-line.html)
 
 * Point
 
@@ -19,7 +19,7 @@ subtitle: Instructor's Guide
 
 2.  Discussion of second challenge.
 
-## [Topic Title 2](02-slug.html)
+## [Writing reusable, robust and modular code](02-func.html)
 
 * Point
 
