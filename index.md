@@ -8,10 +8,14 @@ Paragraph(s) of introductory material.
 >
 > What learners need to know before tackling this lesson.
 
+> ## Getting ready {.getready}
+>
+> What learners need to do to get ready
+
 ## Topics
 
-1.  [Topic Title 1](01-command-line.html)
-2.  [Topic Title 2](02-func.html)
+1.  [First session in GAP](01-command-line.html)
+2.  [Writing reusable, robust and modular code](02-func.html)
 
 ## Other Resources
 
