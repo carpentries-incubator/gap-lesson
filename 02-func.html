@@ -80,13 +80,13 @@ sum/Size(S);</code></pre>
 <li>functions may have local variables, and this prevents them being accidentally overwritten just because of reusing the same name of the variable to store something else.</li>
 </ul>
 <p>The following function takes an argument <code>S</code> and computes the average order of its elements:</p>
-<pre class="gap"><code>AvgOrdOfGroup := function (S)
+<pre class="gap"><code>AvgOrdOfGroup := function(G)
 local sum, g;
-sum:=0;
-for g in S do
+sum := 0;
+for g in G do
   sum := sum + Order(g);
 od;
-return sum/Size(S);
+return sum/Size(G);
 end;</code></pre>
 <pre class="output"><code>function( S ) ... end</code></pre>
 <p>Now we can apply it to another group, passing the group as an argument:</p>
@@ -96,6 +96,107 @@ end;</code></pre>
 837</code></pre>
 <p>The example above also demonstrates <code>time</code> - this is the variable which stores the CPU time in milliseconds spent by the last command.</p>
 <p>Thus, now we may create new groups and reuse <code>AvgOrdOfGroup</code> to calculate average order of their elements in the same GAP session. Our next goal is to make it reusable for the future calculations.</p>
+<p>Using a text editor (for example, the one that you have used for the previous Software Carpentry lessons), create a text file called <code>avgord.g</code> containing the code of the function and comments (a good practice to use them!):</p>
+<pre class="gap"><code>#####################################################################
+#
+# AvgOrdOfGroup(G)
+#
+# Calculating the average order of an element of G, where G meant to
+# be a group but in fact may be any collection of objects having
+# multiplicative order
+#
+AvgOrdOfGroup := function(G)
+local sum, g;
+sum := 0;
+for g in G do
+  sum := sum + Order(g);
+od;
+return sum/Size(G);
+end;</code></pre>
+<p>Now start a new GAP session and create another group, for example</p>
+<pre class="gap"><code>M11:=MathieuGroup(11);</code></pre>
+<pre class="output"><code>Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])</code></pre>
+<p>Clearly, <code>AvgOrdOfGroup</code> is not defined in this session, so an attempt to call this function results in an error:</p>
+<pre class="gap"><code>AvgOrdOfGroup(M11);</code></pre>
+<pre class="error"><code>Error, Variable: &#39;AvgOrdOfGroup&#39; must have a value
+not in any function at line 2 of *stdin*</code></pre>
+<p>To be available, first it should be loaded using the function <code>Read</code>. Below we assume that the file is in the current directory, so no path is needed).</p>
+<pre class="gap"><code>Read(&quot;avgord.g&quot;);</code></pre>
+<p>This loads the file into GAP, and the function <code>AvgOrdOfGroup</code> is now available:</p>
+<pre class="gap"><code>AvgOrdOfGroup(M11);</code></pre>
+<pre class="output"><code>53131/7920</code></pre>
+<p>In the example of using <code>Read</code>, new GAP session was started to make it clear that <code>AvgOrdOfGroup</code> did not exist before the call of <code>Read</code> and was loaded from the file. However, a file with a function like this could be read multiple times in the same GAP session (later you will see cases when re-reading a file is more complicated). Calling <code>Read</code> again executes all code in the file being read. This means that if the code of the function has been modified, and it has no errors (but possibly has warnings), the function will be overwritten.</p>
+<p>For example, let us edit the file and replace the line <sub>~</sub> {.gap} return sum/Size(G); <sub>~</sub></p>
+<p>by the line with a deliberate syntax error:</p>
+<pre class="gap"><code>return Float(sum/Size(G);</code></pre>
+<p>Now read this file with</p>
+<pre class="gap"><code>Read(&quot;avgord.g&quot;);</code></pre>
+<p>and you will see an error message:</p>
+<pre class="error"><code>Syntax error: ) expected in avgord.g line 7
+return Float(sum/Size(G);
+                        ^</code></pre>
+<p>In this case, the function remains the same:</p>
+<pre class="gap"><code>Print(AvgOrdOfGroup);</code></pre>
+<pre class="output"><code>function ( G )
+    for g  in G  do
+        sum := sum + Order( g );
+    od;
+    return sum / Size( G );
+end</code></pre>
+<p>Now correct the error by adding a missing closing bracket, read the file again and recalculate the average order of an element for <code>M11</code>:</p>
+<pre class="gap"><code>Read(&quot;avgord.g&quot;);
+AvgOrdOfGroup(M11);</code></pre>
+<pre class="output"><code>6.70846</code></pre>
+<p>Now let’s see another warning, which will redefine the function. Edit the file to rollback the change in the type of the result, and then comment out two lines as follows:</p>
+<pre class="gap"><code>AvgOrdOfGroup := function(G)
+# local sum, g;
+# sum := 0;
+for g in G do
+  sum := sum + Order(g);
+od;
+return sum/Size(G);
+end;</code></pre>
+<p>Now, when you read the file, you will see warnings:</p>
+<pre class="gap"><code>Read(&quot;avgord.g&quot;);</code></pre>
+<pre class="error"><code>Syntax error: warning: unbound global variable in avgord.g line 4
+for g in G do
+       ^
+Syntax error: warning: unbound global variable in avgord.g line 5
+  sum := sum + Order(g);
+       ^
+Syntax error: warning: unbound global variable in avgord.g line 5
+  sum := sum + Order(g);
+             ^
+Syntax error: warning: unbound global variable in avgord.g line 7
+return sum/Size(G);
+          ^</code></pre>
+<p>These warnings mean because <code>g</code> and <code>sum</code> are not declared as <code>local</code> variables, GAP will expect them to be global variables at the time when the function will be called. Because they did not exist when <code>Read</code> was called, a warning was displayed. However, if they would be existing by that time, there would be no warning, and they may be still overwritten during the call to <code>AvgOrdOfGroup</code>! This shows how important is to declare local variables. Let us investigate what happened in slightly more details:</p>
+<p>The function is now re-defined</p>
+<pre class="gap"><code>Print(AvgOrdOfGroup);</code></pre>
+<pre class="output"><code>function ( G )
+    for g in G  do
+        sum := sum + Order( g );
+    od;
+    return sum / Size( G );
+end</code></pre>
+<p>but an attempt to run it results in an break loop:</p>
+<pre class="gap"><code>AvgOrdOfGroup(M11);</code></pre>
+<pre class="output"><code>Error, Variable: &#39;sum&#39; must have an assigned value in
+  sum := sum + Order( g ); called from
+&lt;function &quot;AvgOrdOfGroup&quot;&gt;( &lt;arguments&gt; )
+ called from read-eval loop at line 24 of *stdin*
+you can &#39;return;&#39; after assigning a value
+brk&gt;</code></pre>
+<p>from which you can exit by entering <code>quit;</code>.</p>
+<p>What happens next demonstrates how things may go wrong:</p>
+<pre class="gap"><code>sum:=2^64; g:=[1];</code></pre>
+<pre class="output"><code>18446744073709551616
+[ 1 ]</code></pre>
+<pre class="gap"><code>AvgOrdOfGroup(M11);</code></pre>
+<pre class="output"><code>18446744073709604747/7920</code></pre>
+<pre class="gap"><code>sum; g;</code></pre>
+<pre class="output"><code>18446744073709604747
+(1,2)(3,10,5,6,8,9)(4,7,11)</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2 id="paths"><span class="glyphicon glyphicon-pencil"></span>Paths</h2>
