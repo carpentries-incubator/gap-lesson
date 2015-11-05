@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Make it right, then make it fast
-subtitle: Using tests
+subtitle: Using regression tests
 minutes: 20
 ---
 > ## Learning Objectives {.objectives}

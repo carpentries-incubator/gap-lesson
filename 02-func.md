@@ -363,6 +363,21 @@ sum; g;
 (1,2)(3,10,5,6,8,9)(4,7,11)
 ~~~
 
+Now, before reading the next part of the lesson, please
+revert the last change by uncommenting the two commented lines, so that
+you have initial version of `AvgOrdOfGroup` in the file `avgord.g` again:
+
+~~~ {.gap}
+AvgOrdOfGroup := function(G)
+local sum, g;
+sum := 0;
+for g in G do
+  sum := sum + Order(g);
+od;
+return sum/Size(G);
+end;
+~~~
+
 > ## Paths {.challenge}
 >
 > Fully understand to to specify paths to files in all operating systems.
