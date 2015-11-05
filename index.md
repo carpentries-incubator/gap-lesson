@@ -16,6 +16,7 @@ Paragraph(s) of introductory material.
 
 1.  [First session in GAP](01-command-line.html)
 2.  [Writing reusable, robust and modular code](02-func.html)
+3.  [Using regression tests](03-testing.html)
 
 ## Other Resources
 

@@ -197,6 +197,15 @@ brk&gt;</code></pre>
 <pre class="gap"><code>sum; g;</code></pre>
 <pre class="output"><code>18446744073709604747
 (1,2)(3,10,5,6,8,9)(4,7,11)</code></pre>
+<p>Now, before reading the next part of the lesson, please revert the last change by uncommenting the two commented lines, so that you have initial version of <code>AvgOrdOfGroup</code> in the file <code>avgord.g</code> again:</p>
+<pre class="gap"><code>AvgOrdOfGroup := function(G)
+local sum, g;
+sum := 0;
+for g in G do
+  sum := sum + Order(g);
+od;
+return sum/Size(G);
+end;</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
 <h2 id="paths"><span class="glyphicon glyphicon-pencil"></span>Paths</h2>
