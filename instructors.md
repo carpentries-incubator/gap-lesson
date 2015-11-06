@@ -5,15 +5,16 @@ subtitle: Instructor's Guide
 ---
 ## Overall
 
-* Point
+* For the first lesson, good to have access to Windows (VM or remote desktop)
 
 * Point
 
 ## [First session in GAP](01-command-line.html)
 
-* Point
+* Banner contains version info useful for citing GAP or reporting bugs.
 
-* Point
+* Discuss why it's a bad practice to Google for the GAP manual instead of
+using the GAP help system.
 
 1.  Discussion of first challenge.
 
