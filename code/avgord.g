@@ -7,6 +7,7 @@ od;
 return sum/Size(G);
 end;
 
+
 AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -21,6 +22,17 @@ end;
 TestOneGroup:= G -> IsInt( AvgOrdOfGroup(G) );
 
 
+TestOneOrderEasy := function(n)
+local i;
+for i in [1..NrSmallGroups(n)] do
+  if TestOneGroup( SmallGroup( n, i ) ) then
+    return [n,i];
+  fi;
+od;
+return fail;
+end;
+
+
 TestOneOrder := function(f,n)
 local i, G;
 for i in [1..NrSmallGroups(n)] do
@@ -29,9 +41,21 @@ for i in [1..NrSmallGroups(n)] do
   if f(G) then
     Print("\n");
     return [n,i];
-  fi;  
+  fi;
 od;
 Print("\n");
+return fail;
+end;
+
+
+TestAllOrders:=function(f,n)
+local i, res;
+for i in [2..n] do
+  res:=TestOneOrder(f,i);
+  if res <> fail then
+    return res;
+  fi;
+od;
 return fail;
 end;
 
@@ -44,14 +68,13 @@ for n in [n1..n2] do
      if res <> fail then
        return res;
      fi;
-   fi;  
+   fi;
 od;
 return fail;
 end;
 
 
-
-TestOneOrder := function(arg)
+TestOneOrderVariadic := function(arg)
 local f, n, n1, n2, i;
 
 if not Length(arg) in [2..4] then
@@ -77,8 +100,8 @@ if IsBound(arg[3]) then
   fi;
 else
   n1:=1;
-fi;  
-  
+fi;
+
 if IsBound(arg[4]) then
   n2:=arg[3];
   if not n2 in [1..NrSmallGroups(n)] then
@@ -92,7 +115,7 @@ Print("Checking groups ", n1, " ... ", n2, " of order ", n, "\n");
 for i in [n1..n2] do
   Print(i, "/", NrSmallGroups(n), "\r");
   if TestOneGroup(SmallGroup(n,i)) then
-    Print("Discovered counterexample: SmallGroup( ", n, ", ", i, " )\n"); 
+    Print("Discovered counterexample: SmallGroup( ", n, ", ", i, " )\n");
     return [n,i];
   fi;
 od;

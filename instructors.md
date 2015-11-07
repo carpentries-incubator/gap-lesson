@@ -22,10 +22,17 @@ using the GAP help system.
 
 ## [Writing reusable, robust and modular code](02-func.html)
 
-* Point
+* Do not use paths with spaces
 
 * Point
 
 1.  Discussion of first challenge.
 
 2.  Discussion of second challenge.
+
+## [Using regression tests](03-testing.html)
+
+## [Small groups search](04-small-groups.html)
+
+* Live coding is preferred way to teach how to develop most of the functions
+from this lesson.
