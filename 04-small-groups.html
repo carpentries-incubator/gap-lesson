@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Putting functions together</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Putting functions together</h1></a>
+          <h2 class="subtitle">Small groups search</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Create test files</li>
+</ul>
+</div>
+</section>
+<p>In this section, we are interested to non-trivial groups such that the average order of their elements is an integer.</p>
+<p>GAP distribution includes a number of data libraries (TODO: link to their overview). One of them is the Small Groups Library (credit to authors).</p>
+<p>TODO:</p>
+<ul>
+<li><p>Demonstrate <code>SmallGroup</code>, <code>AllSmallGroups</code>, <code>SmallGroupsInformation</code>, <code>NrSmallGroups</code></p></li>
+<li><p>Why iterating is better than AllSmallGroups exhausting memory (do we need the concept of self-learning objects before then?</p></li>
+<li><p>If this is a pc group, how to get it in some other form?</p></li>
+</ul>
+<p>Introduce inline notation:</p>
+<pre class="gap"><code>TestOneGroup := G -&gt; IsInt( AvgOrdOfGroup(G);</code></pre>
+<p>Now try</p>
+<pre class="gap"><code>List([TrivialGroup(),Group((1,2))],TestOneGroup);</code></pre>
+<pre class="output"><code>[ true, false ]</code></pre>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="what-this-function-should-do"><span class="glyphicon glyphicon-pushpin"></span>What this function should do</h2>
+</div>
+<div class="panel-body">
+<p>Why a good design decision is for such function to return booleans, and not just print information or return a string like <code>&quot;YES&quot;</code>.</p>
+</div>
+</aside>
+<p>This is a simple example of a function which tests all groups of a given order. It creates one group at a time, checks the desired property, and returns as soon as an example is discovered. Otherwise it returns <code>fail</code> which is a special kind of boolean variable in GAP.</p>
+<pre class="gap"><code>TestOneOrderEasy := function(n)
+local i;
+for i in [1..NrSmallGroups(n)] do
+  if TestOneGroup( SmallGroup( n, i ) ) then
+    return [n,i];
+  fi;
+od;
+return fail;
+end;</code></pre>
+<p>For example,</p>
+<pre class="gap"><code>TestOneOrderEasy(1);</code></pre>
+<pre class="output"><code>[ 1, 1 ]</code></pre>
+<pre class="gap"><code>TestOneOrderEasy(24);</code></pre>
+<pre class="output"><code>fail</code></pre>
+<p>The next version shows how to print additional information about the progress of computation. It also supplies the testing function as an argument (wgy this is better).</p>
+<pre class="gap"><code>TestOneOrder := function(f,n)
+local i, G;
+for i in [1..NrSmallGroups(n)] do
+  Print(n, &quot;:&quot;, i, &quot;/&quot;, NrSmallGroups(n), &quot;\r&quot;);
+  G := SmallGroup( n, i );
+  if f(G) then
+    Print(&quot;\n&quot;);
+    return [n,i];
+  fi;
+od;
+Print(&quot;\n&quot;);
+return fail;
+end;</code></pre>
+<p>For example,</p>
+<pre class="gap"><code>TestOneOrder(TestOneGroup,64);</code></pre>
+<p>will display a changing counter during calculation and then return <code>fail</code>:</p>
+<pre class="output"><code>64:267/267
+fail</code></pre>
+<p>The next step is to write a function which will test all orders from 2 to <code>n</code> and stop as soon as it will find an example of a group with the average order of an element being an integer:</p>
+<pre class="gap"><code>TestAllOrders:=function(f,n)
+local i, res;
+for i in [2..n] do
+  res:=TestOneOrder(f,i);
+  if res &lt;&gt; fail then
+    return res;
+  fi;
+od;
+return fail;
+end;</code></pre>
+<p>It reports that there is such group of order 105:</p>
+<pre class="gap"><code>TestAllOrders(TestOneGroup,128);</code></pre>
+<pre class="output"><code>2:1/1
+3:1/1
+4:2/2
+5:1/1
+6:2/2
+7:1/1
+8:5/5
+...
+...
+...
+100:16/16
+101:1/1
+102:4/4
+103:1/1
+104:14/14
+105:1/2
+[ 105, 1 ]</code></pre>
+<p>It reports that there is such group of order 105:</p>
+<pre class="gap"><code>G:=SmallGroup(105,1);AvgOrdOfGroup(G);StructureDescription(G);</code></pre>
+<pre class="output"><code>&lt;pc group of size 105 with 3 generators&gt;
+17
+&quot;C5 x (C7 : C3)&quot;</code></pre>
+<p>To explore it further,</p>
+<pre class="gap"><code>H:=SimplifiedFpGroup(Image(IsomorphismFpGroup(G)));
+RelatorsOfFpGroup(H);</code></pre>
+<pre class="output"><code>&lt;fp group on the generators [ F1, F2, F3 ]&gt;
+[ F1^3, F2^-1*F1^-1*F2*F1, F3^-1*F2^-1*F3*F2, F3^-1*F1^-1*F3*F1*F3^-1, F2^5,
+  F3^7 ]</code></pre>
+<p>Now we want to try larger groups, starting from the order 106 (we check that the other group of order 105 possesses no such property)</p>
+<pre class="gap"><code>List(AllSmallGroups(105),AvgOrdOfGroup);</code></pre>
+<pre class="output"><code>[ 17, 301/5 ]</code></pre>
+<p>With a little modification, we add an extra argument specifying the order from which to start:</p>
+<pre class="gap"><code>TestRangeOfOrders:=function(f,n1,n2)
+local n, res;
+for n in [n1..n2] do
+  res:=TestOneOrder(f,n);
+  if res &lt;&gt; fail then
+    return res;
+  fi;
+od;
+return fail;
+end;</code></pre>
+<p>But now we call it with <sub>~</sub> {.gap} TestRangeOfOrders(TestOneGroup,106,256); <sub>~</sub></p>
+<p>and discover that testing 2328 groups of order 128 and moreover 56092 groups of order 256 is already too long.</p>
+<ul>
+<li>Show how to interrupt a long computation and leave the break loop.</li>
+</ul>
+<p>This is another situation where theoretical knowledge helps much more than brute-force approach. If the group is a <em>p</em> group, then the order of each conjugacy class of a non-identity element of a group is divisible by <em>p</em>, therefore, the average order of a group element can not be an integer. These groups could be excluded from calculation. So, the new version of the code is</p>
+<pre class="gap"><code>TestRangeOfOrders:=function(f,n1,n2)
+local n, res;
+for n in [n1..n2] do
+  if not IsPrimePowerInt(n) then
+     res:=TestOneOrder(f,n);
+     if res &lt;&gt; fail then
+       return res;
+     fi;
+   fi;
+od;
+return fail;
+end;</code></pre>
+<p>and using it we discover a group of order 357 with the same property:</p>
+<pre class="gap"><code>gap&gt; TestRangeOfOrders(TestOneGroup,106,512);</code></pre>
+<pre class="output"><code>106:2/2
+108:45/45
+...
+350:10/10
+351:14/14
+352:195/195
+354:4/4
+355:2/2
+356:5/5
+357:1/2
+[ 357, 1 ]</code></pre>
+<p>Further points:</p>
+<ul>
+<li>InfoLevels to control verbosity</li>
+</ul>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>
