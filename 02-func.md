@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Functions in GAP
-subtitle: Writing reusable, robust and modular code
+title: Writing reusable, robust and modular code
+subtitle: Functions in GAP
 minutes: 20
 ---
 > ## Learning Objectives {.objectives}
