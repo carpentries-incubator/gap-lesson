@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="pandoc">
+    <title>Software Carpentry: Storing information in objects</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/swc.css" />
+    <link rel="alternate" type="application/rss+xml" title="Software Carpentry Blog" href="http://software-carpentry.org/feed.xml"/>
+    <meta charset="UTF-8" />
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body class="lesson">
+    <div class="container card">
+      <div class="banner">
+        <a href="http://software-carpentry.org" title="Software Carpentry">
+          <img alt="Software Carpentry banner" src="img/software-carpentry-banner.png" />
+        </a>
+      </div>
+      <article>
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+                    <a href="index.html"><h1 class="title">Storing information in objects</h1></a>
+          <h2 class="subtitle">Attributes and Methods</h2>
+          <section class="objectives panel panel-warning">
+<div class="panel-heading">
+<h2 id="learning-objectives"><span class="glyphicon glyphicon-certificate"></span>Learning Objectives</h2>
+</div>
+<div class="panel-body">
+<ul>
+<li>Declaring an attribute</li>
+<li>Installing a method</li>
+<li>Understanding method selection</li>
+<li>Using debugging tools</li>
+</ul>
+</div>
+</section>
+<p>Of course, for any given group the average order of its elements needs to be calculated only once, as the next time it will return the same value. However, as we see from the runtimes below, each new call of <code>AvgOrdOfGroup</code> will repeat the same computation again, with slightly varying runtime:</p>
+<pre class="gap"><code>A:=AlternatingGroup(10);</code></pre>
+<pre class="output"><code>Alt( [ 1 .. 10 ] )</code></pre>
+<pre class="gap"><code>AvgOrdOfCollection(A); time; AvgOrdOfCollection(A); time;</code></pre>
+<pre class="output"><code>2587393/259200
+8226
+2587393/259200
+8118</code></pre>
+<p>In the last example, the group in question was the same - we haven’t constructed another copy of <code>AlternatingGroup(10)</code>; however, the result of the calculation was not stored in <code>A</code>.</p>
+<p>If you need to reuse this value, one option could be to store it in some variable, but then you should be careful about matching such variables with corresponding groups, and the code could become quite convoluted and unreadable. On the other hand, GAP has a notion of attributes which are used to accumulate information that objects learn about themselves during their lifetime. Consider the following example:</p>
+<pre class="gap"><code>G:=Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ]);
+gap&gt; NrConjugacyClasses(G);time;NrConjugacyClasses(G);time;</code></pre>
+<pre class="output"><code>Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])
+10
+39
+10
+0</code></pre>
+<p>In this case, the group <code>G</code> has 10 conjugacy classes, and it took 39 ms to establish that in the first call. The second call has zero cost since the result was stored in <code>G</code>, since <code>NrConjugacyClasses</code> is an attribute:</p>
+<pre class="gap"><code>NrConjugacyClasses;</code></pre>
+<pre class="output"><code>&lt;Attribute &quot;NrConjugacyClasses&quot;&gt;</code></pre>
+<p>Our goal is now to learn how to create own attributes.</p>
+<p>Since we already have a function <code>AvgOrdOfCollection</code> which does the calculation, the simplest example of turning it into an attribute could look as follows:</p>
+<pre class="gap"><code>AverageOrder := NewAttribute(&quot;AverageOrder&quot;, IsCollection);
+InstallMethod( AverageOrder, &quot;for a collection&quot;, [IsCollection], AvgOrdOfCollection);</code></pre>
+<p>In this example, first we declared an attribute <code>AverageOrder</code> for objects in the category <code>IsCollection</code>, and then installed the function <code>AvgOrdOfCollection</code> as a method for this attribute. Instead of calling the function <code>AvgOrdOfCollection</code>, we may now call <code>AverageOrder</code>.</p>
+<p>Now we may check that subsequent calls of <code>AverageOrder</code> with the same argument are performed at zero cost. In this example the time is reduced from more than 16 seconds to zero:</p>
+<pre class="gap"><code>S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;</code></pre>
+<pre class="output"><code>39020911/3628800
+16445
+39020911/3628800
+0</code></pre>
+<p>You may be interested why we have declared the operation for a collection and not only for a group and then used the non-efficient method for a group again, while we have already developed an efficient one?</p>
+<p>Imagine the situation when you would like to be able to compute an average order both for a group and for a list which consists of objects having a multiplicative order. You may have a special function for each case, as we have already. If it could happen that you don’t know in advance the type of the object in question, you may add checks into the code and dispatch to a suitable function. This could quickly became complicated if you have several different functions for various types of objects. Instead of that, attributes are bunches of functions, called <em>methods</em>, and the <em>method selection</em> will choose the most efficient method based on the type of the argument.</p>
+<p>To illustrate this, we will now install a method for <code>AverageOrder</code> for a group:</p>
+<pre class="gap"><code>InstallMethod( AverageOrder, [IsGroup], AvgOrdOfGroup);</code></pre>
+<p>If you will apply it to the group which already has <code>AverageOrder</code>, nothing will happen, since GAP will use the stored value. For a newly created group, this new method will be called indeed:</p>
+<pre class="gap"><code>S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;</code></pre>
+<pre class="output"><code>39020911/3628800
+26
+39020911/3628800
+0</code></pre>
+<p>TODO:</p>
+<ul>
+<li><p>show what will happen if this will be called for a collection which is not a group</p></li>
+<li><p>Trace methods</p></li>
+</ul>
+<p>A <em>property</em> is a boolean-valued attribute. It can be created using <code>NewProperty</code></p>
+<pre class="gap"><code>IsIntegerAverageOrder := NewProperty(&quot;IsIntegerAverageOrder&quot;, IsCollection);</code></pre>
+<p>Now we will install a method for <code>IsIntegerAverageOrder</code> for a collection. Observe that neither nor in the examples above it is not necessary to create a function first and then install it as a method. The following method installation just creates a new function as one of its arguments:</p>
+<pre class="gap"><code>InstallMethod( IsIntegerAverageOrder,
+  &quot;for a collection&quot;,
+  [IsCollection],
+  coll -&gt; IsInt( AverageOrder( coll ) )
+);</code></pre>
+<p>Note that because <code>AverageOrder</code> is an operation it will take care of the selection of the most suitable method.</p>
+<ul>
+<li>TODO: recovery from no-method-found error</li>
+</ul>
+        </div>
+      </div>
+      </article>
+      <div class="footer">
+        <a class="label swc-blue-bg" href="http://software-carpentry.org">Software Carpentry</a>
+        <a class="label swc-blue-bg" href="https://github.com/swcarpentry/lesson-template">Source</a>
+        <a class="label swc-blue-bg" href="mailto:admin@software-carpentry.org">Contact</a>
+        <a class="label swc-blue-bg" href="LICENSE.html">License</a>
+      </div>
+    </div>
+    <!-- Javascript placed at the end of the document so the pages load faster -->
+    <script src="http://software-carpentry.org/v5/js/jquery-1.9.1.min.js"></script>
+    <script src="css/bootstrap/bootstrap-js/bootstrap.js"></script>
+  </body>
+</html>

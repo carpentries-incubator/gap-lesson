@@ -122,3 +122,25 @@ od;
 Print("\nSearch completed - no counterexample discovered\n");
 return fail;
 end;
+
+AverageOrder := NewAttribute("AverageOrder", IsCollection);
+
+InstallMethod( AverageOrder,
+  "for a collection",
+  [IsCollection],
+  AvgOrdOfCollection
+);
+
+InstallMethod( AverageOrder,
+  "for a group",
+  [IsGroup],
+  AvgOrdOfGroup
+);
+
+IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
+
+InstallMethod( IsIntegerAverageOrder,
+  "for a collection",
+  [IsCollection],
+  coll -> IsInt( AverageOrder( coll ) )
+);
