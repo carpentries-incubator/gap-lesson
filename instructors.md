@@ -36,3 +36,5 @@ using the GAP help system.
 
 * Live coding is preferred way to teach how to develop most of the functions
 from this lesson.
+
+## [Attributes and Methods](05-attributes.html)
