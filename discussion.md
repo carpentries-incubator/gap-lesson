@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Lesson Title
+title: Introduction to GAP
 subtitle: Discussion
 ---
 ## Something That May Be Useful
