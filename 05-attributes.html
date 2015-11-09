@@ -89,7 +89,7 @@ InstallMethod( AverageOrder, &quot;for a collection&quot;, [IsCollection], AvgOr
 </ul>
 <p>A <em>property</em> is a boolean-valued attribute. It can be created using <code>NewProperty</code></p>
 <pre class="gap"><code>IsIntegerAverageOrder := NewProperty(&quot;IsIntegerAverageOrder&quot;, IsCollection);</code></pre>
-<p>Now we will install a method for <code>IsIntegerAverageOrder</code> for a collection. Observe that neither nor in the examples above it is not necessary to create a function first and then install it as a method. The following method installation just creates a new function as one of its arguments:</p>
+<p>Now we will install a method for <code>IsIntegerAverageOrder</code> for a collection. Observe that neither below nor in the examples above it is not necessary to create a function first and then install it as a method. The following method installation just creates a new function as one of its arguments:</p>
 <pre class="gap"><code>InstallMethod( IsIntegerAverageOrder,
   &quot;for a collection&quot;,
   [IsCollection],
