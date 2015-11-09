@@ -150,7 +150,7 @@ IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
 ~~~
 
 Now we will install a method for `IsIntegerAverageOrder` for a collection.
-Observe that neither nor in the examples above it is not necessary to create
+Observe that neither below nor in the examples above it is not necessary to create
 a function first and then install it as a method. The following method installation
 just creates a new function as one of its arguments:
 
