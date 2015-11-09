@@ -31,20 +31,49 @@
           <h2 id="ten-hints-for-gap-beginners">Ten hints for GAP beginners</h2>
 <ol style="list-style-type: decimal">
 <li><p><strong>Remember that GAP is case-sensitive!</strong> That means that <code>ABC</code>, <code>Abc</code> and <code>abc</code> are three different identifiers. A call to <code>SymmetricGroup(3)</code> works, but <code>Symmetricgroup(3)</code> will cause an error.</p></li>
-<li><p>An error message <strong><code>“Error, Variable: 'FuncName' must have a value”</code></strong> in a function call usually points to a typo in the function name (see the previous hint), or to some package that must be loaded in advance using <a href="http://www.gap-system.org/Manuals/doc/ref/chap76.html#X79B373A77B29D1F5">LoadPackage</a>.</p></li>
+<li><p>An error message <strong><code>“Error, Variable: 'FuncName' must have a value”</code></strong> in a function call usually points to a typo in the function name (see the previous hint), or to some package that must be loaded in advance using <a href="http://www.gap-system.org/Manuals/doc/ref/chap76.html#X79B373A77B29D1F5"><strong><code>LoadPackage</code></strong></a>.</p></li>
 <li><p><strong>Do not hesitate to use longer and more informative variable names where appropriate.</strong> For example, <code>x</code> looks perfectly suitable for <code>List([1..10], x -&gt; x^2)</code>, while <code>ConClassesReps</code> may be more informative than just <code>x</code> for a list of representatives of conjugacy classes of a group.</p></li>
-<li><p><strong>Use command line editing:</strong> scroll the history of commands and navigate within the command line using arrow keys.</p></li>
+<li><p><strong>Use command line editing:</strong> scroll the history of commands and navigate within the command line using arrow keys to edit it.</p></li>
 <li><p><strong>Use autocompletion instead of typing names of functions and variables in full.</strong> Type the initial part of the identifier and then press <code>&lt;Tab&gt;</code>. It will be completed if its unique completion is possible. If not, you may press <code>&lt;Tab&gt;</code> again to see all possible suggestions.</p></li>
 <li><p><strong>To view help pages, use <code>?</code> and <code>??</code> commands</strong>. This will search not only in the GAP manuals, but also in the manuals of all GAP packages available in your GAP installation.</p></li>
-<li><p><strong>Set default help format to HTML.</strong> Use <a href="http://www.gap-system.org/Manuals/doc/ref/chap2.html#X87C1BFB2826488B0"><code>SetHelpViewer</code></a> to view it with your preferred browser.</p></li>
-<li><p><strong>Use <code>[LogTo](http://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960)</code> to save all GAP input and output into a text file.</strong> It should be called before calculations, not after!</p></li>
+<li><p><strong>Set default help format to HTML.</strong> Use <a href="http://www.gap-system.org/Manuals/doc/ref/chap2.html#X87C1BFB2826488B0"><strong><code>SetHelpViewer</code></strong></a> to view it with your preferred browser.</p></li>
+<li><p><strong>Use <a href="http://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960"><strong><code>LogTo</code></strong></a> to save all GAP input and output into a text file.</strong> It should be called before calculations, not after!</p></li>
 <li><p><strong>If the calculation takes too long, press <code>&lt;Control&gt;-C</code> to interrupt it</strong>. Then type quit; to leave the break loop.</p></li>
 <li><p><strong>Read <a href="http://www.gap-system.org/Manuals/doc/tut/chap2.html">A First Session with GAP</a></strong> from the GAP Tutorial.</p></li>
 </ol>
-<h2 id="something-that-may-be-useful">Something That May Be Useful</h2>
-<p>Paragraphs of general discussion</p>
-<h2 id="something-else">Something Else</h2>
-<p>More general discussion, with links.</p>
+<h2 id="writing-programs-in-gap">Writing programs in GAP</h2>
+<ul>
+<li><p>Use direct calculations in the command line for object exploration and prototyping, then think how to organise your code to make it reusable.</p></li>
+<li><p>Use <a href="http://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960"><strong><code>LogTo</code></strong></a> to save inputs and outputs to a logfile which then you can edit in a text editor.</p></li>
+<li><p>Save code in text files and use <a href="http://www.gap-system.org/Manuals/doc/ref/chap9.html#X8373AC6B7D5F9167"><strong><code>Read</code></strong></a> to load them. Find some advanced text editor to edit these files.</p></li>
+<li><p>Make your code modular and reusable by organising it into functions.</p></li>
+<li><p>Write comments in the code – this will help you when you will return to it after a while.</p></li>
+<li><p>Understand <a href="http://www.gap-system.org/Manuals/doc/ref/chap6.html#X8593B49F8705B486">break loops</a>: you may <a href="http://www.gap-system.org/Manuals/doc/ref/chap6.html#X7EE5CF2C8419F061">explore variables</a> on the current break level and use <a href="http://www.gap-system.org/Manuals/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3"><strong><code>Where</code></strong></a> to show the last commands before the error occurred.</p></li>
+<li><p>Use <a href="http://www.gap-system.org/Manuals/doc/ref/chap3.html#X7FD66F977A3B02DF">preferences mechanism</a> to customise GAP, for example, to set help viewer to HTML or to make command line history available after quitting GAP in the next GAP session.</p></li>
+<li><p>Understand the theory behind calculations: theoretical improvements could improve the performance much more than highly optimised code which still does a brute-force calculation.</p></li>
+<li><p>Implementing algorithms, do not forget corner cases. For example, does the implementation work on a trivial group or an identity element?</p></li>
+<li><p>Do not rely that GAP functions return results in a particular order, unless this is documented. For example, dependently on the method, it may be not guaranteed that conjugacy classes or irreducible characters are listed in some particular order, or that the first element in their list is the conjugacy class of an identity element or the trivial character.</p></li>
+<li><p>Don’t ask for more than you need as this may have performance implications. For example:</p>
+<ul>
+<li><p>If the property is an invariant of a conjugacy class (of elements or of subgroups), you may be interested only at looking at the representatives of conjugacy classes.</p></li>
+<li><p>Do not calculate conjugacy classes of all subgroups, if e.g. you are interested only in normal or maximal subgroups - there are special methods to compute them.</p></li>
+<li><p>If you are looking for <em>p</em>-subgroups, first you may calculate a Sylow <em>p</em>-subgroup of a group, and then look at its subgroups and their conjugates.</p></li>
+</ul></li>
+<li><p>See <a href="http://www.gap-system.org/Faq/faq.html">GAP Frequently Asked Questions</a> for further hints.</p></li>
+</ul>
+<h2 id="stay-in-touch">Stay in touch</h2>
+<ul>
+<li><p>Subscribe to the <strong><a href="http://mail.gap-system.org/mailman/listinfo/forum">GAP Forum</a></strong>.</p></li>
+<li><p>If you are on Twitter, follow <strong><a href="https://twitter.com/gap_system">gap_system</a></strong>.</p></li>
+<li><p>If you need help, choose among these three options, dependently on the question:</p>
+<ul>
+<li><p>ask questions in the <a href="http://www.gap-system.org/Contacts/Forum/forum.html">GAP Forum</a></p></li>
+<li><p>send them to the <a href="http://www.gap-system.org/Contacts/People/supportgroup.html">GAP Support</a></p></li>
+<li><p>post them at the <a href="http://math.stackexchange.com/questions/tagged/gap?sort=frequent&amp;pageSize=50">Mathematics Q&amp;A site</a></p></li>
+</ul></li>
+<li><p>If you think that you’ve found a bug: please <a href="https://github.com/gap-system/gap/issues">create an issue on GitHub</a> or report it by email to <a href="http://www.gap-system.org/Contacts/People/supportgroup.html">GAP Support</a>.</p></li>
+<li><p>Please cite GAP if you use it. This helps for the community to grow, and this will help you in return. <a href="http://www.gap-system.org/Contacts/cite.html">This page</a> suggests how to cite GAP, and the function <a href="http://www.gap-system.org/Manuals/doc/ref/chap76.html#X79637D9A7B1AD7F7"><strong><code>Cite</code></strong></a> will help to generate citation sample for precisely the same version of GAP that is used.</p></li>
+</ul>
         </div>
       </div>
       </article>
