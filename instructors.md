@@ -20,7 +20,7 @@ using the GAP help system.
 
 2.  Discussion of second challenge.
 
-## [Writing reusable, robust and modular code](02-func.html)
+## [Functions in GAP](02-func.html)
 
 * Do not use paths with spaces
 
