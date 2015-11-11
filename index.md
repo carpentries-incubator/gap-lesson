@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: Introduction to GAP
+title: Programming with GAP
 ---
 
 [GAP](http://www-gap.system.org) is a system for discrete computational algebra,

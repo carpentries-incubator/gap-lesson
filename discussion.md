@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to GAP
+title: Programming with GAP
 subtitle: Discussion
 ---
 
@@ -112,6 +112,9 @@ For example:
     * send them to the [GAP Support](http://www.gap-system.org/Contacts/People/supportgroup.html)
 
     * post them at the [Mathematics Q&A site](http://math.stackexchange.com/questions/tagged/gap?sort=frequent&pageSize=50)
+
+
+## Contributing to GAP
 
 * If you think that you’ve found a bug: please
 [create an issue on GitHub](https://github.com/gap-system/gap/issues) or
