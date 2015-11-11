@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction to GAP
+title: Programming with GAP
 subtitle: Reference
 ---
 ...commands and examples...
