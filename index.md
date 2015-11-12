@@ -40,7 +40,7 @@ On this path, the learner will became familiar with:
 
 ## Topics
 
-1.  [First session in GAP](01-command-line.html)
+1.  [First session with GAP](01-command-line.html)
 2.  [Functions in GAP](02-func.html)
 3.  [Using regression tests](03-testing.html)
 4.  [Small groups search](04-small-groups.html)

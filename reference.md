@@ -39,20 +39,20 @@ subtitle: Reference
 ## Glossary
 
 Attribute
-: TODO
+:    TODO
 
 List
-: TODO
+:    TODO
 
 Method
-: TODO
+:    TODO
 
 Property
-: TODO
+:    TODO
 
 Record
-: TODO
+:    TODO
 
 Regression testing
-: Testing based on rerunning previously completed tests to check that new
-  changes do not impact their correctness or worsen their performance.
+:    Testing based on rerunning previously completed tests to check that new
+     changes do not impact their correctness or worsen their performance.

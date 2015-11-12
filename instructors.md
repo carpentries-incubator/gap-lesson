@@ -7,9 +7,10 @@ subtitle: Instructor's Guide
 
 * For the first lesson, good to have access to Windows (VM or remote desktop)
 
-* Point
 
-## [First session in GAP](01-command-line.html)
+## [First session with GAP](01-command-line.html)
+
+* Before start, check that everyone has installed GAP and knows how to start it.
 
 * Banner contains version info useful for citing GAP or reporting bugs.
 
