@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Introduction
+title: Programming with GAP
 subtitle: First session with GAP
 minutes: 10
 ---

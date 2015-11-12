@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Storing information in objects
+title: Programming with GAP
 subtitle: Attributes and Methods
 minutes: 20
 ---

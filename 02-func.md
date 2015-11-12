@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Writing reusable, robust and modular code
+title: Programming with GAP
 subtitle: Functions in GAP
 minutes: 20
 ---
