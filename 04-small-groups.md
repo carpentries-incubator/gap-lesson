@@ -262,3 +262,17 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 Further points:
 
 * InfoLevels to control verbosity
+
+* Show how to turn Info messages off and on for running tests
+
+and one or more of these at the end:
+
+> ## Find another group such that the average order of its elements is an integer {.challenge}
+>
+> * Does the Small Groups Library contain another group with this property?
+>
+> * What can you say about the order of the groups with this property?
+>
+> * Can you check all 408641062 groups of order 1536 ?
+>
+> * Can you find **all** groups with this property containing in the Small Groups Library?

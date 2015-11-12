@@ -126,3 +126,11 @@ and this will help you in return.
 suggests how to cite GAP, and the function
 [**`Cite`**](http://www.gap-system.org/Manuals/doc/ref/chap76.html#X79637D9A7B1AD7F7)
 will help to generate citation sample for precisely the same version of GAP that is used.
+
+* TODO: GAP packages
+
+
+
+## Tips and tricks
+
+* TODO: how to start GAP with a shell script and supply arguments
