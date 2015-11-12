@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Introduction
-subtitle: First session in GAP
+subtitle: First session with GAP
 minutes: 10
 ---
 > ## Learning Objectives {.objectives}
