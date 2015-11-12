@@ -32,11 +32,13 @@
 <ul>
 <li>For the first lesson, good to have access to Windows (VM or remote desktop)</li>
 </ul>
-<h2 id="first-session-in-gap"><a href="01-command-line.html">First session in GAP</a></h2>
+<h2 id="first-session-with-gap"><a href="01-command-line.html">First session with GAP</a></h2>
 <ul>
 <li><p>Before start, check that everyone has installed GAP and knows how to start it.</p></li>
-<li><p>Banner contains version info useful for citing GAP or reporting bugs.</p></li>
+<li><p>Emphasize that the banner contains version info useful for citing GAP or reporting bugs.</p></li>
+<li><p>A second call to <code>LogTo(&quot;logfile&quot;);</code> will not open the new file but will report that GAP is already logging to another file. In this case, either ignore it if you would like to continue logging to the file already in use, or call <code>LogTo();</code> to close the current log file and then call <code>LogTo</code> with an argument to start logging to a new file.</p></li>
 <li><p>Discuss why it’s a bad practice to Google for the GAP manual instead of using the GAP help system.</p></li>
+<li><p>Give a hint that the sitemap on the <a href="http://www.gap-system.org">GAP website</a> shows the <a href="http://www.gap-system.org/search.html">Search the GAP web site</a> page which allows some specific search requests.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li><p>Discussion of first challenge.</p></li>

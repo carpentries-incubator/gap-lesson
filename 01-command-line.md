@@ -12,7 +12,7 @@ minutes: 10
 If GAP is installed correctly you should be able to start it some way that
 depends on your operating system. GAP starts with the banner displaying
 information about the version of the system and loaded components, and then
-displays the command line prompt `>gap`, for example:
+displays the command line prompt `gap>`, for example:
 
 ~~~ {.output}
 ┌───────┐   GAP, Version 4.7.8 of 09-Jun-2015 (free software, GPL)
@@ -32,43 +32,196 @@ gap>
 ~~~
 
 To leave GAP, type `quit;` at the GAP prompt. Remember that all GAP commands,
-including this, must be finished with a semicolon! Try to practice this, then
-restart GAP again.
+including this one, must be finished with a semicolon! Practice this entering
+`quit;` to leave GAP, and then start a new GAP session.
 
 Now you can use GAP as a calculator:
 
 ~~~ {.gap}
-gap> ( 1 + 2^32 ) / (1 - 2*3*107 );
+( 1 + 2^32 ) / (1 - 2*3*107 );
 ~~~
 
 ~~~ {.output}
-gap> (1+2^32)/(1-2*3*107);
 -6700417
 ~~~
 
+Now we will turn on logging to save all subsequent interaction with GAP into a
+log file. Assuming that you do not have a file named "gap-intro.log" in the GAP
+current directory (i.e. the directory where you have started GAP on Unix systems,
+and the working directory for GAP on Windows), enter the following:
+
+~~~ {.gap}
+LogTo("gap-intro.log");
+~~~
+
+Then the file "gap-intro.log" in the GAP current directory will contain all
+subsequent input and output that will appear on your terminal. To stop logging,
+you will need to call `LogTo` without arguments, as in `LogTo();` (but
+don't do this now, as we don't want to stop it), or leave GAP.
+
+It will be useful to leave some comments in the log file in case you will
+return to it in the future. A comment in GAP starts with the symbol `#` and
+continues to the end of the line. Now, if you enter the following after the
+GAP prompt:
+
+~~~ {.gap}
+# GAP Software Carpentry Lesson
+~~~
+
+then after pressing Return key, GAP will display new prompt, but the comment
+will be written to the log file. To check that this works, open another terminal
+window, locate the log file and print it using `cat` to verify this.
+
+The log file records all interaction with GAP that is happening after the call
+to `LogTo`, but not before. We can certainly repeat the calculation from above
+if we want to record it as well. Instead of retyping it, we will use Up and Down
+arrow keys to scroll the *command line history*. Repeat this until you will see
+the formula again, then press Return (the location of the cursor in the command
+line does not matter):
+
+~~~ {.gap}
+( 1 + 2^32 ) / (1 - 2*3*107 );
+~~~
+
+~~~ {.output}
+-6700417
+~~~
+
+Now restore the previous command, use Left and Right arrow keys, Delete or
+Backspace to edit it and replace 32 by 64, then press the Return key:
+
+~~~ {.gap}
+( 1 + 2^64 ) / (1 - 2*3*107 );
+~~~
+
+~~~ {.output}
+-18446744073709551617/641
+~~~
+
+It is useful to know that if the command line history is long, one could
+perform a partial search by typing the initial part of the command and using
+Up and Down arrow keys after that, to scroll only the lines that begin with
+the same string.
+
+Whitespace characters (i.e. Spaces, Tabs and Returns) are insignificant for
+the meaning of GAP input in most places. For example, the previous input
+could be typed without spaces:
+
+~~~ {.gap}
+(1+2^64)/(1-2*3*107);
+~~~
+
+~~~ {.output}
+-18446744073709551617/641
+~~~
+
+Whitespace symbols are often used to format more complicated commands for
+better readability. For example, the following input which creates a 3x3 matrix
+
+~~~ {.gap}
+m:=[[1,2,3],[4,5,6],[7,8,9]];
+~~~
+
+~~~ {.output}
+[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+~~~
+
+may be spread over three lines. In this case, instead of the full prompt
+`gap>`, a partial prompt `>` will be displayed until the user will finish
+the input by a semicolon:
+
+~~~ {.gap}
+gap> m:=[[ 1, 2, 3 ],
+>        [ 4, 5, 6 ],
+>        [ 7, 8, 9 ]];
+~~~
+
+~~~ {.output}
+[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]
+~~~
+
+Note that you may use `Display` to pretty-print the matrix:
+
+~~~ {.gap}
+Display(m);
+~~~
+
+~~~ {.output}
+[ [  1,  2,  3 ],
+  [  4,  5,  6 ],
+  [  7,  8,  9 ] ]
+~~~
+
+You have met by now some GAP functions, e.g. `LogTo` and `Display`, and observed
+that to call them, one needs to use brackets with no or some arguments in them.
+
+> ## Functions are also GAP objects {.callout}
+>
+> Check what happens if you forget to add brackets,
+> e.g. type `LogTo;` and `Factorial;`
+> We will explain the differences in these outputs later.
+
+Here there are examples of calling some other GAP functions:
+
+~~~ {.gap}
+Factorial(100);
+~~~
+
+~~~ {.gap}
+93326215443944152681699238856266700490715968264381621468\
+59296389521759999322991560894146397615651828625369792082\
+7223758251185210916864000000000000000000000000
+~~~
+
+(this also displays multi-line output),
+
+~~~ {.gap}
+Determinant(m);
+~~~
+
+~~~ {.gap}
+-30
+~~~
+
+and
+
+~~~ {.gap}
+Factors(2^64-1);
+~~~
+
+~~~ {.gap}
+[ 3, 5, 17, 257, 641, 65537, 6700417 ]
+~~~
+
+Functions may be combined in various ways, and may be
+used as arguments of other functions, for example:
+
+~~~ {.gap}
+Filtered( Partitions(10), x -> 5 in x);
+~~~
+
+~~~ {.gap}
+[ [ 5, 1, 1, 1, 1, 1 ], [ 5, 2, 1, 1, 1 ], [ 5, 2, 2, 1 ],
+  [ 5, 3, 1, 1 ], [ 5, 3, 2 ], [ 5, 4, 1 ], [ 5, 5 ] ]
+~~~
+
+> ## What does the last command calculate?{.callout}
+>
+> Also, how many functions can you see in the input?
+
 TODO:
-
-* Remark on whitespaces in input.
-
-* Command line editing before hitting the return key. Multi-line commands.
-
-* Scrolling history. Scrolling partial history. Editing command line from history.
-
-* Remark on customising GAP to save command line history between sessions
 
 * Show some library functions
 
-* Error - GAP is case - sensitive
-
 * Tab for name completion
+
+* Error - GAP is case - sensitive (also impacts name completion)
+
+* Remark on customising GAP to save command line history between sessions
 
 * Invoking help
 
 * Copying and pasting (from manual examples)
-
-* Using `LogTo`
-
-* Comments start with `#`
 
 Now let's consider the following problem: for a finite group _G_, calculate the
 average order of its element (that is, the sum of orders of its elements divided
@@ -177,7 +330,7 @@ x:=last;
 
 TODO:
 
-* explore list properties
+* explore list properties. Show Filter, List and other useful tips
 
 * Introduce programming language
 
