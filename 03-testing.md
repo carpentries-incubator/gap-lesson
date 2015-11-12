@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Make it right, then make it fast
-subtitle: Using regression tests
+title: Programming with GAP
+subtitle: Regression testings
 minutes: 20
 ---
 > ## Learning Objectives {.objectives}

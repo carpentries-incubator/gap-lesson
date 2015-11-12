@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Putting functions together
+title: Programming with GAP
 subtitle: Small groups search
 minutes: 20
 ---
