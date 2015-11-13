@@ -5,12 +5,16 @@ subtitle: Instructor's Guide
 ---
 ## Overall
 
-* For the first lesson, good to have access to Windows (VM or remote desktop)
-
-
-## [First session with GAP](01-command-line.html)
+* For the first lesson, good to have access to Windows (VM or remote desktop) to
+demonstrate some Windows-specific aspects of working with GAP.
 
 * Before start, check that everyone has installed GAP and knows how to start it.
+
+* Help to adjust terminal settings, especially show to Windows users that they
+can permanently change colours and fonts in mintty shell (the one started with
+`gap.bat`).
+
+## [First session with GAP](01-command-line.html)
 
 * Emphasize that the banner contains version info useful for citing GAP or
 reporting bugs.

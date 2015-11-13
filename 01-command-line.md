@@ -173,7 +173,8 @@ Factorial(100);
 7223758251185210916864000000000000000000000000
 ~~~
 
-(this also displays multi-line output),
+(this also displays multi-line output; the exact width may depend
+on the terminal settings),
 
 ~~~ {.gap}
 Determinant(m);
@@ -211,7 +212,7 @@ Filtered( Partitions(10), x -> 5 in x);
 
 TODO:
 
-* Show some library functions
+* Show some library functions with long names
 
 * Tab for name completion
 
@@ -267,6 +268,9 @@ function `Group` and mentioning of `Order`.
 
 * TODO: How to use `SetHelpViewer` to use browser for help and how to
 customise GAP to use this setting automatically.
+
+* TODO: If Browse package is not compiled, this step will look differently.
+There will be no frame like above.
 
 Let's copy the following input from  the first example of the GAP Reference
 manual Chapter on groups. It shows how to create permutations, and assign values
@@ -331,6 +335,8 @@ x:=last;
 TODO:
 
 * explore list properties. Show Filter, List and other useful tips
+
+* Show how records look like. When records better than lists?
 
 * Introduce programming language
 
