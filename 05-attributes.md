@@ -166,3 +166,14 @@ Note that because `AverageOrder` is an operation it will take care of the select
 the most suitable method.
 
 * TODO: recovery from no-method-found error
+
+* TODO: demonstrate that for small groups enumeration may be faster
+
+* Set up challenge
+
+gap> l:=List([1..1000],i->SmallGroup(1536,i));;
+gap> List(l,AvgOrdOfGroup);;time;
+56231
+gap> l:=List([1..1000],i->SmallGroup(1536,i));;
+gap> List(l,AvgOrdOfCollection);;time;
+9141

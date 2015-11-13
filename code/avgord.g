@@ -1,3 +1,11 @@
+#####################################################################
+#
+# AvgOrdOfGroup(G)
+#
+# Calculating the average order of an element of G, where G meant to
+# be a group but in fact may be any collection of objects having
+# multiplicative order
+#
 AvgOrdOfCollection := function(G)
 local sum, g;
 sum := 0;

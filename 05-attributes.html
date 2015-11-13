@@ -97,8 +97,11 @@ InstallMethod( AverageOrder, &quot;for a collection&quot;, [IsCollection], AvgOr
 );</code></pre>
 <p>Note that because <code>AverageOrder</code> is an operation it will take care of the selection of the most suitable method.</p>
 <ul>
-<li>TODO: recovery from no-method-found error</li>
+<li><p>TODO: recovery from no-method-found error</p></li>
+<li><p>TODO: demonstrate that for small groups enumeration may be faster</p></li>
+<li><p>Set up challenge</p></li>
 </ul>
+<p>gap&gt; l:=List([1..1000],i-&gt;SmallGroup(1536,i));; gap&gt; List(l,AvgOrdOfGroup);;time; 56231 gap&gt; l:=List([1..1000],i-&gt;SmallGroup(1536,i));; gap&gt; List(l,AvgOrdOfCollection);;time; 9141</p>
         </div>
       </div>
       </article>
