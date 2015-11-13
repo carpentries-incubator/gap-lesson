@@ -30,11 +30,12 @@
           <h2 class="subtitle">Instructor’s Guide</h2>
           <h2 id="overall">Overall</h2>
 <ul>
-<li>For the first lesson, good to have access to Windows (VM or remote desktop)</li>
+<li><p>For the first lesson, good to have access to Windows (VM or remote desktop) to demonstrate some Windows-specific aspects of working with GAP.</p></li>
+<li><p>Before start, check that everyone has installed GAP and knows how to start it.</p></li>
+<li><p>Help to adjust terminal settings, especially show to Windows users that they can permanently change colours and fonts in mintty shell (the one started with <code>gap.bat</code>).</p></li>
 </ul>
 <h2 id="first-session-with-gap"><a href="01-command-line.html">First session with GAP</a></h2>
 <ul>
-<li><p>Before start, check that everyone has installed GAP and knows how to start it.</p></li>
 <li><p>Emphasize that the banner contains version info useful for citing GAP or reporting bugs.</p></li>
 <li><p>A second call to <code>LogTo(&quot;logfile&quot;);</code> will not open the new file but will report that GAP is already logging to another file. In this case, either ignore it if you would like to continue logging to the file already in use, or call <code>LogTo();</code> to close the current log file and then call <code>LogTo</code> with an argument to start logging to a new file.</p></li>
 <li><p>Discuss why it’s a bad practice to Google for the GAP manual instead of using the GAP help system.</p></li>
