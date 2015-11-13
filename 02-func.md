@@ -6,13 +6,13 @@ minutes: 20
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Use command line for prototyping
-> * Create functions
-> * Read GAP code from a file
+> * Using command line for prototyping
+> * Creating functions
+> * Reading GAP code from a file
 
-Let’s consider the following exercise: for a finite group _G_, calculate the average
-order of its element (that is, the sum of orders of its elements divided by the
-order of the group).
+Just to remind our task: for a finite group _G_, we would like to calculate
+the average order of its elements (that is, the sum of orders of its elements
+divided by the order of the group).
 
 We begin with a very straightforward approach, iterating
 over all elements of the group in question:
@@ -53,9 +53,10 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 39020911/3628800
 ~~~
 
-Now we may copy and paste it into the GAP session when we will need it next time.
-And here we see the first inconvenience: the code expects that the group in question
-must be stored in a variable named `S`:
+Now we may easily copy and paste it into the GAP session when we will need it next time.
+But here we see the first inconvenience: the code expects that the group in question
+must be stored in a variable named `S`, so either we can have only with one group `S`
+at a time, or we need to edit the code:
 
 ~~~ {.gap}
 S:=AlternatingGroup(10);
@@ -73,8 +74,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 2587393/259200
 ~~~
 
-> ## For prototyping only {.callout}
-> This approach is good for a rapid prototyping only:
+> ## This works only for rapid prototyping {.callout}
 >
 > * incidentally, one could copy and paste only a part of the code, and
 > incomplete input may trigger a break loop;
@@ -82,16 +82,16 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 > calculation and obtain incorrect results;
 > * the group in question may have a different variable name, so the code will
 > have to be changed;
-> * finally, when GAP code is pasted into the interpreter, it is evaluated line
+> **last, but not least:** when GAP code is pasted into the interpreter, it is evaluated line
 > by line. If you have a long file with many commands, and the syntax error is
 > in the line N, this error will be reported only when GAP will complete
 > the evaluation of all preceding lines, and that might be quite time-consuming.
 
-Next we will consider giving GAP code more structure by organising it
+That is why we need to give the GAP code more structure by organising it
 into functions:
 
 * functions are parsed first and may be called later;
-* any syntax errors will be detected in the parsing stage, and not at the time
+* any **syntax** errors will be detected in the parsing stage, and not at the time
 of the call;
 * functions may have local variables, and this prevents them
 being accidentally overwritten just because of reusing the same name of the
@@ -197,6 +197,12 @@ AvgOrdOfGroup(M11);
 53131/7920
 ~~~
 
+> ## Which function is faster?{.callout}
+>
+> Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
+> and compare runtimes. Do this for new copy of `M11` and for the one for which
+> this parameter has already been observed. What do you observe?
+
 In the example of using `Read`, new GAP session was started to make it clear
 that `AvgOrdOfGroup` did not exist before the call of `Read` and was loaded
 from the file. However, a file with a function like this could be read multiple
@@ -204,9 +210,10 @@ times in the same GAP session (later you will see cases when re-reading a
 file is more complicated). Calling `Read` again executes all code in the file
 being read. This means that if the code of the function has been modified, and
 it has no errors (but possibly has warnings), the function will be
-overwritten.
+overwritten. **Never ignore the warnings!**
 
 For example, let us edit the file and replace the line
+
 ~~~ {.gap}
 return sum/Size(G);
 ~~~
@@ -258,9 +265,11 @@ AvgOrdOfGroup(M11);
 6.70846
 ~~~
 
-Now let's see another warning, which will redefine the function. Edit the file
-to rollback the change in the type of the result, and then comment out two lines
-as follows:
+Now let's see an example of a _warning_. Since it is only a warning, it will
+redefine the function, and this may cause some unexpected result. To see what
+could happen, first edit the file to rollback the change in the type of the
+result (so it will return a rational instead of a float), and then comment
+out two lines as follows:
 
 ~~~ {.gap}
 AvgOrdOfGroup := function(G)
@@ -303,7 +312,9 @@ during the call to `AvgOrdOfGroup`! This shows how important is to
 declare local variables. Let us investigate what happened in slightly
 more details:
 
-The function is now re-defined
+The function is now re-defined, as we can see from its output (or can
+inspect with `PageSource(AvgOrdOfGroup)` which will also display comments,
+if any):
 
 ~~~ {.gap}
 Print(AvgOrdOfGroup);
@@ -380,4 +391,5 @@ end;
 
 > ## Paths {.challenge}
 >
-> Fully understand to to specify paths to files in all operating systems.
+> How to specify paths to files in all operating systems and where to find
+> your home and current directory.

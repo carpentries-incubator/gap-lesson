@@ -97,6 +97,9 @@ For example:
       a Sylow _p_-subgroup of a group, and then look at its subgroups
       and their conjugates.
 
+    * Representation matters: it may be worth to convert a group from fp group
+      to an isomorphic pc group or a permutation group to use faster methods.
+
 * See [GAP Frequently Asked Questions](http://www.gap-system.org/Faq/faq.html) for further hints.
 
 ## Stay in touch

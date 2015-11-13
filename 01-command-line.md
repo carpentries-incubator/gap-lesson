@@ -2,12 +2,13 @@
 layout: page
 title: Programming with GAP
 subtitle: First session with GAP
-minutes: 10
+minutes: 30
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Learning objective 1
-> * Learning objective 2
+> * Time-saving tips and tricks for working with the GAP command line
+> * Using GAP help system
+> * Basic objects and constructions in the GAP language
 
 If GAP is installed correctly you should be able to start it some way that
 depends on your operating system. GAP starts with the banner displaying
@@ -335,6 +336,8 @@ x:=last;
 TODO:
 
 * explore list properties. Show Filter, List and other useful tips
+
+* Show two enumerations: indexed and using iterator. Which when?
 
 * Show how records look like. When records better than lists?
 

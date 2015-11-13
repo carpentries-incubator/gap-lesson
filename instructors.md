@@ -14,6 +14,11 @@ demonstrate some Windows-specific aspects of working with GAP.
 can permanently change colours and fonts in mintty shell (the one started with
 `gap.bat`).
 
+* Explain how to read lesson pages: GAP input is types without GAP prompt.
+GAP output is ion blue colour. Errors are displayed in red. GAP promts is
+not displayed, unless this is really necessary (e.g. to demonstrate how the
+multi-line input works).
+
 ## [First session with GAP](01-command-line.html)
 
 * Emphasize that the banner contains version info useful for citing GAP or
@@ -32,15 +37,17 @@ using the GAP help system.
 shows the [Search the GAP web site](http://www.gap-system.org/search.html) page
 which allows some specific search requests.
 
+* Do not use paths with spaces
+
+
 1.  Discussion of first challenge.
 
 2.  Discussion of second challenge.
 
 ## [Functions in GAP](02-func.html)
 
-* Do not use paths with spaces
-
-* Point
+* Spend some time on the structure of the GAP function: keywords `function`,
+`local`, `return`, `end`, and other language constructions exposed there.
 
 1.  Discussion of first challenge.
 
