@@ -94,18 +94,20 @@ else
 fi;
 
 if IsBound(arg[3]) then
-  n1:=arg[2];
+  n1:=arg[3];
   if not n1 in [1..NrSmallGroups(n)] then
-    Error("The 2nd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+    Error("The 3rd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
   fi;
 else
   n1:=1;
 fi;
 
 if IsBound(arg[4]) then
-  n2:=arg[3];
+  n2:=arg[4];
   if not n2 in [1..NrSmallGroups(n)] then
-    Error("The 3rd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+    Error("The 4th argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+  elif n2 < n1 then
+    Error("The 4th argument must be greater or equal to the 3rd \n" );
   fi;
 else
   n2:=NrSmallGroups(n);
@@ -114,7 +116,7 @@ fi;
 Print("Checking groups ", n1, " ... ", n2, " of order ", n, "\n");
 for i in [n1..n2] do
   Print(i, "/", NrSmallGroups(n), "\r");
-  if TestOneGroup(SmallGroup(n,i)) then
+  if f(SmallGroup(n,i)) then
     Print("Discovered counterexample: SmallGroup( ", n, ", ", i, " )\n");
     return [n,i];
   fi;
@@ -122,6 +124,7 @@ od;
 Print("\nSearch completed - no counterexample discovered\n");
 return fail;
 end;
+
 
 AverageOrder := NewAttribute("AverageOrder", IsCollection);
 
