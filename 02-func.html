@@ -40,7 +40,7 @@
 </ul>
 </div>
 </section>
-<p>Just to remind our task: for a finite group <em>G</em>, we would like to calculate the average order of its elements (that is, the sum of orders of its elements divided by the order of the group).</p>
+<p>Just to remind our task: for a finite group <span class="math inline"><em>G</em></span>, we would like to calculate the average order of its elements (that is, the sum of orders of its elements divided by the order of the group).</p>
 <p>We begin with a very straightforward approach, iterating over all elements of the group in question:</p>
 <pre class="gap"><code>S:=SymmetricGroup(10);</code></pre>
 <pre class="output"><code>Sym( [ 1 .. 10 ] )</code></pre>
@@ -111,7 +111,7 @@ for g in G do
 od;
 return sum/Size(G);
 end;</code></pre>
-<p>Now start a new GAP session and create another group, for example</p>
+<p>Now start a new GAP session and create another group, for example <span class="math inline"><em>M</em><sub>11</sub></span>:</p>
 <pre class="gap"><code>M11:=MathieuGroup(11);</code></pre>
 <pre class="output"><code>Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])</code></pre>
 <p>Clearly, <code>AvgOrdOfGroup</code> is not defined in this session, so an attempt to call this function results in an error:</p>
