@@ -10,7 +10,7 @@ minutes: 20
 > * Creating functions
 > * Reading GAP code from a file
 
-Just to remind our task: for a finite group _G_, we would like to calculate
+Just to remind our task: for a finite group $G$, we would like to calculate
 the average order of its elements (that is, the sum of orders of its elements
 divided by the order of the group).
 
@@ -157,7 +157,7 @@ return sum/Size(G);
 end;
 ~~~
 
-Now start a new GAP session and create another group, for example
+Now start a new GAP session and create another group, for example $M_{11}$:
 
 ~~~ {.gap}
 M11:=MathieuGroup(11);
