@@ -14,6 +14,8 @@ subtitle: Reference
 
 * [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.htm)
 
+* [GAP Reference Manual: Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.html)
+
 * [GAP Reference Manual: The Programming Language]( http://www.gap-system.org/Manuals/doc/ref/chap4.html#X7FE7C0C17E1ED118)
 
 
