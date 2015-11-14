@@ -31,7 +31,7 @@
           <h2 id="overall">Overall</h2>
 <ul>
 <li><p>For the first lesson, good to have access to Windows (VM or remote desktop) to demonstrate some Windows-specific aspects of working with GAP.</p></li>
-<li><p>Before start, check that everyone has installed GAP and knows how to start it.</p></li>
+<li><p>Before start, check that everyone has installed GAP and knows how to start it. Also remind that it’s not advised to install in in the path with spaces, e.g. in “My Documents”.</p></li>
 <li><p>Help to adjust terminal settings, especially show to Windows users that they can permanently change colours and fonts in mintty shell (the one started with <code>gap.bat</code>).</p></li>
 <li><p>Explain how to copy and paste input and output (especially on Windows).</p></li>
 <li><p>Explain how to read lesson pages: GAP input is types without GAP prompt. GAP output is ion blue colour. Errors are displayed in red. GAP promts is not displayed, unless this is really necessary (e.g. to demonstrate how the multi-line input works).</p></li>
@@ -41,21 +41,22 @@
 <li><p>Emphasize that the banner contains version info useful for citing GAP or reporting bugs.</p></li>
 <li><p>A second call to <code>LogTo(&quot;logfile&quot;);</code> will not open the new file but will report that GAP is already logging to another file. In this case, either ignore it if you would like to continue logging to the file already in use, or call <code>LogTo();</code> to close the current log file and then call <code>LogTo</code> with an argument to start logging to a new file.</p></li>
 <li><p>Discuss why it’s a bad practice to Google for the GAP manual instead of using the GAP help system.</p></li>
+<li><p>Be aware that help selection screen will look differently if <strong>Browse</strong> package is not compiled.</p></li>
+<li><p>Explain how to switch to view HTML version of the Manual with MathJax support.</p></li>
 <li><p>Give a hint that the sitemap on the <a href="http://www.gap-system.org">GAP website</a> shows the <a href="http://www.gap-system.org/search.html">Search the GAP web site</a> page which allows some specific search requests.</p></li>
-<li><p>Do not use paths with spaces</p></li>
+<li><p>Help to call <code>WriteGapIniFile</code> and customise GAP e.g. to use browser as a viewer.</p></li>
+<li><p>Use Etherpad to vote for approaches to calculate the average order of a list. After that discuss situations when each of them may be more preferable than others.</p></li>
+<li><p>Emphasize that organising complex objects into nested records may be more efficient than nested lists.</p></li>
+<li><p>Beware that <code>w:=&quot;supercalifragilisticexpialidocious&quot;; IsSubset(w,'s');</code> results in a no-method-found error. This may be a good moment to introduce this special kind of error messages.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
-<li><p>Discussion of first challenge.</p></li>
-<li><p>Discussion of second challenge.</p></li>
+<li>Solution of the challenge: <code>r:=c[1]; for i in [2..Length(c)] do if c[i][2]&gt;r[2] then r:=c[i]; fi; od; r;</code></li>
 </ol>
 <h2 id="functions-in-gap"><a href="02-func.html">Functions in GAP</a></h2>
 <ul>
-<li>Spend some time on the structure of the GAP function: keywords <code>function</code>, <code>local</code>, <code>return</code>, <code>end</code>, and other language constructions exposed there.</li>
+<li><p>Spend some time on the structure of the GAP function: keywords <code>function</code>, <code>local</code>, <code>return</code>, <code>end</code>, and other language constructions exposed there.</p></li>
+<li><p>Tell how to explore the break loop while showing an example of an error message.</p></li>
 </ul>
-<ol style="list-style-type: decimal">
-<li><p>Discussion of first challenge.</p></li>
-<li><p>Discussion of second challenge.</p></li>
-</ol>
 <h2 id="using-regression-tests"><a href="03-testing.html">Using regression tests</a></h2>
 <h2 id="small-groups-search"><a href="04-small-groups.html">Small groups search</a></h2>
 <ul>

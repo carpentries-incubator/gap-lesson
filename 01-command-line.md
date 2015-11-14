@@ -282,8 +282,6 @@ Enter `?Group`, and you will see all help entries, starting with `Group`:
 └─────────────── [ <Up>/<Down> select, <Return> show, q quit ] ────────────────┘
 ~~~
 
-* TODO: what you will see if the Browse package is not compiled?
-
 You may use arrow keys to move up and down the list, and open help pages by
 pressing Return key. For this exercise, open `Tutorial: Groups and Homomorphisms`
 first. Note navigation instructions at the bottom of the screen. Look at
@@ -291,13 +289,19 @@ first two pages, then press `q` to return to the selection menu. Next, navigate 
 `Reference: Groups` and open it. Within two first pages you will find the
 function `Group` and mentioning of `Order`.
 
-* TODO: How to use `SetHelpViewer` to use browser for help and how to
-customise GAP to use this setting automatically.
+GAP manual comes in several formats: text is good to view in a terminal,
+PDF is good for printing and HTML (especially with MathJax support) is
+very efficient for exploring with a browser. We will use the following to
+set the help viewer to the default browser (for this session, see
+`?WriteGapIniFile` on how to make this setting permanent):
 
-* TODO: If Browse package is not compiled, this step will look differently.
-There will be no frame like above.
+~~~ .{gap}
+SetHelpViewer("browser");
+~~~
 
-Let's copy the following input from  the first example of the GAP Reference
+After that, invoke the help again, and see the difference!
+
+Let's now copy the following input from the first example of the GAP Reference
 manual Chapter on groups. It shows how to create permutations, and assign values
 to variables; also it is finished by a double semicolon to suppress output:
 
@@ -315,16 +319,17 @@ G:=Group(a,b);
 Group([ (1,2,3), (2,3,4) ])
 ~~~
 
-We may explore some of its properties:
+We may explore some properties of `G` and its generators:
 
 ~~~ {.gap}
-Size(G); IsAbelian(G); StructureDescription(G);
+Size(G); IsAbelian(G); StructureDescription(G); Order(a);
 ~~~
 
 ~~~ {.output}
 12
 false
 "A4"
+3
 ~~~
 
 Our next task is to find out how to obtain a list of element and their orders.
@@ -357,59 +362,220 @@ x:=last;
   (1,3)(2,4), (1,4,2), (1,4,3), (1,4)(2,3) ]
 ~~~
 
-TODO:
-
-* explore list properties. Show Filter, List and other useful tips
-
-* Show two enumerations: indexed and using iterator. Which when?
-
-* Show how records look like. When records better than lists?
-
-* Introduce programming language
-
-* Somewhere on the way introduce break loop
-
-* Show Print and strings.
-
-* Good design: not output but return for further use
-
-* Introduce functional notation for Sum(List(...))
-
-Paragraphs of text
---- possibly including [definitions](reference.html#definitions) ---
-mixed with:
+This is a list. The following commands are self-explanatory:
 
 ~~~ {.gap}
-some code:
-    to be displayed
+gap> x[1]; x[3]; Length(x);
 ~~~
-
-and:
 
 ~~~ {.output}
-output
-from
-program
+()
+(2,4,3)
+12
 ~~~
 
-and:
+> ## Lists are more than arrays {.callout}
+>
+> * May contain holes or be empty
+>
+> * May dynamically change their length
+>
+> * Not required to contain objects of the same type
+>
+> * There are also sets (ordered lists without holes and repetitions)
+>
+> * See more in [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.htm)
 
-~~~ {.error}
-error reports from programs (if any)
+We are almost ready calculate the average order of elements of `G`. All three
+examples below compute it in different ways, exposing concepts like ranges,
+for-loops, iterators, and functional notation:
+
+~~~ {.gap}
+s:=0;;
+for i in [ 1 .. Length(x) ] do
+  s := s + Order( x[i] );
+od;
+s/Length(x);
 ~~~
 
-and possibly including some of these:
+~~~ {.output}
+31/12
+~~~
 
-> ## Callout Box {.callout}
+~~~ {.gap}
+s:=0;;
+for g in x do
+  s := s + Order(g);
+od;
+s/Length(x);
+~~~
+
+~~~ {.output}
+31/12
+~~~
+
+~~~ {.gap}
+Sum( List( x, Order ) ) / Length( x );
+~~~
+
+~~~ {.output}
+31/12
+~~~
+
+> ## Which approach is better? {.callout}
 >
-> An aside of some kind.
+> Compare these approaches. Which one would you prefer to use?
 
-and one or more of these at the end:
+GAP has very helpful list manipulation tools. Just to show some more examples,
 
-> ## Challenge Title {.challenge}
+~~~ {.gap}
+Filtered(x, s -> NrMovedPoints(s)=4);
+~~~
+
+~~~ {.output}
+[ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]
+~~~
+
+~~~ {.gap}
+First( x, s -> (1,2)^s=(2,3) );
+~~~
+
+~~~ {.output}
+(1,2,3)
+~~~
+
+~~~ {.gap}
+ForAll( x, s -> 1^s<>2 );
+~~~
+
+~~~ {.output}
+false
+~~~
+
+~~~ {.gap}
+ForAny( x, s -> NrMovedPoints(s)=2 );
+~~~
+
+~~~ {.output}
+false
+~~~
+
+Next type of objects are records. While the list contains subobjects indexed
+by their positions in the list, a record contains subobjects, called _record
+components_, which are indexed by their names.
+
+~~~ {.gap}
+date:= rec(year:= 2015, month:= "Nov", day:= 17);
+~~~
+
+~~~ {.output}
+rec( day := 17, month := "Nov", year := 2015 )
+~~~
+
+~~~ {.gap}
+date.year;
+~~~
+
+~~~ {.output}
+2015
+~~~
+
+~~~ {.gap}
+date.time:= rec(hour:= 14, minute:= 55, second:= 12);
+~~~
+
+~~~ {.output}
+rec( hour := 14, minute := 55, second := 12 )
+~~~
+
+~~~ {.gap}
+date;
+~~~
+
+~~~ {.output}
+rec( day := 17, month := "Nov",
+  time := rec( hour := 14, minute := 55, second := 12 ), year := 2015 )
+~~~
+
+~~~ {.gap}
+RecNames(date);
+~~~
+
+~~~ {.output}
+[ "time", "year", "month", "day" ]
+~~~
+
+Finally, we haven't seen strings and characters yet. Strings are lists of
+characters:
+
+~~~ {.gap}
+gap> w:="supercalifragilisticexpialidocious"; Length(w);
+~~~
+
+~~~ {.output}
+"supercalifragilisticexpialidocious"
+34
+~~~
+
+Strings are denoted by double quotes, and characters by single ones.
+
+~~~ {.gap}
+gap> "s" in w; 's' in w; IsSubset(w,"s");
+~~~
+
+~~~ {.output}
+false
+true
+true
+~~~
+
+~~~ {.gap}
+gap> SortedList(w); w;
+~~~
+
+~~~ {.output}
+"aaacccdeefgiiiiiiillloopprrssstuux"
+"supercalifragilisticexpialidocious"
+~~~
+
+~~~ {.gap}
+gap> Sort(w); w;
+~~~
+
+~~~ {.output}
+"aaacccdeefgiiiiiiillloopprrssstuux"
+~~~
+
+~~~ {.gap}
+gap> "s" in w; 's' in w;
+~~~
+
+~~~ {.output}
+false
+true
+~~~
+
+~~~ {.gap}
+gap> c := Collected(w);
+~~~
+
+~~~ {.output}
+[ [ 'a', 3 ], [ 'c', 3 ], [ 'd', 1 ], [ 'e', 2 ], [ 'f', 1 ], [ 'g', 1 ],
+  [ 'i', 7 ], [ 'l', 3 ], [ 'o', 2 ], [ 'p', 2 ], [ 'r', 2 ], [ 's', 3 ],
+  [ 't', 1 ], [ 'u', 2 ], [ 'x', 1 ] ]
+~~~
+
+~~~ {.gap}
+gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
+~~~
+
+~~~ {.output}
+7
+[ [ 'i', 7 ] ]
+~~~
+
+> ## How to do this in one pass over the list `c` ? {.challenge}
 >
-> Description of a single challenge,
-> separated from the title by a blank line.
-> There may be several challenges;
-> they should all come at the end of the file,
-> and each should have a short, meaningful title.
+> One pass over `c` required to find the number of appearances of the most
+> common letter(s), and another one to select all pairs where this number
+> appears. Can you suggest how to do this in one pass?

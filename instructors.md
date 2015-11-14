@@ -9,6 +9,8 @@ subtitle: Instructor's Guide
 demonstrate some Windows-specific aspects of working with GAP.
 
 * Before start, check that everyone has installed GAP and knows how to start it.
+Also remind that it's not advised to install in in the path with spaces, e.g. in
+"My Documents".
 
 * Help to adjust terminal settings, especially show to Windows users that they
 can permanently change colours and fonts in mintty shell (the one started with
@@ -35,31 +37,46 @@ logging to a new file.
 * Discuss why it's a bad practice to Google for the GAP manual instead of
 using the GAP help system.
 
+* Be aware that help selection screen will look differently if **Browse**
+package is not compiled.
+
+* Explain how to switch to view HTML version of the Manual with MathJax support.
+
 * Give a hint that the sitemap on the [GAP website](http://www.gap-system.org)
 shows the [Search the GAP web site](http://www.gap-system.org/search.html) page
 which allows some specific search requests.
 
-* Do not use paths with spaces
+* Help to call `WriteGapIniFile` and customise GAP e.g. to use browser as a
+viewer.
 
+* Use Etherpad to vote for approaches to calculate the average order of a list.
+After that discuss situations when each of them may be more preferable than others.
 
-1.  Discussion of first challenge.
+* Emphasize that organising complex objects into nested records may
+be more efficient than nested lists.
 
-2.  Discussion of second challenge.
+* Beware that `w:="supercalifragilisticexpialidocious"; IsSubset(w,'s');`
+results in a no-method-found error. This may be a good moment to introduce
+this special kind of error messages.
+
+1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 
 ## [Functions in GAP](02-func.html)
 
 * Spend some time on the structure of the GAP function: keywords `function`,
 `local`, `return`, `end`, and other language constructions exposed there.
 
-1.  Discussion of first challenge.
+* Tell how to explore the break loop while showing an example of an error
+message.
 
-2.  Discussion of second challenge.
 
 ## [Using regression tests](03-testing.html)
+
 
 ## [Small groups search](04-small-groups.html)
 
 * Live coding is preferred way to teach how to develop most of the functions
 from this lesson.
+
 
 ## [Attributes and Methods](05-attributes.html)
