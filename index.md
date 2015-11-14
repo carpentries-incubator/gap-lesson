@@ -15,6 +15,8 @@ searching in the Small Groups Library for interesting examples and counterexampl
 and a particular research problem in which we will be interested is to **find
 examples of groups such that the average order of their element is an integer**.
 
+
+
 The lesson will lead the learner along the path from working in the GAP command
 line and exploring algebraic objects interactively to saving the GAP code into
 files, creating functions and regression tests, and further to performing
@@ -30,8 +32,14 @@ On this path, the learner will became familiar with:
 
 > ## Prerequisites {.prereq}
 >
+> The lesson is oriented to learners possessing the minimal theoretical
+> background (at least at the level of undergraduate group theory course)
+> and willing to learn how the concepts from abstract algebra may be
+> explored using computational tools.
+> No previous experience of working with GAP is required.
+>
 > Learners need to understand the concepts of files and directories
-> (including home and working directories) and know how to start GAP.
+> (including home and working directories) and know only how to start GAP.
 
 > ## Getting ready {.getready}
 > 1. In your home directory, create a new directory called `avgord`

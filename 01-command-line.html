@@ -120,15 +120,16 @@ gap&gt;</code></pre>
 <p>Also, how many functions can you see in the input?</p>
 </div>
 </aside>
-<p>TODO:</p>
-<ul>
-<li><p>Show some library functions with long names</p></li>
-<li><p>Tab for name completion</p></li>
-<li><p>Error - GAP is case - sensitive (also impacts name completion)</p></li>
-<li><p>Remark on customising GAP to save command line history between sessions</p></li>
-<li><p>Invoking help</p></li>
-<li><p>Copying and pasting (from manual examples)</p></li>
-</ul>
+<p>The way functions are named in GAP might help to memorize or even guess names of library functions. If a variable name consists of several words then the first letter of each word is capitalized (remember that GAP is case-sensitive!). Further details on naming conventions used in GAP are documented in the GAP manual <a href="https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4">here</a>).</p>
+<p>A very time-saving feature of the GAP command-line interfaces is completion of identifiers when the Tab key is pressed. For exampe, type <code>Fib</code> and then press the Tab key to complete the input to <code>Fibonacci</code>:</p>
+<pre class="gap"><code>Fibonacci(100);</code></pre>
+<pre class="output"><code>354224848179261915075</code></pre>
+<p>In case when the unique completion is not possible, GAP will try to perform partial completion, and pressing the Tab key second time will display all possible completions of the identifier. Try, for example, to enter <code>GroupHomomorphismByImages</code> or <code>NaturalHomomorphismByNormalSubgroup</code> using completion.</p>
+<p>It is important to remember that GAP is case-sensitive. For example, the following input causes an error</p>
+<pre class="gap"><code>factorial(100);</code></pre>
+<pre class="error"><code>Error, Variable: &#39;factorial&#39; must have a value
+not in any function at line 14 of *stdin*</code></pre>
+<p>because the name of the GAP library function is <code>Factorial</code>. Using lowercase instead of uppercase or vice versa also affects name completion.</p>
 <p>Now let’s consider the following problem: for a finite group <em>G</em>, calculate the average order of its element (that is, the sum of orders of its elements divided by the order of the group). Where to start?</p>
 <p>Enter <code>?Group</code>, and you will see all help entries, starting with <code>Group</code>:</p>
 <pre class="output"><code>┌──────────────────────────────────────────────────────────────────────────────┐
@@ -188,7 +189,7 @@ false
 <li><p>Show how records look like. When records better than lists?</p></li>
 <li><p>Introduce programming language</p></li>
 <li><p>Somewhere on the way introduce break loop</p></li>
-<li><p>Show Print</p></li>
+<li><p>Show Print and strings.</p></li>
 <li><p>Good design: not output but return for further use</p></li>
 <li><p>Introduce functional notation for Sum(List(…))</p></li>
 </ul>
