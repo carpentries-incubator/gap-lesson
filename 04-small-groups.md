@@ -6,7 +6,8 @@ minutes: 20
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Create test files
+> * Using Small Groups Library
+> * Designing a system of functions to fit together
 
 In this section, we are interested to non-trivial groups such that the
 average order of their elements is an integer.
@@ -208,6 +209,7 @@ end;
 ~~~
 
 But now we call it with
+
 ~~~ {.gap}
 TestRangeOfOrders(TestOneGroup,106,256);
 ~~~
@@ -261,18 +263,19 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 
 Further points:
 
+* Variadic functions and more flexible search
+
 * InfoLevels to control verbosity
 
 * Show how to turn Info messages off and on for running tests
 
 and one or more of these at the end:
 
-> ## Find another group such that the average order of its elements is an integer {.challenge}
->
-> * Does the Small Groups Library contain another group with this property?
+> ## Does the Small Groups Library contain another group with this property? {.challenge}
 >
 > * What can you say about the order of the groups with this property?
 >
-> * Can you check all 408641062 groups of order 1536 ?
+> * Can you estimate how long it may take to check all 408641062 groups of order 1536 ?
 >
-> * Can you find **all** groups with this property containing in the Small Groups Library?
+> * Can you find another group (of order not equal to 1536)
+>   with this property containing in the Small Groups Library?

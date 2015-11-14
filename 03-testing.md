@@ -6,7 +6,9 @@ minutes: 20
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Create test files
+> * Creating test files
+> * Making it right, then making it fast
+> * Learning some other kinds of groups in GAP
 
 The code of `AvgOrdOfGroup` is very simple and possibly nothing could go wrong
 with it. It avoids problems with running out of memory because of iterating
