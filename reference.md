@@ -8,6 +8,8 @@ subtitle: Reference
 
 * [GAP Tutorial: A First session with GAP](http://www.gap-system.org/Manuals/doc/tut/chap2.html)
 
+* [GAP Reference Manual: Naming Conventions](https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4)
+
 * [GAP Reference Manual: The Help System](http://www.gap-system.org/Manuals/doc/ref/chap2.html)
 
 * [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.htm)

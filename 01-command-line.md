@@ -211,19 +211,43 @@ Filtered( Partitions(10), x -> 5 in x);
 >
 > Also, how many functions can you see in the input?
 
-TODO:
+The way functions are named in GAP might help to memorize or even guess names
+of library functions. If a variable name consists of several words then the
+first letter of each word is capitalized (remember that GAP is case-sensitive!).
+Further details on naming conventions used in GAP are documented in the GAP
+manual [here](https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4)).
 
-* Show some library functions with long names
+A very time-saving feature of the GAP command-line interfaces is completion
+of identifiers when the Tab key is pressed. For exampe, type `Fib` and then
+press the Tab key to complete the input to `Fibonacci`:
 
-* Tab for name completion
+~~~ {.gap}
+Fibonacci(100);
+~~~
 
-* Error - GAP is case - sensitive (also impacts name completion)
+~~~ {.output}
+354224848179261915075
+~~~
 
-* Remark on customising GAP to save command line history between sessions
+In case when the unique completion is not possible, GAP will try to perform
+partial completion, and pressing the Tab key second time will display all possible
+completions of the identifier. Try, for example, to enter `GroupHomomorphismByImages`
+or `NaturalHomomorphismByNormalSubgroup` using completion.
 
-* Invoking help
+It is important to remember that GAP is case-sensitive. For example, the following
+input causes an error
 
-* Copying and pasting (from manual examples)
+~~~ {.gap}
+factorial(100);
+~~~
+
+~~~ {.error}
+Error, Variable: 'factorial' must have a value
+not in any function at line 14 of *stdin*
+~~~
+
+because the name of the GAP library function is `Factorial`. Using lowercase
+instead of uppercase or vice versa also affects name completion.
 
 Now let's consider the following problem: for a finite group _G_, calculate the
 average order of its element (that is, the sum of orders of its elements divided
@@ -345,7 +369,7 @@ TODO:
 
 * Somewhere on the way introduce break loop
 
-* Show Print
+* Show Print and strings.
 
 * Good design: not output but return for further use
 

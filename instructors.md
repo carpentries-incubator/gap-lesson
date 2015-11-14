@@ -14,6 +14,8 @@ demonstrate some Windows-specific aspects of working with GAP.
 can permanently change colours and fonts in mintty shell (the one started with
 `gap.bat`).
 
+* Explain how to copy and paste input and output (especially on Windows).
+
 * Explain how to read lesson pages: GAP input is types without GAP prompt.
 GAP output is ion blue colour. Errors are displayed in red. GAP promts is
 not displayed, unless this is really necessary (e.g. to demonstrate how the
