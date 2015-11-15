@@ -28,3 +28,18 @@ gap> AvgOrdOfGroup(G);
 # matrix group over a finite field
 gap> AvgOrdOfGroup(SL(2,5));
 221/40
+
+# Finding groups with integer average order
+gap> INFO_SSS:=InfoLevel(InfoSmallGroupsSearch);;
+gap> res:=[];;
+gap> for n in [1..360] do
+>      if not IsPrimePowerInt(n) then
+>        t := TestOneOrderVariadic( IsIntegerAverageOrder,n,1,NrSmallGroups(n) );
+>        if t <> fail then
+>          Add(res,t);
+>        fi;
+>      fi;
+>    od;
+gap> res;
+[ [ 1, 1 ], [ 105, 1 ], [ 357, 1 ] ]
+gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
