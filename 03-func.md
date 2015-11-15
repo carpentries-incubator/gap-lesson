@@ -335,7 +335,7 @@ but an attempt to run it results in an break loop:
 AvgOrdOfGroup(M11);
 ~~~
 
-~~~ {.output}
+~~~ {.error}
 Error, Variable: 'sum' must have an assigned value in
   sum := sum + Order( g ); called from
 <function "AvgOrdOfGroup">( <arguments> )
