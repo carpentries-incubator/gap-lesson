@@ -68,14 +68,29 @@ gap> w:="supercalifragilisticexpialidocious"; Length(w);
 Strings are denoted by double quotes, and characters by single ones.
 
 ~~~ {.gap}
-gap> "s" in w; 's' in w; IsSubset(w,"s");
+gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']);
 ~~~
 
 ~~~ {.output}
 false
 true
 true
+true
 ~~~
+
+Note that
+
+~~~ {.gap}
+gap> PositionSublist(w,"sf"); PositionSublist(w,"fr");
+~~~
+
+~~~ {.output}
+fail
+10
+~~~
+
+Be careful that some operations may create a new list, and some may be
+destructive, for example:
 
 ~~~ {.gap}
 gap> SortedList(w); w;
@@ -86,6 +101,8 @@ gap> SortedList(w); w;
 "supercalifragilisticexpialidocious"
 ~~~
 
+but
+
 ~~~ {.gap}
 gap> Sort(w); w;
 ~~~
@@ -94,14 +111,7 @@ gap> Sort(w); w;
 "aaacccdeefgiiiiiiillloopprrssstuux"
 ~~~
 
-~~~ {.gap}
-gap> "s" in w; 's' in w;
-~~~
-
-~~~ {.output}
-false
-true
-~~~
+Which letter is occurring in "supercalifragilisticexpialidocious" most often?
 
 ~~~ {.gap}
 gap> c := Collected(w);
