@@ -135,6 +135,7 @@ will help to generate citation sample for precisely the same version of GAP that
 
 * TODO: GAP packages
 
+* TODO: contribute to this lesson itself
 
 
 ## Tips and tricks

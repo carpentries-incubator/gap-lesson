@@ -96,5 +96,7 @@ from this lesson.
 
 ## [Attributes and Methods](06-attributes.html)
 
+* Why it is not a good idea to declare `Random` as an attribute?
+
 1.  Ideas for the challenge: try `k:=1` and then `k:=k+1;n:=2^k;AvgOrdOfCollection(DihedralGroup(n));time;AvgOrdOfGroup(DihedralGroup(n));time;`.
 Even for `k=20`, the 1st function takes about 15s and the 2nd - about 115s on a MacBook Pro.

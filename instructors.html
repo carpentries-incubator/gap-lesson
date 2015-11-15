@@ -72,6 +72,9 @@
 <li>Solution of the challenge: <code>Sum(List(Filtered([1..2000], n -&gt; not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;</code>. In addition to <code>SmallGroup(105,1)</code> and <code>SmallGroup(357,1)</code>, another group is <code>SmallGroup(1785,1)</code>.</li>
 </ol>
 <h2 id="attributes-and-methods"><a href="06-attributes.html">Attributes and Methods</a></h2>
+<ul>
+<li>Why it is not a good idea to declare <code>Random</code> as an attribute?</li>
+</ul>
 <ol style="list-style-type: decimal">
 <li>Ideas for the challenge: try <code>k:=1</code> and then <code>k:=k+1;n:=2^k;AvgOrdOfCollection(DihedralGroup(n));time;AvgOrdOfGroup(DihedralGroup(n));time;</code>. Even for <code>k=20</code>, the 1st function takes about 15s and the 2nd - about 115s on a MacBook Pro.</li>
 </ol>

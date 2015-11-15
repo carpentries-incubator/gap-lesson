@@ -46,19 +46,27 @@ subtitle: Reference
 ## Glossary
 
 Attribute
-:    TODO
+:    Operation (normally, one-argument), the result of which is stored in its
+     argument and cannot be changed any more.
 
 List
-:    TODO
+:    Data structure whose elements are indexed by their _position_ in the list.
 
 Method
-:    TODO
+:    Function that will be called for an operation for arguments of the
+     specified type.
+
+Operation
+:    GAP function for which several _methods_ may be available (the particular
+     method that will be used depends on the type of the arguments).
 
 Property
-:    TODO
+:    Boolean-valued attribute
 
 Record
-:    TODO
+:    Data structure which is a collection of _components_, each having a unique
+     _name_, which is an _identifier_ that distinguishes this component, and a
+     _value_, which is an object of arbitrary type.
 
 Regression testing
 :    Testing based on rerunning previously completed tests to check that new
