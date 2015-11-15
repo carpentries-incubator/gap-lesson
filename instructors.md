@@ -26,7 +26,9 @@ multi-line input works).
 ## [First session with GAP](01-command-line.html)
 
 * Emphasize that the banner contains version info useful for citing GAP or
-reporting bugs.
+reporting bugs. Selection of packages may differ, but missing **IO** and
+**Browse** packages indicate that these and perhaps some other packages
+that require compilation were not compiled.
 
 * A second call to `LogTo("logfile");` will not open the new file but will report
 that GAP is already logging to another file. In this case, either ignore it if
@@ -55,8 +57,18 @@ which allows some specific search requests.
 * Help to call `WriteGapIniFile` and customise GAP e.g. to use browser as a
 viewer.
 
+* Demonstrating how to type `Sum( List( elts, Order ) ) / Length( elts );`
+show how to assemble this command using command line editing and moving
+around the line, perhaps executing partial command to see their results,
+instead of typing the whole command from first to last character sequentially.
+
 * Use Etherpad to vote for approaches to calculate the average order of a list.
 After that discuss situations when each of them may be more preferable than others.
+
+1.  Solution of the challenge: `Filtered( elts, g -> 2^g = 2 );` and `Filtered( elts, g -> (1,2)^g = (1,2) );`.
+
+
+## [Some more GAP objects](02-some-objects.html)
 
 * Emphasize that organising complex objects into nested records may
 be more efficient than nested lists.
@@ -65,13 +77,7 @@ be more efficient than nested lists.
 results in a no-method-found error. This may be a good moment to introduce
 this special kind of error messages.
 
-1.  Solution of the challenge: `Filtered( elts, g -> 2^g = 2 );` and `Filtered( elts, g -> (1,2)^g = (1,2) );`.
-
-
-## [Some more GAP objects](02-some-objects.html)
-
 1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
-
 
 
 ## [Functions in GAP](03-func.html)

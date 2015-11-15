@@ -378,7 +378,7 @@ gap> elts[1]; elts[3]; Length(elts);
 >
 > * May contain holes or be empty
 >
-> * May dynamically change their length
+> * May dynamically change their length (with `Add`, `Append` or direct assigment)
 >
 > * Not required to contain objects of the same type
 >
@@ -426,7 +426,9 @@ Sum( List( elts, Order ) ) / Length( elts );
 >
 > Compare these approaches. Which one would you prefer to use?
 
-GAP has very helpful list manipulation tools. Just to show some more examples,
+GAP has very helpful list manipulation tools. Just to show some more examples:
+
+* finding elements of `G` having no fixed points:
 
 ~~~ {.gap}
 Filtered( elts, g -> NrMovedPoints(g) = 4 );
@@ -436,6 +438,8 @@ Filtered( elts, g -> NrMovedPoints(g) = 4 );
 [ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]
 ~~~
 
+* funding a permutation $g$ such that conjugates $(1,2)$ to $(2,3)$
+
 ~~~ {.gap}
 First( elts, g -> (1,2)^g = (2,3) );
 ~~~
@@ -444,6 +448,18 @@ First( elts, g -> (1,2)^g = (2,3) );
 (1,2,3)
 ~~~
 
+Let's check this (remember that in GAP permutations are multiplied from left to right!):
+
+~~~ {.gap}
+(1,2,3)^-1*(1,2)*(1,2,3)=(2,3);
+~~~
+
+~~~ {.output}
+true
+~~~
+
+* checking whether no elements of $G$ move the point 1 to 2:
+
 ~~~ {.gap}
 ForAll( elts, g -> 1^g <> 2 );
 ~~~
@@ -451,6 +467,8 @@ ForAll( elts, g -> 1^g <> 2 );
 ~~~ {.output}
 false
 ~~~
+
+* checking whether there is an element in $G$ which moves exactly two points:
 
 ~~~ {.gap}
 ForAny( elts, g -> NrMovedPoints(g) = 2 );

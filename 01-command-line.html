@@ -191,7 +191,7 @@ false
 <div class="panel-body">
 <ul>
 <li><p>May contain holes or be empty</p></li>
-<li><p>May dynamically change their length</p></li>
+<li><p>May dynamically change their length (with <code>Add</code>, <code>Append</code> or direct assigment)</p></li>
 <li><p>Not required to contain objects of the same type</p></li>
 <li><p>There are also sets (ordered lists without holes and repetitions)</p></li>
 <li><p>See more in <a href="http://www.gap-system.org/Manuals/doc/tut/chap3.htm">GAP Tutorial: Lists and Records</a></p></li>
@@ -221,13 +221,28 @@ s/Length(elts);</code></pre>
 <p>Compare these approaches. Which one would you prefer to use?</p>
 </div>
 </aside>
-<p>GAP has very helpful list manipulation tools. Just to show some more examples,</p>
+<p>GAP has very helpful list manipulation tools. Just to show some more examples:</p>
+<ul>
+<li>finding elements of <code>G</code> having no fixed points:</li>
+</ul>
 <pre class="gap"><code>Filtered( elts, g -&gt; NrMovedPoints(g) = 4 );</code></pre>
 <pre class="output"><code>[ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]</code></pre>
+<ul>
+<li>funding a permutation <span class="math inline"><em>g</em></span> such that conjugates <span class="math inline">(1, 2)</span> to <span class="math inline">(2, 3)</span></li>
+</ul>
 <pre class="gap"><code>First( elts, g -&gt; (1,2)^g = (2,3) );</code></pre>
 <pre class="output"><code>(1,2,3)</code></pre>
+<p>Let’s check this (remember that in GAP permutations are multiplied from left to right!):</p>
+<pre class="gap"><code>(1,2,3)^-1*(1,2)*(1,2,3)=(2,3);</code></pre>
+<pre class="output"><code>true</code></pre>
+<ul>
+<li>checking whether no elements of <span class="math inline"><em>G</em></span> move the point 1 to 2:</li>
+</ul>
 <pre class="gap"><code>ForAll( elts, g -&gt; 1^g &lt;&gt; 2 );</code></pre>
 <pre class="output"><code>false</code></pre>
+<ul>
+<li>checking whether there is an element in <span class="math inline"><em>G</em></span> which moves exactly two points:</li>
+</ul>
 <pre class="gap"><code>ForAny( elts, g -&gt; NrMovedPoints(g) = 2 );</code></pre>
 <pre class="output"><code>false</code></pre>
 <section class="challenge panel panel-success">
