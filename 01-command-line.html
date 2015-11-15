@@ -222,13 +222,13 @@ s/Length(elts);</code></pre>
 </div>
 </aside>
 <p>GAP has very helpful list manipulation tools. Just to show some more examples,</p>
-<pre class="gap"><code>Filtered( elts, s -&gt; NrMovedPoints(s)=4 );</code></pre>
+<pre class="gap"><code>Filtered( elts, g -&gt; NrMovedPoints(g) = 4 );</code></pre>
 <pre class="output"><code>[ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]</code></pre>
-<pre class="gap"><code>First( elts, s -&gt; (1,2)^s=(2,3) );</code></pre>
+<pre class="gap"><code>First( elts, g -&gt; (1,2)^g = (2,3) );</code></pre>
 <pre class="output"><code>(1,2,3)</code></pre>
-<pre class="gap"><code>ForAll( elts, s -&gt; 1^s&lt;&gt;2 );</code></pre>
+<pre class="gap"><code>ForAll( elts, g -&gt; 1^g &lt;&gt; 2 );</code></pre>
 <pre class="output"><code>false</code></pre>
-<pre class="gap"><code>ForAny( elts, s -&gt; NrMovedPoints(s)=2 );</code></pre>
+<pre class="gap"><code>ForAny( elts, g -&gt; NrMovedPoints(g) = 2 );</code></pre>
 <pre class="output"><code>false</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">

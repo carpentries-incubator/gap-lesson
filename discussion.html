@@ -56,6 +56,7 @@
 <li><p>Don’t ask for more than you need as this may have performance implications. For example:</p>
 <ul>
 <li><p>If the property is an invariant of a conjugacy class (of elements or of subgroups), you may be interested only at looking at the representatives of conjugacy classes.</p></li>
+<li><p>If you are interested in a list of elements of a collection, without a particular order, use <code>AsList</code> instead of <code>AsSSortedList</code>.</p></li>
 <li><p>Do not calculate conjugacy classes of all subgroups, if e.g. you are interested only in normal or maximal subgroups - there are special methods to compute them.</p></li>
 <li><p>If you are looking for <em>p</em>-subgroups, first you may calculate a Sylow <em>p</em>-subgroup of a group, and then look at its subgroups and their conjugates.</p></li>
 <li><p>Representation matters: it may be worth to convert a group from fp group to an isomorphic pc group or a permutation group to use faster methods.</p></li>

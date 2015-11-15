@@ -50,6 +50,8 @@ package is not compiled.
 shows the [Search the GAP web site](http://www.gap-system.org/search.html) page
 which allows some specific search requests.
 
+* Draw attention to the difference between `AsList` and `AsSSortedList`.
+
 * Help to call `WriteGapIniFile` and customise GAP e.g. to use browser as a
 viewer.
 
@@ -63,7 +65,7 @@ be more efficient than nested lists.
 results in a no-method-found error. This may be a good moment to introduce
 this special kind of error messages.
 
-1.  Solution of the challenge: `Filtered(x, t -> 2^t=2);` and `Filtered(x, t -> (1,2)^t=(1,2));`.
+1.  Solution of the challenge: `Filtered( elts, g -> 2^g = 2 );` and `Filtered( elts, g -> (1,2)^g = (1,2) );`.
 
 
 ## [Some more GAP objects](02-some-objects.html)

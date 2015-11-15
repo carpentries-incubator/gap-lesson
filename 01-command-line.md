@@ -429,7 +429,7 @@ Sum( List( elts, Order ) ) / Length( elts );
 GAP has very helpful list manipulation tools. Just to show some more examples,
 
 ~~~ {.gap}
-Filtered( elts, s -> NrMovedPoints(s)=4 );
+Filtered( elts, g -> NrMovedPoints(g) = 4 );
 ~~~
 
 ~~~ {.output}
@@ -437,7 +437,7 @@ Filtered( elts, s -> NrMovedPoints(s)=4 );
 ~~~
 
 ~~~ {.gap}
-First( elts, s -> (1,2)^s=(2,3) );
+First( elts, g -> (1,2)^g = (2,3) );
 ~~~
 
 ~~~ {.output}
@@ -445,7 +445,7 @@ First( elts, s -> (1,2)^s=(2,3) );
 ~~~
 
 ~~~ {.gap}
-ForAll( elts, s -> 1^s<>2 );
+ForAll( elts, g -> 1^g <> 2 );
 ~~~
 
 ~~~ {.output}
@@ -453,7 +453,7 @@ false
 ~~~
 
 ~~~ {.gap}
-ForAny( elts, s -> NrMovedPoints(s)=2 );
+ForAny( elts, g -> NrMovedPoints(g) = 2 );
 ~~~
 
 ~~~ {.output}
