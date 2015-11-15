@@ -81,6 +81,7 @@ od;
 return fail;
 end;
 
+InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
 
 TestOneOrderVariadic := function(arg)
 local f, n, n1, n2, i;
@@ -121,15 +122,20 @@ else
   n2:=NrSmallGroups(n);
 fi;
 
-Print("Checking groups ", n1, " ... ", n2, " of order ", n, "\n");
+Info( InfoSmallGroupsSearch, 1,
+      "Checking groups ", n1, " ... ", n2, " of order ", n );
 for i in [n1..n2] do
-  Print(i, "/", NrSmallGroups(n), "\r");
+  if InfoLevel( InfoSmallGroupsSearch ) > 1 then
+    Print(i, "/", NrSmallGroups(n), "\r");
+  fi;
   if f(SmallGroup(n,i)) then
-    Print("Discovered counterexample: SmallGroup( ", n, ", ", i, " )\n");
+    Info( InfoSmallGroupsSearch, 1,
+          "Discovered counterexample: SmallGroup( ", n, ", ", i, " )" );
     return [n,i];
   fi;
 od;
-Print("\nSearch completed - no counterexample discovered\n");
+Info( InfoSmallGroupsSearch, 1,
+      "Search completed - no counterexample discovered" );
 return fail;
 end;
 
