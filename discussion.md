@@ -89,6 +89,9 @@ For example:
       subgroups), you may be interested only at looking at the representatives
       of conjugacy classes.
 
+    * If you are interested in a list of elements of a collection, without a
+      particular order, use `AsList` instead of `AsSSortedList`.
+
     * Do not calculate conjugacy classes of all subgroups, if e.g. you are
       interested only in normal or maximal subgroups - there are special
       methods to compute them.
