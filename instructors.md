@@ -70,12 +70,22 @@ After that discuss situations when each of them may be more preferable than othe
 
 ## [Some more GAP objects](02-some-objects.html)
 
+* Floats, cyclotomics, finite fields elements are not used further in the
+lesson, but we mention them briefly to show that they exist.
+
 * Emphasize that organising complex objects into nested records may
 be more efficient than nested lists.
 
 * Beware that `w:="supercalifragilisticexpialidocious"; IsSubset(w,'s');`
 results in a no-method-found error. This may be a good moment to introduce
 this special kind of error messages.
+
+* For extending GAP with new types of objects, refer to
+[Creating New Objects](http://www.gap-system.org/Manuals/doc/ref/chap79.html)
+and [Examples of Extending the System](http://www.gap-system.org/Manuals/doc/ref/chap80.html)
+of the GAP Reference Manual.
+Also, the [Circle package](http://www.gap-system.org/Packages/circle.html)
+provides an example of extending GAP with new multiplicative objects.
 
 1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 

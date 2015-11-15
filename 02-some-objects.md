@@ -6,9 +6,52 @@ minutes: 30
 ---
 > ## Learning Objectives {.objectives}
 >
-> * Meeting some examples
+> * See further examples of some objects existing in GAP.
 
-Next type of objects are records. While the list contains subobjects indexed
+So far you have met:
+
+* _immediate_ object such as integers, rationals, booleans, permutations,
+
+* _positional_ objects such as _lists_,
+
+* objects with obviously more complex internal representation such as groups.
+
+In this section, we will demonstrate some other examples of basic objects
+existing in GAP (the system is extendable, so one could introduce new types
+of objects, but this is beyond the scope of this lesson).
+
+Further immediate objects are floats, cyclotomics and finite field elements:
+
+~~~ {.gap}
+1.15; Float(1232/3456567);
+~~~
+
+~~~ {.output}
+1.15
+0.000356423
+~~~
+
+~~~ {.gap}
+E(4); E(4)^2; E(6);
+~~~
+
+~~~ {.output}
+E(4)
+-1
+-E(3)^2
+~~~
+
+~~~ {.gap}
+AsList(GF(2)); Z(5); Z(5)^4;
+~~~
+
+~~~ {.output}
+[ 0*Z(2), Z(2)^0 ]
+Z(5)
+Z(5)^0
+~~~
+
+The next type of composite objects are **records**. While the list contains subobjects indexed
 by their positions in the list, a record contains subobjects, called _record
 components_, which are indexed by their names.
 
@@ -53,7 +96,7 @@ RecNames(date);
 [ "time", "year", "month", "day" ]
 ~~~
 
-Finally, we haven't seen strings and characters yet. Strings are lists of
+Next, there are **strings** and **characters**. Strings are lists of
 characters:
 
 ~~~ {.gap}
