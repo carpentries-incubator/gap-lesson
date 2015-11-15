@@ -459,3 +459,9 @@ ForAny( x, s -> NrMovedPoints(s)=2 );
 ~~~ {.output}
 false
 ~~~
+
+> ## Use list operations to select from `x`: {.challenge}
+>
+> * Stabiliser of the point 2
+>
+> * Centraliser of the permutation (1,2)

@@ -34,6 +34,10 @@ you would like to continue logging to the file already in use, or call `LogTo();
 to close the current log file and then call `LogTo` with an argument to start
 logging to a new file.
 
+* Showing an example of the error with `factorial`, mention that such error
+also happens if e.g. some file has to be read or some package should be loaded
+to define the function.
+
 * Discuss why it's a bad practice to Google for the GAP manual instead of
 using the GAP help system.
 
@@ -59,10 +63,13 @@ be more efficient than nested lists.
 results in a no-method-found error. This may be a good moment to introduce
 this special kind of error messages.
 
-1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
+1.  Solution of the challenge: `Filtered(x, t -> 2^t=2);` and `Filtered(x, t -> (1,2)^t=(1,2));`.
 
 
 ## [Some more GAP objects](02-some-objects.html)
+
+1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
+
 
 
 ## [Functions in GAP](03-func.html)

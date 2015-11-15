@@ -40,6 +40,7 @@
 <ul>
 <li><p>Emphasize that the banner contains version info useful for citing GAP or reporting bugs.</p></li>
 <li><p>A second call to <code>LogTo(&quot;logfile&quot;);</code> will not open the new file but will report that GAP is already logging to another file. In this case, either ignore it if you would like to continue logging to the file already in use, or call <code>LogTo();</code> to close the current log file and then call <code>LogTo</code> with an argument to start logging to a new file.</p></li>
+<li><p>Showing an example of the error with <code>factorial</code>, mention that such error also happens if e.g. some file has to be read or some package should be loaded to define the function.</p></li>
 <li><p>Discuss why it’s a bad practice to Google for the GAP manual instead of using the GAP help system.</p></li>
 <li><p>Be aware that help selection screen will look differently if <strong>Browse</strong> package is not compiled.</p></li>
 <li><p>Explain how to switch to view HTML version of the Manual with MathJax support.</p></li>
@@ -50,9 +51,12 @@
 <li><p>Beware that <code>w:=&quot;supercalifragilisticexpialidocious&quot;; IsSubset(w,'s');</code> results in a no-method-found error. This may be a good moment to introduce this special kind of error messages.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
-<li>Solution of the challenge: <code>r:=c[1]; for i in [2..Length(c)] do if c[i][2]&gt;r[2] then r:=c[i]; fi; od; r;</code></li>
+<li>Solution of the challenge: <code>Filtered(x, t -&gt; 2^t=2);</code> and <code>Filtered(x, t -&gt; (1,2)^t=(1,2));</code>.</li>
 </ol>
 <h2 id="some-more-gap-objects"><a href="02-some-objects.html">Some more GAP objects</a></h2>
+<ol style="list-style-type: decimal">
+<li>Solution of the challenge: <code>r:=c[1]; for i in [2..Length(c)] do if c[i][2]&gt;r[2] then r:=c[i]; fi; od; r;</code></li>
+</ol>
 <h2 id="functions-in-gap"><a href="03-func.html">Functions in GAP</a></h2>
 <ul>
 <li><p>Spend some time on the structure of the GAP function: keywords <code>function</code>, <code>local</code>, <code>return</code>, <code>end</code>, and other language constructions exposed there.</p></li>
