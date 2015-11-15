@@ -171,9 +171,13 @@ the most suitable method.
 
 * Set up challenge
 
+~~~ {.gap}
 gap> l:=List([1..1000],i->SmallGroup(1536,i));;
 gap> List(l,AvgOrdOfGroup);;time;
 56231
 gap> l:=List([1..1000],i->SmallGroup(1536,i));;
 gap> List(l,AvgOrdOfCollection);;time;
 9141
+~~~
+
+Task: investigate using DihedralGroup(n) where is the turning point

@@ -19,22 +19,25 @@ subtitle: Reference
 * [GAP Reference Manual: The Programming Language]( http://www.gap-system.org/Manuals/doc/ref/chap4.html#X7FE7C0C17E1ED118)
 
 
-## [Functions in GAP](02-func.html)
+## [Some more GAP objects](02-some-objects.html)
+
+
+## [Functions in GAP](03-func.html)
 
 * [GAP Tutorial: Functions](http://www.gap-system.org/Manuals/doc/tut/chap4.html)
 
 
-## [Using regression tests](03-testing.html)
+## [Using regression tests](04-testing.html)
 
 * [GAP Reference Manual: Test](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C)
 
 
-## [Small groups search](04-small-groups.html)
+## [Small groups search](05-small-groups.html)
 
 * [GAP Reference Manual: Group Libraries](http://www.gap-system.org/Manuals/doc/ref/chap50.html)
 
 
-## [Attributes and Methods](05-attributes.html)
+## [Attributes and Methods](06-attributes.html)
 
 * [GAP Tutorial: Operations and Methods](http://www.gap-system.org/Manuals/doc/tut/chap8.html)
 

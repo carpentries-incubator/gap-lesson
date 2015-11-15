@@ -52,17 +52,21 @@
 <ol style="list-style-type: decimal">
 <li>Solution of the challenge: <code>r:=c[1]; for i in [2..Length(c)] do if c[i][2]&gt;r[2] then r:=c[i]; fi; od; r;</code></li>
 </ol>
-<h2 id="functions-in-gap"><a href="02-func.html">Functions in GAP</a></h2>
+<h2 id="some-more-gap-objects"><a href="02-some-objects.html">Some more GAP objects</a></h2>
+<h2 id="functions-in-gap"><a href="03-func.html">Functions in GAP</a></h2>
 <ul>
 <li><p>Spend some time on the structure of the GAP function: keywords <code>function</code>, <code>local</code>, <code>return</code>, <code>end</code>, and other language constructions exposed there.</p></li>
 <li><p>Tell how to explore the break loop while showing an example of an error message.</p></li>
 </ul>
-<h2 id="using-regression-tests"><a href="03-testing.html">Using regression tests</a></h2>
-<h2 id="small-groups-search"><a href="04-small-groups.html">Small groups search</a></h2>
+<h2 id="using-regression-tests"><a href="04-testing.html">Using regression tests</a></h2>
+<h2 id="small-groups-search"><a href="05-small-groups.html">Small groups search</a></h2>
 <ul>
 <li>Live coding is preferred way to teach how to develop most of the functions from this lesson.</li>
 </ul>
-<h2 id="attributes-and-methods"><a href="05-attributes.html">Attributes and Methods</a></h2>
+<h2 id="attributes-and-methods"><a href="06-attributes.html">Attributes and Methods</a></h2>
+<ol style="list-style-type: decimal">
+<li>Ideas for the challenge: try <code>k:=1</code> and then <code>k:=k+1;n:=2^k;AvgOrdOfCollection(DihedralGroup(n));time;AvgOrdOfGroup(DihedralGroup(n));time;</code>. Even for <code>k=20</code>, the 1st function takes about 15s and the 2nd - about 115s on a MacBook Pro.</li>
+</ol>
         </div>
       </div>
       </article>

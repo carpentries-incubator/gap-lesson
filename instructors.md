@@ -61,7 +61,11 @@ this special kind of error messages.
 
 1.  Solution of the challenge: `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 
-## [Functions in GAP](02-func.html)
+
+## [Some more GAP objects](02-some-objects.html)
+
+
+## [Functions in GAP](03-func.html)
 
 * Spend some time on the structure of the GAP function: keywords `function`,
 `local`, `return`, `end`, and other language constructions exposed there.
@@ -70,13 +74,16 @@ this special kind of error messages.
 message.
 
 
-## [Using regression tests](03-testing.html)
+## [Using regression tests](04-testing.html)
 
 
-## [Small groups search](04-small-groups.html)
+## [Small groups search](05-small-groups.html)
 
 * Live coding is preferred way to teach how to develop most of the functions
 from this lesson.
 
 
-## [Attributes and Methods](05-attributes.html)
+## [Attributes and Methods](06-attributes.html)
+
+1.  Ideas for the challenge: try `k:=1` and then `k:=k+1;n:=2^k;AvgOrdOfCollection(DihedralGroup(n));time;AvgOrdOfGroup(DihedralGroup(n));time;`.
+Even for `k=20`, the 1st function takes about 15s and the 2nd - about 115s on a MacBook Pro.

@@ -47,10 +47,11 @@ On this path, the learner will became familiar with:
 ## Topics
 
 1.  [First session with GAP](01-command-line.html)
-2.  [Functions in GAP](02-func.html)
-3.  [Using regression tests](03-testing.html)
-4.  [Small groups search](04-small-groups.html)
-5.  [Attributes and Methods](05-attributes.html)
+2.  [Some more GAP objects](02-some-objects.html)
+3.  [Functions in GAP](03-func.html)
+4.  [Using regression tests](04-testing.html)
+5.  [Small groups search](05-small-groups.html)
+6.  [Attributes and Methods](06-attributes.html)
 
 ## Other Resources
 
