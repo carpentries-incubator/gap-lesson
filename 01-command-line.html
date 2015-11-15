@@ -176,11 +176,11 @@ false
 <pre class="output"><code>[ (), (2,3,4), (2,4,3), (1,2)(3,4), (1,2,3), (1,2,4), (1,3,2), (1,3,4),
   (1,3)(2,4), (1,4,2), (1,4,3), (1,4)(2,3) ]</code></pre>
 <p>The returned object is a <em>list</em>. We would like to assign it to a variable to explore and reuse. We forgot to do it when we were calculating it. Of course, we may use the command line history to restore the last command, edit it and call again. But instead, we will use <code>last</code> which is a special variable holding the last result returned by GAP:</p>
-<pre class="gap"><code>x:=last;</code></pre>
+<pre class="gap"><code>elts:=last;</code></pre>
 <pre class="output"><code>[ (), (2,3,4), (2,4,3), (1,2)(3,4), (1,2,3), (1,2,4), (1,3,2), (1,3,4),
   (1,3)(2,4), (1,4,2), (1,4,3), (1,4)(2,3) ]</code></pre>
 <p>This is a list. The following commands are self-explanatory:</p>
-<pre class="gap"><code>gap&gt; x[1]; x[3]; Length(x);</code></pre>
+<pre class="gap"><code>gap&gt; elts[1]; elts[3]; Length(elts);</code></pre>
 <pre class="output"><code>()
 (2,4,3)
 12</code></pre>
@@ -200,18 +200,18 @@ false
 </aside>
 <p>We are almost ready calculate the average order of elements of <code>G</code>. All three examples below compute it in different ways, exposing concepts like ranges, for-loops, iterators, and functional notation:</p>
 <pre class="gap"><code>s:=0;;
-for i in [ 1 .. Length(x) ] do
-  s := s + Order( x[i] );
+for i in [ 1 .. Length(elts) ] do
+  s := s + Order( elts[i] );
 od;
-s/Length(x);</code></pre>
+s/Length(elts);</code></pre>
 <pre class="output"><code>31/12</code></pre>
 <pre class="gap"><code>s:=0;;
-for g in x do
+for g in elts do
   s := s + Order(g);
 od;
-s/Length(x);</code></pre>
+s/Length(elts);</code></pre>
 <pre class="output"><code>31/12</code></pre>
-<pre class="gap"><code>Sum( List( x, Order ) ) / Length( x );</code></pre>
+<pre class="gap"><code>Sum( List( elts, Order ) ) / Length( elts );</code></pre>
 <pre class="output"><code>31/12</code></pre>
 <aside class="callout panel panel-info">
 <div class="panel-heading">
@@ -222,17 +222,17 @@ s/Length(x);</code></pre>
 </div>
 </aside>
 <p>GAP has very helpful list manipulation tools. Just to show some more examples,</p>
-<pre class="gap"><code>Filtered(x, s -&gt; NrMovedPoints(s)=4);</code></pre>
+<pre class="gap"><code>Filtered( elts, s -&gt; NrMovedPoints(s)=4 );</code></pre>
 <pre class="output"><code>[ (1,2)(3,4), (1,3)(2,4), (1,4)(2,3) ]</code></pre>
-<pre class="gap"><code>First( x, s -&gt; (1,2)^s=(2,3) );</code></pre>
+<pre class="gap"><code>First( elts, s -&gt; (1,2)^s=(2,3) );</code></pre>
 <pre class="output"><code>(1,2,3)</code></pre>
-<pre class="gap"><code>ForAll( x, s -&gt; 1^s&lt;&gt;2 );</code></pre>
+<pre class="gap"><code>ForAll( elts, s -&gt; 1^s&lt;&gt;2 );</code></pre>
 <pre class="output"><code>false</code></pre>
-<pre class="gap"><code>ForAny( x, s -&gt; NrMovedPoints(s)=2 );</code></pre>
+<pre class="gap"><code>ForAny( elts, s -&gt; NrMovedPoints(s)=2 );</code></pre>
 <pre class="output"><code>false</code></pre>
 <section class="challenge panel panel-success">
 <div class="panel-heading">
-<h2 id="use-list-operations-to-select-from-x"><span class="glyphicon glyphicon-pencil"></span>Use list operations to select from <code>x</code>:</h2>
+<h2 id="use-list-operations-to-select-from-elts"><span class="glyphicon glyphicon-pencil"></span>Use list operations to select from <code>elts</code>:</h2>
 </div>
 <div class="panel-body">
 <ul>

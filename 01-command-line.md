@@ -354,7 +354,7 @@ it and call again. But instead, we will use `last` which is a special variable
 holding the last result returned by GAP:
 
 ~~~ {.gap}
-x:=last;
+elts:=last;
 ~~~
 
 ~~~ {.output}
@@ -365,7 +365,7 @@ x:=last;
 This is a list. The following commands are self-explanatory:
 
 ~~~ {.gap}
-gap> x[1]; x[3]; Length(x);
+gap> elts[1]; elts[3]; Length(elts);
 ~~~
 
 ~~~ {.output}
@@ -392,10 +392,10 @@ for-loops, iterators, and functional notation:
 
 ~~~ {.gap}
 s:=0;;
-for i in [ 1 .. Length(x) ] do
-  s := s + Order( x[i] );
+for i in [ 1 .. Length(elts) ] do
+  s := s + Order( elts[i] );
 od;
-s/Length(x);
+s/Length(elts);
 ~~~
 
 ~~~ {.output}
@@ -404,10 +404,10 @@ s/Length(x);
 
 ~~~ {.gap}
 s:=0;;
-for g in x do
+for g in elts do
   s := s + Order(g);
 od;
-s/Length(x);
+s/Length(elts);
 ~~~
 
 ~~~ {.output}
@@ -415,7 +415,7 @@ s/Length(x);
 ~~~
 
 ~~~ {.gap}
-Sum( List( x, Order ) ) / Length( x );
+Sum( List( elts, Order ) ) / Length( elts );
 ~~~
 
 ~~~ {.output}
@@ -429,7 +429,7 @@ Sum( List( x, Order ) ) / Length( x );
 GAP has very helpful list manipulation tools. Just to show some more examples,
 
 ~~~ {.gap}
-Filtered(x, s -> NrMovedPoints(s)=4);
+Filtered( elts, s -> NrMovedPoints(s)=4 );
 ~~~
 
 ~~~ {.output}
@@ -437,7 +437,7 @@ Filtered(x, s -> NrMovedPoints(s)=4);
 ~~~
 
 ~~~ {.gap}
-First( x, s -> (1,2)^s=(2,3) );
+First( elts, s -> (1,2)^s=(2,3) );
 ~~~
 
 ~~~ {.output}
@@ -445,7 +445,7 @@ First( x, s -> (1,2)^s=(2,3) );
 ~~~
 
 ~~~ {.gap}
-ForAll( x, s -> 1^s<>2 );
+ForAll( elts, s -> 1^s<>2 );
 ~~~
 
 ~~~ {.output}
@@ -453,14 +453,14 @@ false
 ~~~
 
 ~~~ {.gap}
-ForAny( x, s -> NrMovedPoints(s)=2 );
+ForAny( elts, s -> NrMovedPoints(s)=2 );
 ~~~
 
 ~~~ {.output}
 false
 ~~~
 
-> ## Use list operations to select from `x`: {.challenge}
+> ## Use list operations to select from `elts`: {.challenge}
 >
 > * Stabiliser of the point 2
 >
