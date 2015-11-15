@@ -277,5 +277,7 @@ and one or more of these at the end:
 >
 > * Can you estimate how long it may take to check all 408641062 groups of order 1536 ?
 >
+> * How many groups you need to check, excluding p-groups and those of order 1536?
+>
 > * Can you find another group (of order not equal to 1536)
 >   with this property containing in the Small Groups Library?

@@ -91,6 +91,8 @@ message.
 * Live coding is preferred way to teach how to develop most of the functions
 from this lesson.
 
+1.  Solution of the challenge: `Sum(List(Filtered([1..2000], n -> not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;`. In addition to `SmallGroup(105,1)` and
+`SmallGroup(357,1)`, another group is `SmallGroup(1785,1)`.
 
 ## [Attributes and Methods](06-attributes.html)
 
