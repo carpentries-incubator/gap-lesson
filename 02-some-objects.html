@@ -34,11 +34,30 @@
 </div>
 <div class="panel-body">
 <ul>
-<li>Meeting some examples</li>
+<li>See further examples of some objects existing in GAP.</li>
 </ul>
 </div>
 </section>
-<p>Next type of objects are records. While the list contains subobjects indexed by their positions in the list, a record contains subobjects, called <em>record components</em>, which are indexed by their names.</p>
+<p>So far you have met:</p>
+<ul>
+<li><p><em>immediate</em> object such as integers, rationals, booleans, permutations,</p></li>
+<li><p><em>positional</em> objects such as <em>lists</em>,</p></li>
+<li><p>objects with obviously more complex internal representation such as groups.</p></li>
+</ul>
+<p>In this section, we will demonstrate some other examples of basic objects existing in GAP (the system is extendable, so one could introduce new types of objects, but this is beyond the scope of this lesson).</p>
+<p>Further immediate objects are floats, cyclotomics and finite field elements:</p>
+<pre class="gap"><code>1.15; Float(1232/3456567);</code></pre>
+<pre class="output"><code>1.15
+0.000356423</code></pre>
+<pre class="gap"><code>E(4); E(4)^2; E(6);</code></pre>
+<pre class="output"><code>E(4)
+-1
+-E(3)^2</code></pre>
+<pre class="gap"><code>AsList(GF(2)); Z(5); Z(5)^4;</code></pre>
+<pre class="output"><code>[ 0*Z(2), Z(2)^0 ]
+Z(5)
+Z(5)^0</code></pre>
+<p>The next type of composite objects are <strong>records</strong>. While the list contains subobjects indexed by their positions in the list, a record contains subobjects, called <em>record components</em>, which are indexed by their names.</p>
 <pre class="gap"><code>date:= rec(year:= 2015, month:= &quot;Nov&quot;, day:= 17);</code></pre>
 <pre class="output"><code>rec( day := 17, month := &quot;Nov&quot;, year := 2015 )</code></pre>
 <pre class="gap"><code>date.year;</code></pre>
@@ -50,7 +69,7 @@
   time := rec( hour := 14, minute := 55, second := 12 ), year := 2015 )</code></pre>
 <pre class="gap"><code>RecNames(date);</code></pre>
 <pre class="output"><code>[ &quot;time&quot;, &quot;year&quot;, &quot;month&quot;, &quot;day&quot; ]</code></pre>
-<p>Finally, we haven’t seen strings and characters yet. Strings are lists of characters:</p>
+<p>Next, there are <strong>strings</strong> and <strong>characters</strong>. Strings are lists of characters:</p>
 <pre class="gap"><code>gap&gt; w:=&quot;supercalifragilisticexpialidocious&quot;; Length(w);</code></pre>
 <pre class="output"><code>&quot;supercalifragilisticexpialidocious&quot;
 34</code></pre>

@@ -21,6 +21,24 @@ subtitle: Reference
 
 ## [Some more GAP objects](02-some-objects.html)
 
+* [Integers](http://www.gap-system.org/Manuals/doc/ref/chap14.html)
+
+* [Rationals](http://www.gap-system.org/Manuals/doc/ref/chap17.html)
+
+* [Cyclotomic numbers](http://www.gap-system.org/Manuals/doc/ref/chap18.html)
+
+* [Floats](http://www.gap-system.org/Manuals/doc/ref/chap19.html)
+
+* [Finite Field Elements](http://www.gap-system.org/Manuals/doc/ref/chap59.html)
+
+* [Permutations](http://www.gap-system.org/Manuals/doc/ref/chap42.html)
+
+* [Lists](http://www.gap-system.org/Manuals/doc/ref/chap21.html)
+
+* [Records](http://www.gap-system.org/Manuals/doc/ref/chap29.html)
+
+* [Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.html)
+
 
 ## [Functions in GAP](03-func.html)
 

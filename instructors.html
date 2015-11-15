@@ -49,13 +49,17 @@
 <li><p>Help to call <code>WriteGapIniFile</code> and customise GAP e.g. to use browser as a viewer.</p></li>
 <li><p>Demonstrating how to type <code>Sum( List( elts, Order ) ) / Length( elts );</code> show how to assemble this command using command line editing and moving around the line, perhaps executing partial command to see their results, instead of typing the whole command from first to last character sequentially.</p></li>
 <li><p>Use Etherpad to vote for approaches to calculate the average order of a list. After that discuss situations when each of them may be more preferable than others.</p></li>
-<li><p>Emphasize that organising complex objects into nested records may be more efficient than nested lists.</p></li>
-<li><p>Beware that <code>w:=&quot;supercalifragilisticexpialidocious&quot;; IsSubset(w,'s');</code> results in a no-method-found error. This may be a good moment to introduce this special kind of error messages.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li>Solution of the challenge: <code>Filtered( elts, g -&gt; 2^g = 2 );</code> and <code>Filtered( elts, g -&gt; (1,2)^g = (1,2) );</code>.</li>
 </ol>
 <h2 id="some-more-gap-objects"><a href="02-some-objects.html">Some more GAP objects</a></h2>
+<ul>
+<li><p>Floats, cyclotomics, finite fields elements are not used further in the lesson, but we mention them briefly to show that they exist.</p></li>
+<li><p>Emphasize that organising complex objects into nested records may be more efficient than nested lists.</p></li>
+<li><p>Beware that <code>w:=&quot;supercalifragilisticexpialidocious&quot;; IsSubset(w,'s');</code> results in a no-method-found error. This may be a good moment to introduce this special kind of error messages.</p></li>
+<li><p>For extending GAP with new types of objects, refer to <a href="http://www.gap-system.org/Manuals/doc/ref/chap79.html">Creating New Objects</a> and <a href="http://www.gap-system.org/Manuals/doc/ref/chap80.html">Examples of Extending the System</a> of the GAP Reference Manual. Also, the <a href="http://www.gap-system.org/Packages/circle.html">Circle package</a> provides an example of extending GAP with new multiplicative objects.</p></li>
+</ul>
 <ol style="list-style-type: decimal">
 <li>Solution of the challenge: <code>r:=c[1]; for i in [2..Length(c)] do if c[i][2]&gt;r[2] then r:=c[i]; fi; od; r;</code></li>
 </ol>
