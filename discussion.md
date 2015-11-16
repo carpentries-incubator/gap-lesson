@@ -140,4 +140,33 @@ will help to generate citation sample for precisely the same version of GAP that
 
 ## Tips and tricks
 
-* TODO: how to start GAP with a shell script and supply arguments
+* This is a simples approach to call GAP from a shell script. Create the shell
+script called `check-one-order.sh` with the following content:
+
+~~~ {.bash}
+#!/bin/sh
+
+gap -r -b -q avgord.g << EOI
+TestOneOrderEasy( $1 );
+quit;
+EOI
+~~~
+
+and make it executable using `chmod u+x check-one-order.sh`. Now you may call
+it as follows:
+
+~~~ {.bash}
+$ ./check-one-order.sh 24
+~~~
+
+~~~ {.output}
+fail
+~~~
+
+~~~ {.bash}
+$ ./check-one-order.sh 105
+~~~
+
+~~~ {.output}
+[ 105, 1 ]
+~~~

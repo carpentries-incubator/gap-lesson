@@ -83,8 +83,14 @@
 </ul>
 <h2 id="tips-and-tricks">Tips and tricks</h2>
 <ul>
-<li>TODO: how to start GAP with a shell script and supply arguments</li>
+<li>How to start GAP with a shell script and supply arguments:</li>
 </ul>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="co">#!/bin/sh</span>
+
+<span class="kw">gap</span> -r -b -q avgord.g &lt;&lt; EOI
+TestOneOrderEasy( <span class="ot">$1</span> );
+quit;
+EOI</code></pre></div>
         </div>
       </div>
       </article>
