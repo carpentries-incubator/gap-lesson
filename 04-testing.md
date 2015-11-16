@@ -104,7 +104,9 @@ true
 
 Now we will present a better implementation. Of course, the order of an element
 is an invariant of a conjugacy class of elements of a group, so we need only to
-know the orders of conjugacy classes of elements and their representatives:
+know the orders of conjugacy classes of elements and their representatives. The
+following code, being added into `avgord.g`, reads into GAP and returns the answer
+without going into an error
 
 ~~~ {.gap}
 AvgOrdOfGroup := function(G)
@@ -112,19 +114,13 @@ local cc, sum, c;
 cc:=ConjugacyClasses(G);
 sum:=0;
 for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(c);
+  sum := sum + Order( Representative(c) ) * Size(cc);
 od;
 return sum/Size(G);
 end;
 ~~~
 
-Now edit the file `avgord.g` and modify `AvgOrdOfGroup` to use the new algorithm.
-Load the new version into GAP and call `Test("avgord.tst");` again to check that
-the tests run correctly.
-
-What would happen if the calculation is wrong? Edit `avgorg.g` and introduce a
-typo, replacing `Size(c)` by `Size(cc)`, then save the file, reread it and repeat
-the test:
+but when we run the test, here comes a surprise!
 
 ~~~ {.gap}
 Read("avgord.g");
@@ -167,5 +163,29 @@ AvgOrdOfGroup(SL(2,5));
 false
 ~~~
 
-Remember to correct the typo and rerun the test again
-before proceeding to the next part of the lesson.
+Indeed, we made (deliberately) a typo and replaced `Size(c)` by `Size(cc)`.
+The correct version of course should look as follows:
+
+~~~ {.gap}
+AvgOrdOfGroup := function(G)
+local cc, sum, c;
+cc:=ConjugacyClasses(G);
+sum:=0;
+for c in cc do
+  sum := sum + Order( Representative(c) ) * Size(c);
+od;
+return sum/Size(G);
+end;
+~~~
+
+Now we will fix this in `avgord.g`, and read and test it again to check that
+the tests run correctly.
+
+~~~ {.gap}
+Read("avgord.g");
+Test("avgord.tst");
+~~~
+
+~~~ {.output}
+true
+~~~

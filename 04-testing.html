@@ -88,18 +88,17 @@ gap&gt; AvgOrdOfGroup(SL(2,5));
 <p>Let us test the extended version of the test again and check that it works:</p>
 <pre class="gap"><code>Test(&quot;avgord.tst&quot;);</code></pre>
 <pre class="output"><code>true</code></pre>
-<p>Now we will present a better implementation. Of course, the order of an element is an invariant of a conjugacy class of elements of a group, so we need only to know the orders of conjugacy classes of elements and their representatives:</p>
+<p>Now we will present a better implementation. Of course, the order of an element is an invariant of a conjugacy class of elements of a group, so we need only to know the orders of conjugacy classes of elements and their representatives. The following code, being added into <code>avgord.g</code>, reads into GAP and returns the answer without going into an error</p>
 <pre class="gap"><code>AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
 sum:=0;
 for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(c);
+  sum := sum + Order( Representative(c) ) * Size(cc);
 od;
 return sum/Size(G);
 end;</code></pre>
-<p>Now edit the file <code>avgord.g</code> and modify <code>AvgOrdOfGroup</code> to use the new algorithm. Load the new version into GAP and call <code>Test(&quot;avgord.tst&quot;);</code> again to check that the tests run correctly.</p>
-<p>What would happen if the calculation is wrong? Edit <code>avgorg.g</code> and introduce a typo, replacing <code>Size(c)</code> by <code>Size(cc)</code>, then save the file, reread it and repeat the test:</p>
+<p>but when we run the test, here comes a surprise!</p>
 <pre class="gap"><code>Read(&quot;avgord.g&quot;);
 Test(&quot;avgord.tst&quot;);</code></pre>
 <pre class="output"><code>########&gt; Diff in avgord.tst, line 6:
@@ -135,7 +134,20 @@ AvgOrdOfGroup(SL(2,5));
 69/20
 ########
 false</code></pre>
-<p>Remember to correct the typo and rerun the test again before proceeding to the next part of the lesson.</p>
+<p>Indeed, we made (deliberately) a typo and replaced <code>Size(c)</code> by <code>Size(cc)</code>. The correct version of course should look as follows:</p>
+<pre class="gap"><code>AvgOrdOfGroup := function(G)
+local cc, sum, c;
+cc:=ConjugacyClasses(G);
+sum:=0;
+for c in cc do
+  sum := sum + Order( Representative(c) ) * Size(c);
+od;
+return sum/Size(G);
+end;</code></pre>
+<p>Now we will fix this in <code>avgord.g</code>, and read and test it again to check that the tests run correctly.</p>
+<pre class="gap"><code>Read(&quot;avgord.g&quot;);
+Test(&quot;avgord.tst&quot;);</code></pre>
+<pre class="output"><code>true</code></pre>
         </div>
       </div>
       </article>
