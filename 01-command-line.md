@@ -89,7 +89,10 @@ line does not matter):
 ~~~
 
 Now restore the previous command, use Left and Right arrow keys, Delete or
-Backspace to edit it and replace 32 by 64, then press the Return key:
+Backspace to edit it and replace 32 by 64 (another useful shortcuts are
+Ctrl-A and Ctrl-E to move the cursor to the beginning or to the end of the
+line, respectively). Now press the Return key (at any position of the
+cursor in the command line):
 
 ~~~ {.gap}
 ( 1 + 2^64 ) / (1 - 2*3*107 );
@@ -102,7 +105,7 @@ Backspace to edit it and replace 32 by 64, then press the Return key:
 It is useful to know that if the command line history is long, one could
 perform a partial search by typing the initial part of the command and using
 Up and Down arrow keys after that, to scroll only the lines that begin with
-the same string.
+the same string (but be careful about whitespaces!).
 
 Whitespace characters (i.e. Spaces, Tabs and Returns) are insignificant for
 the meaning of GAP input in most places. For example, the previous input
@@ -211,12 +214,6 @@ Filtered( Partitions(10), x -> 5 in x);
 >
 > Also, how many functions can you see in the input?
 
-The way functions are named in GAP might help to memorize or even guess names
-of library functions. If a variable name consists of several words then the
-first letter of each word is capitalized (remember that GAP is case-sensitive!).
-Further details on naming conventions used in GAP are documented in the GAP
-manual [here](https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4)).
-
 A very time-saving feature of the GAP command-line interfaces is completion
 of identifiers when the Tab key is pressed. For exampe, type `Fib` and then
 press the Tab key to complete the input to `Fibonacci`:
@@ -233,6 +230,12 @@ In case when the unique completion is not possible, GAP will try to perform
 partial completion, and pressing the Tab key second time will display all possible
 completions of the identifier. Try, for example, to enter `GroupHomomorphismByImages`
 or `NaturalHomomorphismByNormalSubgroup` using completion.
+
+The way functions are named in GAP might help to memorize or even guess names
+of library functions. If a variable name consists of several words then the
+first letter of each word is capitalized (remember that GAP is case-sensitive!).
+Further details on naming conventions used in GAP are documented in the GAP
+manual [here](https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4)).
 
 It is important to remember that GAP is case-sensitive. For example, the following
 input causes an error
