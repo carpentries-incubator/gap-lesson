@@ -133,9 +133,11 @@ suggests how to cite GAP, and the function
 [**`Cite`**](http://www.gap-system.org/Manuals/doc/ref/chap76.html#X79637D9A7B1AD7F7)
 will help to generate citation sample for precisely the same version of GAP that is used.
 
-* TODO: GAP packages
+* Consider sharing your GAP developments with others, from sharing your code by
+available means to organising it into a GAP package, submitted for the redistribution
+with GAP and optionally for the refereeing.
 
-* TODO: contribute to this lesson itself
+* Contribute to the further development of this lesson itself.
 
 
 ## Tips and tricks
