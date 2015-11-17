@@ -137,11 +137,16 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 0
 ~~~
 
-TODO:
-
-* show what will happen if this will be called for a collection which is not a group
-
-* Trace methods
+> ## Which method is being called{.callout}
+>
+> * Try to call `AverageOrder` for a collection which is not a group
+>   (a list of group elements and/or a conjugacy class of group elements).
+>
+> * Debugging tools like `Trace methods` may help to see which method is
+>   being called.
+>
+> * `ApplicableMethod` in combination with `PageSource` may point you to
+>   the source code with all the comments.
 
 A _property_ is a boolean-valued attribute. It can be created using `NewProperty`
 
@@ -165,19 +170,37 @@ InstallMethod( IsIntegerAverageOrder,
 Note that because `AverageOrder` is an operation it will take care of the selection of
 the most suitable method.
 
-* TODO: recovery from no-method-found error
+> ## Does such method always exist? {.callout}
+>
+> No. "No-method-found" is a special kind of error, and there are tools to
+> investigate such errors: see `?ShowArguments`, `?ShowDetails`, `?ShowMethods`
+> and `?ShowOtherMethods`.
 
-* TODO: demonstrate that for small groups enumeration may be faster
-
-* Set up challenge
+The following calculation shows that despite our success with calculating
+the average order for large permutation groups via conjugacy classes of
+elements, for pc groups from the Small Groups Library it could be faster
+to iterate over their elements than to calculate conjugacy classes:
 
 ~~~ {.gap}
-gap> l:=List([1..1000],i->SmallGroup(1536,i));;
-gap> List(l,AvgOrdOfGroup);;time;
+l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;
+~~~
+
+~~~ {.output}
 56231
-gap> l:=List([1..1000],i->SmallGroup(1536,i));;
-gap> List(l,AvgOrdOfCollection);;time;
+~~~
+
+~~~ {.gap}
+l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
+~~~
+
+~~~ {.output}
 9141
 ~~~
 
-Task: investigate using DihedralGroup(n) where is the turning point
+> ## Don't panic! {.challenge}
+>
+> * Install a method for `IsPcGroup` that iterates over the group elements
+>   instead of calculations its conjugacy classes.
+>
+> * Estimate practical boundaries of its feasibility. Can you find an example
+>   of a pc group when iterating is slower than calculating conjugacy classes?
