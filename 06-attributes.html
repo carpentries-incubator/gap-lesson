@@ -82,11 +82,18 @@ InstallMethod( AverageOrder, &quot;for a collection&quot;, [IsCollection], AvgOr
 26
 39020911/3628800
 0</code></pre>
-<p>TODO:</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="which-method-is-being-called"><span class="glyphicon glyphicon-pushpin"></span>Which method is being called</h2>
+</div>
+<div class="panel-body">
 <ul>
-<li><p>show what will happen if this will be called for a collection which is not a group</p></li>
-<li><p>Trace methods</p></li>
+<li><p>Try to call <code>AverageOrder</code> for a collection which is not a group (a list of group elements and/or a conjugacy class of group elements).</p></li>
+<li><p>Debugging tools like <code>Trace methods</code> may help to see which method is being called.</p></li>
+<li><p><code>ApplicableMethod</code> in combination with <code>PageSource</code> may point you to the source code with all the comments.</p></li>
 </ul>
+</div>
+</aside>
 <p>A <em>property</em> is a boolean-valued attribute. It can be created using <code>NewProperty</code></p>
 <pre class="gap"><code>IsIntegerAverageOrder := NewProperty(&quot;IsIntegerAverageOrder&quot;, IsCollection);</code></pre>
 <p>Now we will install a method for <code>IsIntegerAverageOrder</code> for a collection. Observe that neither below nor in the examples above it is not necessary to create a function first and then install it as a method. The following method installation just creates a new function as one of its arguments:</p>
@@ -96,18 +103,30 @@ InstallMethod( AverageOrder, &quot;for a collection&quot;, [IsCollection], AvgOr
   coll -&gt; IsInt( AverageOrder( coll ) )
 );</code></pre>
 <p>Note that because <code>AverageOrder</code> is an operation it will take care of the selection of the most suitable method.</p>
+<aside class="callout panel panel-info">
+<div class="panel-heading">
+<h2 id="does-such-method-always-exist"><span class="glyphicon glyphicon-pushpin"></span>Does such method always exist?</h2>
+</div>
+<div class="panel-body">
+<p>No. “No-method-found” is a special kind of error, and there are tools to investigate such errors: see <code>?ShowArguments</code>, <code>?ShowDetails</code>, <code>?ShowMethods</code> and <code>?ShowOtherMethods</code>.</p>
+</div>
+</aside>
+<p>The following calculation shows that despite our success with calculating the average order for large permutation groups via conjugacy classes of elements, for pc groups from the Small Groups Library it could be faster to iterate over their elements than to calculate conjugacy classes:</p>
+<pre class="gap"><code>l:=List([1..1000],i-&gt;SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;</code></pre>
+<pre class="output"><code>56231</code></pre>
+<pre class="gap"><code>l:=List([1..1000],i-&gt;SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;</code></pre>
+<pre class="output"><code>9141</code></pre>
+<section class="challenge panel panel-success">
+<div class="panel-heading">
+<h2 id="dont-panic"><span class="glyphicon glyphicon-pencil"></span>Don’t panic!</h2>
+</div>
+<div class="panel-body">
 <ul>
-<li><p>TODO: recovery from no-method-found error</p></li>
-<li><p>TODO: demonstrate that for small groups enumeration may be faster</p></li>
-<li><p>Set up challenge</p></li>
+<li><p>Install a method for <code>IsPcGroup</code> that iterates over the group elements instead of calculations its conjugacy classes.</p></li>
+<li><p>Estimate practical boundaries of its feasibility. Can you find an example of a pc group when iterating is slower than calculating conjugacy classes?</p></li>
 </ul>
-<pre class="gap"><code>gap&gt; l:=List([1..1000],i-&gt;SmallGroup(1536,i));;
-gap&gt; List(l,AvgOrdOfGroup);;time;
-56231
-gap&gt; l:=List([1..1000],i-&gt;SmallGroup(1536,i));;
-gap&gt; List(l,AvgOrdOfCollection);;time;
-9141</code></pre>
-<p>Task: investigate using DihedralGroup(n) where is the turning point</p>
+</div>
+</section>
         </div>
       </div>
       </article>
