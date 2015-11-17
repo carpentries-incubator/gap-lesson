@@ -26,7 +26,7 @@ We would like to use our own testing function, which we will create here,
 using inline notation (available for one-argument functions):
 
 ~~~ {.gap}
-TestOneGroup := G -> IsInt( AvgOrdOfGroup(G);
+TestOneGroup := G -> IsInt( AvgOrdOfGroup(G) );
 ~~~
 
 Now try, for example
@@ -80,8 +80,8 @@ fail
 ~~~
 
 The next version shows how to print additional information about the progress
-of computation. It also supplies the testing function as an argument (wgy this
-is better).
+of computation. It also supplies the testing function as an argument (why do
+you think this is better?).
 
 ~~~ {.gap}
 TestOneOrder := function(f,n)
