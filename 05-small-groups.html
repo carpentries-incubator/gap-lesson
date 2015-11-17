@@ -43,7 +43,7 @@
 <p>GAP distribution includes a number of data libraries (see an overview <a href="http://www.gap-system.org/Datalib/datalib.html">here</a>. One of them is the <a href="http://www.gap-system.org/Packages/sgl.html">Small Groups Library</a> by Hans Ulrich Besche, Bettina Eick and Eamonn O’Brien.</p>
 <p>This library provides various utilities to determine which information is stored there and submit queries to search for groups with desired properties. In particular, one should be familiar with the functions <code>SmallGroup</code>, <code>AllSmallGroups</code>, <code>NrSmallGroups</code> and <code>SmallGroupsInformation</code>.</p>
 <p>We would like to use our own testing function, which we will create here, using inline notation (available for one-argument functions):</p>
-<pre class="gap"><code>TestOneGroup := G -&gt; IsInt( AvgOrdOfGroup(G);</code></pre>
+<pre class="gap"><code>TestOneGroup := G -&gt; IsInt( AvgOrdOfGroup(G) );</code></pre>
 <p>Now try, for example</p>
 <pre class="gap"><code>List([TrivialGroup(),Group((1,2))],TestOneGroup);</code></pre>
 <pre class="output"><code>[ true, false ]</code></pre>
@@ -70,7 +70,7 @@ end;</code></pre>
 <pre class="output"><code>[ 1, 1 ]</code></pre>
 <pre class="gap"><code>TestOneOrderEasy(24);</code></pre>
 <pre class="output"><code>fail</code></pre>
-<p>The next version shows how to print additional information about the progress of computation. It also supplies the testing function as an argument (wgy this is better).</p>
+<p>The next version shows how to print additional information about the progress of computation. It also supplies the testing function as an argument (why do you think this is better?).</p>
 <pre class="gap"><code>TestOneOrder := function(f,n)
 local i, G;
 for i in [1..NrSmallGroups(n)] do
