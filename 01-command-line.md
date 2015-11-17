@@ -235,7 +235,7 @@ The way functions are named in GAP might help to memorize or even guess names
 of library functions. If a variable name consists of several words then the
 first letter of each word is capitalized (remember that GAP is case-sensitive!).
 Further details on naming conventions used in GAP are documented in the GAP
-manual [here](https://plus.google.com/events/cfm3tc375c142qtodvlvcfs82l4)).
+manual [here](http://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
 
 It is important to remember that GAP is case-sensitive. For example, the following
 input causes an error
