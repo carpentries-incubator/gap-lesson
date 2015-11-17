@@ -71,7 +71,10 @@
 <h2 id="using-regression-tests"><a href="04-testing.html">Using regression tests</a></h2>
 <h2 id="small-groups-search"><a href="05-small-groups.html">Small groups search</a></h2>
 <ul>
-<li>Live coding is preferred way to teach how to develop most of the functions from this lesson.</li>
+<li><p>Give an overview of <code>SmallGroup</code>, <code>AllSmallGroups</code>, <code>NrSmallGroups</code> and <code>SmallGroupsInformation</code> with some examples.</p></li>
+<li><p>Discuss, why iterating is better than AllSmallGroups exhausting memory (mention the concept of self-learning objects).</p></li>
+<li><p>A side question is how to convert a pc group, returned by <code>SmallGroup</code>, to some other representation, e.g. permutation or fp group.</p></li>
+<li><p>Live coding is preferred way to teach how to develop most of the functions from this lesson.</p></li>
 </ul>
 <ol style="list-style-type: decimal">
 <li>Solution of the challenge: <code>Sum(List(Filtered([1..2000], n -&gt; not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;</code>. In addition to <code>SmallGroup(105,1)</code> and <code>SmallGroup(357,1)</code>, another group is <code>SmallGroup(1785,1)</code>.</li>

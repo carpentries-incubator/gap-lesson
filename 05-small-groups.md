@@ -9,28 +9,27 @@ minutes: 20
 > * Using Small Groups Library
 > * Designing a system of functions to fit together
 
-In this section, we are interested to non-trivial groups such that the
-average order of their elements is an integer.
+In this section, we are interested to discover some non-trivial groups
+such that the average order of their elements is an integer.
 
-GAP distribution includes a number of data libraries  (TODO: link to their
-overview). One of them is the Small Groups Library (credit to authors).
+GAP distribution includes a number of data libraries (see an overview
+[here](http://www.gap-system.org/Datalib/datalib.html). One of them is
+the [Small Groups Library](http://www.gap-system.org/Packages/sgl.html) by
+Hans Ulrich Besche, Bettina Eick and Eamonn O'Brien.
 
-TODO:
+This library provides various utilities to determine which information
+is stored there and submit queries to search for groups with desired
+properties. In particular, one should be familiar with the functions
+`SmallGroup`, `AllSmallGroups`, `NrSmallGroups` and `SmallGroupsInformation`.
 
-* Demonstrate `SmallGroup`, `AllSmallGroups`, `SmallGroupsInformation`, `NrSmallGroups`
-
-* Why iterating is better than AllSmallGroups exhausting memory (do we need
-  the concept of self-learning objects before then?
-
-* If this is a pc group, how to get it in some other form?
-
-Introduce inline notation:
+We would like to use our own testing function, which we will create here,
+using inline notation (available for one-argument functions):
 
 ~~~ {.gap}
 TestOneGroup := G -> IsInt( AvgOrdOfGroup(G);
 ~~~
 
-Now try
+Now try, for example
 
 ~~~ {.gap}
 List([TrivialGroup(),Group((1,2))],TestOneGroup);
@@ -40,7 +39,7 @@ List([TrivialGroup(),Group((1,2))],TestOneGroup);
 [ true, false ]
 ~~~
 
-> ## What this function should do {.callout}
+> ## Modular programming begins here {.callout}
 >
 > Why a good design decision is for such function to return booleans,
 > and not just print information or return a string like `"YES"`.
@@ -217,7 +216,9 @@ TestRangeOfOrders(TestOneGroup,106,256);
 and discover that testing 2328 groups of order 128 and moreover 56092 groups
 of order 256 is already too long.
 
-* Show how to interrupt a long computation and leave the break loop.
+> ## Don't panic! {.callout}
+>
+> Find out how to interrupt a long computation and leave the break loop.
 
 This is another situation where theoretical knowledge helps much more than
 brute-force approach. If the group is a _p_ group, then the order of each
@@ -261,15 +262,92 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 [ 357, 1 ]
 ~~~
 
-Further points:
+The next function shows even further flexibility: it is variadic, i.e.
+it may accept arbitrary number of arguments that will be available as
+the list `arg` (special name for this kind of situation, don't use it
+otherwise). It also introduces Info messages that may be displayed
+or not dependently on the corresponding Info level:
 
-* Variadic functions and more flexible search
+~~~ {.gap}
+InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
 
-* InfoLevels to control verbosity
+TestOneOrderVariadic := function(arg)
+local f, n, n1, n2, i;
 
-* Show how to turn Info messages off and on for running tests
+if not Length(arg) in [2..4] then
+  Error("The number of arguments must be 2,3 or 4\n" );
+fi;
 
-and one or more of these at the end:
+if not IsFunction( arg[1] ) then
+  Error("The first argument must be a function\n" );
+else
+  f := arg[1];
+fi;
+
+if not IsPosInt( arg[2] ) then
+  Error("The second argument must be a positive integer\n" );
+else
+  n := arg[2];
+fi;
+
+if IsBound(arg[3]) then
+  n1:=arg[3];
+  if not n1 in [1..NrSmallGroups(n)] then
+    Error("The 3rd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+  fi;
+else
+  n1:=1;
+fi;
+
+if IsBound(arg[4]) then
+  n2:=arg[4];
+  if not n2 in [1..NrSmallGroups(n)] then
+    Error("The 4th argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+  elif n2 < n1 then
+    Error("The 4th argument must be greater or equal to the 3rd \n" );
+  fi;
+else
+  n2:=NrSmallGroups(n);
+fi;
+
+Info( InfoSmallGroupsSearch, 1,
+      "Checking groups ", n1, " ... ", n2, " of order ", n );
+for i in [n1..n2] do
+  if InfoLevel( InfoSmallGroupsSearch ) > 1 then
+    Print(i, "/", NrSmallGroups(n), "\r");
+  fi;
+  if f(SmallGroup(n,i)) then
+    Info( InfoSmallGroupsSearch, 1,
+          "Discovered counterexample: SmallGroup( ", n, ", ", i, " )" );
+    return [n,i];
+  fi;
+od;
+Info( InfoSmallGroupsSearch, 1,
+      "Search completed - no counterexample discovered" );
+return fail;
+end;
+~~~
+
+Because now the test output may not be reproducible at some other Info levels,
+we would like to ensure that we remember the value of the Info level before the
+test and restore it after the test:
+
+~~~ {.gap}
+# Finding groups with integer average order
+gap> INFO_SSS:=InfoLevel(InfoSmallGroupsSearch);;
+gap> res:=[];;
+gap> for n in [1..360] do
+>      if not IsPrimePowerInt(n) then
+>        t := TestOneOrderVariadic( IsIntegerAverageOrder,n,1,NrSmallGroups(n) );
+>        if t <> fail then
+>          Add(res,t);
+>        fi;
+>      fi;
+>    od;
+gap> res;
+[ [ 1, 1 ], [ 105, 1 ], [ 357, 1 ] ]
+gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
+~~~
 
 > ## Does the Small Groups Library contain another group with this property? {.challenge}
 >

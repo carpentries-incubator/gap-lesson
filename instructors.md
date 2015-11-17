@@ -104,8 +104,18 @@ message.
 
 ## [Small groups search](05-small-groups.html)
 
+* Give an overview of `SmallGroup`, `AllSmallGroups`, `NrSmallGroups` and
+`SmallGroupsInformation` with some examples.
+
+* Discuss, why iterating is better than AllSmallGroups exhausting memory
+  (mention the concept of self-learning objects).
+
+* A side question is how to convert a pc group, returned by `SmallGroup`, to
+some other representation, e.g. permutation or fp group.
+
 * Live coding is preferred way to teach how to develop most of the functions
 from this lesson.
+
 
 1.  Solution of the challenge: `Sum(List(Filtered([1..2000], n -> not IsPrimePowerInt(n)),NrSmallGroups)); NrSmallGroups(1536); last2-last;`. In addition to `SmallGroup(105,1)` and
 `SmallGroup(357,1)`, another group is `SmallGroup(1785,1)`.
