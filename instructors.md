@@ -23,6 +23,13 @@ GAP output is ion blue colour. Errors are displayed in red. GAP promts is
 not displayed, unless this is really necessary (e.g. to demonstrate how the
 multi-line input works).
 
+* It is important that instructor starts GAP with `-r` option to avoid
+interfering with own GAP settings e.g. locally installed packages and
+other content of `.gap` directory.
+
+* To use color prompt when GAP is started with `-r` option to ignore all user
+preferences, including this (if set), call `ColorPrompt(true);`.
+
 ## [First session with GAP](01-command-line.html)
 
 * Emphasize that the banner contains version info useful for citing GAP or
