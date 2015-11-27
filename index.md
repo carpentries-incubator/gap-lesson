@@ -40,9 +40,18 @@ On this path, the learner will became familiar with:
 > (including home and working directories) and know only how to start GAP.
 
 > ## Getting ready {.getready}
-> 1. In your home directory, create a new directory called `avgord`
-> 2. Change to that directory
-> 3. Start GAP
+> 1. In your home directory, create a new directory called `avgord`.
+> 2. **Only on Linux and OS X:** in the terminal, navigate to that directory
+>    using the `cd` command.
+> 3. Start GAP: on Linux and OS X, call `gap4r7/bin/gap.sh` (edit the path as
+>    needed); on Windows, call it via the appropriate menu or by double-clicking
+>    on the `gap4r7/bin/gap.bat` file in your GAP installation.
+> 4. **Only on Windows:** set `avgord` to be your current directory using the
+>    command `ChangeDirectoryCurrent("C:/Users/username/avgord");` (edit the
+path as needed, remember to use `/`" instead of `\`).
+> 5. Check that your current directory is set up properly: on Linux and OS X,
+>    call `Exec("pwd");`; on Windows, call `Exec("DIR");`. The path that you
+>    will see in the output should be the path to the `avgord` directory.
 
 ## Topics
 
