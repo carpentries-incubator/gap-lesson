@@ -42,8 +42,9 @@
 </div>
 </section>
 <p>The code of <code>AvgOrdOfGroup</code> is very simple and possibly nothing could go wrong with it. It avoids problems with running out of memory because of iterating over the group instead of creating a list of its elements (calling <code>AsList(SymmetricGroup(11))</code> already results in exceeding the permitted memory), however it takes several minutes to calculate an average order of an element of <code>SymmetricGroup(11)</code>. But at least we are confident that it is correct.</p>
-<p>Now we would like to write a better version of this function using some theoretical facts we know from the Group Theory. We may put <code>avgorg.g</code> under version control to revert changes if need be; we may create a new function to keep the old one around and compare the results of both; but this could be made even more efficient if we will use <strong>regression tests</strong>.</p>
-<p>To start with, we need to create a test file. We will copy and paste the GAP session with GAP prompts, inputs and outputs into a text file, called <code>avgord.tst</code> and created in the current directory (to avoid typing full path).</p>
+<p>Now we would like to write a better version of this function using some theoretical facts we know from the Group Theory. We may put <code>avgorg.g</code> under version control to revert changes if need be; we may create a new function to keep the old one around and compare the results of both; but this could be made even more efficient if we will use <strong>regression testing</strong>: this is the term for the testing based on rerunning previously completed tests to check that new changes do not impact their correctness or worsen their performance.</p>
+<p>To start with, we need to create a <strong>test file</strong>. The test file looks exactly like the GAP session, so it is easy to create it by copying and pasting the GAP session with all GAP prompts, inputs and outputs into a text file (a test file could be also created from the log file with a GAP session recorded with the help of <code>LogTo</code>). During the test, GAP will run all inputs from the test, compare the outputs with those in the test file and will report any differences.</p>
+<p>GAP test files are just text files, but the common practice is to name them with the extension <code>.tst</code>. Now create in the current directory (to avoid typing the full path), the file <code>avgord.tst</code> with the following content:</p>
 <pre class="gap"><code># tests for average order of a group element
 
 # permutation Group
@@ -51,11 +52,13 @@ gap&gt; S:=SymmetricGroup(9);
 Sym( [ 1 .. 9 ] )
 gap&gt; AvgOrdOfGroup(S);
 3291487/362880</code></pre>
-<p>Test files may be tested using the function <code>Test</code>, as documented <a href="http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C">here</a>. As you may see above, they may include comments, with certain rules specifying where they may be placed.</p>
-<p>Now we will run the test, assuming that the function <code>AvgOrdOfGroup</code> is already loaded. This test works correctly, so <code>Test</code> reports no discrepancies and returns <code>true</code>:</p>
+<p>As you see, the test file may include comments, with certain rules specifying where they may be placed, because one should be able to distinguish comments in the test file from GAP output started with <code>#</code>. For that purpose, lines at the beginning of the test file that start with <code>#</code>“, and one empty line together with one or more lines starting with <code>#</code> are considered as comments. All other lines are considered as GAP output from the preceding GAP input.</p>
+<p>To run the test, one should use the function <code>Test</code>, as documented <a href="http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C">here</a>. For example (assuming that the function <code>AvgOrdOfGroup</code> is already loaded):</p>
 <pre class="gap"><code>Test(&quot;avgord.tst&quot;);</code></pre>
 <pre class="output"><code>true</code></pre>
-<p>We will not cover a topic of writing a good and comprehensive test suite here, but at least we will add groups of some other kinds to demonstrate them, as well as several variations of combining commands in the test file:</p>
+<p>In this case, <code>Test</code> reported no discrepancies and returned <code>true</code>, so we conclude that the test has passed.</p>
+<p>We will not cover a topic of writing a good and comprehensive test suite here, and also will not cover various options of the <code>Test</code> function, permitting, for example, to ignore differences in the output formatting, or to display progress of the test, as these are described in its documentation.</p>
+<p>Instead, we will now add more groups to <code>avgord.tst</code>, to demonstrate that the code also works with other kinds of groups, and to show various ways of combining commands in the test file:</p>
 <pre class="gap"><code># tests for average order of a group element
 
 # permutation group
@@ -89,7 +92,7 @@ gap&gt; AvgOrdOfGroup(SL(2,5));
 <p>Let us test the extended version of the test again and check that it works:</p>
 <pre class="gap"><code>Test(&quot;avgord.tst&quot;);</code></pre>
 <pre class="output"><code>true</code></pre>
-<p>Now we will present a better implementation. Of course, the order of an element is an invariant of a conjugacy class of elements of a group, so we need only to know the orders of conjugacy classes of elements and their representatives. The following code, being added into <code>avgord.g</code>, reads into GAP and returns the answer without going into an error</p>
+<p>Now we will work on a better implementation. Of course, the order of an element is an invariant of a conjugacy class of elements of a group, so we need only to know the orders of conjugacy classes of elements and their representatives. The following code, being added into <code>avgord.g</code>, reads into GAP and returns the answer without going into an error</p>
 <pre class="gap"><code>AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -149,6 +152,7 @@ end;</code></pre>
 <pre class="gap"><code>Read(&quot;avgord.g&quot;);
 Test(&quot;avgord.tst&quot;);</code></pre>
 <pre class="output"><code>true</code></pre>
+<p>Thus, the approach “Make it right, then make it fast” helped to detect a bug immediately after it has been introduced.</p>
         </div>
       </div>
       </article>

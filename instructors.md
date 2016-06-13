@@ -118,6 +118,19 @@ message.
 
 ## [Using regression tests](04-testing.html)
 
+* Learners may need help with formatting the test because of misplaced comments
+and/or different formatting of the output.
+
+* Cover aspects of making test files reproducible: random vs explicit examples,
+suppressing output with double semicolon, etc.
+
+* Refer to other options of `Test` such as comparing the output up to
+whitespaces, displaying the progress of the test, etc.
+
+* Mention `TestDirectory` function to run a collection of tests.
+
+* Mention profiling and code coverage tools.
+
 
 ## [Small groups search](05-small-groups.html)
 

@@ -25,11 +25,21 @@ theoretical facts we know from the Group Theory. We may put
 `avgorg.g` under version control to revert changes if need be;
 we may create a new function to keep the old one around and compare the
 results of both; but this could be made even more efficient if we will
-use **regression tests**.
+use **regression testing**: this is the term for the testing based on
+rerunning previously completed tests to check that new changes do not
+impact their correctness or worsen their performance.
 
-To start with, we need to create a test file. We will copy and paste
-the GAP session with GAP prompts, inputs and outputs into a text file, called
-`avgord.tst` and created in the current directory (to avoid typing full path).
+To start with, we need to create a **test file**. The test file looks
+exactly like the GAP session, so it is easy to create it by copying and
+pasting the GAP session with all GAP prompts, inputs and outputs into a
+text file (a test file could be also created from the log file with a
+GAP session recorded with the help of `LogTo`). During the test, GAP will
+run all inputs from the test, compare the outputs with those in the test
+file and will report any differences.
+
+GAP test files are just text files, but the common practice is to name
+them with the extension `.tst`. Now create in the current directory (to
+avoid typing the full path), the file `avgord.tst` with the following content:
 
 ~~~ {.gap}
 # tests for average order of a group element
@@ -41,13 +51,15 @@ gap> AvgOrdOfGroup(S);
 3291487/362880
 ~~~
 
-Test files may be tested using the function `Test`, as documented [here](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
-As you may see above, they may include comments, with certain rules specifying
-where they may be placed.
+As you see, the test file may include comments, with certain rules specifying
+where they may be placed, because one should be able to distinguish comments
+in the test file from GAP output started with `#`. For that purpose,
+lines at the beginning of the test file that start with `#`", and one empty line
+together with one or more lines starting with `#` are considered as comments.
+All other lines are considered as GAP output from the preceding GAP input.
 
-Now we will run the test, assuming that the function `AvgOrdOfGroup` is already
-loaded. This test works correctly, so `Test` reports no discrepancies and
-returns `true`:
+To run the test, one should use the function `Test`, as documented [here](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
+For example (assuming that the function `AvgOrdOfGroup` is already loaded):
 
 ~~~ {.gap}
 Test("avgord.tst");
@@ -57,9 +69,17 @@ Test("avgord.tst");
 true
 ~~~
 
+In this case, `Test` reported no discrepancies and returned `true`, so we
+conclude that the test has passed.
+
 We will not cover a topic of writing a good and comprehensive test suite here,
-but at least we will add groups of some other kinds to demonstrate them, as
-well as several variations of combining commands in the test file:
+and also will not cover various options of the `Test` function, permitting, for
+example, to ignore differences in the output formatting, or to display progress
+of the test, as these are described in its documentation.
+
+Instead, we will now add more groups to `avgord.tst`, to demonstrate that the
+code also works with other kinds of groups, and to show various ways of
+combining commands in the test file:
 
 ~~~ {.gap}
 # tests for average order of a group element
@@ -104,7 +124,7 @@ Test("avgord.tst");
 true
 ~~~
 
-Now we will present a better implementation. Of course, the order of an element
+Now we will work on a better implementation. Of course, the order of an element
 is an invariant of a conjugacy class of elements of a group, so we need only to
 know the orders of conjugacy classes of elements and their representatives. The
 following code, being added into `avgord.g`, reads into GAP and returns the answer
@@ -191,3 +211,6 @@ Test("avgord.tst");
 ~~~ {.output}
 true
 ~~~
+
+Thus, the approach "Make it right, then make it fast" helped to detect a bug
+immediately after it has been introduced.
