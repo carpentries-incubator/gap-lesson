@@ -41,17 +41,21 @@ On this path, the learner will became familiar with:
 
 > ## Getting ready {.getready}
 > 1. In your home directory, create a new directory called `avgord`.
-> 2. **Only on Linux and OS X:** in the terminal, navigate to that directory
->    using the `cd` command.
-> 3. Start GAP: on Linux and OS X, call `gap4r7/bin/gap.sh` (edit the path as
->    needed); on Windows, call it via the appropriate menu or by double-clicking
->    on the `gap4r7/bin/gap.bat` file in your GAP installation.
-> 4. **Only on Windows:** set `avgord` to be your current directory using the
->    command `ChangeDirectoryCurrent("C:/Users/username/avgord");` (edit the
-path as needed, remember to use `/`" instead of `\`).
-> 5. Check that your current directory is set up properly: on Linux and OS X,
->    call `Exec("pwd");`; on Windows, call `Exec("DIR");`. The path that you
->    will see in the output should be the path to the `avgord` directory.
+> 2. Start GAP:
+> * on Linux and OS X, call `path-to-your-gap-installation/gap4r8/bin/gap.sh`
+>    (edit the path as necessary);
+> * on Windows, call it via the appropriate menu or
+>    by double-clicking on the `gap4r8/bin/gap.bat` file in your GAP installation.
+> 3. Set your current directory to `avgord` calling `ChangeDirectoryCurrent` from
+>    the IO package (if GAP is installed correctly, by default it should be loaded
+>    when GAP starts):
+> * on Linux and OS X, call `ChangeDirectoryCurrent("/home/username/avgord");`
+>    (edit the path as necessary; remember to type the full path to your home
+>    directory instead of `~`).
+> * on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
+>    (edit the path as necessary; remember to use `/` instead of `\`).
+> 4. Check that your current directory is set up properly: call `DirectoryCurrent();`
+>    and the path that you will see in the output should point to the `avgord` directory.
 
 ## Topics
 
