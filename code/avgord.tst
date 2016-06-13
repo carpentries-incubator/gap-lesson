@@ -31,6 +31,7 @@ gap> AvgOrdOfGroup(SL(2,5));
 
 # Finding groups with integer average order
 gap> INFO_SSS:=InfoLevel(InfoSmallGroupsSearch);;
+gap> SetInfoLevel( InfoSmallGroupsSearch, 0);
 gap> res:=[];;
 gap> for n in [1..360] do
 >      if not IsPrimePowerInt(n) then

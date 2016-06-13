@@ -83,27 +83,23 @@ end;
 
 InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
 
-TestOneOrderVariadic := function(arg)
-local f, n, n1, n2, i;
+TestOneOrderVariadic := function(f,n,r...)
+local n1, n2, i;
 
-if not Length(arg) in [2..4] then
+if not Length(r) in [0..2] then
   Error("The number of arguments must be 2,3 or 4\n" );
 fi;
 
-if not IsFunction( arg[1] ) then
+if not IsFunction( f ) then
   Error("The first argument must be a function\n" );
-else
-  f := arg[1];
 fi;
 
-if not IsPosInt( arg[2] ) then
+if not IsPosInt( n ) then
   Error("The second argument must be a positive integer\n" );
-else
-  n := arg[2];
 fi;
 
-if IsBound(arg[3]) then
-  n1:=arg[3];
+if IsBound(r[1]) then
+  n1:=r[1];
   if not n1 in [1..NrSmallGroups(n)] then
     Error("The 3rd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
   fi;
@@ -111,8 +107,8 @@ else
   n1:=1;
 fi;
 
-if IsBound(arg[4]) then
-  n2:=arg[4];
+if IsBound(r[2]) then
+  n2:=r[2];
   if not n2 in [1..NrSmallGroups(n)] then
     Error("The 4th argument must belong to ", [1..NrSmallGroups(n)], "\n" );
   elif n2 < n1 then

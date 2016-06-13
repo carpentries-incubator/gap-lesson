@@ -225,27 +225,23 @@ end;</code></pre>
 <p>The next function shows even further flexibility: it is variadic, i.e. it may accept arbitrary number of arguments that will be available as the list <code>arg</code> (special name for this kind of situation, don’t use it otherwise). It also introduces Info messages that may be displayed or not dependently on the corresponding Info level:</p>
 <pre class="gap"><code>InfoSmallGroupsSearch := NewInfoClass(&quot;InfoSmallGroupsSearch&quot;);
 
-TestOneOrderVariadic := function(arg)
-local f, n, n1, n2, i;
+TestOneOrderVariadic := function(f,n)
+local n1, n2, i;
 
-if not Length(arg) in [2..4] then
+if not Length(n) in [0..2] then
   Error(&quot;The number of arguments must be 2,3 or 4\n&quot; );
 fi;
 
-if not IsFunction( arg[1] ) then
+if not IsFunction( f ) then
   Error(&quot;The first argument must be a function\n&quot; );
-else
-  f := arg[1];
 fi;
 
-if not IsPosInt( arg[2] ) then
+if not IsPosInt( n ) then
   Error(&quot;The second argument must be a positive integer\n&quot; );
-else
-  n := arg[2];
 fi;
 
-if IsBound(arg[3]) then
-  n1:=arg[3];
+if IsBound(r[1]) then
+  n1:=r[1];
   if not n1 in [1..NrSmallGroups(n)] then
     Error(&quot;The 3rd argument must belong to &quot;, [1..NrSmallGroups(n)], &quot;\n&quot; );
   fi;
@@ -253,8 +249,8 @@ else
   n1:=1;
 fi;
 
-if IsBound(arg[4]) then
-  n2:=arg[4];
+if IsBound(r[2]) then
+  n2:=r[2];
   if not n2 in [1..NrSmallGroups(n)] then
     Error(&quot;The 4th argument must belong to &quot;, [1..NrSmallGroups(n)], &quot;\n&quot; );
   elif n2 &lt; n1 then
