@@ -10,17 +10,48 @@ minutes: 20
 > * Designing a system of functions to fit together
 
 In this section, we are interested to discover some non-trivial groups
-such that the average order of their elements is an integer.
+having the property that the average order of their elements is an integer.
 
 GAP distribution includes a number of data libraries (see an overview
-[here](http://www.gap-system.org/Datalib/datalib.html). One of them is
+[here](http://www.gap-system.org/Datalib/datalib.html)). One of them is
 the [Small Groups Library](http://www.gap-system.org/Packages/sgl.html) by
 Hans Ulrich Besche, Bettina Eick and Eamonn O'Brien.
 
 This library provides various utilities to determine which information
 is stored there and submit queries to search for groups with desired
-properties. In particular, one should be familiar with the functions
-`SmallGroup`, `AllSmallGroups`, `NrSmallGroups` and `SmallGroupsInformation`.
+properties. The key functions are `SmallGroup`, `AllSmallGroups`,
+`NrSmallGroups`, `SmallGroupsInformation` and `IdGroup`. For example:
+
+~~~ {.gap}
+gap> NrSmallGroups(64);
+267
+gap> SmallGroupsInformation(64);
+
+  There are 267 groups of order 64.
+  They are sorted by their ranks.
+     1 is cyclic.
+     2 - 54 have rank 2.
+     55 - 191 have rank 3.
+     192 - 259 have rank 4.
+     260 - 266 have rank 5.
+     267 is elementary abelian.
+
+  For the selection functions the values of the following attributes
+  are precomputed and stored:
+     IsAbelian, PClassPGroup, RankPGroup, FrattinifactorSize and
+     FrattinifactorId.
+
+  This size belongs to layer 2 of the SmallGroups library.
+  IdSmallGroup is available for this size.
+
+gap> G:=SmallGroup(64,2);
+<pc group of size 64 with 6 generators>
+gap> AllSmallGroups(Size,64,NilpotencyClassOfGroup,5);
+[ <pc group of size 64 with 6 generators>, <pc group of size 64 with 6 generators>,
+  <pc group of size 64 with 6 generators> ]
+gap> List(last,IdGroup);
+[ [ 64, 52 ], [ 64, 53 ], [ 64, 54 ] ]
+~~~
 
 We would like to use our own testing function, which we will create here,
 using inline notation (available for one-argument functions):
@@ -39,10 +70,18 @@ List([TrivialGroup(),Group((1,2))],TestOneGroup);
 [ true, false ]
 ~~~
 
+~~~ {.gap}
+gap> AllSmallGroups(Size,24,TestOneGroup,true);
+~~~
+
+~~~ {.output}
+[ ]
+~~~
+
 > ## Modular programming begins here {.callout}
 >
 > Why a good design decision is for such function to return booleans,
-> and not just print information or return a string like `"YES"`.
+> and not just print information or return a string like `"YES"`?
 
 This is a simple example of a function which tests all groups of a given order.
 It creates one group at a time, checks the desired property, and returns as soon
@@ -79,8 +118,16 @@ TestOneOrderEasy(24);
 fail
 ~~~
 
-The next version shows how to print additional information about the progress
-of computation. It also supplies the testing function as an argument (why do
+> ## `AllSmallGroups` runs out of memory - what to do?{.callout}
+>
+> * Use iteration over `[1..NrSmallGroups(n)]` as shown in the function above
+> * Use `IdsOfAllSmallGroups` which accepts same arguments as `AllSmallGroups`
+> but returns ids instead of groups.
+
+Iterating over `[1..NrSmallGroups(n)]` gives you more flexibility if you need
+more control over the progress of calculation. For example, the next version
+of our testing function prints additional information about the number of the
+group being tested. It also supplies the testing function as an argument (why do
 you think this is better?).
 
 ~~~ {.gap}
@@ -112,9 +159,9 @@ will display a changing counter during calculation and then return `fail`:
 fail
 ~~~
 
-The next step is to write a function which will test all orders from 2 to `n`
-and stop as soon as it will find an example of a group with the average order
-of an element being an integer:
+The next step is to integrate `TestOneOrder` into a function which will test
+all orders from 2 to `n` and stop as soon as it will find an example of a
+group with the average order of an element being an integer:
 
 ~~~ {.gap}
 TestAllOrders:=function(f,n)
@@ -155,10 +202,12 @@ TestAllOrders(TestOneGroup,128);
 [ 105, 1 ]
 ~~~
 
-It reports that there is such group of order 105:
+To explore it further, we can get its `StructureDescription` (see
+[here](http://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
+for the explanation of the notation it uses):
 
 ~~~ {.gap}
-G:=SmallGroup(105,1);AvgOrdOfGroup(G);StructureDescription(G);
+G:=SmallGroup(105,1); AvgOrdOfGroup(G); StructureDescription(G);
 ~~~
 
 ~~~ {.output}
@@ -167,7 +216,7 @@ G:=SmallGroup(105,1);AvgOrdOfGroup(G);StructureDescription(G);
 "C5 x (C7 : C3)"
 ~~~
 
-To explore it further,
+and then convert it to a finitely presented group to see its generators and relators:
 
 ~~~ {.gap}
 H:=SimplifiedFpGroup(Image(IsomorphismFpGroup(G)));
@@ -218,14 +267,16 @@ of order 256 is already too long.
 
 > ## Don't panic! {.callout}
 >
-> Find out how to interrupt a long computation and leave the break loop.
+> You can interrupt GAP by pressing Ctrl-C once. After that, GAP will enter
+> a break loop, designated by the break prompt `brk`. You can leave it by
+> typing `quit;` (beware of pressing Ctrl-C twice within a second - that will
+> terminate GAP session completely).
 
-This is another situation where theoretical knowledge helps much more than
-brute-force approach. If the group is a _p_ group, then the order of each
+This is again the situation where theoretical knowledge helps much more than
+brute-force approach. If the group is a _p_-group, then the order of each
 conjugacy class of a non-identity element of a group is divisible by _p_,
-therefore, the average order of a group element can not be an integer. These
-groups could be excluded from calculation. So, the new version of the code
-is
+therefore, the average order of a group element can not be an integer. Therefore,
+_p_-groups could be excluded from calculation. So, the new version of the code is
 
 ~~~ {.gap}
 TestRangeOfOrders:=function(f,n1,n2)
@@ -242,7 +293,7 @@ return fail;
 end;
 ~~~
 
-and using it we discover a group of order 357 with the same property:
+and using it we are able to discover a group of order 357 with the same property:
 
 ~~~ {.gap}
 gap> TestRangeOfOrders(TestOneGroup,106,512);
