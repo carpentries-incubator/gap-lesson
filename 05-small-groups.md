@@ -314,18 +314,42 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 ~~~
 
 The next function shows even further flexibility: it is variadic, i.e.
-it may accept arbitrary number of arguments that will be available as
-the list `arg` (special name for this kind of situation, don't use it
-otherwise). It also introduces Info messages that may be displayed
-or not dependently on the corresponding Info level:
+it may accept two or more arguments, the first two will be assigned to
+variables `f` and `n`, and the rest will be available in the list `r`
+(this is indicated by `...` after `r`). The first argument is the testing
+function, the second in the order to check, and the third and the fourth
+are the numbers of the first and last groups of this order that should be
+checked. By default, the first is equal to 1, and the last is equal to
+`NrSmallGroups(n)`. This functions also shows how validate the input and
+produce user-friendly error messages in case of wrong arguments.
+
+In addition, this function demonstrates how to use `Info` messages that
+may be switched on and off by setting appropriate `Info` level. The need
+we address here is to be able to switch the levels of verbosity of the
+output without error-prone approach of walking through the code and commenting
+`Print` statements in and out. It is achieved by creating an info class:
 
 ~~~ {.gap}
-InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
+gap> InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
+~~~
 
-TestOneOrderVariadic := function(f,n)
+~~~ {.output}
+InfoSmallGroupsSearch
+~~~
+
+Now instead of `Print("something");` one could use
+`Info( InfoSmallGroupsSearch, infolevel, "something" );`
+where `infolevel` is a positive integer specifying the level of verbosity.
+This level could be changed to `n` using the command
+`SetInfoLevel( InfoSmallGroupsSearch, n);`. See actual calls of `Info` in
+the code below:
+
+~~~ {.gap}
+
+TestOneOrderVariadic := function(f,n,r...)
 local n1, n2, i;
 
-if not Length(n) in [0..2] then
+if not Length(r) in [0..2] then
   Error("The number of arguments must be 2,3 or 4\n" );
 fi;
 
@@ -375,13 +399,37 @@ return fail;
 end;
 ~~~
 
-Because now the test output may not be reproducible at some other Info levels,
-we would like to ensure that we remember the value of the Info level before the
-test and restore it after the test:
+The following example demonstrates how the output now may be controlled
+by switching the info level for `InfoSmallGroupsSearch`:
+
+~~~ {.gap}
+gap> TestOneOrderVariadic(IsIntegerAverageOrder,24);
+fail
+gap> SetInfoLevel( InfoSmallGroupsSearch, 1 );
+gap> TestOneOrderVariadic(IsIntegerAverageOrder,24);
+#I  Checking groups 1 ... 15 of order 24
+#I  Search completed - no counterexample discovered
+fail
+gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
+#I  Checking groups 1 ... 2 of order 357
+#I  Discovered counterexample: SmallGroup( 357, 1 )
+[ 357, 1 ]
+gap> SetInfoLevel( InfoSmallGroupsSearch, 0);
+gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
+[ 357, 1 ]
+~~~
+
+Of course, this now introduces some complication for the test file,
+which compares the actual output with the reference output. To resolve
+this problem, we will decide to run the tests at info level 0 to suppress
+all additional outputs. Because the tests may have been started in the
+GAP session with a different info level, we will remember that info level
+to restore it after the test:
 
 ~~~ {.gap}
 # Finding groups with integer average order
 gap> INFO_SSS:=InfoLevel(InfoSmallGroupsSearch);;
+gap> SetInfoLevel( InfoSmallGroupsSearch, 0);
 gap> res:=[];;
 gap> for n in [1..360] do
 >      if not IsPrimePowerInt(n) then
