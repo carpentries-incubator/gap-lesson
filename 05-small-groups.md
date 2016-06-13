@@ -364,7 +364,7 @@ fi;
 if IsBound(r[1]) then
   n1:=r[1];
   if not n1 in [1..NrSmallGroups(n)] then
-    Error("The 3rd argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+    Error("The 3rd argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
   fi;
 else
   n1:=1;
@@ -373,9 +373,9 @@ fi;
 if IsBound(r[2]) then
   n2:=r[2];
   if not n2 in [1..NrSmallGroups(n)] then
-    Error("The 4th argument must belong to ", [1..NrSmallGroups(n)], "\n" );
+    Error("The 4th argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
   elif n2 < n1 then
-    Error("The 4th argument must be greater or equal to the 3rd \n" );
+    Error("The 4th argument, if present, must be greater or equal to the 3rd \n" );
   fi;
 else
   n2:=NrSmallGroups(n);
