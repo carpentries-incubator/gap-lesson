@@ -20,6 +20,8 @@ gap> F:=FreeGroup("a","b");
 <free group on the generators [ a, b ]>
 gap> G:=F/ParseRelators(GeneratorsOfGroup(F),"a^8=b^2=1, b^-1ab=a^-1");
 <fp group on the generators [ a, b ]>
+gap> IsFinite(G);
+true
 gap> AvgOrdOfGroup(G);
 59/16
 
