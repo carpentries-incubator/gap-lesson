@@ -96,6 +96,13 @@ EOI</code></pre></div>
 <pre class="output"><code>fail</code></pre>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">./check-one-order.sh</span> 105</code></pre></div>
 <pre class="output"><code>[ 105, 1 ]</code></pre>
+<ul>
+<li>Reading data files</li>
+</ul>
+<p>GAP can read any valid GAP input from the code using <code>Read</code>. The contents will be read and evaluated in the main read-evaluate-print loop, but the results will not printed. Sometimes you may want to read the content of the file as a function and return that function - for that purpose you may find <code>ReadAsFunction</code> useful. But what to do if you have some a data file coming from other source, and it is not a valid GAP input? Sometimes you may have control over the tool that exports data, and may be able to tweak it to generate GAP input file. But where to look if this option is not possible?</p>
+<p><code>ReadCSV( filename[, nohead][, separator] )</code> reads a file in a CSV (comma separated values) format and returns its entries as a list of records (see <a href="http://www.gap-system.org/Manuals/doc/ref/chap10.html#X848DD7DC79363341">here</a>). The entries of the first line of the file will be used for the names of the record components (blanks will be translated into underscores). One could also indicate that the first line contains data instead of field names, and also specify a custom separator. Conversely, <code>PrintCSV</code> may be used to output CSV files.</p>
+<p>To read arbitrary (binary or text) files as strings, use the <code>StringFile</code> function provided by the GAPDoc package (see <a href="http://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3">here</a>). It will return the content of the file as a string. After that, you may use various string manipulation tools (see <a href="http://www.gap-system.org/Manuals/doc/ref/chap27.htmlGAPDoc">Strings and Characters</a> in the GAP reference manual) to process it in the way you need. GAPDoc package also provides the <code>FileString</code> function which writes the content of a string into a file.</p>
+<p>If you need to organise reading/writing line by line, instead of reading or writing the whole file/string at once, we suggest to look at the functionality provided by the IO package (see <a href="http://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html">here</a>), in particular at <code>IO_ReadLine</code> and <code>IO_WriteLine</code>.</p>
         </div>
       </div>
       </article>

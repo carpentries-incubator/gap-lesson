@@ -172,3 +172,37 @@ $ ./check-one-order.sh 105
 ~~~ {.output}
 [ 105, 1 ]
 ~~~
+
+* Reading data files
+
+GAP can read any valid GAP input from the code using `Read`. The contents will
+be read and evaluated in the main read-evaluate-print loop, but the results will
+not printed. Sometimes you may want to read the content of the file as a function
+and return that function - for that purpose you may find `ReadAsFunction` useful.
+But what to do if you have some a data file coming from other source, and it is
+not a valid GAP input? Sometimes you may have control over the tool that exports
+data, and may be able to tweak it to generate GAP input file. But where to look
+if this option is not possible?
+
+`ReadCSV( filename[, nohead][, separator] )` reads a file in a CSV (comma
+separated values) format and returns its entries as a list of records
+(see [here](http://www.gap-system.org/Manuals/doc/ref/chap10.html#X848DD7DC79363341)).
+The entries of the first line of the file will be used for the names
+of the record components (blanks will be translated into underscores).
+One could also indicate that the first line contains data instead of
+field names, and also specify a custom separator. Conversely, `PrintCSV`
+may be used to output CSV files.
+
+To read arbitrary (binary or text) files as strings, use the `StringFile`
+function provided by the GAPDoc package (see [here](http://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3)).
+It will return the content of the file as a string.
+After that, you may use various string manipulation tools (see
+[Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.htmlGAPDoc)
+in the GAP reference manual) to process it in the way you need. GAPDoc package
+also provides the `FileString` function which writes the content of a string
+into a file.
+
+If you need to organise reading/writing line by line, instead of reading or
+writing the whole file/string at once, we suggest to look at the functionality
+provided by the IO package (see [here](http://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html)),
+in particular at `IO_ReadLine` and `IO_WriteLine`.
