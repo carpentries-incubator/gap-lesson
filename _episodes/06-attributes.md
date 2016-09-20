@@ -3,25 +3,15 @@ title: "Attributes and Methods"
 teaching: 20
 exercises: 10
 questions:
-- "Key question"
+- "How to record information in GAP objects"
 objectives:
-- "First objective."
+- "Declaring an attribute"
+- "Installing a method"
+- "Understanding method selection"
+- "Using debugging tools"
 keypoints:
 - "First key point."
 ---
-
----
-layout: page
-title: Programming with GAP
-subtitle: Attributes and Methods
-minutes: 20
----
-> ## Learning Objectives {.objectives}
->
-> * Declaring an attribute
-> * Installing a method
-> * Understanding method selection
-> * Using debugging tools
 
 Of course, for any given group the average order of its elements needs to
 be calculated only once, as the next time it will return the same value.

@@ -3,24 +3,14 @@ title: "Functions in GAP"
 teaching: 20
 exercises: 10
 questions:
-- "Key question"
+- "Functions as a way of code re-use"
 objectives:
-- "First objective."
+- "Using command line for prototyping"
+- "Creating functions"
+- "Reading GAP code from a file"
 keypoints:
 - "First key point."
 ---
-
----
-layout: page
-title: Programming with GAP
-subtitle: Functions in GAP
-minutes: 20
----
-> ## Learning Objectives {.objectives}
->
-> * Using command line for prototyping
-> * Creating functions
-> * Reading GAP code from a file
 
 Just to remind our task: for a finite group $G$, we would like to calculate
 the average order of its elements (that is, the sum of orders of its elements

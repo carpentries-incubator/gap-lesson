@@ -3,26 +3,16 @@ title: "Using regression tests"
 teaching: 20
 exercises: 10
 questions:
-- "Key question"
+- "Test-driven development"
 objectives:
-- "First objective."
+- "Be able to create and run test files"
+- "Understand how test discrepancies and runtime regressions
+ could be identified and interpreted"
+- "Understand how to adjust tests to check randomised algorithms"
+- "Learn the 'Make it right, then make it fast' concept"
 keypoints:
 - "First key point."
 ---
-
----
-layout: page
-title: Programming with GAP
-subtitle: Using regression tests
-minutes: 20
----
-> ## Learning Objectives {.objectives}
->
-> * Be able to create and run test files
-> * Understand how test discrepancies and runtime regressions
->   could be identified and interpreted
-> * Understand how to adjust tests to check randomised algorithms
-> * Learn the "Make it right, then make it fast" concept
 
 The code of `AvgOrdOfGroup` is very simple and possibly nothing could go wrong
 with it. It avoids problems with running out of memory because of iterating
