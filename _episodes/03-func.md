@@ -91,7 +91,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 ~~~
 {: .output}
 
-> ## This works only for rapid prototyping {.callout}
+> ## This works only for rapid prototyping
 >
 > * incidentally, one could copy and paste only a part of the code, and
 > incomplete input may trigger a break loop;
@@ -103,6 +103,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 > by line. If you have a long file with many commands, and the syntax error is
 > in the line N, this error will be reported only when GAP will complete
 > the evaluation of all preceding lines, and that might be quite time-consuming.
+{: .callout}
 
 That is why we need to give the GAP code more structure by organising it
 into functions:
@@ -226,11 +227,12 @@ AvgOrdOfGroup(M11);
 ~~~
 {: .output}
 
-> ## Which function is faster?{.callout}
+> ## Which function is faster?
 >
 > Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
 > and compare runtimes. Do this for new copy of `M11` and for the one for which
 > this parameter has already been observed. What do you observe?
+{: .callout}
 
 In the example of using `Read`, new GAP session was started to make it clear
 that `AvgOrdOfGroup` did not exist before the call of `Read` and was loaded
@@ -440,7 +442,8 @@ end;
 ~~~
 {: .source}
 
-> ## Paths {.challenge}
+> ## Paths
 >
 > How to specify paths to files in all operating systems and where to find
 > your home and current directory.
+{: .challenge}

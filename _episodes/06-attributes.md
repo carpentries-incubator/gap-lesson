@@ -153,7 +153,7 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ~~~
 {: .output}
 
-> ## Which method is being called{.callout}
+> ## Which method is being called
 >
 > * Try to call `AverageOrder` for a collection which is not a group
 >   (a list of group elements and/or a conjugacy class of group elements).
@@ -163,6 +163,7 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 >
 > * `ApplicableMethod` in combination with `PageSource` may point you to
 >   the source code with all the comments.
+{: .callout}
 
 A _property_ is a boolean-valued attribute. It can be created using `NewProperty`
 
@@ -188,11 +189,12 @@ InstallMethod( IsIntegerAverageOrder,
 Note that because `AverageOrder` is an operation it will take care of the selection of
 the most suitable method.
 
-> ## Does such method always exist? {.callout}
+> ## Does such method always exist?
 >
 > No. "No-method-found" is a special kind of error, and there are tools to
 > investigate such errors: see `?ShowArguments`, `?ShowDetails`, `?ShowMethods`
 > and `?ShowOtherMethods`.
+{: .callout}
 
 The following calculation shows that despite our success with calculating
 the average order for large permutation groups via conjugacy classes of
@@ -219,10 +221,11 @@ l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 ~~~
 {: .output}
 
-> ## Don't panic! {.challenge}
+> ## Don't panic!
 >
 > * Install a method for `IsPcGroup` that iterates over the group elements
 >   instead of calculations its conjugacy classes.
 >
 > * Estimate practical boundaries of its feasibility. Can you find an example
 >   of a pc group when iterating is slower than calculating conjugacy classes?
+{: .challenge}
