@@ -145,7 +145,7 @@ with GAP and optionally for the refereeing.
 * This is a simples approach to call GAP from a shell script. Create the shell
 script called `check-one-order.sh` with the following content:
 
-~~~ {.bash}
+~~~
 #!/bin/sh
 
 gap -r -b -q avgord.g << EOI
@@ -153,25 +153,30 @@ TestOneOrderEasy( $1 );
 quit;
 EOI
 ~~~
+{: .source}
 
 and make it executable using `chmod u+x check-one-order.sh`. Now you may call
 it as follows:
 
-~~~ {.bash}
+~~~
 $ ./check-one-order.sh 24
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 fail
 ~~~
+{: .output}
 
-~~~ {.bash}
+~~~
 $ ./check-one-order.sh 105
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ 105, 1 ]
 ~~~
+{: .output}
 
 * Reading data files
 

@@ -209,8 +209,9 @@ gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
 ~~~
 {: .output}
 
-> ## How to do this in one pass over the list `c` ? {.challenge}
+> ## How to do this in one pass over the list `c` ?
 >
 > One pass over `c` required to find the number of appearances of the most
 > common letter(s), and another one to select all pairs where this number
 > appears. Can you suggest how to do this in one pass?
+{: .challenge}

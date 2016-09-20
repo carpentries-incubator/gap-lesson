@@ -86,10 +86,11 @@ gap> AllSmallGroups(Size,24,TestOneGroup,true);
 ~~~
 {: .output}
 
-> ## Modular programming begins here {.callout}
+> ## Modular programming begins here
 >
 > Why a good design decision is for such function to return booleans,
 > and not just print information or return a string like `"YES"`?
+{: .callout}
 
 This is a simple example of a function which tests all groups of a given order.
 It creates one group at a time, checks the desired property, and returns as soon
@@ -131,11 +132,12 @@ fail
 ~~~
 {: .output}
 
-> ## `AllSmallGroups` runs out of memory - what to do?{.callout}
+> ## `AllSmallGroups` runs out of memory - what to do?
 >
 > * Use iteration over `[1..NrSmallGroups(n)]` as shown in the function above
 > * Use `IdsOfAllSmallGroups` which accepts same arguments as `AllSmallGroups`
 > but returns ids instead of groups.
+{: .callout}
 
 Iterating over `[1..NrSmallGroups(n)]` gives you more flexibility if you need
 more control over the progress of calculation. For example, the next version
@@ -292,12 +294,13 @@ TestRangeOfOrders(TestOneGroup,106,256);
 and discover that testing 2328 groups of order 128 and moreover 56092 groups
 of order 256 is already too long.
 
-> ## Don't panic! {.callout}
+> ## Don't panic!
 >
 > You can interrupt GAP by pressing Ctrl-C once. After that, GAP will enter
 > a break loop, designated by the break prompt `brk`. You can leave it by
 > typing `quit;` (beware of pressing Ctrl-C twice within a second - that will
 > terminate GAP session completely).
+{: .callout}
 
 This is again the situation where theoretical knowledge helps much more than
 brute-force approach. If the group is a _p_-group, then the order of each
@@ -478,7 +481,7 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 ~~~
 {: .output}
 
-> ## Does the Small Groups Library contain another group with this property? {.challenge}
+> ## Does the Small Groups Library contain another group with this property?
 >
 > * What can you say about the order of the groups with this property?
 >
@@ -488,3 +491,4 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 >
 > * Can you find another group (of order not equal to 1536)
 >   with this property containing in the Small Groups Library?
+{: .challenge}
