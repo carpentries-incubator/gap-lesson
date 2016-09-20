@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: Programming with GAP
+root: .
 ---
 
 [GAP](http://www-gap.system.org) is a system for discrete computational algebra,
@@ -28,7 +28,7 @@ On this path, the learner will became familiar with:
 
 * good design practices to organise GAP code into complex programs.
 
-> ## Prerequisites {.prereq}
+> ## Prerequisites
 >
 > The lesson is oriented on learners possessing the minimal theoretical
 > background (at least at the level of undergraduate group theory course)
@@ -38,8 +38,9 @@ On this path, the learner will became familiar with:
 >
 > Learners need to understand the concepts of files and directories
 > (including home and working directories) and know only how to start GAP.
+{: .prereq}
 
-> ## Getting ready {.getready}
+> ## Getting ready
 > 1. In your home directory, create a new directory called `avgord`.
 > 2. Start GAP:
 > * on Linux and OS X, call `path-to-your-gap-installation/gap4r8/bin/gap.sh`
@@ -56,18 +57,7 @@ On this path, the learner will became familiar with:
 >    (edit the path as necessary; remember to use `/` instead of `\`).
 > 4. Check that your current directory is set up properly: call `DirectoryCurrent();`
 >    and the path that you will see in the output should point to the `avgord` directory.
+{: .checklist}
 
-## Topics
-
-1.  [First session with GAP](01-command-line.html)
-2.  [Some more GAP objects](02-some-objects.html)
-3.  [Functions in GAP](03-func.html)
-4.  [Using regression tests](04-testing.html)
-5.  [Small groups search](05-small-groups.html)
-6.  [Attributes and Methods](06-attributes.html)
-
-## Other Resources
-
-*   [Reference](reference.html)
-*   [Discussion](discussion.html)
-*   [Instructor's Guide](instructors.html)
+[contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
+[styles]: https://github.com/swcarpentry/styles/
