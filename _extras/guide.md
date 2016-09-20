@@ -1,8 +1,9 @@
 ---
 layout: page
-title: Programming with GAP
-subtitle: Instructor's Guide
+title: "Instructor Notes"
+permalink: /guide/
 ---
+
 ## Overall
 
 * For the first lesson, good to have access to Windows (VM or remote desktop) to

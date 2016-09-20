@@ -1,16 +1,20 @@
 ---
-layout: page
-title: Programming with GAP
-subtitle: Some more GAP objects
-minutes: 30
+title: "Some more GAP objects"
+teaching: 20
+exercises: 10
+questions:
+- "Further examples of immediate and positional objects and operations with them"
+objectives:
+- "See examples of types that are built-in in GAP but may be missing in other systems"
+- "See examples of list arithmetic"
+keypoints:
+- "List arithmetic is very flexible and powerful"
+- "Objects like lists and records are good to keep structured and related data"
 ---
-> ## Learning Objectives {.objectives}
->
-> * See further examples of some objects existing in GAP.
 
 So far you have met:
 
-* _immediate_ object such as integers, rationals, booleans, permutations,
+* _immediate_ objects such as integers, rationals, booleans, permutations,
 
 * _positional_ objects such as _lists_,
 
@@ -22,158 +26,188 @@ of objects, but this is beyond the scope of this lesson).
 
 Further immediate objects are floats, cyclotomics and finite field elements:
 
-~~~ {.gap}
+~~~
 1.15; Float(1232/3456567);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 1.15
 0.000356423
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 E(4); E(4)^2; E(6);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 E(4)
 -1
 -E(3)^2
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 AsList(GF(2)); Z(5); Z(5)^4;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ 0*Z(2), Z(2)^0 ]
 Z(5)
 Z(5)^0
 ~~~
+{: .output}
 
 The next type of composite objects are **records**. While the list contains subobjects indexed
 by their positions in the list, a record contains subobjects, called _record
 components_, which are indexed by their names.
 
-~~~ {.gap}
+~~~
 date:= rec(year:= 2015, month:= "Nov", day:= 17);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 rec( day := 17, month := "Nov", year := 2015 )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 date.year;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 2015
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 date.time:= rec(hour:= 14, minute:= 55, second:= 12);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 rec( hour := 14, minute := 55, second := 12 )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 date;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 rec( day := 17, month := "Nov",
   time := rec( hour := 14, minute := 55, second := 12 ), year := 2015 )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 RecNames(date);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ "time", "year", "month", "day" ]
 ~~~
+{: .output}
 
 Next, there are **strings** and **characters**. Strings are lists of
 characters:
 
-~~~ {.gap}
+~~~
 gap> w:="supercalifragilisticexpialidocious"; Length(w);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 "supercalifragilisticexpialidocious"
 34
 ~~~
+{: .output}
 
 Strings are denoted by double quotes, and characters by single ones.
 
-~~~ {.gap}
+~~~
 gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 false
 true
 true
 true
 ~~~
+{: .output}
 
 Note that
 
-~~~ {.gap}
+~~~
 gap> PositionSublist(w,"sf"); PositionSublist(w,"fr");
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 fail
 10
 ~~~
+{: .output}
 
 Be careful that some operations may create a new list, and some may be
 destructive, for example:
 
-~~~ {.gap}
+~~~
 gap> SortedList(w); w;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 "aaacccdeefgiiiiiiillloopprrssstuux"
 "supercalifragilisticexpialidocious"
 ~~~
+{: .output}
 
 but
 
-~~~ {.gap}
+~~~
 gap> Sort(w); w;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 "aaacccdeefgiiiiiiillloopprrssstuux"
 ~~~
+{: .output}
 
 Which letter is occurring in "supercalifragilisticexpialidocious" most often?
 
-~~~ {.gap}
+~~~
 gap> c := Collected(w);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ [ 'a', 3 ], [ 'c', 3 ], [ 'd', 1 ], [ 'e', 2 ], [ 'f', 1 ], [ 'g', 1 ],
   [ 'i', 7 ], [ 'l', 3 ], [ 'o', 2 ], [ 'p', 2 ], [ 'r', 2 ], [ 's', 3 ],
   [ 't', 1 ], [ 'u', 2 ], [ 'x', 1 ] ]
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 7
 [ [ 'i', 7 ] ]
 ~~~
+{: .output}
 
 > ## How to do this in one pass over the list `c` ? {.challenge}
 >

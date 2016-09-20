@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Programming with GAP
-subtitle: Discussion
+title: Discussion
+permalink: /discuss/
 ---
 
 ## Ten hints for GAP beginners

@@ -1,4 +1,16 @@
 ---
+title: "Functions in GAP"
+teaching: 20
+exercises: 10
+questions:
+- "Key question"
+objectives:
+- "First objective."
+keypoints:
+- "First key point."
+---
+
+---
 layout: page
 title: Programming with GAP
 subtitle: Functions in GAP
@@ -17,62 +29,77 @@ divided by the order of the group).
 We begin with a very straightforward approach, iterating
 over all elements of the group in question:
 
-~~~ {.gap}
+~~~
 S:=SymmetricGroup(10);
 ~~~
-~~~ {.output}
+{: .source}
+
+~~~
 Sym( [ 1 .. 10 ] )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 sum:=0;
 ~~~
-~~~ {.output}
+{: .source}
+
+~~~
 0
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 for g in S do
   sum := sum + Order(g);
 od;
 sum/Size(S);
 ~~~
-~~~ {.output}
+{: .source}
+
+~~~
 39020911/3628800
 ~~~
+{: .output}
 
 Now assume that we would like to save this fragment of the GAP code and later
 repeat this calculation for some other groups. We may even reformat it to fit
 it into one line and use double semicolon to suppress the output of `sum`:
 
-~~~ {.gap}
+~~~
 sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 39020911/3628800
 ~~~
+{: .output}
 
 Now we may easily copy and paste it into the GAP session when we will need it next time.
 But here we see the first inconvenience: the code expects that the group in question
 must be stored in a variable named `S`, so either we can have only with one group `S`
 at a time, or we need to edit the code:
 
-~~~ {.gap}
+~~~
 S:=AlternatingGroup(10);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 Alt( [ 1 .. 10 ] )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 2587393/259200
 ~~~
+{: .output}
 
 > ## This works only for rapid prototyping {.callout}
 >
@@ -100,7 +127,7 @@ variable to store something else.
 The following function takes an argument `S` and computes the average order
 of its elements:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup := function(G)
 local sum, g;
 sum := 0;
@@ -110,22 +137,26 @@ od;
 return sum/Size(G);
 end;
 ~~~
+{: .source}
 
-~~~{.output}
+~~~
 function( S ) ... end
 ~~~
+{: .output}
 
 Now we can apply it to another group, passing the group as an argument:
 
-~~~ {.gap}
+~~~
 A:=AlternatingGroup(10); AvgOrdOfGroup(A); time;
 ~~~
+{: .source}
 
-~~~{.output}
+~~~
 Alt( [ 1 .. 10 ] )
 2587393/259200
 837
 ~~~
+{: .output}
 
 The example above also demonstrates `time` - this is the variable which stores
 the CPU time in milliseconds spent by the last command.
@@ -138,7 +169,7 @@ Using a text editor (for example, the one that you have used for the previous
 Software Carpentry lessons), create a text file called `avgord.g` containing
 the code of the function and comments (a good practice to use them!):
 
-~~~ {.gap}
+~~~
 #####################################################################
 #
 # AvgOrdOfGroup(G)
@@ -156,46 +187,54 @@ od;
 return sum/Size(G);
 end;
 ~~~
+{: .source}
 
 Now start a new GAP session and create another group, for example $M_{11}$:
 
-~~~ {.gap}
+~~~
 M11:=MathieuGroup(11);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])
 ~~~
+{: .output}
 
 Clearly, `AvgOrdOfGroup` is not defined in this session, so an attempt to
 call this function results in an error:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup(M11);
 ~~~
+{: .source}
 
-~~~ {.error}
+~~~
 Error, Variable: 'AvgOrdOfGroup' must have a value
 not in any function at line 2 of *stdin*
 ~~~
+{: .error}
 
 To be available, first it should be loaded using the function `Read`. Below
 we assume that the file is in the current directory, so no path is needed).
 
-~~~ {.gap}
+~~~
 Read("avgord.g");
 ~~~
+{: .source}
 
 This loads the file into GAP, and the function `AvgOrdOfGroup` is now
 available:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup(M11);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 53131/7920
 ~~~
+{: .output}
 
 > ## Which function is faster?{.callout}
 >
@@ -214,37 +253,42 @@ overwritten. **Never ignore the warnings!**
 
 For example, let us edit the file and replace the line
 
-~~~ {.gap}
+~~~
 return sum/Size(G);
 ~~~
+{: .source}
 
 by the line with a deliberate syntax error:
 
-~~~ {.gap}
+~~~
 return Float(sum/Size(G);
 ~~~
+{: .source}
 
 Now read this file with
 
-~~~ {.gap}
+~~~
 Read("avgord.g");
 ~~~
+{: .source}
 
 and you will see an error message:
 
-~~~ {.error}
+~~~
 Syntax error: ) expected in avgord.g line 7
 return Float(sum/Size(G);
                         ^
 ~~~
+{: .error}
 
 In this case, the function remains the same:
 
-~~~ {.gap}
+~~~
 Print(AvgOrdOfGroup);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 function ( G )
     for g  in G  do
         sum := sum + Order( g );
@@ -252,18 +296,21 @@ function ( G )
     return sum / Size( G );
 end
 ~~~
+{: .output}
 
 Now correct the error by adding a missing closing bracket,
 read the file again and recalculate the average order of an element for `M11`:
 
-~~~ {.gap}
+~~~
 Read("avgord.g");
 AvgOrdOfGroup(M11);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 6.70846
 ~~~
+{: .output}
 
 Now let's see an example of a _warning_. Since it is only a warning, it will
 redefine the function, and this may cause some unexpected result. To see what
@@ -271,7 +318,7 @@ could happen, first edit the file to rollback the change in the type of the
 result (so it will return a rational instead of a float), and then comment
 out two lines as follows:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup := function(G)
 # local sum, g;
 # sum := 0;
@@ -281,14 +328,16 @@ od;
 return sum/Size(G);
 end;
 ~~~
+{: .source}
 
 Now, when you read the file, you will see warnings:
 
-~~~ {.gap}
+~~~
 Read("avgord.g");
 ~~~
+{: .source}
 
-~~~ {.error}
+~~~
 Syntax error: warning: unbound global variable in avgord.g line 4
 for g in G do
        ^
@@ -302,6 +351,7 @@ Syntax error: warning: unbound global variable in avgord.g line 7
 return sum/Size(G);
           ^
 ~~~
+{: .error}
 
 These warnings mean because `g` and `sum` are not declared as `local`
 variables, GAP will expect them to be global variables at the time when
@@ -316,11 +366,12 @@ The function is now re-defined, as we can see from its output (or can
 inspect with `PageSource(AvgOrdOfGroup)` which will also display comments,
 if any):
 
-~~~ {.gap}
+~~~
 Print(AvgOrdOfGroup);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 function ( G )
     for g in G  do
         sum := sum + Order( g );
@@ -328,14 +379,16 @@ function ( G )
     return sum / Size( G );
 end
 ~~~
+{: .output}
 
 but an attempt to run it results in an break loop:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup(M11);
 ~~~
+{: .source}
 
-~~~ {.error}
+~~~
 Error, Variable: 'sum' must have an assigned value in
   sum := sum + Order( g ); called from
 <function "AvgOrdOfGroup">( <arguments> )
@@ -343,42 +396,49 @@ Error, Variable: 'sum' must have an assigned value in
 you can 'return;' after assigning a value
 brk>
 ~~~
+{: .error}
 
 from which you can exit by entering `quit;`.
 
 What happens next demonstrates how things may go wrong:
 
-~~~ {.gap}
+~~~
 sum:=2^64; g:=[1];
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 18446744073709551616
 [ 1 ]
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup(M11);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 18446744073709604747/7920
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 sum; g;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 18446744073709604747
 (1,2)(3,10,5,6,8,9)(4,7,11)
 ~~~
+{: .output}
 
 Now, before reading the next part of the lesson, please
 revert the last change by uncommenting the two commented lines, so that
 you have initial version of `AvgOrdOfGroup` in the file `avgord.g` again:
 
-~~~ {.gap}
+~~~
 AvgOrdOfGroup := function(G)
 local sum, g;
 sum := 0;
@@ -388,6 +448,7 @@ od;
 return sum/Size(G);
 end;
 ~~~
+{: .source}
 
 > ## Paths {.challenge}
 >

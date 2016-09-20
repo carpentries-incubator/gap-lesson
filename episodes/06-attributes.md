@@ -1,4 +1,16 @@
 ---
+title: "Attributes and Methods"
+teaching: 20
+exercises: 10
+questions:
+- "Key question"
+objectives:
+- "First objective."
+keypoints:
+- "First key point."
+---
+
+---
 layout: page
 title: Programming with GAP
 subtitle: Attributes and Methods
@@ -16,24 +28,28 @@ be calculated only once, as the next time it will return the same value.
 However, as we see from the runtimes below, each new call of `AvgOrdOfGroup`
 will repeat the same computation again, with slightly varying runtime:
 
-~~~ {.gap}
+~~~
 A:=AlternatingGroup(10);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 Alt( [ 1 .. 10 ] )
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 AvgOrdOfCollection(A); time; AvgOrdOfCollection(A); time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 2587393/259200
 8226
 2587393/259200
 8118
 ~~~
+{: .output}
 
 In the last example, the group in question was the same - we haven't
 constructed another copy of `AlternatingGroup(10)`; however, the result
@@ -46,30 +62,34 @@ and unreadable. On the other hand, GAP has a notion of attributes which
 are used to accumulate information that objects learn about themselves
 during their lifetime. Consider the following example:
 
-~~~ {.gap}
+~~~
 G:=Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ]);
 gap> NrConjugacyClasses(G);time;NrConjugacyClasses(G);time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])
 10
 39
 10
 0
 ~~~
+{: .output}
 
 In this case, the group `G` has 10 conjugacy classes, and it took 39 ms to
 establish that in the first call. The second call has zero cost since the
 result was stored in `G`, since `NrConjugacyClasses` is an attribute:
 
-~~~ {.gap}
+~~~
 NrConjugacyClasses;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 <Attribute "NrConjugacyClasses">
 ~~~
+{: .output}
 
 Our goal is now to learn how to create own attributes.
 
@@ -77,10 +97,11 @@ Since we already have a function `AvgOrdOfCollection` which
 does the calculation, the simplest example of turning it into
 an attribute could look as follows:
 
-~~~ {.gap}
+~~~
 AverageOrder := NewAttribute("AverageOrder", IsCollection);
 InstallMethod( AverageOrder, "for a collection", [IsCollection], AvgOrdOfCollection);
 ~~~
+{: .source}
 
 In this example, first we declared an attribute `AverageOrder` for
 objects in the category `IsCollection`, and then installed the function
@@ -91,16 +112,18 @@ Now we may check that subsequent calls of `AverageOrder` with the same argument
 are performed at zero cost. In this example the time is reduced from more than
 16 seconds to zero:
 
-~~~ {.gap}
+~~~
 S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 39020911/3628800
 16445
 39020911/3628800
 0
 ~~~
+{: .output}
 
 You may be interested why we have declared the operation for a collection and
 not only for a group and then used the non-efficient method for a group again,
@@ -118,24 +141,27 @@ based on the type of the argument.
 
 To illustrate this, we will now install a method for `AverageOrder` for a group:
 
-~~~ {.gap}
+~~~
 InstallMethod( AverageOrder, [IsGroup], AvgOrdOfGroup);
 ~~~
+{: .source}
 
 If you will apply it to the group which already has `AverageOrder`, nothing
 will happen, since GAP will use the stored value. For a newly created group,
 this new method will be called indeed:
 
-~~~ {.gap}
+~~~
 S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 39020911/3628800
 26
 39020911/3628800
 0
 ~~~
+{: .output}
 
 > ## Which method is being called{.callout}
 >
@@ -150,22 +176,24 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 
 A _property_ is a boolean-valued attribute. It can be created using `NewProperty`
 
-~~~ {.gap}
+~~~
 IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
 ~~~
+{: .source}
 
 Now we will install a method for `IsIntegerAverageOrder` for a collection.
 Observe that neither below nor in the examples above it is not necessary to create
 a function first and then install it as a method. The following method installation
 just creates a new function as one of its arguments:
 
-~~~ {.gap}
+~~~
 InstallMethod( IsIntegerAverageOrder,
   "for a collection",
   [IsCollection],
   coll -> IsInt( AverageOrder( coll ) )
 );
 ~~~
+{: .source}
 
 Note that because `AverageOrder` is an operation it will take care of the selection of
 the most suitable method.
@@ -181,21 +209,25 @@ the average order for large permutation groups via conjugacy classes of
 elements, for pc groups from the Small Groups Library it could be faster
 to iterate over their elements than to calculate conjugacy classes:
 
-~~~ {.gap}
+~~~
 l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 56231
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 9141
 ~~~
+{: .output}
 
 > ## Don't panic! {.challenge}
 >

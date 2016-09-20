@@ -1,7 +1,6 @@
 ---
-layout: page
-title: Programming with GAP
-subtitle: Reference
+layout: reference
+permalink: /reference/
 ---
 
 ## [First session with GAP](01-command-line.html)

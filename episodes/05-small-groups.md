@@ -1,4 +1,16 @@
 ---
+title: "Small groups search"
+teaching: 20
+exercises: 10
+questions:
+- "Key question"
+objectives:
+- "First objective."
+keypoints:
+- "First key point."
+---
+
+---
 layout: page
 title: Programming with GAP
 subtitle: Small groups search
@@ -22,7 +34,7 @@ is stored there and submit queries to search for groups with desired
 properties. The key functions are `SmallGroup`, `AllSmallGroups`,
 `NrSmallGroups`, `SmallGroupsInformation` and `IdGroup`. For example:
 
-~~~ {.gap}
+~~~
 gap> NrSmallGroups(64);
 267
 gap> SmallGroupsInformation(64);
@@ -52,31 +64,37 @@ gap> AllSmallGroups(Size,64,NilpotencyClassOfGroup,5);
 gap> List(last,IdGroup);
 [ [ 64, 52 ], [ 64, 53 ], [ 64, 54 ] ]
 ~~~
+{: .output}
 
 We would like to use our own testing function, which we will create here,
 using inline notation (available for one-argument functions):
 
-~~~ {.gap}
+~~~
 TestOneGroup := G -> IsInt( AvgOrdOfGroup(G) );
 ~~~
+{: .source}
 
 Now try, for example
 
-~~~ {.gap}
+~~~
 List([TrivialGroup(),Group((1,2))],TestOneGroup);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ true, false ]
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 gap> AllSmallGroups(Size,24,TestOneGroup,true);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ ]
 ~~~
+{: .output}
 
 > ## Modular programming begins here {.callout}
 >
@@ -88,7 +106,7 @@ It creates one group at a time, checks the desired property, and returns as soon
 as an example is discovered. Otherwise it returns `fail` which is a special kind
 of boolean variable in GAP.
 
-~~~ {.gap}
+~~~
 TestOneOrderEasy := function(n)
 local i;
 for i in [1..NrSmallGroups(n)] do
@@ -99,24 +117,29 @@ od;
 return fail;
 end;
 ~~~
+{: .source}
 
 For example,
 
-~~~ {.gap}
+~~~
 TestOneOrderEasy(1);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ 1, 1 ]
 ~~~
+{: .output}
 
-~~~ {.gap}
+~~~
 TestOneOrderEasy(24);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 fail
 ~~~
+{: .output}
 
 > ## `AllSmallGroups` runs out of memory - what to do?{.callout}
 >
@@ -130,7 +153,7 @@ of our testing function prints additional information about the number of the
 group being tested. It also supplies the testing function as an argument (why do
 you think this is better?).
 
-~~~ {.gap}
+~~~
 TestOneOrder := function(f,n)
 local i, G;
 for i in [1..NrSmallGroups(n)] do
@@ -145,25 +168,28 @@ Print("\n");
 return fail;
 end;
 ~~~
+{: .source}
 
 For example,
 
-~~~ {.gap}
+~~~
 TestOneOrder(TestOneGroup,64);
 ~~~
+{: .source}
 
 will display a changing counter during calculation and then return `fail`:
 
-~~~ {.output}
+~~~
 64:267/267
 fail
 ~~~
+{: .output}
 
 The next step is to integrate `TestOneOrder` into a function which will test
 all orders from 2 to `n` and stop as soon as it will find an example of a
 group with the average order of an element being an integer:
 
-~~~ {.gap}
+~~~
 TestAllOrders:=function(f,n)
 local i, res;
 for i in [2..n] do
@@ -175,14 +201,16 @@ od;
 return fail;
 end;
 ~~~
+{: .source}
 
 It reports that there is such group of order 105:
 
-~~~ {.gap}
+~~~
 TestAllOrders(TestOneGroup,128);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 2:1/1
 3:1/1
 4:2/2
@@ -201,49 +229,56 @@ TestAllOrders(TestOneGroup,128);
 105:1/2
 [ 105, 1 ]
 ~~~
+{: .output}
 
 To explore it further, we can get its `StructureDescription` (see
 [here](http://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
 for the explanation of the notation it uses):
 
-~~~ {.gap}
+~~~
 G:=SmallGroup(105,1); AvgOrdOfGroup(G); StructureDescription(G);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 <pc group of size 105 with 3 generators>
 17
 "C5 x (C7 : C3)"
 ~~~
+{: .output}
 
 and then convert it to a finitely presented group to see its generators and relators:
 
-~~~ {.gap}
+~~~
 H:=SimplifiedFpGroup(Image(IsomorphismFpGroup(G)));
 RelatorsOfFpGroup(H);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 <fp group on the generators [ F1, F2, F3 ]>
 [ F1^3, F2^-1*F1^-1*F2*F1, F3^-1*F2^-1*F3*F2, F3^-1*F1^-1*F3*F1*F3^-1, F2^5,
   F3^7 ]
 ~~~
+{: .output}
 
 Now we want to try larger groups, starting from the order 106 (we check that
 the other group of order 105 possesses no such property)
 
-~~~ {.gap}
+~~~
 List(AllSmallGroups(105),AvgOrdOfGroup);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 [ 17, 301/5 ]
 ~~~
+{: .output}
 
 With a little modification, we add an extra argument specifying the order from
 which to start:
 
-~~~ {.gap}
+~~~
 TestRangeOfOrders:=function(f,n1,n2)
 local n, res;
 for n in [n1..n2] do
@@ -255,12 +290,14 @@ od;
 return fail;
 end;
 ~~~
+{: .source}
 
 But now we call it with
 
-~~~ {.gap}
+~~~
 TestRangeOfOrders(TestOneGroup,106,256);
 ~~~
+{: .source}
 
 and discover that testing 2328 groups of order 128 and moreover 56092 groups
 of order 256 is already too long.
@@ -278,7 +315,7 @@ conjugacy class of a non-identity element of a group is divisible by _p_,
 therefore, the average order of a group element can not be an integer. Therefore,
 _p_-groups could be excluded from calculation. So, the new version of the code is
 
-~~~ {.gap}
+~~~
 TestRangeOfOrders:=function(f,n1,n2)
 local n, res;
 for n in [n1..n2] do
@@ -292,14 +329,16 @@ od;
 return fail;
 end;
 ~~~
+{: .source}
 
 and using it we are able to discover a group of order 357 with the same property:
 
-~~~ {.gap}
+~~~
 gap> TestRangeOfOrders(TestOneGroup,106,512);
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 106:2/2
 108:45/45
 ...
@@ -312,6 +351,7 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 357:1/2
 [ 357, 1 ]
 ~~~
+{: .output}
 
 The next function shows even further flexibility: it is variadic, i.e.
 it may accept two or more arguments, the first two will be assigned to
@@ -329,13 +369,15 @@ we address here is to be able to switch the levels of verbosity of the
 output without error-prone approach of walking through the code and commenting
 `Print` statements in and out. It is achieved by creating an info class:
 
-~~~ {.gap}
+~~~
 gap> InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
 ~~~
+{: .source}
 
-~~~ {.output}
+~~~
 InfoSmallGroupsSearch
 ~~~
+{: .output}
 
 Now instead of `Print("something");` one could use
 `Info( InfoSmallGroupsSearch, infolevel, "something" );`
@@ -344,8 +386,7 @@ This level could be changed to `n` using the command
 `SetInfoLevel( InfoSmallGroupsSearch, n);`. See actual calls of `Info` in
 the code below:
 
-~~~ {.gap}
-
+~~~
 TestOneOrderVariadic := function(f,n,r...)
 local n1, n2, i;
 
@@ -398,11 +439,12 @@ Info( InfoSmallGroupsSearch, 1,
 return fail;
 end;
 ~~~
+{: .source}
 
 The following example demonstrates how the output now may be controlled
 by switching the info level for `InfoSmallGroupsSearch`:
 
-~~~ {.gap}
+~~~
 gap> TestOneOrderVariadic(IsIntegerAverageOrder,24);
 fail
 gap> SetInfoLevel( InfoSmallGroupsSearch, 1 );
@@ -418,6 +460,7 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, 0);
 gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
 [ 357, 1 ]
 ~~~
+{: .output}
 
 Of course, this now introduces some complication for the test file,
 which compares the actual output with the reference output. To resolve
@@ -426,7 +469,7 @@ all additional outputs. Because the tests may have been started in the
 GAP session with a different info level, we will remember that info level
 to restore it after the test:
 
-~~~ {.gap}
+~~~
 # Finding groups with integer average order
 gap> INFO_SSS:=InfoLevel(InfoSmallGroupsSearch);;
 gap> SetInfoLevel( InfoSmallGroupsSearch, 0);
@@ -443,6 +486,7 @@ gap> res;
 [ [ 1, 1 ], [ 105, 1 ], [ 357, 1 ] ]
 gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 ~~~
+{: .output}
 
 > ## Does the Small Groups Library contain another group with this property? {.challenge}
 >
