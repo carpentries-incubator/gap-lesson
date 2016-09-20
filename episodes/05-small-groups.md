@@ -3,23 +3,13 @@ title: "Small groups search"
 teaching: 20
 exercises: 10
 questions:
-- "Key question"
+- "Modular programming: putting functions together"
 objectives:
-- "First objective."
+- "Using Small Groups Library"
+- "Designing a system of functions to fit together"
 keypoints:
 - "First key point."
 ---
-
----
-layout: page
-title: Programming with GAP
-subtitle: Small groups search
-minutes: 20
----
-> ## Learning Objectives {.objectives}
->
-> * Using Small Groups Library
-> * Designing a system of functions to fit together
 
 In this section, we are interested to discover some non-trivial groups
 having the property that the average order of their elements is an integer.
