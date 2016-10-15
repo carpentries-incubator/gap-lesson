@@ -1,7 +1,7 @@
 ---
 title: "Some more GAP objects"
-teaching: 20
-exercises: 10
+teaching: 15
+exercises: 5
 questions:
 - "Further examples of immediate and positional objects and operations with them"
 objectives:
