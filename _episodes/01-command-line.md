@@ -248,9 +248,19 @@ Filtered( Partitions(10), x -> 5 in x);
 {: .output}
 
 > ## What does the last command calculate?
+> The command `Filtered( Partitions(10), x -> 5 in x);` calculates the list of all partitions of 10 that contain 5.
+{: .challenge}
+> ## Also, how many functions can you see in the input?
+> The input uses 4 function calls, namely:
 >
-> Also, how many functions can you see in the input?
-{: .callout}
+> * `Filtered`
+>
+> * `Partitions`
+>
+> * `function(x) return 5 in x; end`
+>
+> * `in` (the _membership test_)
+{: .challenge}
 
 A very time-saving feature of the GAP command-line interfaces is completion
 of identifiers when the Tab key is pressed. For exampe, type `Fib` and then
@@ -554,9 +564,9 @@ false
 ~~~
 {: .output}
 
-> ## Use list operations to select from `elts`:
+> ## Use list operations to select from `elts` the stabiliser of the point 2 and the centraliser of the permutation (1,2)
 >
-> * Stabiliser of the point 2
+> * `Filtered( elts, g -> 2^g = 2 );`
 >
-> * Centraliser of the permutation (1,2)
+> * `Filtered( elts, g -> (1,2)^g = (1,2) );`
 {: .challenge}
