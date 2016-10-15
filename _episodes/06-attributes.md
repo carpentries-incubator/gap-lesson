@@ -1,6 +1,6 @@
 ---
 title: "Attributes and Methods"
-teaching: 20
+teaching: 40
 exercises: 10
 questions:
 - "How to record information in GAP objects"

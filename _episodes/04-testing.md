@@ -1,6 +1,6 @@
 ---
 title: "Using regression tests"
-teaching: 20
+teaching: 40
 exercises: 10
 questions:
 - "Test-driven development"

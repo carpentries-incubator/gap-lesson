@@ -1,7 +1,7 @@
 ---
 title: "Small groups search"
-teaching: 20
-exercises: 10
+teaching: 40
+exercises: 15
 questions:
 - "Modular programming: putting functions together"
 objectives:

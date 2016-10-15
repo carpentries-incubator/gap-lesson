@@ -1,7 +1,7 @@
 ---
 title: "Functions in GAP"
-teaching: 20
-exercises: 10
+teaching: 40
+exercises: 15
 questions:
 - "Functions as a way of code re-use"
 objectives:
