@@ -4,11 +4,15 @@ teaching: 40
 exercises: 15
 questions:
 - "Modular programming: putting functions together"
+- "How to check some conjecture for all groups of a given order?"
 objectives:
 - "Using Small Groups Library"
 - "Designing a system of functions to fit together"
 keypoints:
-- "First key point."
+- "Organise the code into functions."
+- "Create small groups one by one instead of producing a huge list of them."
+- "Using `SmallGroupsInformation` may help to reduce the search space."
+- "GAP is not a magic tool: theoretical knowledge may help much more than brute-force approach."
 ---
 
 In this section, we are interested to discover some non-trivial groups

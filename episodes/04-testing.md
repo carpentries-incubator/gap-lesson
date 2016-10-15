@@ -11,7 +11,9 @@ objectives:
 - "Understand how to adjust tests to check randomised algorithms"
 - "Learn the 'Make it right, then make it fast' concept"
 keypoints:
-- "First key point."
+- "It is easy to create a test file by copying and pasting GAP session."
+- "Writing a good and comprehensive test suite requires some efforts."
+- "Make it right, then make it fast!"
 ---
 
 The code of `AvgOrdOfGroup` is very simple and possibly nothing could go wrong

@@ -10,7 +10,10 @@ objectives:
 - "Understanding method selection"
 - "Using debugging tools"
 keypoints:
-- "First key point."
+- "_Positional_ objects may accumulate information about themselves during their lifetime."
+- "This means that next time the stored information may be retrieved at zero costs."
+- "_Methods_ are bunches of functions; the _method selection_ will choose the most efficient method based on the type of all arguments."
+- "'No-method-found' is a special kind of error with useful debugging tools helping to understand it."
 ---
 
 Of course, for any given group the average order of its elements needs to
@@ -127,7 +130,7 @@ you may add checks into the code and dispatch to a suitable function. This could
 quickly became complicated if you have several different functions for various
 types of objects. Instead of that, attributes are bunches of functions, called
 _methods_, and the _method selection_ will choose the most efficient method
-based on the type of the argument.
+based on the type of all arguments.
 
 To illustrate this, we will now install a method for `AverageOrder` for a group:
 

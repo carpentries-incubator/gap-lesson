@@ -8,8 +8,9 @@ objectives:
 - "See examples of types that are built-in in GAP but may be missing in other systems"
 - "See examples of list arithmetic"
 keypoints:
-- "List arithmetic is very flexible and powerful"
-- "Objects like lists and records are good to keep structured and related data"
+- "GAP has a plethora of variious immediate, positional and component objects."
+- "List arithmetic is very flexible and powerful."
+- "Objects like lists and records are good to keep structured and related data."
 ---
 
 So far you have met:
@@ -18,7 +19,7 @@ So far you have met:
 
 * _positional_ objects such as _lists_,
 
-* objects with obviously more complex internal representation such as groups.
+* _component_ objects with obviously more complex internal representation such as groups.
 
 In this section, we will demonstrate some other examples of basic objects
 existing in GAP (the system is extendable, so one could introduce new types

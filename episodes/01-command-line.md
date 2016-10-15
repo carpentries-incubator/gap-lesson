@@ -10,15 +10,15 @@ objectives:
 - "Basic objects and constructions in the GAP language"
 keypoints:
 - "Remember that GAP is case-sensitive!"
-- "Do not panic seeing 'Error, Variable: 'FuncName' must have a value'"
-- "Care about names of variables and functions"
-- "Use command line editing"
-- "Use autocompletion instead of typing names of functions and variables in full"
-- "Use `?` and `??` to view help pages"
-- "Set default help format to HTML using `SetHelpViewer`"
-- "Use `LogTo` function to save all GAP input and output into a text file"
-- "If calculation takes too long, press <Control>-C to interrupt it"
-- "Read 'A First Session with GAP' from the GAP Tutorial"
+- "Do not panic seeing 'Error, Variable: 'FuncName' must have a value'."
+- "Care about names of variables and functions."
+- "Use command line editing."
+- "Use autocompletion instead of typing names of functions and variables in full."
+- "Use `?` and `??` to view help pages."
+- "Set default help format to HTML using `SetHelpViewer`."
+- "Use `LogTo` function to save all GAP input and output into a text file."
+- "If calculation takes too long, press <Control>-C to interrupt it."
+- "Read 'A First Session with GAP' from the GAP Tutorial."
 ---
 
 If GAP is installed correctly you should be able to start it some way that
