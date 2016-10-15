@@ -210,9 +210,16 @@ gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
 ~~~
 {: .output}
 
-> ## How to do this in one pass over the list `c` ?
+> ## How to find the most occurring letter(s) using one pass over the list `c`?
 >
-> One pass over `c` required to find the number of appearances of the most
-> common letter(s), and another one to select all pairs where this number
-> appears. Can you suggest how to do this in one pass?
+> The command
+>
+> `k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );`
+>
+> iterates over the list `c` two times (in `List` and in `Filtered`), and
+> it also iterates over another list of the same length as `c` in the call
+> to `Maximum`. If the list is long, this will impose certain performance
+> and memory penalties. Try to write the code which find the most occurring
+> letter(s) using one pass over the list `c` without producing an intermediate
+> list.
 {: .challenge}
