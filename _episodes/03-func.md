@@ -9,7 +9,9 @@ objectives:
 - "Creating functions"
 - "Reading GAP code from a file"
 keypoints:
-- "First key point."
+- "Command line is good for prototyping; functions are good for repeated calculations."
+- "Informative function names and comments will make code more readable to your future self and to others."
+- "Beware of undeclared local variables!"
 ---
 
 Just to remind our task: for a finite group $G$, we would like to calculate
