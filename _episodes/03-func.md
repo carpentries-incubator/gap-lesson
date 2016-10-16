@@ -14,7 +14,7 @@ keypoints:
 - "Beware of undeclared local variables!"
 ---
 
-Just to remind our task: for a finite group $G$, we would like to calculate
+Just to remind our task: for a finite group _G_, we would like to calculate
 the average order of its elements (that is, the sum of orders of its elements
 divided by the order of the group).
 
@@ -446,6 +446,10 @@ end;
 
 > ## Paths
 >
-> How to specify paths to files in all operating systems and where to find
-> your home and current directory.
-{: .challenge}
+> * It is important to know how to specify paths to files in all operating
+> systems and where to find your home and current directory.
+>
+> * It is useful to know that path and filename completion is activated by
+> pressing Esc two or four times.
+>
+{: .callout}
