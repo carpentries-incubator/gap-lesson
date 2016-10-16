@@ -491,8 +491,9 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 >
 > * Can you estimate how long it may take to check all 408641062 groups of order 1536 ?
 >
-> * How many groups you need to check, excluding p-groups and those of order 1536?
+> * How many groups of order not greater than 2000 you may be able to check,
+>   excluding _p_-groups and those of order 1536?
 >
-> * Can you find another group (of order not equal to 1536)
->   with this property containing in the Small Groups Library?
+> * Can you find in the Small Groups Library another group (of order not equal
+>   to 1536) with this property?
 {: .challenge}
