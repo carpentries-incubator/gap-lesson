@@ -46,7 +46,14 @@ gap>
 
 To leave GAP, type `quit;` at the GAP prompt. Remember that all GAP commands,
 including this one, must be finished with a semicolon! Practice this entering
-`quit;` to leave GAP, and then start a new GAP session.
+`quit;` to leave GAP, and then start a new GAP session. Before continuing, you
+may wish to enter the following command to display GAP prompts and user inputs
+in different colours:
+
+~~~
+ ColorPrompt(true);
+~~~
+{: .source}
 
 Now you can use GAP as a calculator:
 
