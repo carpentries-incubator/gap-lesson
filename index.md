@@ -55,8 +55,9 @@ On this path, the learner will became familiar with:
 >    directory instead of `~`).
 > * on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
 >    (edit the path as necessary; remember to use `/` instead of `\`).
-> 4. Check that your current directory is set up properly: call `DirectoryCurrent();`
->    and the path that you will see in the output should point to the `avgord` directory.
+> 4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
+>    on Windows or `Exec("pwd");` on Linux and OS X and check that the path in the
+>    output points to the `avgord` directory.
 {: .checklist}
 
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
