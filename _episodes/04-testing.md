@@ -48,7 +48,7 @@ avoid typing the full path), the file `avgord.tst` with the following content:
 ~~~
 # tests for average order of a group element
 
-# permutation Group
+# permutation group
 gap> S:=SymmetricGroup(9);
 Sym( [ 1 .. 9 ] )
 gap> AvgOrdOfGroup(S);
@@ -59,7 +59,7 @@ gap> AvgOrdOfGroup(S);
 As you see, the test file may include comments, with certain rules specifying
 where they may be placed, because one should be able to distinguish comments
 in the test file from GAP output started with `#`. For that purpose,
-lines at the beginning of the test file that start with `#`", and one empty line
+lines at the beginning of the test file that start with `#`, and one empty line
 together with one or more lines starting with `#` are considered as comments.
 All other lines are considered as GAP output from the preceding GAP input.
 
