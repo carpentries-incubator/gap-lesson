@@ -68,7 +68,7 @@ Now you can use GAP as a calculator:
 {: .output}
 
 Now we will turn on logging to save all subsequent interaction with GAP into a
-log file. Assuming that you do not have a file named "gap-intro.log" in the GAP
+log file. Assuming that you do not have a file named `gap-intro.log` in the GAP
 current directory (i.e. the directory where you have started GAP on Unix systems,
 and the working directory for GAP on Windows), enter the following:
 
@@ -77,7 +77,7 @@ LogTo("gap-intro.log");
 ~~~
 {: .source}
 
-Then the file "gap-intro.log" in the GAP current directory will contain all
+Then the file `gap-intro.log` in the GAP current directory will contain all
 subsequent input and output that will appear on your terminal. To stop logging,
 you will need to call `LogTo` without arguments, as in `LogTo();` (but
 don't do this now, as we don't want to stop it), or leave GAP.
@@ -92,7 +92,7 @@ GAP prompt:
 ~~~
 {: .source}
 
-then after pressing Return key, GAP will display new prompt, but the comment
+then after pressing the Return key, GAP will display new prompt, but the comment
 will be written to the log file. To check that this works, open another terminal
 window, locate the log file and print it using `cat` to verify this.
 
@@ -270,7 +270,7 @@ Filtered( Partitions(10), x -> 5 in x);
 {: .challenge}
 
 A very time-saving feature of the GAP command-line interfaces is completion
-of identifiers when the Tab key is pressed. For exampe, type `Fib` and then
+of identifiers when the Tab key is pressed. For example, type `Fib` and then
 press the Tab key to complete the input to `Fibonacci`:
 
 ~~~
@@ -459,7 +459,7 @@ gap> elts[1]; elts[3]; Length(elts);
 >
 > * There are also sets (ordered lists without holes and repetitions)
 >
-> * See more in [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.htm)
+> * See more in [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.html)
 {: .callout}
 
 We are almost ready calculate the average order of elements of `G`. All three
@@ -523,7 +523,7 @@ Filtered( elts, g -> NrMovedPoints(g) = 4 );
 ~~~
 {: .output}
 
-* funding a permutation $g$ such that conjugates $(1,2)$ to $(2,3)$
+* funding a permutation `g` such that conjugates (1,2) to (2,3)
 
 ~~~
 First( elts, g -> (1,2)^g = (2,3) );
@@ -547,7 +547,7 @@ true
 ~~~
 {: .output}
 
-* checking whether no elements of $G$ move the point 1 to 2:
+* checking whether no elements of `G` move the point 1 to 2:
 
 ~~~
 ForAll( elts, g -> 1^g <> 2 );
@@ -559,7 +559,7 @@ false
 ~~~
 {: .output}
 
-* checking whether there is an element in $G$ which moves exactly two points:
+* checking whether there is an element in `G` which moves exactly two points:
 
 ~~~
 ForAny( elts, g -> NrMovedPoints(g) = 2 );
