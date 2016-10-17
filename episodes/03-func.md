@@ -101,7 +101,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 > calculation and obtain incorrect results;
 > * the group in question may have a different variable name, so the code will
 > have to be changed;
-> **last, but not least:** when GAP code is pasted into the interpreter, it is evaluated line
+> * **last, but not least:** when GAP code is pasted into the interpreter, it is evaluated line
 > by line. If you have a long file with many commands, and the syntax error is
 > in the line N, this error will be reported only when GAP will complete
 > the evaluation of all preceding lines, and that might be quite time-consuming.
@@ -182,7 +182,7 @@ end;
 ~~~
 {: .source}
 
-Now start a new GAP session and create another group, for example $M_{11}$:
+Now start a new GAP session and create another group, for example `MathieuGroup(11)`:
 
 ~~~
 M11:=MathieuGroup(11);
