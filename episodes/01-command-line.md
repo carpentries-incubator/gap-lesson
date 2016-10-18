@@ -224,7 +224,7 @@ Determinant(m);
 {: .source}
 
 ~~~
--30
+0
 ~~~
 {: .output}
 
