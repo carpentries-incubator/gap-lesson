@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/44778145.svg)](https://zenodo.org/badge/latestdoi/44778145)
+
 This is the lesson on the computational algebra system [GAP](http://www.gap-system.org).
 
 It is currently being developed by Alexander Konovalov for the Software Carpentry
