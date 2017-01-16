@@ -523,7 +523,7 @@ Filtered( elts, g -> NrMovedPoints(g) = 4 );
 ~~~
 {: .output}
 
-* funding a permutation `g` such that conjugates (1,2) to (2,3)
+* finding a permutation `g` that conjugates (1,2) to (2,3)
 
 ~~~
 First( elts, g -> (1,2)^g = (2,3) );
