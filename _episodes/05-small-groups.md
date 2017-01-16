@@ -15,7 +15,7 @@ keypoints:
 - "GAP is not a magic tool: theoretical knowledge may help much more than brute-force approach."
 ---
 
-In this section, we are interested to discover some non-trivial groups
+In this section, we are interested in discovering some non-trivial groups
 having the property that the average order of their elements is an integer.
 
 GAP distribution includes a number of data libraries (see an overview
@@ -92,8 +92,8 @@ gap> AllSmallGroups(Size,24,TestOneGroup,true);
 
 > ## Modular programming begins here
 >
-> Why a good design decision is for such function to return booleans,
-> and not just print information or return a string like `"YES"`?
+> Why is returning booleans a good design decision for such functions,
+> instead of just printing information or returning a string such as `"YES"` ?
 {: .callout}
 
 This is a simple example of a function which tests all groups of a given order.
@@ -182,7 +182,7 @@ fail
 {: .output}
 
 The next step is to integrate `TestOneOrder` into a function which will test
-all orders from 2 to `n` and stop as soon as it will find an example of a
+all orders from 2 to `n` and stop as soon as it finds an example of a
 group with the average order of an element being an integer:
 
 ~~~
@@ -199,7 +199,7 @@ end;
 ~~~
 {: .source}
 
-It reports that there is such group of order 105:
+It reports that there is such a group of order 105:
 
 ~~~
 TestAllOrders(TestOneGroup,128);
@@ -295,7 +295,7 @@ TestRangeOfOrders(TestOneGroup,106,256);
 ~~~
 {: .source}
 
-and discover that testing 2328 groups of order 128 and moreover 56092 groups
+and discover that testing 2328 groups of order 128 and additionally 56092 groups
 of order 256 is already too long.
 
 > ## Don't panic!
@@ -306,10 +306,10 @@ of order 256 is already too long.
 > terminate GAP session completely).
 {: .callout}
 
-This is again the situation where theoretical knowledge helps much more than
+This is again a situation where theoretical knowledge helps much more than
 brute-force approach. If the group is a _p_-group, then the order of each
-conjugacy class of a non-identity element of a group is divisible by _p_,
-therefore, the average order of a group element can not be an integer. Therefore,
+conjugacy class of a non-identity element of the group is divisible by _p_;
+therefore, the average order of a group element may not be an integer. Therefore,
 _p_-groups could be excluded from calculation. So, the new version of the code is
 
 ~~~
@@ -354,10 +354,10 @@ The next function shows even further flexibility: it is variadic, i.e.
 it may accept two or more arguments, the first two will be assigned to
 variables `f` and `n`, and the rest will be available in the list `r`
 (this is indicated by `...` after `r`). The first argument is the testing
-function, the second in the order to check, and the third and the fourth
+function, the second is the order to check, and the third and the fourth
 are the numbers of the first and last groups of this order that should be
-checked. By default, the first is equal to 1, and the last is equal to
-`NrSmallGroups(n)`. This functions also shows how validate the input and
+checked. By default, the last two are equal to 1 and `NrSmallGroups(n)`
+respectively. This function also shows how to validate the input and
 produce user-friendly error messages in case of wrong arguments.
 
 In addition, this function demonstrates how to use `Info` messages that
@@ -461,7 +461,7 @@ gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
 
 Of course, this now introduces some complication for the test file,
 which compares the actual output with the reference output. To resolve
-this problem, we will decide to run the tests at info level 0 to suppress
+this problem, we will decide to run the tests at info level 0 to remove
 all additional outputs. Because the tests may have been started in the
 GAP session with a different info level, we will remember that info level
 to restore it after the test:
@@ -491,7 +491,7 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 >
 > * Can you estimate how long it may take to check all 408641062 groups of order 1536 ?
 >
-> * How many groups of order not greater than 2000 you may be able to check,
+> * How many groups of order not higher than 2000 may you be able to check,
 >   excluding _p_-groups and those of order 1536?
 >
 > * Can you find in the Small Groups Library another group (of order not equal
