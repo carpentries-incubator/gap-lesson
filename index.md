@@ -3,7 +3,7 @@ layout: lesson
 root: .
 ---
 
-[GAP](http://www-gap.system.org) is a system for discrete computational algebra,
+[GAP](http://www.gap-system.org) is a system for discrete computational algebra,
 with particular emphasis on Computational Group Theory. GAP provides a
 programming language, a library of thousands of functions implementing algebraic
 algorithms written in the GAP language as well as large data libraries of algebraic
