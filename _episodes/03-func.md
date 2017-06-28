@@ -112,10 +112,10 @@ into functions:
 
 * functions are parsed first and may be called later;
 * any **syntax** errors will be detected in the parsing stage, and not at the time
-of the call;
+  of the call;
 * functions may have local variables, and this prevents them
-being accidentally overwritten just because of reusing the same name of the
-variable to store something else.
+  being accidentally overwritten just because of reusing the same name of the
+  variable to store something else.
 
 The following function takes an argument `S` and computes the average order
 of its elements:
