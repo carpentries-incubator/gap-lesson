@@ -13,19 +13,19 @@ keypoints:
 - "Objects like lists and records are good to keep structured and related data."
 ---
 
-So far you have met:
+So far we have met three types of GAP types:
 
 * _immediate_ objects such as integers, rationals, booleans, permutations,
 
 * _positional_ objects such as _lists_,
 
-* _component_ objects with obviously more complex internal representation such as groups.
+* _component_ objects with more complex internal representation, such as groups.
 
 In this section, we will demonstrate some other examples of basic objects
-existing in GAP (the system is extendable, so one could introduce new types
-of objects, but this is beyond the scope of this lesson).
+existing in GAP (the system is extendable, so one can introduce new types
+of objects, but this is beyond the scope of this lesson!).
 
-Further immediate objects are floats, cyclotomics and finite field elements:
+Some other immediate objects are floats, cyclotomics and finite field elements:
 
 ~~~
 1.15; Float(1232/3456567);
@@ -62,9 +62,9 @@ Z(5)^0
 ~~~
 {: .output}
 
-The next type of composite objects are **records**. While the list contains subobjects indexed
+The next type of composite objects are **records**. While a list contains subobjects indexed
 by their positions in the list, a record contains subobjects, called _record
-components_, which are indexed by their names.
+components_, which are indexed by their names. Elements of a record are accessed with `.`
 
 ~~~
 date:= rec(year:= 2015, month:= "Nov", day:= 17);
@@ -117,8 +117,7 @@ RecNames(date);
 ~~~
 {: .output}
 
-Next, there are **strings** and **characters**. Strings are lists of
-characters:
+Next, there are **strings** and **characters**. While strings are printed specially by GAP, a string is really just a list of characters, and any function which takes a list will also take a String.
 
 ~~~
 gap> w:="supercalifragilisticexpialidocious"; Length(w);
@@ -134,12 +133,13 @@ gap> w:="supercalifragilisticexpialidocious"; Length(w);
 Strings are denoted by double quotes, and characters by single ones.
 
 ~~~
-gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']);
+gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']); ['c','a','t'] = "cat"
 ~~~
 {: .source}
 
 ~~~
 false
+true
 true
 true
 true
