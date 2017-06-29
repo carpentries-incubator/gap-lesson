@@ -461,7 +461,7 @@ gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
 
 Of course, this now introduces some complication for the test file,
 which compares the actual output with the reference output. To resolve
-this problem, we will decide to run the tests at info level 0 to remove
+this problem, we will decide to run the tests at info level 0 to suppress  
 all additional outputs. Because the tests may have been started in the
 GAP session with a different info level, we will remember that info level
 to restore it after the test:
