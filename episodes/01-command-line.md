@@ -377,7 +377,7 @@ After that, invoke the help again, and see the difference!
 Let's now copy the following input from the first example of the GAP Reference
 manual Chapter on groups. It shows how to create permutations, and assign values
 to variables. This is `Reference: Groups`. You can select it by writing `?11`, where
-you replace `11` with whatever number appears before `Reference Groups` on your machine.
+you replace `11` with whatever number appears before `Reference: Groups` on your machine.
 
 If you are viewing the GAP documentation in a terminal, you might find it helpful to
 open two copies of GAP, one for reading documentation and one for writing code!
@@ -480,7 +480,7 @@ gap> elts[1]; elts[3]; Length(elts);
 {: .callout}
 
 Many functions in GAP refer to `Set`s. A set in GAP is just a list with
-no repetitions, no holes, and and elements in increasing order. Here are some examples:
+no repetitions, no holes, and elements in increasing order. Here are some examples:
 
 ~~~
 gap> IsSet([1,3,5]); IsSet([1,5,3]); IsSet([1,3,3]);
@@ -498,7 +498,7 @@ Now let us consider an interesting calculation -- the average order of elements
 of `G`. There are many different ways to do this, we will consider a few of them
 here.
 
-A `for` loop in GAP allows you to do something fores every member of a collection.
+A `for` loop in GAP allows you to do something for every member of a collection.
 This general form of a `for` loop is:
 
 ~~~
