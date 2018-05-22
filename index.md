@@ -13,14 +13,14 @@ which contains, among others, all 423 164 062 groups of order at most 2000 excep
 This lesson gives an introduction to GAP. It is centred around a common task of
 searching in the Small Groups Library for interesting examples and counterexamples,
 and a particular research problem in which we will be interested is to **find
-examples of groups such that the average order of their element is an integer**.
+examples of groups such that the average order of their elements is an integer**.
 
 The lesson will lead the learner along the path from working in the GAP command
 line and exploring algebraic objects interactively to saving the GAP code into
 files, creating functions and regression tests, and further to performing
 comprehensive search and extending the system by adding new attributes.
 
-On this path, the learner will became familiar with:
+On this path, the learner will become familiar with:
 
 * basic constructions of the GAP programming language,
 
