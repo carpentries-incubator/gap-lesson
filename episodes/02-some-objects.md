@@ -117,7 +117,9 @@ RecNames(date);
 ~~~
 {: .output}
 
-Next, there are **strings** and **characters**. While strings are printed specially by GAP, a string is really just a list of characters, and any function which takes a list will also take a string.
+Next, there are **strings** and **characters**. While strings are printed
+specially by GAP, a string is really just a list of characters, and any
+function which takes a list will also take a string.
 
 ~~~
 gap> w:="supercalifragilisticexpialidocious"; Length(w);

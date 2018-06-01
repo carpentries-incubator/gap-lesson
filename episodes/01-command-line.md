@@ -68,7 +68,8 @@ The easiest way to start trying GAP out is as a calculator:
 ~~~
 {: .output}
 
-If you want to record what you did in a GAP session, so you can look over it later, you can enable logging with the `LogTo` function, like this.
+If you want to record what you did in a GAP session, so you can look over it
+later, you can enable logging with the `LogTo` function, like this.
 
 ~~~
 LogTo("gap-intro.log");

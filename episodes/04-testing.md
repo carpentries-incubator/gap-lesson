@@ -63,7 +63,8 @@ lines at the beginning of the test file that start with `#`, and one empty line
 together with one or more lines starting with `#` are considered as comments.
 All other lines are considered as GAP output from the preceding GAP input.
 
-To run the test, one should use the function `Test`, as documented [here](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
+To run the test, one should use the function `Test`, as documented
+[here](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
 For example (assuming that the function `AvgOrdOfGroup` is already loaded):
 
 ~~~
