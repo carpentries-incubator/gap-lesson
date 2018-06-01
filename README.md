@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/alex-konovalov/gap-lesson.svg?branch=master)](https://travis-ci.org/alex-konovalov/gap-lesson)
 [![DOI](https://zenodo.org/badge/44778145.svg)](https://zenodo.org/badge/latestdoi/44778145)
 
 This is the lesson on the computational algebra system [GAP](http://www.gap-system.org).
