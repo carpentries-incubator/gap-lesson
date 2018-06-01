@@ -37,11 +37,14 @@ in your GAP installation.
 to view it with your preferred browser.
 
 8. **Use [**`LogTo`**](http://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960)
-to save all GAP input and output into a text file.** It should be called before calculations, not after!
+to save all GAP input and output into a text file.** It should be called before
+calculations, not after!
 
-9. **If the calculation takes too long, press `<Control>-C` to interrupt it**. Then type quit; to leave the break loop.
+9. **If the calculation takes too long, press `<Control>-C` to interrupt it**.
+Then type quit; to leave the break loop.
 
-10. **Read [A First Session with GAP](http://www.gap-system.org/Manuals/doc/tut/chap2.html)** from the GAP Tutorial.
+10. **Read [A First Session with GAP](http://www.gap-system.org/Manuals/doc/tut/chap2.html)**
+from the GAP Tutorial.
 
 
 ## Writing programs in GAP
@@ -199,7 +202,8 @@ field names, and also specify a custom separator. Conversely, `PrintCSV`
 may be used to output CSV files.
 
 To read arbitrary (binary or text) files as strings, use the `StringFile`
-function provided by the GAPDoc package (see [here](http://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3)).
+function provided by the GAPDoc package (see
+[here](http://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3)).
 It will return the content of the file as a string.
 After that, you may use various string manipulation tools (see
 [Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.htmlGAPDoc)
@@ -209,5 +213,6 @@ into a file.
 
 If you need to organise reading/writing line by line, instead of reading or
 writing the whole file/string at once, we suggest to look at the functionality
-provided by the IO package (see [here](http://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html)),
+provided by the IO package
+(see [here](http://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html)),
 in particular at `IO_ReadLine` and `IO_WriteLine`.
