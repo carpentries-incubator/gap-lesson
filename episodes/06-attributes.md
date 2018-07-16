@@ -168,7 +168,7 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 > * Try to call `AverageOrder` for a collection which is not a group
 >   (a list of group elements and/or a conjugacy class of group elements).
 >
-> * Debugging tools like `Trace methods` may help to see which method is
+> * Debugging tools like `TraceMethods` may help to see which method is
 >   being called.
 >
 > * `ApplicableMethod` in combination with `PageSource` may point you to
