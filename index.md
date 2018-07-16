@@ -43,10 +43,10 @@ On this path, the learner will become familiar with:
 > ## Getting ready
 > 1. In your home directory, create a new directory called `avgord`.
 > 2. Start GAP:
-> * on Linux and OS X, call `path-to-your-gap-installation/gap4r8/bin/gap.sh`
+> * on Linux and OS X, call `path-to-your-gap-installation/gap-4.X.Y/bin/gap.sh`
 >    (edit the path as necessary);
 > * on Windows, call it via the appropriate menu or
->    by double-clicking on the `gap4r8/bin/gap.bat` file in your GAP installation.
+>    by double-clicking on the `gap-4.X.Y/bin/gap.bat` file in your GAP installation.
 > 3. Set your current directory to `avgord` calling `ChangeDirectoryCurrent` from
 >    the IO package (if GAP is installed correctly, by default it should be loaded
 >    when GAP starts):
