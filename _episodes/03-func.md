@@ -229,13 +229,6 @@ AvgOrdOfGroup(M11);
 ~~~
 {: .output}
 
-> ## Which function is faster?
->
-> Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
-> and compare runtimes. Do this for new copy of `M11` and for the one for which
-> this parameter has already been observed. What do you observe?
-{: .callout}
-
 In the example of using `Read`, new GAP session was started to make it clear
 that `AvgOrdOfGroup` did not exist before the call of `Read` and was loaded
 from the file. However, a file with a function like this could be read multiple
