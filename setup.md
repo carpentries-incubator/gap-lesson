@@ -9,10 +9,10 @@ permalink: /setup/
 From the [GAP Downloads page](http://www.gap-system.org/Releases/),
 download the `.exe` installer and double click on the file to run it.
 When you will be asked for the installation path, note that it should
-not contain spaces. For example, you may install GAP in `C:\gap4r8`
-(default), `D:\gap4r8p4` or `C:\Math\GAP\gap4r8`, but you must not
-install it in a directory named like `C:\Program files\gap4r8` or
-`C:\Users\alice\My Documents\gap4r8` etc.
+not contain spaces. For example, you may install GAP 4.9.2 in `C:\gap-4.9.2`
+(default), `D:\gap-4.9.2` or `C:\Math\GAP\gap-4.9.2`, but you must not
+install it in a directory named like `C:\Program files\gap-4.9.2` or
+`C:\Users\alice\My Documents\gap-4.9.2` etc.
 
 ## OS X
 
