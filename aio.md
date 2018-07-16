@@ -1,5 +1,4 @@
 ---
-root: .
 ---
 <script>
   window.onload = function() {
