@@ -22,7 +22,7 @@ keypoints:
 ---
 
 If GAP is installed correctly you should be able to start it. Exactly how 
-you start GAP will depending on your operating system and how you installed
+you start GAP will depend on your operating system and how you installed
 GAP. GAP starts with the banner displaying information about the version of
 the system and loaded components, and then displays the command line prompt
 `gap>`, for example:
