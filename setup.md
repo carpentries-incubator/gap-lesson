@@ -24,12 +24,6 @@ Download one of the archives provided there, unpack it and run
 script which will build most of the packages that require compilation
 (provided sufficiently many libraries, headers and tools are available).
 
-Alternatively, you may also install GAP using [Homebrew](http://brew.sh/).
-After installing Homebrew, open the Terminal and call
-`brew install homebrew/science/gap --with-packages`.
-Please be patient - this may take a while. If Homebrew
-is already installed on your Mac, you may have to call `brew update` first.
-
 ## Linux
 
 On Linux, you need to install GAP from source as explained at the
