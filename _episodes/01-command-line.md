@@ -28,20 +28,20 @@ the system and loaded components, and then displays the command line prompt
 `gap>`, for example:
 
 ~~~
-┌───────┐   GAP 4.8.5, 25-Sep-2016, build of 2016-10-04 11:28:21 (BST)
-│  GAP  │   http://www.gap-system.org
-└───────┘   Architecture: x86_64-apple-darwin15.6.0-gcc-6-default64
-Libs used:  gmp, readline
-Loading the library and packages ...
-Components: trans 1.0, prim 2.1, small* 1.0, id* 1.0
-Packages:   AClib 1.2, Alnuth 3.0.0, AtlasRep 1.5.1, AutPGrp 1.6,
-            Browse 1.8.6, CRISP 1.4.4, Cryst 4.1.12, CrystCat 1.1.6,
-            CTblLib 1.2.2, FactInt 1.5.3, FGA 1.3.1, GAPDoc 1.5.1, IO 4.4.6,
-            IRREDSOL 1.3.1, LAGUNA 3.7.0, Polenta 1.3.6, Polycyclic 2.11,
-            RadiRoot 2.7, ResClasses 4.5.0, Sophus 1.23, SpinSym 1.5,
-            TomLib 1.2.5, Utils 0.40
-Try '??help' for help. See also '?copyright', '?cite' and '?authors'
-gap>
+ ┌───────┐   GAP 4.9.2 of 04-Jul-2018
+ │  GAP  │   https://www.gap-system.org
+ └───────┘   Architecture: x86_64-apple-darwin16.7.0-default64
+ Configuration:  gmp 6.1.2, readline
+ Loading the library and packages ...
+ Packages:   AClib 1.3, Alnuth 3.1.0, AtlasRep 1.5.1, AutPGrp 1.9, 
+             Browse 1.8.8, CRISP 1.4.4, Cryst 4.1.17, CrystCat 1.1.8, 
+             CTblLib 1.2.2, FactInt 1.6.2, FGA 1.4.0, GAPDoc 1.6.1, IO 4.5.1, 
+             IRREDSOL 1.4, LAGUNA 3.9.0, Polenta 1.3.8, Polycyclic 2.14, 
+             PrimGrp 3.3.1, RadiRoot 2.8, ResClasses 4.7.1, SmallGrp 1.3, 
+             Sophus 1.24, SpinSym 1.5, TomLib 1.2.6, TransGrp 2.0.2, 
+             utils 0.54
+ Try '??help' for help. See also '?copyright', '?cite' and '?authors'
+gap> 
 ~~~
 {: .output}
 
