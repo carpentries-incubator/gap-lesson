@@ -26,6 +26,8 @@ gap> AvgOrdOfGroup(G);
 59/16
 
 # finite matrix group over integers
+gap> AvgOrdOfGroup( Group( [[0,-1],[1,0]] ) );
+11/4
 
 # matrix group over a finite field
 gap> AvgOrdOfGroup(SL(2,5));
