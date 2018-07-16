@@ -16,6 +16,13 @@ keypoints:
 - "'No-method-found' is a special kind of error with useful debugging tools helping to understand it."
 ---
 
+> ## Which function is faster?
+>
+> Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
+> and compare runtimes. Do this for new copy of `M11` and for the one for which
+> this parameter has already been observed. What do you observe?
+{: .callout}
+
 Of course, for any given group the average order of its elements needs to
 be calculated only once, as the next time it will return the same value.
 However, as we see from the runtimes below, each new call of `AvgOrdOfGroup`
