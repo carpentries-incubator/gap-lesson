@@ -3,29 +3,29 @@ title: "Some more GAP objects"
 teaching: 15
 exercises: 5
 questions:
-- "Further examples of immediate and positional objects and operations with them"
+- "Further examples of objects and operations with them"
 objectives:
 - "See examples of types that are built-in in GAP but may be missing in other systems"
 - "See examples of list arithmetic"
 keypoints:
-- "GAP has a plethora of variious immediate, positional and component objects."
+- "GAP has a plethora of various immediate, positional and component objects."
 - "List arithmetic is very flexible and powerful."
 - "Objects like lists and records are good to keep structured and related data."
 ---
 
 So far we have met three types of GAP types:
 
-* _immediate_ objects such as integers, rationals, booleans, permutations,
+* simple objects such as integers, rationals, booleans, permutations,
 
-* _positional_ objects such as _lists_,
+* composite objects such as _lists_,
 
-* _component_ objects with more complex internal representation, such as groups.
+* objects with more complex internal representation, such as groups.
 
 In this section, we will demonstrate some other examples of basic objects
 existing in GAP (the system is extendable, so one can introduce new types
 of objects, but this is beyond the scope of this lesson!).
 
-Some other immediate objects are floats, cyclotomics and finite field elements:
+Some other simple objects are floats, cyclotomics and finite field elements:
 
 ~~~
 1.15; Float(1232/3456567);
@@ -62,7 +62,8 @@ Z(5)^0
 ~~~
 {: .output}
 
-The next type of composite objects are **records**. While a list contains subobjects indexed
+You already know about lists.
+ANother type of composite objects are **records**. While a list contains subobjects indexed
 by their positions in the list, a record contains subobjects, called _record
 components_, which are indexed by their names. Elements of a record are accessed with `.`
 
@@ -119,7 +120,8 @@ RecNames(date);
 
 Next, there are **strings** and **characters**. While strings are printed
 specially by GAP, a string is really just a list of characters, and any
-function which takes a list will also take a string.
+function which takes a list will also take a string. In contrast, characters,
+are simple objects like integers.
 
 ~~~
 gap> w:="supercalifragilisticexpialidocious"; Length(w);
