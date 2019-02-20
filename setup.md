@@ -19,7 +19,7 @@ install it in a directory named like `C:\Program files\gap-4.9.3` or
 On OS X, you need to install GAP from source as explained
 at the [GAP Downloads page](http://www.gap-system.org/Releases/).
 Download one of the archives provided there, unpack it and run
-`./configure; make` in the unpacked directory. Then change to the
+`./configure && make` in the unpacked directory. Then change to the
 `pkg` subdirectory and call `../bin/BuildPackages.sh` to run the
 script which will build most of the packages that require compilation
 (provided sufficiently many libraries, headers and tools are available).
@@ -29,7 +29,7 @@ script which will build most of the packages that require compilation
 On Linux, you need to install GAP from source as explained at the
 [GAP Downloads page](http://www.gap-system.org/Releases/).
 Download one of the archives provided there, unpack it and run
-`./configure; make` in the unpacked directory. Then change to the
+`./configure && make` in the unpacked directory. Then change to the
 `pkg` subdirectory and call `../bin/BuildPackages.sh` to run the
 script which will build most of the packages that require compilation
 (provided sufficiently many libraries, headers and tools are available).
