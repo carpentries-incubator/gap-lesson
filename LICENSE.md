@@ -5,7 +5,7 @@ root: .
 ---
 ## Instructional Material
 
-All Software Carpentry and Data Carpentry instructional material is
+All Software Carpentry, Data Carpentry, and Library Carpentry instructional material is
 made available under the [Creative Commons Attribution
 license][cc-by-human]. The following is a human-readable summary of
 (and not a substitute for) the [full legal text of the CC BY 4.0
@@ -78,6 +78,6 @@ are registered trademarks of [Community Initiatives][CI].
 
 [cc-by-human]: https://creativecommons.org/licenses/by/4.0/
 [cc-by-legal]: https://creativecommons.org/licenses/by/4.0/legalcode
-[mit-license]: http://opensource.org/licenses/mit-license.html
+[mit-license]: https://opensource.org/licenses/mit-license.html
 [ci]: http://communityin.org/
-[osi]: http://opensource.org
+[osi]: https://opensource.org
