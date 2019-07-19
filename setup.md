@@ -24,6 +24,10 @@ Download one of the archives provided there, unpack it and run
 script which will build most of the packages that require compilation
 (provided sufficiently many libraries, headers and tools are available).
 
+Alternatively, you may also install GAP using [Homebrew](http://brew.sh/),
+After installing Homebrew, follow the instructions for the
+[GAP Homebrew tap](https://github.com/gap-system/homebrew-gap).
+
 ## Linux
 
 On Linux, you need to install GAP from source as explained at the
