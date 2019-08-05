@@ -20,7 +20,8 @@ The code of `AvgOrdOfGroup` is very simple, and nothing could possibly go wrong
 with it. By iterating over the group instead of creating a list of its elements,
 it avoids running out of memory
 (calling `AsList(SymmetricGroup(11))` already results in exceeding the permitted
-memory). On the other hand, it takes several minutes to calculate the average order of an
+memory). That said, the computation still takes time, with several minutes
+needed to calculate the average order of an
 element of `SymmetricGroup(11)`. But at least we are confident that it is
 correct.
 
@@ -233,5 +234,5 @@ true
 ~~~
 {: .output}
 
-Thus, the approach 'Make it right, then make it fast' helped to detect a bug
+Thus, the approach 'Make it right, then make it fast' helped detect a bug
 immediately after it has been introduced.
