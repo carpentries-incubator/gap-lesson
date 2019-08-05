@@ -15,14 +15,14 @@ keypoints:
 
 So far we have met three types of GAP types:
 
-* simple objects such as integers, rationals, booleans, permutations,
+* simple objects such as integers, rationals, booleans, permutations;
 
-* composite objects such as _lists_,
+* composite objects such as _lists_;
 
 * objects with more complex internal representation, such as groups.
 
 In this section, we will demonstrate some other examples of basic objects
-existing in GAP (the system is extendable, so one can introduce new types
+that exist in GAP (the system is extendable, so one can introduce new types
 of objects, but this is beyond the scope of this lesson!).
 
 Some other simple objects are floats, cyclotomics and finite field elements:
@@ -63,7 +63,7 @@ Z(5)^0
 {: .output}
 
 You already know about lists.
-ANother type of composite objects are **records**. While a list contains subobjects indexed
+Another type of composite objects is **records**. While a list contains subobjects indexed
 by their positions in the list, a record contains subobjects, called _record
 components_, which are indexed by their names. Elements of a record are accessed with `.`
 
@@ -120,7 +120,7 @@ RecNames(date);
 
 Next, there are **strings** and **characters**. While strings are printed
 specially by GAP, a string is really just a list of characters, and any
-function which takes a list will also take a string. In contrast, characters,
+function which takes a list will also take a string. In contrast, characters
 are simple objects like integers.
 
 ~~~
@@ -137,7 +137,7 @@ gap> w:="supercalifragilisticexpialidocious"; Length(w);
 Strings are denoted by double quotes, and characters by single ones.
 
 ~~~
-gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']); ['c','a','t'] = "cat"
+gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']); ['c','a','t'] = "cat";
 ~~~
 {: .source}
 
@@ -163,8 +163,8 @@ fail
 ~~~
 {: .output}
 
-Be careful that some operations may create a new list, and some may be
-destructive, for example:
+Be careful! Some operations may create a new list, while others are
+destructive. For example:
 
 ~~~
 gap> SortedList(w); w;
@@ -189,7 +189,7 @@ gap> Sort(w); w;
 ~~~
 {: .output}
 
-Which letter is occurring in "supercalifragilisticexpialidocious" most often?
+Which letter occurs in "supercalifragilisticexpialidocious" most often?
 
 ~~~
 gap> c := Collected(w);
@@ -214,16 +214,15 @@ gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
 ~~~
 {: .output}
 
-> ## How to find the most occurring letter(s) using one pass over the list `c`?
+> ## Finding the most common letter(s) in a list using only one pass
 >
 > The command
 >
 > `k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );`
 >
-> iterates over the list `c` two times (in `List` and in `Filtered`), and
+> iterates over the list `c` twice (in `List` and in `Filtered`), and
 > it also iterates over another list of the same length as `c` in the call
 > to `Maximum`. If the list is long, this will impose certain performance
-> and memory penalties. Try to write the code which find the most occurring
-> letter(s) using one pass over the list `c` without producing an intermediate
-> list.
+> and memory penalties. Try to write code that finds the letters that occur most
+> in `c` without producing an intermediate list.
 {: .challenge}

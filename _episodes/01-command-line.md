@@ -6,24 +6,24 @@ questions:
 - "Working with the GAP command line"
 objectives:
 - "Time-saving tips and tricks"
-- "Using GAP help system"
+- "Using GAP's help system"
 - "Basic objects and constructions in the GAP language"
 keypoints:
 - "Remember that GAP is case-sensitive!"
-- "Do not panic seeing 'Error, Variable: 'FuncName' must have a value'."
+- "Do not panic if you see `Error, Variable: 'FuncName' must have a value`."
 - "Care about names of variables and functions."
 - "Use command line editing."
 - "Use autocompletion instead of typing names of functions and variables in full."
 - "Use `?` and `??` to view help pages."
-- "Set default help format to HTML using `SetHelpViewer`."
-- "Use `LogTo` function to save all GAP input and output into a text file."
+- "Set the default help format to HTML using `SetHelpViewer`."
+- "Use the `LogTo` function to save all GAP input and output into a text file."
 - "If calculation takes too long, press <Control>-C to interrupt it."
 - "Read 'A First Session with GAP' from the GAP Tutorial."
 ---
 
 If GAP is installed correctly you should be able to start it. Exactly how 
 you start GAP will depend on your operating system and how you installed
-GAP. GAP starts with the banner displaying information about the version of
+GAP. GAP starts with the *banner* displaying information about the version of
 the system and loaded components, and then displays the command line prompt
 `gap>`, for example:
 
@@ -82,7 +82,7 @@ To stop logging, you can call `LogTo` without arguments, as in `LogTo();`,
 or leave GAP. Note that `LogTo` blanks the file before starting, if it
 already exists!
 
-It can be useful to leave some comments in the log file in case you will
+It can be useful to leave some comments in the log file in case you
 return to it in the future. A comment in GAP starts with the symbol `#` and
 continues to the end of the line. You can enter the following after the
 GAP prompt:
@@ -92,13 +92,13 @@ GAP prompt:
 ~~~
 {: .source}
 
-then after pressing the Return key, GAP will display new prompt but the comment
+then after pressing the Return key, GAP will display a new prompt but the comment
 will be written to the log file.
 
-The log file records all interaction with GAP that is happening after the call
+The log file records all interaction with GAP that happens after the call
 to `LogTo`, but not before. We can repeat our calculation from above
-if we want to record it as well. Instead of retyping it, we will use Up and Down
-arrow keys to scroll the *command line history*. Repeat this until you will see
+if we want to record it as well. Instead of retyping it, we will use the Up and Down
+arrow keys to scroll the *command line history*. Repeat this until you see
 the formula again, then press Return (the location of the cursor in the command
 line does not matter):
 
@@ -112,10 +112,10 @@ line does not matter):
 ~~~
 {: .output}
 
-You can also edit existing commands. Press up once more, and then use
+You can also edit existing commands. Press Up once more, and then use the
 Left and Right arrow keys, Delete or Backspace to edit it and replace
-32 by 64 (another useful shortcuts are
-Ctrl-A and Ctrl-E to move the cursor to the beginning or to the end of the
+32 by 64 (some other useful shortcuts are
+Ctrl-A and Ctrl-E to move the cursor to the beginning and end of the
 line, respectively). Now press the Return key (at any position of the
 cursor in the command line):
 
@@ -148,10 +148,10 @@ universe := 6*7;
 >   variables, but GAP uses `:=`.
 >
 > * GAP uses `=` to compare if two things are the same (where other languages might
->   use '=='.
+>   use `==`).
 >
-> * Finally, GAP uses `<>` to check if two things are not equal, rather than the `!=`
->   you might have seen before.
+> * Finally, GAP uses `<>` to check if two things are not equal (rather than the `!=`
+>   you might have seen before).
 {: .callout}
 
 Whitespace characters (i.e. Spaces, Tabs and Returns) are insignificant in GAP,
@@ -169,7 +169,7 @@ could be typed without spaces:
 {: .output}
 
 Whitespace symbols are often used to format more complicated commands for
-better readability. For example, the following input which creates a 3x3 matrix
+better readability. For example, the following input which creates a 3×3 matrix:
 
 ~~~
 m:=[[1,2,3],[4,5,6],[7,8,9]];
@@ -221,7 +221,7 @@ which contain a (possibly empty) list of arguments.
 > We will explain the differences in these outputs later.
 {: .callout}
 
-Here there are examples of calling some other GAP functions:
+Here are some examples of calling other GAP functions:
 
 ~~~
 Factorial(100);
@@ -276,7 +276,7 @@ Filtered( [2,9,6,3,4,5], IsEvenInt);
 {: .output}
 
 
-A very time-saving feature of the GAP command-line interfaces is completion
+A useful time-saving feature of the GAP command-line interfaces is completion
 of identifiers when the Tab key is pressed. For example, type `Fib` and then
 press the Tab key to complete the input to `Fibonacci`:
 
@@ -290,21 +290,21 @@ Fibonacci(100);
 ~~~
 {: .output}
 
-In case when the unique completion is not possible, GAP will try to perform
+In the case that a unique completion is not possible, GAP will try to perform
 partial completion, and pressing the Tab key second time will display all possible
 completions of the identifier. Try, for example, to enter `GroupHomomorphismByImages`
 or `NaturalHomomorphismByNormalSubgroup` using completion.
 
-The way functions are named in GAP will hopefully help you to memorize or even guess names
+The way functions are named in GAP will hopefully help you to memorise or even guess names
 of library functions. If a variable name consists of several words then the
-first letter of each word is capitalized (remember that GAP is case-sensitive!).
+first letter of each word is capitalised (remember that GAP is case-sensitive!).
 Further details on naming conventions used in GAP are documented in the GAP
 manual [here](http://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
-Functions with names which are `ALL_CAPITAL_LETTERS` are internal functions not intended
+Functions with names in `ALL_CAPITAL_LETTERS` are internal functions not intended
 for general use. Use them with extreme care!
 
 It is important to remember that GAP is case-sensitive. For example, the following
-input causes an error
+input causes an error:
 
 ~~~
 factorial(100);
@@ -321,7 +321,7 @@ because the name of the GAP library function is `Factorial`. Using lowercase
 instead of uppercase or vice versa also affects name completion.
 
 Now let's consider the following problem: for a finite group _G_, calculate the
-average order of its element (that is, the sum of orders of its elements divided
+average order of its elements (that is, the sum of orders of its elements divided
 by the order of the group). Where to start?
 
 Enter `?Group`, and you will see all help entries, starting with `Group`:
@@ -356,7 +356,7 @@ Enter `?Group`, and you will see all help entries, starting with `Group`:
 
 You may use arrow keys to move up and down the list, and open help pages by
 pressing Return key. For this exercise, open `Tutorial: Groups and Homomorphisms`
-first. Note navigation instructions at the bottom of the screen. Look at
+first. Note the navigation instructions at the bottom of the screen. Look at
 first two pages, then press `q` to return to the selection menu. Next, navigate to
 `Reference: Groups` and open it. Within two first pages you will find the
 function `Group` and mentioning of `Order`.
@@ -376,8 +376,8 @@ SetHelpViewer("browser");
 After that, invoke the help again, and see the difference!
 
 Let's now copy the following input from the first example of the GAP Reference
-manual Chapter on groups. It shows how to create permutations, and assign values
-to variables. This is `Reference: Groups`. You can select it by writing `?11`, where
+manual chapter on groups. It shows how to create permutations, and assign values
+to variables. This is `Reference: Groups`. You can select it by typing `?11`, where
 you replace `11` with whatever number appears before `Reference: Groups` on your machine.
 
 If you are viewing the GAP documentation in a terminal, you might find it helpful to
@@ -419,10 +419,10 @@ false
 ~~~
 {: .output}
 
-Our next task is to find out how to obtain a list of element and their orders.
-Enter `?elements` and explore the list of help topics. After its inspection,
+Our next task is to find out how to obtain a list of `G`'s elements and their orders.
+Enter `?elements` and explore the list of help topics. After inspection,
 the entry from the Tutorial does not seem relevant, but the entry from the
-Reference manual is. It also tells the difference between using `AsSSortedList`
+Reference manual is. It also explains the difference between using `AsSSortedList`
 and `AsList`. So, this is the list of elements of `G`:
 
 ~~~
@@ -480,7 +480,7 @@ gap> elts[1]; elts[3]; Length(elts);
 > * See more in [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.html)
 {: .callout}
 
-Many functions in GAP refer to `Set`s. A set in GAP is just a list with
+Many functions in GAP refer to `Set`s. A set in GAP is just a list that happens to have
 no repetitions, no holes, and elements in increasing order. Here are some examples:
 
 ~~~
@@ -500,7 +500,7 @@ of `G`. There are many different ways to do this, we will consider a few of them
 here.
 
 A `for` loop in GAP allows you to do something for every member of a collection.
-This general form of a `for` loop is:
+The general form of a `for` loop is:
 
 ~~~
 for val in collection do
@@ -525,8 +525,8 @@ s/Length(elts);
 ~~~
 {: .output}
 
-Actually, we can just directly loop over the elements of G, in general GAP
-will let you loop over most types of object. We have to switch to using `Size`
+Actually, we can just directly loop over the elements of `G` (in general GAP
+will let you loop over most types of object). We have to switch to using `Size`
 instead of `Length`, as groups don't have a length!
 
 ~~~
@@ -543,7 +543,7 @@ s/Size(G);
 ~~~
 {: .output}
 
-There are other ways of looping, for example we can instead loop over the integers,
+There are other ways of looping. For example, we can instead loop over a range of integers,
 and accept `elts` like an array:
 
 ~~~
@@ -561,7 +561,7 @@ s/Length(elts);
 {: .output}
 
 However, often there are more compact ways of doing things. Here is a very
-short way
+short way:
 
 ~~~
 Sum( List( elts, Order ) ) / Length( elts );
@@ -575,26 +575,26 @@ Sum( List( elts, Order ) ) / Length( elts );
 
 Let's break this last part down:
 
-* `Order` find the order of a single permutation.
+* `Order` finds the order of a single permutation.
 * `List(L,F)` makes a new list where the function `F` is applied to each
    member of the list `L`.
 * `Sum(L)` adds up the members of a list `L`.
 
-> ## Which approach is better?
+> ## Which approach is best?
 >
 > Compare these approaches. Which one would you prefer to use?
 {: .callout}
 
 
-GAP has very helpful list manipulation tools. We will now show a few more examples:
+GAP has very helpful list manipulation tools. We will now show a few more examples.
 
-Often when using these functions, GAP does not quite have the right function,
-for example `NrMovedPoints` give the number of moved points of a permutation,
+Sometimes, GAP does not have the exact function we want.
+For example, `NrMovedPoints` gives the number of moved points of a permutation,
 but what if we want to find all permutations which move `4` points? This is where
 GAP's arrow notation comes in. `g -> e` makes a new function which takes one argument `g`,
 and returns the value of the expression `e`. Here are some examples:
 
-* finding elements of `G` having no fixed points:
+* finding all elements of `G` with no fixed points:
 
 ~~~
 Filtered( elts, g -> NrMovedPoints(g) = 4 );
@@ -606,7 +606,7 @@ Filtered( elts, g -> NrMovedPoints(g) = 4 );
 ~~~
 {: .output}
 
-* finding a permutation `g` that conjugates (1,2) to (2,3)
+* finding a permutation in `G` that conjugates (1,2) to (2,3)
 
 ~~~
 First( elts, g -> (1,2)^g = (2,3) );
@@ -630,7 +630,7 @@ true
 ~~~
 {: .output}
 
-* checking whether any elements of `G` move the point 1 to 2:
+* checking whether all elements of `G` move the point 1 to 2:
 
 ~~~
 ForAll( elts, g -> 1^g <> 2 );

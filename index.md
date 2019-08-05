@@ -31,13 +31,13 @@ On this path, the learner will become familiar with:
 > ## Prerequisites
 >
 > The lesson is oriented on learners possessing the minimal theoretical
-> background (at least at the level of undergraduate group theory course)
-> and willing to learn how the concepts from abstract algebra may be
+> background (at least at the level of an undergraduate group theory course)
+> and willing to learn how concepts from abstract algebra may be
 > explored using computational tools.
 > No previous experience of working with GAP is required.
 >
-> Learners need to understand the concepts of files and directories
-> (including home and working directories) and know only how to start GAP.
+> Learners only need to understand the concepts of files and directories
+> (including home and working directories) and know how to start GAP.
 {: .prereq}
 
 > ## Getting ready
@@ -54,7 +54,7 @@ On this path, the learner will become familiar with:
 >    (edit the path as necessary; remember to type the full path to your home
 >    directory instead of `~`).
 > * on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
->    (edit the path as necessary; remember to use `/` instead of `\`).
+>    (edit the path as necessary; remember to use `/` instead of `\`);
 > 4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
 >    on Windows or `Exec("pwd");` on Linux and OS X and check that the path in the
 >    output points to the `avgord` directory.
