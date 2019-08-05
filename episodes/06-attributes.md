@@ -11,15 +11,15 @@ objectives:
 - "Using debugging tools"
 keypoints:
 - "_Positional_ objects may accumulate information about themselves during their lifetime."
-- "This means that next time the stored information may be retrieved at zero costs."
-- "_Methods_ are bunches of functions; the _method selection_ will choose the most efficient method based on the type of all arguments."
+- "This means that next time the stored information may be retrieved at zero cost."
+- "_Methods_ are bunches of functions; GAP's _method selection_ will choose the most efficient method based on the type of all arguments."
 - "'No-method-found' is a special kind of error with useful debugging tools helping to understand it."
 ---
 
 > ## Which function is faster?
 >
 > Try to repeatedly calculate `AvgOrdOfGroup(M11)` and `AvgOrdOfCollection(M11)`
-> and compare runtimes. Do this for new copy of `M11` and for the one for which
+> and compare runtimes. Do this for a new copy of `M11` and for the one for which
 > this parameter has already been observed. What do you observe?
 {: .callout}
 
@@ -51,16 +51,16 @@ AvgOrdOfCollection(A); time; AvgOrdOfCollection(A); time;
 ~~~
 {: .output}
 
-In the last example, the group in question was the same - we haven't
+In the last example, the group in question was the same -- we haven't
 constructed another copy of `AlternatingGroup(10)`; however, the result
 of the calculation was not stored in `A`.
 
 If you need to reuse this value, one option could be to store it in some
 variable, but then you should be careful about matching such variables
 with corresponding groups, and the code could become quite convoluted
-and unreadable. On the other hand, GAP has a notion of attributes which
-are used to accumulate information that objects learn about themselves
-during their lifetime. Consider the following example:
+and unreadable. On the other hand, GAP has the notion of an _attribute_ -- a
+data structure that is used to accumulate information that an object learns about itself
+during its lifetime. Consider the following example:
 
 ~~~
 G:=Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ]);
@@ -94,8 +94,8 @@ NrConjugacyClasses;
 Our goal is now to learn how to create own attributes.
 
 Since we already have a function `AvgOrdOfCollection` which
-does the calculation, the simplest example of turning it into
-an attribute could look as follows:
+does the calculation, the simplest way to turn it into
+an attribute is as follows:
 
 ~~~
 AverageOrder := NewAttribute("AverageOrder", IsCollection);
@@ -125,18 +125,18 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ~~~
 {: .output}
 
-You may be interested why we have declared the operation for a collection and
-not only for a group and then used the non-efficient method for a group again,
-while we have already developed an efficient one?
+You may wonder why we have declared the operation for a collection and not only
+for a group, and why we have installed the inefficient `AvgOrdOfCollection`.
+After all, we have already developed the much more efficient `AvgOrdOfGroup`.
 
-Imagine the situation when you would like to be able to compute an average order
+Imagine that you would like to be able to compute an average order
 both for a group and for a list which consists of objects having a multiplicative
-order. You may have a special function for each case, as we have already. If it
+order. You may have a special function for each case, as we have. If it
 could happen that you don't know in advance the type of the object in question,
 you may add checks into the code and dispatch to a suitable function. This could
-quickly became complicated if you have several different functions for various
+quickly become complicated if you have several different functions for various
 types of objects. Instead of that, attributes are bunches of functions, called
-_methods_, and the _method selection_ will choose the most efficient method
+_methods_, and GAP's _method selection_ will choose the most efficient method
 based on the type of all arguments.
 
 To illustrate this, we will now install a method for `AverageOrder` for a group:
@@ -146,9 +146,9 @@ InstallMethod( AverageOrder, [IsGroup], AvgOrdOfGroup);
 ~~~
 {: .source}
 
-If you will apply it to the group which already has `AverageOrder`, nothing
-will happen, since GAP will use the stored value. For a newly created group,
-this new method will be called indeed:
+If you apply it to a group whose `AverageOrder` has already been computed, nothing
+will happen, since GAP will use the stored value. However, for a newly created group,
+this new method will be called:
 
 ~~~
 S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
@@ -168,7 +168,7 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 > * Try to call `AverageOrder` for a collection which is not a group
 >   (a list of group elements and/or a conjugacy class of group elements).
 >
-> * Debugging tools like `TraceMethods` may help to see which method is
+> * Debugging tools like `TraceMethods` may help you see which method is
 >   being called.
 >
 > * `ApplicableMethod` in combination with `PageSource` may point you to
@@ -183,9 +183,9 @@ IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
 {: .source}
 
 Now we will install a method for `IsIntegerAverageOrder` for a collection.
-Observe that neither below nor in the examples above it is not necessary to create
+Observe that it is never necessary to create
 a function first and then install it as a method. The following method installation
-just creates a new function as one of its arguments:
+instead creates a new function as one of its arguments:
 
 ~~~
 InstallMethod( IsIntegerAverageOrder,
@@ -196,10 +196,10 @@ InstallMethod( IsIntegerAverageOrder,
 ~~~
 {: .source}
 
-Note that because `AverageOrder` is an operation it will take care of the selection of
+Note that because `AverageOrder` is an attribute it will take care of the selection of
 the most suitable method.
 
-> ## Does such method always exist?
+> ## Does such a method always exist?
 >
 > No. "No-method-found" is a special kind of error, and there are tools to
 > investigate such errors: see `?ShowArguments`, `?ShowDetails`, `?ShowMethods`
@@ -237,5 +237,5 @@ l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 >   instead of calculations its conjugacy classes.
 >
 > * Estimate practical boundaries of its feasibility. Can you find an example
->   of a pc group when iterating is slower than calculating conjugacy classes?
+>   of a pc group where iterating is slower than calculating conjugacy classes?
 {: .challenge}
