@@ -4,21 +4,21 @@ teaching: 40
 exercises: 15
 questions:
 - "Modular programming: putting functions together"
-- "How to check some conjecture for all groups of a given order?"
+- "How to check some conjecture for all groups of a given order"
 objectives:
-- "Using Small Groups Library"
+- "Using the Small Groups Library"
 - "Designing a system of functions to fit together"
 keypoints:
 - "Organise the code into functions."
 - "Create small groups one by one instead of producing a huge list of them."
 - "Using `SmallGroupsInformation` may help to reduce the search space."
-- "GAP is not a magic tool: theoretical knowledge may help much more than brute-force approach."
+- "GAP is not a magic tool: theoretical knowledge may help much more than the brute-force approach."
 ---
 
-In this section, we are interested in discovering some non-trivial groups
-having the property that the average order of their elements is an integer.
+In this section, we wish to discover some non-trivial groups with an interesting
+property: namely, that the average order of their elements is an integer.
 
-GAP distribution includes a number of data libraries (see an overview
+The GAP distribution includes a number of data libraries (see an overview
 [here](http://www.gap-system.org/Datalib/datalib.html)). One of them is
 the [Small Groups Library](http://www.gap-system.org/Packages/sgl.html) by
 Hans Ulrich Besche, Bettina Eick and Eamonn O'Brien.
@@ -136,7 +136,7 @@ fail
 ~~~
 {: .output}
 
-> ## `AllSmallGroups` runs out of memory - what to do?
+> ## `AllSmallGroups` runs out of memory -- what to do?
 >
 > * Use iteration over `[1..NrSmallGroups(n)]` as shown in the function above
 > * Use `IdsOfAllSmallGroups` which accepts same arguments as `AllSmallGroups`
@@ -258,7 +258,7 @@ RelatorsOfFpGroup(H);
 ~~~
 {: .output}
 
-Now we want to try larger groups, starting from the order 106 (we check that
+Now we want to try larger groups, starting from order 106 (we check that
 the other group of order 105 possesses no such property)
 
 ~~~
@@ -296,21 +296,21 @@ TestRangeOfOrders(TestOneGroup,106,256);
 {: .source}
 
 and discover that testing 2328 groups of order 128 and additionally 56092 groups
-of order 256 is already too long.
+of order 256 already takes too long.
 
 > ## Don't panic!
 >
 > You can interrupt GAP by pressing Ctrl-C once. After that, GAP will enter
-> a break loop, designated by the break prompt `brk`. You can leave it by
-> typing `quit;` (beware of pressing Ctrl-C twice within a second - that will
+> a break loop, designated by the break prompt `brk>`. You can leave it by
+> typing `quit;` (beware of pressing Ctrl-C twice within a second -- that will
 > terminate GAP session completely).
 {: .callout}
 
-This is again a situation where theoretical knowledge helps much more than
+This is another situation where theoretical knowledge helps much more than the
 brute-force approach. If the group is a _p_-group, then the order of each
 conjugacy class of a non-identity element of the group is divisible by _p_;
 therefore, the average order of a group element may not be an integer. Therefore,
-_p_-groups could be excluded from calculation. So, the new version of the code is
+_p_-groups can be excluded from calculation. So, the new version of the code is
 
 ~~~
 TestRangeOfOrders:=function(f,n1,n2)
@@ -351,14 +351,14 @@ gap> TestRangeOfOrders(TestOneGroup,106,512);
 {: .output}
 
 The next function shows even further flexibility: it is variadic, i.e.
-it may accept two or more arguments, the first two will be assigned to
-variables `f` and `n`, and the rest will be available in the list `r`
+it may accept two or more arguments, the first two of which will be assigned to
+the variables `f` and `n`, and the rest of which will be available in the list `r`
 (this is indicated by `...` after `r`). The first argument is the testing
 function, the second is the order to check, and the third and the fourth
 are the numbers of the first and last groups of this order that should be
 checked. By default, the last two are equal to 1 and `NrSmallGroups(n)`
 respectively. This function also shows how to validate the input and
-produce user-friendly error messages in case of wrong arguments.
+produce user-friendly error messages in case of invalid arguments.
 
 In addition, this function demonstrates how to use `Info` messages that
 may be switched on and off by setting appropriate `Info` level. The need
@@ -438,7 +438,7 @@ end;
 ~~~
 {: .source}
 
-The following example demonstrates how the output now may be controlled
+The following example demonstrates how the output may now be controlled
 by switching the info level for `InfoSmallGroupsSearch`:
 
 ~~~
@@ -489,11 +489,11 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 >
 > * What can you say about the order of the groups with this property?
 >
-> * Can you estimate how long it may take to check all 408641062 groups of order 1536 ?
+> * Can you estimate how long it may take to check all 408641062 groups of order 1536?
 >
-> * How many groups of order not higher than 2000 may you be able to check,
+> * How many groups of order not higher than 2000 might you be able to check,
 >   excluding _p_-groups and those of order 1536?
 >
-> * Can you find in the Small Groups Library another group (of order not equal
->   to 1536) with this property?
+> * Can you find another group with this property in the Small Groups Library
+>   (of order not equal to 1536)?
 {: .challenge}

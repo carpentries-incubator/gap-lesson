@@ -7,43 +7,43 @@ questions:
 objectives:
 - "Be able to create and run test files"
 - "Understand how test discrepancies and runtime regressions
- could be identified and interpreted"
+ can be identified and interpreted"
 - "Understand how to adjust tests to check randomised algorithms"
 - "Learn the 'Make it right, then make it fast' concept"
 keypoints:
-- "It is easy to create a test file by copying and pasting GAP session."
-- "Writing a good and comprehensive test suite requires some efforts."
+- "It is easy to create a test file by copying and pasting a GAP session."
+- "Writing a good and comprehensive test suite requires some effort."
 - "Make it right, then make it fast!"
 ---
 
-The code of `AvgOrdOfGroup` is very simple and possibly nothing could go wrong
-with it. It avoids problems with running out of memory because of iterating
-over the group instead of creating a list of its elements
+The code of `AvgOrdOfGroup` is very simple, and nothing could possibly go wrong
+with it. By iterating over the group instead of creating a list of its elements,
+it avoids running out of memory
 (calling `AsList(SymmetricGroup(11))` already results in exceeding the permitted
-memory), however it takes several minutes to calculate an average order of an
+memory). On the other hand, it takes several minutes to calculate the average order of an
 element of `SymmetricGroup(11)`. But at least we are confident that it is
 correct.
 
 Now we would like to write a better version of this function using some
-theoretical facts we know from the Group Theory. We may put
-`avgorg.g` under version control to revert changes if need be;
+theoretical facts we know from Group Theory. We may put
+`avgord.g` under version control to revert changes if need be;
 we may create a new function to keep the old one around and compare the
-results of both; but this could be made even more efficient if we will
-use **regression testing**: this is the term for the testing based on
+results of both; but this could be made even more efficient if we
+use **regression testing**: this is the term for testing based on
 rerunning previously completed tests to check that new changes do not
 impact their correctness or worsen their performance.
 
 To start with, we need to create a **test file**. The test file looks
-exactly like the GAP session, so it is easy to create it by copying and
-pasting the GAP session with all GAP prompts, inputs and outputs into a
-text file (a test file could be also created from the log file with a
+exactly like a GAP session, so it is easy to create it by copying and
+pasting a GAP session with all GAP prompts, inputs and outputs into a
+text file (a test file could be also created from a log file with a
 GAP session recorded with the help of `LogTo`). During the test, GAP will
-run all inputs from the test, compare the outputs with those in the test
-file and will report any differences.
+run all inputs from the test file, compare the outputs with those in the test
+file and report any differences.
 
 GAP test files are just text files, but the common practice is to name
-them with the extension `.tst`. Now create in the current directory (to
-avoid typing the full path), the file `avgord.tst` with the following content:
+them with the extension `.tst`. Now create the file `avgord.tst` in the current directory (to
+avoid typing the full path) with the following content:
 
 ~~~
 # tests for average order of a group element
@@ -60,8 +60,8 @@ As you see, the test file may include comments, with certain rules specifying
 where they may be placed, because one should be able to distinguish comments
 in the test file from GAP output started with `#`. For that purpose,
 lines at the beginning of the test file that start with `#`, and one empty line
-together with one or more lines starting with `#` are considered as comments.
-All other lines are considered as GAP output from the preceding GAP input.
+together with one or more lines starting with `#`, are considered as comments.
+All other lines are interpreted as GAP output from the preceding GAP input.
 
 To run the test, one should use the function `Test`, as documented
 [here](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
@@ -80,9 +80,9 @@ true
 In this case, `Test` reported no discrepancies and returned `true`, so we
 conclude that the test has passed.
 
-We will not cover a topic of writing a good and comprehensive test suite here,
-and also will not cover various options of the `Test` function, permitting, for
-example, to ignore differences in the output formatting, or to display progress
+We will not cover the topic of writing a good and comprehensive test suite here,
+nor will we cover the various options of the `Test` function, allowing us, for
+example, to ignore differences in the output formatting, or to display the progress
 of the test, as these are described in its documentation.
 
 Instead, we will now add more groups to `avgord.tst`, to demonstrate that the
@@ -142,8 +142,8 @@ true
 Now we will work on a better implementation. Of course, the order of an element
 is an invariant of a conjugacy class of elements of a group, so we need only to
 know the orders of conjugacy classes of elements and their representatives. The
-following code, being added into `avgord.g`, reads into GAP and returns the answer
-without going into an error
+following code, which we add into `avgord.g`, reads into GAP and redefines
+`AvgOrdOfGroup` without any syntax errors:
 
 ~~~
 AvgOrdOfGroup := function(G)
@@ -203,7 +203,7 @@ false
 ~~~
 {: .output}
 
-Indeed, we made (deliberately) a typo and replaced `Size(c)` by `Size(cc)`.
+Indeed, we made a typo (deliberately) and replaced `Size(c)` by `Size(cc)`.
 The correct version of course should look as follows:
 
 ~~~
@@ -233,5 +233,5 @@ true
 ~~~
 {: .output}
 
-Thus, the approach "Make it right, then make it fast" helped to detect a bug
+Thus, the approach 'Make it right, then make it fast' helped to detect a bug
 immediately after it has been introduced.
