@@ -95,7 +95,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 
 > ## This works only for rapid prototyping
 >
-> * one could copy and paste only a part of the code, and
+> * one could accidentally copy and paste only a part of the code, and
 > incomplete input may trigger a break loop;
 > * even more dangerous: one could forget to reset `sum` to zero prior to the new
 > calculation and obtain incorrect results;
