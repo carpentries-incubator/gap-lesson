@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/alex-konovalov/gap-lesson.svg?branch=gh-pages)](https://travis-ci.org/alex-konovalov/gap-lesson)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3366928.svg)](https://doi.org/10.5281/zenodo.3366928)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3366928.svg)](https://doi.org/10.5281/zenodo.597073)
 
 This is the Carpentries-style lesson on the computational algebra system [GAP](http://www.gap-system.org).
 
@@ -28,5 +28,5 @@ encourage you to collect and share the feedback using
 to which you are welcome to contribute following the guidelines
 [here](https://github.com/alex-konovalov/gap-lesson/blob/gh-pages/CONTRIBUTING.md).
 
-This lesson is published on Zenodo [here](https://zenodo.org/badge/latestdoi/44778145).
+This lesson is published on Zenodo [here](https://doi.org/10.5281/zenodo.597073).
 To cite it, please use the format suggested there.
