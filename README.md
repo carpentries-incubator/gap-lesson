@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/alex-konovalov/gap-lesson.svg?branch=gh-pages)](https://travis-ci.org/alex-konovalov/gap-lesson)
-[![DOI](https://zenodo.org/badge/44778145.svg)](https://zenodo.org/badge/latestdoi/44778145)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3366928.svg)](https://doi.org/10.5281/zenodo.3366928)
 
 This is the Carpentries-style lesson on the computational algebra system [GAP](http://www.gap-system.org).
 
