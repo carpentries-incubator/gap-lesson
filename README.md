@@ -30,3 +30,10 @@ to which you are welcome to contribute following the guidelines
 
 This lesson is published on Zenodo [here](https://doi.org/10.5281/zenodo.597073).
 To cite it, please use the format suggested there.
+
+We acknowledge financial support from [CCP-CoDiMa](https://www.codima.ac.uk/)
+(Collaborative Computational Project in the area of Computational Discrete Mathematics
+[EP/M022641/1](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/M022641/1))
+and from [OpenDreamKit](http://opendreamkit.org/) [Horizon 2020](https://ec.europa.eu/programmes/horizon2020/)
+[European Research Infrastructures](https://ec.europa.eu/programmes/horizon2020/en/h2020-section/european-research-infrastructures-including-e-infrastructures)
+project (#<a href="http://cordis.europa.eu/project/rcn/198334_en.html">676541</a>).
