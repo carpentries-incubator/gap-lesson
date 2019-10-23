@@ -66,4 +66,7 @@ exclude:
   - bin
 
 # Turn off built-in syntax highlighting.
-highlighter: false
+highlighter: rouge
+
+# remote theme
+remote_theme: carpentries/carpentries-theme
