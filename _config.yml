@@ -3,7 +3,7 @@
 #------------------------------------------------------------
 
 # Which carpentry is this ("swc" or "dc")?
-carpentry: "swc"
+carpentry: "incubator"
 
 # Overall title for pages.
 title: "Programming with GAP"
