@@ -1,4 +1,6 @@
 ---
+layout: page
+permalink: /aio/
 permalink: /aio/index.html
 ---
 

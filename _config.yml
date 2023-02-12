@@ -6,7 +6,7 @@
 carpentry: incubator
 
 # Overall title for pages.
-remote_theme: carpentries/carpentries-theme # Theme URL
+remote_theme: carpentries-i18n/carp-theme # Theme URL
 title: Programming with GAP
 
 # Contact email address.
@@ -36,6 +36,9 @@ collections:
     permalink: /:path/index.html
 
 # Set the default layout for things in the episodes collection.
+  locale:
+    output: true
+    permalink: /:path/index.html
 defaults:
 - values:
     root: .
@@ -54,6 +57,12 @@ defaults:
     layout: page
 
 # Files and directories that are not to be copied.
+- scope:
+    path: ''
+    type: locale
+  values:
+    root: ..
+    layout: episode
 exclude:
 - Makefile
 - bin
