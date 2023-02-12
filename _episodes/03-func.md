@@ -444,5 +444,4 @@ end;
 >
 > * It is useful to know that path and filename completion is activated by
 > pressing Esc two or four times.
->
 {: .callout}
