@@ -46,18 +46,18 @@ and to meet some of our community members.
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/alex-konovalov/gap-lesson/>,
-    which can be viewed at <http://alex-konovalov.github.io/gap-lesson/>.
+    please work in <https://github.com/carpentries-incubator/gap-lesson/>,
+    which can be viewed at <http://carpentries-incubator.github.io/gap-lesson/>.
 
 2.  If you wish to change the example lesson,
-    please work in <https://github.com/swcarpentry/lesson-example>,
+    please work in <https://github.com/carpentries/lesson-example>,
     which documents the format of our lessons
     and can be viewed at <https://swcarpentry.github.io/lesson-example>.
 
 3.  If you wish to change the template used for workshop websites,
-    please work in <https://github.com/swcarpentry/workshop-template>.
+    please work in <https://github.com/carpentries/workshop-template>.
     The home page of that repository explains how to set up workshop websites,
-    while the extra pages in <https://swcarpentry.github.io/workshop-template>
+    while the extra pages in <https://carpentries.github.io/workshop-template>
     provide more background on our design choices.
 
 4.  If you wish to change CSS style files, tools,
@@ -140,13 +140,13 @@ You can also [reach us by email][contact].
 [dc-lessons]: http://datacarpentry.org/lessons/
 [dc-site]: http://datacarpentry.org/
 [discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
-[example-site]: https://swcarpentry.github.io/lesson-example/
+[example-site]: https://carpentries.github.io/lesson-example
 [github]: http://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[issues]: https://github.com/alex-konovalov/gap-lesson/issues/
-[repo]: https://github.com/alex-konovalov/gap-lesson/
+[issues]: https://github.com/carpentries-incubator/gap-lesson/issues/
+[repo]: https://github.com/carpentries-incubator/gap-lesson/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
 [swc-lessons]: http://software-carpentry.org/lessons/
 [swc-site]: http://software-carpentry.org/
