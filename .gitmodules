@@ -1,0 +1,3 @@
+[submodule "uk"]
+	url = https://github.com/carpentries-i18n/gap-lesson-uk
+	path = _locale/uk
