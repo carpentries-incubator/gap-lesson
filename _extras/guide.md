@@ -19,7 +19,7 @@ from the IO package (requires compulation), which should be available if
 GAP is properly installed (i.e. installed following instructions for the
 workshop). In case of any problems, the first step of troubleshooting is
 to check whether `LoadPackage("io");` returns `fail`. If so, the remedy
-for Windows users is to type full paths to files. Linux and OS X users
+for Windows users is to type full paths to files. Linux and macOS users
 are less affected as for the, the way how they should start GAP is to
 navigate to the needed directory in the Terminal and start GAP from there.
 

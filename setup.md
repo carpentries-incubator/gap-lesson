@@ -14,9 +14,9 @@ not contain spaces. For example, you may install GAP 4.X.Y in `C:\gap-4.X.Y`
 install it in a directory such as `C:\Program Files\gap-4.X.Y` or
 `C:\Users\alice\My Documents\gap-4.X.Y`.
 
-## OS X
+## macOS
 
-On OS X, you need to install GAP from source as explained
+On macOS, you need to install GAP from source as explained
 at the [GAP Downloads page](https://www.gap-system.org/Releases/).
 Download one of the archives provided there, unpack it and run
 `./configure && make` in the unpacked directory. Then change to the
