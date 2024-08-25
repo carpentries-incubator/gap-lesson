@@ -41,7 +41,7 @@ other content of `.gap` directory.
 * To use color prompt when GAP is started with `-r` option to ignore all user
 preferences, including this (if set), call `ColorPrompt(true);`.
 
-## [First session with GAP](01-command-line.html)
+## [First session with GAP]({% link _episodes/01-command-line.md %})
 
 * Emphasize that the banner contains version info useful for citing GAP or
 reporting bugs. Selection of packages may differ, but missing **IO** and
@@ -87,7 +87,7 @@ After that discuss situations when each of them may be more preferable than othe
 `Filtered( elts, g -> (1,2)^g = (1,2) );`.
 
 
-## [Some more GAP objects](02-some-objects.html)
+## [Some more GAP objects]({% link _episodes/02-some-objects.md %})
 
 * Floats, cyclotomics, finite fields elements are not used further in the
 lesson, but we mention them briefly to show that they exist.
@@ -110,7 +110,7 @@ provides an example of extending GAP with new multiplicative objects.
 `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 
 
-## [Functions in GAP](03-func.html)
+## [Functions in GAP]({% link _episodes/03-func.md %})
 
 * Spend some time on the structure of the GAP function: keywords `function`,
 `local`, `return`, `end`, and other language constructions exposed there.
@@ -119,7 +119,7 @@ provides an example of extending GAP with new multiplicative objects.
 message.
 
 
-## [Using regression tests](04-testing.html)
+## [Using regression tests]({% link _episodes/01-command-line.md %})
 
 * Learners may need help with formatting the test because of misplaced comments
 and/or different formatting of the output.
@@ -135,7 +135,7 @@ whitespaces, displaying the progress of the test, etc.
 * Mention profiling and code coverage tools.
 
 
-## [Small groups search](05-small-groups.html)
+## [Small groups search]({% link _episodes/05-small-groups.md %})
 
 * Give an overview of `SmallGroup`, `AllSmallGroups`, `NrSmallGroups` and
 `SmallGroupsInformation` with some examples.
@@ -155,7 +155,7 @@ from this lesson.
 In addition to `SmallGroup(105,1)` and `SmallGroup(357,1)`, another
 group is `SmallGroup(1785,1)`.
 
-## [Attributes and Methods](06-attributes.html)
+## [Attributes and Methods]({% link _episodes/06-attributes.md %})
 
 * Why it is not a good idea to declare `Random` as an attribute?
 

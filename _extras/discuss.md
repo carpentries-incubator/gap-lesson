@@ -206,7 +206,7 @@ function provided by the GAPDoc package (see
 [here](http://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3)).
 It will return the content of the file as a string.
 After that, you may use various string manipulation tools (see
-[Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.htmlGAPDoc)
+[Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.html)
 in the GAP reference manual) to process it in the way you need. GAPDoc package
 also provides the `FileString` function which writes the content of a string
 into a file.

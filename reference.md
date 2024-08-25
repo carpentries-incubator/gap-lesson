@@ -3,7 +3,7 @@ layout: reference
 permalink: /reference/
 ---
 
-## [First session with GAP](01-command-line.html)
+## [First session with GAP]({% link _episodes/01-command-line.md %})
 
 * [GAP Tutorial: A First session with GAP](http://www.gap-system.org/Manuals/doc/tut/chap2.html)
 
@@ -11,14 +11,14 @@ permalink: /reference/
 
 * [GAP Reference Manual: The Help System](http://www.gap-system.org/Manuals/doc/ref/chap2.html)
 
-* [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.htm)
+* [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.html)
 
 * [GAP Reference Manual: Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.html)
 
 * [GAP Reference Manual: The Programming Language]( http://www.gap-system.org/Manuals/doc/ref/chap4.html#X7FE7C0C17E1ED118)
 
 
-## [Some more GAP objects](02-some-objects.html)
+## [Some more GAP objects]({% link _episodes/02-some-objects.md %})
 
 * [Integers](http://www.gap-system.org/Manuals/doc/ref/chap14.html)
 
@@ -39,22 +39,22 @@ permalink: /reference/
 * [Strings and Characters](http://www.gap-system.org/Manuals/doc/ref/chap27.html)
 
 
-## [Functions in GAP](03-func.html)
+## [Functions in GAP]({% link _episodes/03-func.md %})
 
 * [GAP Tutorial: Functions](http://www.gap-system.org/Manuals/doc/tut/chap4.html)
 
 
-## [Using regression tests](04-testing.html)
+## [Using regression tests]({% link _episodes/04-testing.md %})
 
 * [GAP Reference Manual: Test](http://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C)
 
 
-## [Small groups search](05-small-groups.html)
+## [Small groups search]({% link _episodes/05-small-groups.md %})
 
 * [GAP Reference Manual: Group Libraries](http://www.gap-system.org/Manuals/doc/ref/chap50.html)
 
 
-## [Attributes and Methods](06-attributes.html)
+## [Attributes and Methods]({% link _episodes/06-attributes.md %})
 
 * [GAP Tutorial: Operations and Methods](http://www.gap-system.org/Manuals/doc/tut/chap8.html)
 
