@@ -43,21 +43,18 @@ On this path, the learner will become familiar with:
 > ## Getting ready
 > 1. In your home directory, create a new directory called `avgord`.
 > 2. Start GAP:
-> * on Linux and macOS, call `path-to-your-gap-installation/gap-4.X.Y/bin/gap.sh`
+> * on Linux and macOS, open the terminal and call `path-to-your-gap-installation/gap-4.X.Y/gap`
 >    (edit the path as necessary);
-> * on Windows, call it via the appropriate menu or
->    by double-clicking on the `gap-4.X.Y/bin/gap.bat` file in your GAP installation.
-> 3. Set your current directory to `avgord` calling `ChangeDirectoryCurrent` from
->    the IO package (if GAP is installed correctly, by default it should be loaded
->    when GAP starts):
-> * on Linux and macOS, call `ChangeDirectoryCurrent("/home/username/avgord");`
+> * on Windows, start GAP using the Start menu or a desktop shortcut
+>    created after GAP installation.
+> 3. Set your current directory to `avgord`:
+> * on Linux and macOS, call `ChangeDirectoryCurrent("/Users/username/avgord");`
 >    (edit the path as necessary; remember to type the full path to your home
 >    directory instead of `~`).
 > * on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
 >    (edit the path as necessary; remember to use `/` instead of `\`);
 > 4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
->    on Windows or `Exec("pwd");` on Linux and macOS and check that the path in the
->    output points to the `avgord` directory.
+>    and check that the path in the output points to the `avgord` directory.
 {: .checklist}
 
 [contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
