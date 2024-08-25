@@ -21,7 +21,7 @@ keypoints:
 - "Read 'A First Session with GAP' from the GAP Tutorial."
 ---
 
-If GAP is installed correctly you should be able to start it. Exactly how 
+If GAP is installed correctly you should be able to start it. Exactly how
 you start GAP will depend on your operating system and how you installed
 GAP. GAP starts with the *banner* displaying information about the version of
 the system and loaded components, and then displays the command line prompt
@@ -33,15 +33,15 @@ the system and loaded components, and then displays the command line prompt
  └───────┘   Architecture: x86_64-apple-darwin16.7.0-default64
  Configuration:  gmp 6.1.2, readline
  Loading the library and packages ...
- Packages:   AClib 1.3, Alnuth 3.1.0, AtlasRep 1.5.1, AutPGrp 1.9, 
-             Browse 1.8.8, CRISP 1.4.4, Cryst 4.1.17, CrystCat 1.1.8, 
-             CTblLib 1.2.2, FactInt 1.6.2, FGA 1.4.0, GAPDoc 1.6.1, IO 4.5.1, 
-             IRREDSOL 1.4, LAGUNA 3.9.0, Polenta 1.3.8, Polycyclic 2.14, 
-             PrimGrp 3.3.1, RadiRoot 2.8, ResClasses 4.7.1, SmallGrp 1.3, 
-             Sophus 1.24, SpinSym 1.5, TomLib 1.2.6, TransGrp 2.0.2, 
+ Packages:   AClib 1.3, Alnuth 3.1.0, AtlasRep 1.5.1, AutPGrp 1.9,
+             Browse 1.8.8, CRISP 1.4.4, Cryst 4.1.17, CrystCat 1.1.8,
+             CTblLib 1.2.2, FactInt 1.6.2, FGA 1.4.0, GAPDoc 1.6.1, IO 4.5.1,
+             IRREDSOL 1.4, LAGUNA 3.9.0, Polenta 1.3.8, Polycyclic 2.14,
+             PrimGrp 3.3.1, RadiRoot 2.8, ResClasses 4.7.1, SmallGrp 1.3,
+             Sophus 1.24, SpinSym 1.5, TomLib 1.2.6, TransGrp 2.0.2,
              utils 0.54
  Try '??help' for help. See also '?copyright', '?cite' and '?authors'
-gap> 
+gap>
 ~~~
 {: .output}
 
@@ -135,7 +135,7 @@ Up and Down arrow keys after that, to scroll only the lines that begin with
 the same string.
 
 If you want to store a value for later use, you can assign it to a name
-using `:=` 
+using `:=`
 
 ~~~
 universe := 6*7;
@@ -299,7 +299,7 @@ The way functions are named in GAP will hopefully help you to memorise or even g
 of library functions. If a variable name consists of several words then the
 first letter of each word is capitalised (remember that GAP is case-sensitive!).
 Further details on naming conventions used in GAP are documented in the GAP
-manual [here](http://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
+manual [here](https://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
 Functions with names in `ALL_CAPITAL_LETTERS` are internal functions not intended
 for general use. Use them with extreme care!
 
@@ -477,7 +477,7 @@ gap> elts[1]; elts[3]; Length(elts);
 > * Not required to contain objects of the same type
 >
 >
-> * See more in [GAP Tutorial: Lists and Records](http://www.gap-system.org/Manuals/doc/tut/chap3.html)
+> * See more in [GAP Tutorial: Lists and Records](https://www.gap-system.org/Manuals/doc/tut/chap3.html)
 {: .callout}
 
 Many functions in GAP refer to `Set`s. A set in GAP is just a list that happens to have

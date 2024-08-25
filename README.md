@@ -1,10 +1,10 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.597073.svg)](https://doi.org/10.5281/zenodo.597073)
 
-This is the Carpentries-style lesson on the computational algebra system [GAP](http://www.gap-system.org).
+This is the Carpentries-style lesson on the computational algebra system [GAP](https://www.gap-system.org).
 
 Its development was started by Olexandr Konovalov for the Software Carpentry
 workshop organised as a part of the [First CoDiMa Training School in Computational
-Discrete Mathematics](http://www.codima.ac.uk/school2015/) in 2015. Since then, it
+Discrete Mathematics](https://blogs.cs.st-andrews.ac.uk/codima/school2015/) in 2015. Since then, it
 has had several releases, produced in collaboration with further contributors, and has
 been taught by different instructors at more than ten different events, the full list
 of which is available on the GAP lesson wiki
@@ -30,9 +30,9 @@ to which you are welcome to contribute following the guidelines
 This lesson is published on Zenodo [here](https://doi.org/10.5281/zenodo.597073).
 To cite it, please use the format suggested there.
 
-We acknowledge financial support from [CCP-CoDiMa](https://www.codima.ac.uk/)
+We acknowledge financial support from [CCP-CoDiMa](https://blogs.cs.st-andrews.ac.uk/codima/)
 (Collaborative Computational Project in the area of Computational Discrete Mathematics
-[EP/M022641/1](http://gow.epsrc.ac.uk/NGBOViewGrant.aspx?GrantRef=EP/M022641/1))
-and from [OpenDreamKit](http://opendreamkit.org/) [Horizon 2020](https://ec.europa.eu/programmes/horizon2020/)
+EP/M022641/1 and from the [OpenDreamKit](https://opendreamkit.org/)
+[Horizon 2020](https://ec.europa.eu/programmes/horizon2020/)
 [European Research Infrastructures](https://ec.europa.eu/programmes/horizon2020/en/h2020-section/european-research-infrastructures-including-e-infrastructures)
-project (#<a href="http://cordis.europa.eu/project/rcn/198334_en.html">676541</a>).
+project (#<a href="https://cordis.europa.eu/project/rcn/198334_en.html">676541</a>).

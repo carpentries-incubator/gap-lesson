@@ -47,7 +47,7 @@ and to meet some of our community members.
 
 1.  If you wish to change this lesson,
     please work in <https://github.com/carpentries-incubator/gap-lesson/>,
-    which can be viewed at <http://carpentries-incubator.github.io/gap-lesson/>.
+    which can be viewed at <https://carpentries-incubator.github.io/gap-lesson/>.
 
 2.  If you wish to change the example lesson,
     please work in <https://github.com/carpentries/lesson-example>,
@@ -137,16 +137,16 @@ You can also [reach us by email][contact].
 
 [contact]: mailto:admin@software-carpentry.org
 [dc-issues]: https://github.com/issues?q=user%3Adatacarpentry
-[dc-lessons]: http://datacarpentry.org/lessons/
-[dc-site]: http://datacarpentry.org/
-[discuss-list]: http://lists.software-carpentry.org/listinfo/discuss
+[dc-lessons]: https://datacarpentry.org/lessons/
+[dc-site]: https://datacarpentry.org/
+[discuss-list]: https://lists.software-carpentry.org/listinfo/discuss
 [example-site]: https://carpentries.github.io/lesson-example
-[github]: http://github.com
+[github]: https://github.com
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
 [issues]: https://github.com/carpentries-incubator/gap-lesson/issues/
 [repo]: https://github.com/carpentries-incubator/gap-lesson/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
-[swc-lessons]: http://software-carpentry.org/lessons/
-[swc-site]: http://software-carpentry.org/
+[swc-lessons]: https://software-carpentry.org/lessons/
+[swc-site]: https://software-carpentry.org/

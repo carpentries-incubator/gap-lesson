@@ -19,8 +19,8 @@ In this section, we wish to discover some non-trivial groups with an interesting
 property: namely, that the average order of their elements is an integer.
 
 The GAP distribution includes a number of data libraries (see an overview
-[here](http://www.gap-system.org/Datalib/datalib.html)). One of them is
-the [Small Groups Library](http://www.gap-system.org/Packages/sgl.html) by
+[here](https://www.gap-system.org/Datalib/datalib.html)). One of them is
+the [Small Groups Library](https://www.gap-system.org/Packages/sgl.html) by
 Hans Ulrich Besche, Bettina Eick and Eamonn O'Brien.
 
 This library provides various utilities to determine which information
@@ -228,7 +228,7 @@ TestAllOrders(TestOneGroup,128);
 {: .output}
 
 To explore it further, we can get its `StructureDescription` (see
-[here](http://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
+[here](https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
 for the explanation of the notation it uses):
 
 ~~~
@@ -461,7 +461,7 @@ gap> TestOneOrderVariadic(IsIntegerAverageOrder,357);
 
 Of course, this now introduces some complication for the test file,
 which compares the actual output with the reference output. To resolve
-this problem, we will decide to run the tests at info level 0 to suppress  
+this problem, we will decide to run the tests at info level 0 to suppress
 all additional outputs. Because the tests may have been started in the
 GAP session with a different info level, we will remember that info level
 to restore it after the test:
