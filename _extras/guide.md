@@ -66,10 +66,6 @@ package is not compiled.
 
 * Explain how to switch to view HTML version of the Manual with MathJax support.
 
-* Give a hint that the sitemap on the [GAP website](http://www.gap-system.org)
-shows the [Search the GAP web site](http://www.gap-system.org/search.html) page
-which allows some specific search requests.
-
 * Draw attention to the difference between `AsList` and `AsSSortedList`.
 
 * Help to call `WriteGapIniFile` and customise GAP e.g. to use browser as a
@@ -100,10 +96,10 @@ results in a no-method-found error. This may be a good moment to introduce
 this special kind of error messages.
 
 * For extending GAP with new types of objects, refer to
-[Creating New Objects](http://www.gap-system.org/Manuals/doc/ref/chap79.html)
-and [Examples of Extending the System](http://www.gap-system.org/Manuals/doc/ref/chap80.html)
+[Creating New Objects](https://www.gap-system.org/Manuals/doc/ref/chap79.html)
+and [Examples of Extending the System](https://www.gap-system.org/Manuals/doc/ref/chap80.html)
 of the GAP Reference Manual.
-Also, the [Circle package](http://www.gap-system.org/Packages/circle.html)
+Also, the [Circle package](https://www.gap-system.org/Packages/circle.html)
 provides an example of extending GAP with new multiplicative objects.
 
 1.  Solution of the challenge:
@@ -119,7 +115,7 @@ provides an example of extending GAP with new multiplicative objects.
 message.
 
 
-## [Using regression tests]({% link _episodes/01-command-line.md %})
+## [Using regression tests]({% link _episodes/01-command-line.md %})(04-testing.html)
 
 * Learners may need help with formatting the test because of misplaced comments
 and/or different formatting of the output.
