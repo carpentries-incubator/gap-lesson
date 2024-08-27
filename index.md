@@ -6,7 +6,7 @@ site: sandpaper::sandpaper_site
 with particular emphasis on Computational Group Theory. GAP provides a
 programming language, a library of thousands of functions implementing algebraic
 algorithms written in the GAP language as well as large data libraries of algebraic
-objects, for example the [Small Groups Library](https://www.gap-system.org/Packages/sgl.html)
+objects, for example the [Small Groups Library](https://gap-packages.github.io/smallgrp/)
 which contains, among others, all 423 164 062 groups of order at most 2000 except 1024.
 
 This lesson gives an introduction to GAP. It is centred around a common task of
