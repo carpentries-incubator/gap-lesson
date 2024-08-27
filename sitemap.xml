@@ -28,7 +28,13 @@
     <loc>https://carpentries-incubator.github.io/gap-lesson/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/aio.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/discuss.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/images.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/index.html</loc>
@@ -61,16 +67,34 @@
     <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/discuss.html</loc>
   </url>
   <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/profiles.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/instructor/reference.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://carpentries-incubator.github.io/gap-lesson/key-points.html</loc>
   </url>
   <url>
     <loc>https://carpentries-incubator.github.io/gap-lesson/profiles.html</loc>
