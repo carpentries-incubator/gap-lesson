@@ -1,5 +1,4 @@
 ---
-layout: page
 title: Setup
 permalink: /setup/
 ---
@@ -37,3 +36,5 @@ Download one of the archives provided there, unpack it and run
 `pkg` subdirectory and call `../bin/BuildPackages.sh` to run the
 script which will build most of the packages that require compilation
 (provided sufficiently many libraries, headers and tools are available).
+
+

@@ -1,20 +1,23 @@
 ---
-title: "Using regression tests"
+title: Using regression tests
 teaching: 40
 exercises: 10
-questions:
-- "Test-driven development"
-objectives:
-- "Be able to create and run test files"
-- "Understand how test discrepancies and runtime regressions
- can be identified and interpreted"
-- "Understand how to adjust tests to check randomised algorithms"
-- "Learn the 'Make it right, then make it fast' concept"
-keypoints:
-- "It is easy to create a test file by copying and pasting a GAP session."
-- "Writing a good and comprehensive test suite requires some effort."
-- "Make it right, then make it fast!"
 ---
+
+::::::::::::::::::::::::::::::::::::::: objectives
+
+- Be able to create and run test files
+- Understand how test discrepancies and runtime regressions can be identified and interpreted
+- Understand how to adjust tests to check randomised algorithms
+- Learn the 'Make it right, then make it fast' concept
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::: questions
+
+- Test-driven development
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 The code of `AvgOrdOfGroup` is very simple, and nothing could possibly go wrong
 with it. By iterating over the group instead of creating a list of its elements,
@@ -46,7 +49,7 @@ GAP test files are just text files, but the common practice is to name
 them with the extension `.tst`. Now create the file `avgord.tst` in the current directory (to
 avoid typing the full path) with the following content:
 
-~~~
+```source
 # tests for average order of a group element
 
 # permutation group
@@ -54,8 +57,7 @@ gap> S:=SymmetricGroup(9);
 Sym( [ 1 .. 9 ] )
 gap> AvgOrdOfGroup(S);
 3291487/362880
-~~~
-{: .source}
+```
 
 As you see, the test file may include comments, with certain rules specifying
 where they may be placed, because one should be able to distinguish comments
@@ -68,15 +70,13 @@ To run the test, one should use the function `Test`, as documented
 [here](https://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
 For example (assuming that the function `AvgOrdOfGroup` is already loaded):
 
-~~~
+```source
 Test("avgord.tst");
-~~~
-{: .source}
+```
 
-~~~
+```output
 true
-~~~
-{: .output}
+```
 
 In this case, `Test` reported no discrepancies and returned `true`, so we
 conclude that the test has passed.
@@ -90,7 +90,7 @@ Instead, we will now add more groups to `avgord.tst`, to demonstrate that the
 code also works with other kinds of groups, and to show various ways of
 combining commands in the test file:
 
-~~~
+```source
 # tests for average order of a group element
 
 # permutation group
@@ -125,20 +125,17 @@ gap> AvgOrdOfGroup( Group( [[0,-1],[1,0]] ) );
 # matrix group over a finite field
 gap> AvgOrdOfGroup(SL(2,5));
 221/40
-~~~
-{: .source}
+```
 
 Let us test the extended version of the test again and check that it works:
 
-~~~
+```source
 Test("avgord.tst");
-~~~
-{: .source}
+```
 
-~~~
+```output
 true
-~~~
-{: .output}
+```
 
 Now we will work on a better implementation. Of course, the order of an element
 is an invariant of a conjugacy class of elements of a group, so we need only to
@@ -146,7 +143,7 @@ know the orders of conjugacy classes of elements and their representatives. The
 following code, which we add into `avgord.g`, reads into GAP and redefines
 `AvgOrdOfGroup` without any syntax errors:
 
-~~~
+```source
 AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -156,18 +153,16 @@ for c in cc do
 od;
 return sum/Size(G);
 end;
-~~~
-{: .source}
+```
 
 but when we run the test, here comes a surprise!
 
-~~~
+```source
 Read("avgord.g");
 Test("avgord.tst");
-~~~
-{: .source}
+```
 
-~~~
+```output
 ########> Diff in avgord.tst, line 6:
 # Input is:
 AvgOrdOfGroup(S);
@@ -201,13 +196,12 @@ AvgOrdOfGroup(SL(2,5));
 69/20
 ########
 false
-~~~
-{: .output}
+```
 
 Indeed, we made a typo (deliberately) and replaced `Size(c)` by `Size(cc)`.
 The correct version of course should look as follows:
 
-~~~
+```source
 AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -217,22 +211,29 @@ for c in cc do
 od;
 return sum/Size(G);
 end;
-~~~
-{: .source}
+```
 
 Now we will fix this in `avgord.g`, and read and test it again to check that
 the tests run correctly.
 
-~~~
+```source
 Read("avgord.g");
 Test("avgord.tst");
-~~~
-{: .source}
+```
 
-~~~
+```output
 true
-~~~
-{: .output}
+```
 
 Thus, the approach 'Make it right, then make it fast' helped detect a bug
 immediately after it has been introduced.
+
+:::::::::::::::::::::::::::::::::::::::: keypoints
+
+- It is easy to create a test file by copying and pasting a GAP session.
+- Writing a good and comprehensive test suite requires some effort.
+- Make it right, then make it fast!
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

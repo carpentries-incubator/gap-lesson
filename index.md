@@ -1,6 +1,5 @@
 ---
-layout: lesson
-root: .
+site: sandpaper::sandpaper_site
 ---
 
 [GAP](https://www.gap-system.org) is a system for discrete computational algebra,
@@ -22,40 +21,52 @@ comprehensive search and extending the system by adding new attributes.
 
 On this path, the learner will become familiar with:
 
-* basic constructions of the GAP programming language,
+- basic constructions of the GAP programming language,
 
-* ways to find necessary information in the GAP system, and
+- ways to find necessary information in the GAP system, and
 
-* good design practices to organise GAP code into complex programs.
+- good design practices to organise GAP code into complex programs.
 
-> ## Prerequisites
->
-> The lesson is oriented on learners possessing the minimal theoretical
-> background (at least at the level of an undergraduate group theory course)
-> and willing to learn how concepts from abstract algebra may be
-> explored using computational tools.
-> No previous experience of working with GAP is required.
->
-> Learners only need to understand the concepts of files and directories
-> (including home and working directories) and know how to start GAP.
-{: .prereq}
+::::::::::::::::::::::::::::::::::::::::::  prereq
 
-> ## Getting ready
-> 1. In your home directory, create a new directory called `avgord`.
-> 2. Start GAP:
-> * on Linux and macOS, open the terminal and call `path-to-your-gap-installation/gap-4.X.Y/gap`
->    (edit the path as necessary);
-> * on Windows, start GAP using the Start menu or a desktop shortcut
->    created after GAP installation.
-> 3. Set your current directory to `avgord`:
-> * on Linux and macOS, call `ChangeDirectoryCurrent("/Users/username/avgord");`
->    (edit the path as necessary; remember to type the full path to your home
->    directory instead of `~`).
-> * on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
->    (edit the path as necessary; remember to use `/` instead of `\`);
-> 4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
->    and check that the path in the output points to the `avgord` directory.
-{: .checklist}
+## Prerequisites
 
-[contributing]: {{ site.github.repository_url }}/blob/gh-pages/CONTRIBUTING.md
-[styles]: https://github.com/swcarpentry/styles/
+The lesson is oriented on learners possessing the minimal theoretical
+background (at least at the level of an undergraduate group theory course)
+and willing to learn how concepts from abstract algebra may be
+explored using computational tools.
+No previous experience of working with GAP is required.
+
+Learners only need to understand the concepts of files and directories
+(including home and working directories) and know how to start GAP.
+
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::  checklist
+
+## Getting ready
+
+1. In your home directory, create a new directory called `avgord`.
+2. Start GAP:
+
+- on Linux and macOS, open the terminal and call `path-to-your-gap-installation/gap-4.X.Y/gap`
+  (edit the path as necessary);
+- on Windows, start GAP using the Start menu or a desktop shortcut
+  created after GAP installation.
+
+3. Set your current directory to `avgord`:
+
+- on Linux and macOS, call `ChangeDirectoryCurrent("/Users/username/avgord");`
+  (edit the path as necessary; remember to type the full path to your home
+  directory instead of `~`).
+- on Windows, call `ChangeDirectoryCurrent("C:/Users/username/avgord");`
+  (edit the path as necessary; remember to use `/` instead of `\`);
+
+4. Verify that your current directory is set up properly: call `DirectoryCurrent();`
+  and check that the path in the output points to the `avgord` directory.
+  
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+

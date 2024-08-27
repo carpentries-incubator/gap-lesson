@@ -20,7 +20,7 @@ about the event where it was taught and the number of learners attending,
 so that we can add it to the list at the GAP lesson wiki
 [here](https://github.com/carpentries-incubator/gap-lesson/wiki). You can
 submit it to the [issue tracker](https://github.com/carpentries-incubator/gap-lesson/issues)
-or send by email to obk1@st-andrews.ac.uk. We also
+or send by email to [obk1@st-andrews.ac.uk](mailto:obk1@st-andrews.ac.uk). We also
 encourage you to collect and share the feedback using
 [sticky notes as minute cards](https://carpentries.github.io/instructor-training/06-feedback/index.html)
 (in full or in the form of a summary). This will help us in further lesson development,
@@ -36,3 +36,5 @@ EP/M022641/1 and from the [OpenDreamKit](https://opendreamkit.org/)
 [Horizon 2020](https://ec.europa.eu/programmes/horizon2020/)
 [European Research Infrastructures](https://ec.europa.eu/programmes/horizon2020/en/h2020-section/european-research-infrastructures-including-e-infrastructures)
 project (#<a href="https://cordis.europa.eu/project/rcn/198334_en.html">676541</a>).
+
+
