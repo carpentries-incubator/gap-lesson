@@ -31,7 +31,7 @@ of objects, but this is beyond the scope of this lesson!).
 
 Some other simple objects are floats, cyclotomics and finite field elements:
 
-```source
+```gap
 1.15; Float(1232/3456567);
 ```
 
@@ -40,7 +40,7 @@ Some other simple objects are floats, cyclotomics and finite field elements:
 0.000356423
 ```
 
-```source
+```gap
 E(4); E(4)^2; E(6);
 ```
 
@@ -50,7 +50,7 @@ E(4)
 -E(3)^2
 ```
 
-```source
+```gap
 AsList(GF(2)); Z(5); Z(5)^4;
 ```
 
@@ -65,7 +65,7 @@ Another type of composite objects is **records**. While a list contains subobjec
 by their positions in the list, a record contains subobjects, called *record
 components*, which are indexed by their names. Elements of a record are accessed with `.`
 
-```source
+```gap
 date:= rec(year:= 2015, month:= "Nov", day:= 17);
 ```
 
@@ -73,7 +73,7 @@ date:= rec(year:= 2015, month:= "Nov", day:= 17);
 rec( day := 17, month := "Nov", year := 2015 )
 ```
 
-```source
+```gap
 date.year;
 ```
 
@@ -81,7 +81,7 @@ date.year;
 2015
 ```
 
-```source
+```gap
 date.time:= rec(hour:= 14, minute:= 55, second:= 12);
 ```
 
@@ -89,7 +89,7 @@ date.time:= rec(hour:= 14, minute:= 55, second:= 12);
 rec( hour := 14, minute := 55, second := 12 )
 ```
 
-```source
+```gap
 date;
 ```
 
@@ -98,7 +98,7 @@ rec( day := 17, month := "Nov",
   time := rec( hour := 14, minute := 55, second := 12 ), year := 2015 )
 ```
 
-```source
+```gap
 RecNames(date);
 ```
 
@@ -111,7 +111,7 @@ specially by GAP, a string is really just a list of characters, and any
 function which takes a list will also take a string. In contrast, characters
 are simple objects like integers.
 
-```source
+```gap
 gap> w:="supercalifragilisticexpialidocious"; Length(w);
 ```
 
@@ -122,7 +122,7 @@ gap> w:="supercalifragilisticexpialidocious"; Length(w);
 
 Strings are denoted by double quotes, and characters by single ones.
 
-```source
+```gap
 gap> "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']); ['c','a','t'] = "cat";
 ```
 
@@ -136,7 +136,7 @@ true
 
 Note that
 
-```source
+```gap
 gap> PositionSublist(w,"sf"); PositionSublist(w,"fr");
 ```
 
@@ -148,7 +148,7 @@ fail
 Be careful! Some operations may create a new list, while others are
 destructive. For example:
 
-```source
+```gap
 gap> SortedList(w); w;
 ```
 
@@ -159,7 +159,7 @@ gap> SortedList(w); w;
 
 but
 
-```source
+```gap
 gap> Sort(w); w;
 ```
 
@@ -169,7 +169,7 @@ gap> Sort(w); w;
 
 Which letter occurs in "supercalifragilisticexpialidocious" most often?
 
-```source
+```gap
 gap> c := Collected(w);
 ```
 
@@ -179,7 +179,7 @@ gap> c := Collected(w);
   [ 't', 1 ], [ 'u', 2 ], [ 'x', 1 ] ]
 ```
 
-```source
+```gap
 gap> k := Maximum( List( c, v -> v[2] ) ); Filtered( c, v -> v[2] = 7 );
 ```
 

@@ -25,7 +25,7 @@ divided by the order of the group).
 We begin with a very straightforward approach, iterating
 over all elements of the group in question:
 
-```source
+```gap
 S:=SymmetricGroup(10);
 ```
 
@@ -33,7 +33,7 @@ S:=SymmetricGroup(10);
 Sym( [ 1 .. 10 ] )
 ```
 
-```source
+```gap
 sum:=0;
 ```
 
@@ -41,7 +41,7 @@ sum:=0;
 0
 ```
 
-```source
+```gap
 for g in S do
   sum := sum + Order(g);
 od;
@@ -56,7 +56,7 @@ Now assume that we would like to save this fragment of GAP code and later
 repeat this calculation for some other groups. We may even reformat it to fit
 it into one line and use a double semicolon to suppress the output of `sum`:
 
-```source
+```gap
 sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 ```
 
@@ -69,7 +69,7 @@ But here we see the first inconvenience: the code expects that the group in ques
 must be stored in a variable named `S`, so either we have to reset `S` each
 time, or we need to edit the code:
 
-```source
+```gap
 S:=AlternatingGroup(10);
 ```
 
@@ -77,7 +77,7 @@ S:=AlternatingGroup(10);
 Alt( [ 1 .. 10 ] )
 ```
 
-```source
+```gap
 sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
 ```
 
@@ -99,7 +99,7 @@ sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);
   by line. If you have a long file with many commands, and a syntax error is
   in line *N*, this error will be reported only when GAP completes
   the evaluation of all preceding lines, and that might be quite time-consuming.
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -116,7 +116,7 @@ into functions:
 The following function takes an argument `G` and computes the average order
 of its elements:
 
-```source
+```gap
 AvgOrdOfGroup := function(G)
 local sum, g;
 sum := 0;
@@ -133,7 +133,7 @@ function( G ) ... end
 
 Now we can apply it to another group, passing the group as an argument:
 
-```source
+```gap
 A:=AlternatingGroup(10); AvgOrdOfGroup(A); time;
 ```
 
@@ -154,7 +154,7 @@ Using a text editor (for example, the one that you may have used for previous
 Software Carpentry lessons), create a text file called `avgord.g` containing
 the following function code and comments (a good chance to practise using them!):
 
-```source
+```gap
 #####################################################################
 #
 # AvgOrdOfGroup(G)
@@ -175,7 +175,7 @@ end;
 
 Now start a new GAP session and create another group, for example `MathieuGroup(11)`:
 
-```source
+```gap
 M11:=MathieuGroup(11);
 ```
 
@@ -186,7 +186,7 @@ Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ])
 Clearly, `AvgOrdOfGroup` is not defined in this session, so an attempt to
 call this function results in an error:
 
-```source
+```gap
 AvgOrdOfGroup(M11);
 ```
 
@@ -198,14 +198,14 @@ not in any function at line 2 of *stdin*
 To be available, it should first be loaded using the function `Read`. Below
 we assume that the file is in the current directory, so no path is needed.
 
-```source
+```gap
 Read("avgord.g");
 ```
 
 This loads the file into GAP, and the function `AvgOrdOfGroup` is now
 available:
 
-```source
+```gap
 AvgOrdOfGroup(M11);
 ```
 
@@ -224,19 +224,19 @@ overwritten. **Never ignore the warnings!**
 
 For example, let us edit the file and replace the line
 
-```source
+```gap
 return sum/Size(G);
 ```
 
 by the line with a deliberate syntax error:
 
-```source
+```gap
 return Float(sum/Size(G);
 ```
 
 Now read this file with
 
-```source
+```gap
 Read("avgord.g");
 ```
 
@@ -251,7 +251,7 @@ return Float(sum/Size(G);
 Since there was an error, the `AvgOrdOfGroup` function in our session was not
 redefined, and remains the same as last time it was successfully read:
 
-```source
+```gap
 Print(AvgOrdOfGroup);
 ```
 
@@ -267,7 +267,7 @@ end
 Now correct the error by adding the missing closing bracket,
 read the file again and recalculate the average order of an element for `M11`:
 
-```source
+```gap
 Read("avgord.g");
 AvgOrdOfGroup(M11);
 ```
@@ -282,7 +282,7 @@ could happen, first edit the file to roll back the change in the type of the
 result (so it will return a rational instead of a float), and then comment
 out two lines as follows:
 
-```source
+```gap
 AvgOrdOfGroup := function(G)
 # local sum, g;
 # sum := 0;
@@ -295,7 +295,7 @@ end;
 
 Now, when you read the file, you will see warnings:
 
-```source
+```gap
 Read("avgord.g");
 ```
 
@@ -326,7 +326,7 @@ more detail:
 The function is now redefined, as we can see from its output (or can
 inspect with `PageSource(AvgOrdOfGroup)` which will also display any comments):
 
-```source
+```gap
 Print(AvgOrdOfGroup);
 ```
 
@@ -341,7 +341,7 @@ end
 
 but an attempt to run it results in a break loop:
 
-```source
+```gap
 AvgOrdOfGroup(M11);
 ```
 
@@ -358,7 +358,7 @@ which you can exit using `quit;`.
 
 What happens next demonstrates how things may go wrong:
 
-```source
+```gap
 sum:=2^64; g:=[1];
 ```
 
@@ -367,7 +367,7 @@ sum:=2^64; g:=[1];
 [ 1 ]
 ```
 
-```source
+```gap
 AvgOrdOfGroup(M11);
 ```
 
@@ -375,7 +375,7 @@ AvgOrdOfGroup(M11);
 18446744073709604747/7920
 ```
 
-```source
+```gap
 sum; g;
 ```
 
@@ -388,7 +388,7 @@ Now, before reading the next part of the lesson, please
 revert the last change by uncommenting the two commented lines, so that
 you have initial version of `AvgOrdOfGroup` in the file `avgord.g` again:
 
-```source
+```gap
 AvgOrdOfGroup := function(G)
 local sum, g;
 sum := 0;
