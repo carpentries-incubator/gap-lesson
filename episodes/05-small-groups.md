@@ -21,9 +21,10 @@ exercises: 15
 In this section, we wish to discover some non-trivial groups with an interesting
 property: namely, that the average order of their elements is an integer.
 
-The GAP distribution includes a number of data libraries (see an overview
-[here](https://www.gap-system.org/Datalib/datalib.html)). One of them is
-the [Small Groups Library](https://www.gap-system.org/Packages/sgl.html) by
+The GAP distribution includes a number of data libraries
+(for example, search for the word "library" in the
+[list of packages distributed with GAP](https://www.gap-system.org/packages/)).
+One of them is the [Small Groups Library](https://gap-packages.github.io/smallgrp/) by
 Hans Ulrich Besche, Bettina Eick and Eamonn O'Brien.
 
 This library provides various utilities to determine which information
@@ -222,7 +223,7 @@ TestAllOrders(TestOneGroup,128);
 ```
 
 To explore it further, we can get its `StructureDescription` (see
-[here](https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
+[documentation](https://docs.gap-system.org/doc/ref/chap39.html#X87BF1B887C91CA2E)
 for the explanation of the notation it uses):
 
 ```gap
