@@ -326,7 +326,7 @@ but <code>Symmetricgroup(3)</code> will cause an error.</p></li>
 <strong><code>"Error, Variable: 'FuncName' must have a value"</code></strong>
 in a function call usually points to a typo in the function name (see
 the previous hint), or to some package that must be loaded in advance
-using <a href="https://www.gap-system.org/Manuals/doc/ref/chap76.html#X79B373A77B29D1F5" class="external-link"><strong><code>LoadPackage</code></strong></a>.</p></li>
+using <a href="https://docs.gap-system.org/doc/ref/chap76.html#X79B373A77B29D1F5" class="external-link"><strong><code>LoadPackage</code></strong></a>.</p></li>
 <li><p><strong>Do not hesitate to use longer and more informative
 variable names where appropriate.</strong> For example, <code>x</code>
 looks perfectly suitable for <code>List([1..10], x -&gt; x^2)</code>,
@@ -345,35 +345,35 @@ unique completion is possible. If not, you may press
 <code>??</code> commands</strong>. This will search not only in the GAP
 manuals, but also in the manuals of all GAP packages available in your
 GAP installation.</p></li>
-<li><p><strong>Set default help format to HTML.</strong> Use <a href="https://www.gap-system.org/Manuals/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>
+<li><p><strong>Set default help format to HTML.</strong> Use <a href="https://docs.gap-system.org/doc/ref/chap2.html#X87C1BFB2826488B0" class="external-link"><strong><code>SetHelpViewer</code></strong></a>
 to view it with your preferred browser.</p></li>
-<li><p><strong>Use <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
+<li><p><strong>Use <a href="https://docs.gap-system.org/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
 to save all GAP input and output into a text file.</strong> It should be
 called before calculations, not after!</p></li>
 <li><p><strong>If the calculation takes too long, press
 <code>&lt;Control&gt;-C</code> to interrupt it</strong>. Then type quit;
 to leave the break loop.</p></li>
-<li><p><strong>Read <a href="https://www.gap-system.org/Manuals/doc/tut/chap2.html" class="external-link">A First
-Session with GAP</a></strong> from the GAP Tutorial.</p></li>
+<li><p><strong>Read <a href="https://docs.gap-system.org/doc/tut/chap2.html" class="external-link">A First Session
+with GAP</a></strong> from the GAP Tutorial.</p></li>
 </ol></section><section><h2 class="section-heading" id="writing-programs-in-gap">Writing programs in GAP<a class="anchor" aria-label="anchor" href="#writing-programs-in-gap"></a></h2>
 <hr class="half-width"><ul><li><p>Use direct calculations in the command line for object
 exploration and prototyping, then think how to organise your code to
 make it reusable.</p></li>
-<li><p>Use <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
+<li><p>Use <a href="https://docs.gap-system.org/doc/ref/chap9.html#X79813A6686894960" class="external-link"><strong><code>LogTo</code></strong></a>
 to save inputs and outputs to a logfile which then you can edit in a
 text editor.</p></li>
-<li><p>Save code in text files and use <a href="https://www.gap-system.org/Manuals/doc/ref/chap9.html#X8373AC6B7D5F9167" class="external-link"><strong><code>Read</code></strong></a>
+<li><p>Save code in text files and use <a href="https://docs.gap-system.org/doc/ref/chap9.html#X8373AC6B7D5F9167" class="external-link"><strong><code>Read</code></strong></a>
 to load them. Find some advanced text editor to edit these
 files.</p></li>
 <li><p>Make your code modular and reusable by organising it into
 functions.</p></li>
 <li><p>Write comments in the code – this will help you when you will
 return to it after a while.</p></li>
-<li><p>Understand <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X8593B49F8705B486" class="external-link">break
-loops</a>: you may <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X7EE5CF2C8419F061" class="external-link">explore
-variables</a> on the current break level and use <a href="https://www.gap-system.org/Manuals/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>
+<li><p>Understand <a href="https://docs.gap-system.org/doc/ref/chap6.html#X8593B49F8705B486" class="external-link">break
+loops</a>: you may <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7EE5CF2C8419F061" class="external-link">explore
+variables</a> on the current break level and use <a href="https://docs.gap-system.org/doc/ref/chap6.html#X7A7FFA2B7C1EF5A3" class="external-link"><strong><code>Where</code></strong></a>
 to show the last commands before the error occurred.</p></li>
-<li><p>Use <a href="https://www.gap-system.org/Manuals/doc/ref/chap3.html#X7FD66F977A3B02DF" class="external-link">preferences
+<li><p>Use <a href="https://docs.gap-system.org/doc/ref/chap3.html#X7FD66F977A3B02DF" class="external-link">preferences
 mechanism</a> to customise GAP, for example, to set help viewer to HTML
 or to make command line history available after quitting GAP in the next
 GAP session.</p></li>
@@ -408,28 +408,26 @@ subgroups and their conjugates.</p></li>
 fp group to an isomorphic pc group or a permutation group to use faster
 methods.</p></li>
 </ul></li>
-<li><p>See <a href="https://www.gap-system.org/Faq/faq.html" class="external-link">GAP
-Frequently Asked Questions</a> for further hints.</p></li>
+<li><p>See <a href="https://www.gap-system.org/faq/" class="external-link">GAP Frequently
+Asked Questions</a> for further hints.</p></li>
 </ul></section><section><h2 class="section-heading" id="stay-in-touch">Stay in touch<a class="anchor" aria-label="anchor" href="#stay-in-touch"></a></h2>
-<hr class="half-width"><ul><li><p>Subscribe to the <strong><a href="https://www.gap-system.org/Contacts/Forum/forum.html" class="external-link">GAP
+<hr class="half-width"><ul><li><p>Subscribe to the <strong><a href="https://www.gap-system.org/forum/" class="external-link">GAP
 Forum</a></strong>.</p></li>
 <li>
 <p>If you need help, choose among these three options, dependently
 on the question:</p>
-<ul><li><p>ask questions in the <a href="https://www.gap-system.org/Contacts/Forum/forum.html" class="external-link">GAP
-Forum</a></p></li>
-<li><p>send them to the <a href="https://www.gap-system.org/Contacts/People/supportgroup.html" class="external-link">GAP
+<ul><li><p>ask questions in the <a href="https://www.gap-system.org/forum/" class="external-link">GAP Forum</a></p></li>
+<li><p>send them to the <a href="https://www.gap-system.org/issues/" class="external-link">GAP
 Support</a></p></li>
 <li><p>post them at the <a href="https://math.stackexchange.com/questions/tagged/gap?sort=frequent&amp;pageSize=50" class="external-link">Mathematics
 Q&amp;A site</a></p></li>
 </ul></li>
 </ul></section><section><h2 class="section-heading" id="contributing-to-gap">Contributing to GAP<a class="anchor" aria-label="anchor" href="#contributing-to-gap"></a></h2>
 <hr class="half-width"><ul><li><p>If you think that you’ve found a bug: please <a href="https://github.com/gap-system/gap/issues" class="external-link">create an issue on
-GitHub</a> or report it by email to <a href="https://www.gap-system.org/Contacts/People/supportgroup.html" class="external-link">GAP
-Support</a>.</p></li>
+GitHub</a> or report it by email to <a href="https://www.gap-system.org/issues/" class="external-link">GAP Support</a>.</p></li>
 <li><p>Please cite GAP if you use it. This helps for the community to
-grow, and this will help you in return. <a href="https://www.gap-system.org/Contacts/cite.html" class="external-link">This page</a>
-suggests how to cite GAP, and the function <a href="https://www.gap-system.org/Manuals/doc/ref/chap76.html#X79637D9A7B1AD7F7" class="external-link"><strong><code>Cite</code></strong></a>
+grow, and this will help you in return. <a href="https://www.gap-system.org/cite/" class="external-link">This page</a> suggests how to
+cite GAP, and the function <a href="https://docs.gap-system.org/doc/ref/chap76.html#X79637D9A7B1AD7F7" class="external-link"><strong><code>Cite</code></strong></a>
 will help to generate citation sample for precisely the same version of
 GAP that is used.</p></li>
 <li><p>Consider sharing your GAP developments with others, from sharing
@@ -488,22 +486,22 @@ be able to tweak it to generate GAP input file. But where to look if
 this option is not possible?</p>
 <p><code>ReadCSV( filename[, nohead][, separator] )</code> reads a file
 in a CSV (comma separated values) format and returns its entries as a
-list of records (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap10.html#X848DD7DC79363341" class="external-link">here</a>).
+list of records (see <a href="https://docs.gap-system.org/doc/ref/chap10.html#X848DD7DC79363341" class="external-link">documentation</a>).
 The entries of the first line of the file will be used for the names of
 the record components (blanks will be translated into underscores). One
 could also indicate that the first line contains data instead of field
 names, and also specify a custom separator. Conversely,
 <code>PrintCSV</code> may be used to output CSV files.</p>
 <p>To read arbitrary (binary or text) files as strings, use the
-<code>StringFile</code> function provided by the GAPDoc package (see <a href="https://www.gap-system.org/Manuals/pkg/GAPDoc-1.5.1/doc/chap6.html#X7E14D32181FBC3C3" class="external-link">here</a>).
+<code>StringFile</code> function provided by the GAPDoc package (see <a href="https://docs.gap-system.org/pkg/gapdoc/doc/chap6.html#X7E14D32181FBC3C3" class="external-link">documentation</a>).
 It will return the content of the file as a string. After that, you may
-use various string manipulation tools (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap27.html" class="external-link">Strings
-and Characters</a> in the GAP reference manual) to process it in the way
-you need. GAPDoc package also provides the <code>FileString</code>
-function which writes the content of a string into a file.</p>
+use various string manipulation tools (see <a href="https://docs.gap-system.org/doc/ref/chap27.html" class="external-link">Strings and
+Characters</a> in the GAP reference manual) to process it in the way you
+need. GAPDoc package also provides the <code>FileString</code> function
+which writes the content of a string into a file.</p>
 <p>If you need to organise reading/writing line by line, instead of
 reading or writing the whole file/string at once, we suggest to look at
-the functionality provided by the IO package (see <a href="https://www.gap-system.org/Manuals/pkg/io-4.4.6/doc/chap4.html" class="external-link">here</a>),
+the functionality provided by the IO package (see <a href="https://docs.gap-system.org/pkg/io/doc/chap4.html" class="external-link">documentation</a>),
 in particular at <code>IO_ReadLine</code> and
 <code>IO_WriteLine</code>.</p>
 </section></div> <!-- / div.lesson-content -->
