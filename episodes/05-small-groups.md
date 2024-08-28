@@ -65,13 +65,13 @@ gap> List(last,IdGroup);
 We would like to use our own testing function, which we will create here,
 using inline notation (available for one-argument functions):
 
-```source
+```gap
 TestOneGroup := G -> IsInt( AvgOrdOfGroup(G) );
 ```
 
 Now try, for example
 
-```source
+```gap
 List([TrivialGroup(),Group((1,2))],TestOneGroup);
 ```
 
@@ -79,7 +79,7 @@ List([TrivialGroup(),Group((1,2))],TestOneGroup);
 [ true, false ]
 ```
 
-```source
+```gap
 gap> AllSmallGroups(Size,24,TestOneGroup,true);
 ```
 
@@ -102,7 +102,7 @@ It creates one group at a time, checks the desired property, and returns as soon
 as an example is discovered. Otherwise it returns `fail` which is a special kind
 of boolean variable in GAP.
 
-```source
+```gap
 TestOneOrderEasy := function(n)
 local i;
 for i in [1..NrSmallGroups(n)] do
@@ -116,7 +116,7 @@ end;
 
 For example,
 
-```source
+```gap
 TestOneOrderEasy(1);
 ```
 
@@ -124,7 +124,7 @@ TestOneOrderEasy(1);
 [ 1, 1 ]
 ```
 
-```source
+```gap
 TestOneOrderEasy(24);
 ```
 
@@ -139,7 +139,7 @@ fail
 - Use iteration over `[1..NrSmallGroups(n)]` as shown in the function above
 - Use `IdsOfAllSmallGroups` which accepts same arguments as `AllSmallGroups`
   but returns ids instead of groups.
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -149,7 +149,7 @@ of our testing function prints additional information about the number of the
 group being tested. It also supplies the testing function as an argument (why do
 you think this is better?).
 
-```source
+```gap
 TestOneOrder := function(f,n)
 local i, G;
 for i in [1..NrSmallGroups(n)] do
@@ -167,7 +167,7 @@ end;
 
 For example,
 
-```source
+```gap
 TestOneOrder(TestOneGroup,64);
 ```
 
@@ -182,7 +182,7 @@ The next step is to integrate `TestOneOrder` into a function which will test
 all orders from 2 to `n` and stop as soon as it finds an example of a
 group with the average order of an element being an integer:
 
-```source
+```gap
 TestAllOrders:=function(f,n)
 local i, res;
 for i in [2..n] do
@@ -197,7 +197,7 @@ end;
 
 It reports that there is such a group of order 105:
 
-```source
+```gap
 TestAllOrders(TestOneGroup,128);
 ```
 
@@ -225,7 +225,7 @@ To explore it further, we can get its `StructureDescription` (see
 [here](https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E)
 for the explanation of the notation it uses):
 
-```source
+```gap
 G:=SmallGroup(105,1); AvgOrdOfGroup(G); StructureDescription(G);
 ```
 
@@ -237,7 +237,7 @@ G:=SmallGroup(105,1); AvgOrdOfGroup(G); StructureDescription(G);
 
 and then convert it to a finitely presented group to see its generators and relators:
 
-```source
+```gap
 H:=SimplifiedFpGroup(Image(IsomorphismFpGroup(G)));
 RelatorsOfFpGroup(H);
 ```
@@ -251,7 +251,7 @@ RelatorsOfFpGroup(H);
 Now we want to try larger groups, starting from order 106 (we check that
 the other group of order 105 possesses no such property)
 
-```source
+```gap
 List(AllSmallGroups(105),AvgOrdOfGroup);
 ```
 
@@ -262,7 +262,7 @@ List(AllSmallGroups(105),AvgOrdOfGroup);
 With a little modification, we add an extra argument specifying the order from
 which to start:
 
-```source
+```gap
 TestRangeOfOrders:=function(f,n1,n2)
 local n, res;
 for n in [n1..n2] do
@@ -277,7 +277,7 @@ end;
 
 But now we call it with
 
-```source
+```gap
 TestRangeOfOrders(TestOneGroup,106,256);
 ```
 
@@ -302,7 +302,7 @@ conjugacy class of a non-identity element of the group is divisible by *p*;
 therefore, the average order of a group element may not be an integer. Therefore,
 *p*\-groups can be excluded from calculation. So, the new version of the code is
 
-```source
+```gap
 TestRangeOfOrders:=function(f,n1,n2)
 local n, res;
 for n in [n1..n2] do
@@ -319,7 +319,7 @@ end;
 
 and using it we are able to discover a group of order 357 with the same property:
 
-```source
+```gap
 gap> TestRangeOfOrders(TestOneGroup,106,512);
 ```
 
@@ -353,7 +353,7 @@ we address here is to be able to switch the levels of verbosity of the
 output without error-prone approach of walking through the code and commenting
 `Print` statements in and out. It is achieved by creating an info class:
 
-```source
+```gap
 gap> InfoSmallGroupsSearch := NewInfoClass("InfoSmallGroupsSearch");
 ```
 
@@ -368,7 +368,7 @@ This level could be changed to `n` using the command
 `SetInfoLevel( InfoSmallGroupsSearch, n);`. See actual calls of `Info` in
 the code below:
 
-```source
+```gap
 TestOneOrderVariadic := function(f,n,r...)
 local n1, n2, i;
 
@@ -480,7 +480,7 @@ gap> SetInfoLevel( InfoSmallGroupsSearch, INFO_SSS);
 
 - Can you find another group with this property in the Small Groups Library
   (of order not equal to 1536)?
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
