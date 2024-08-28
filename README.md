@@ -22,13 +22,14 @@ so that we can add it to the list at the GAP lesson wiki
 submit it to the [issue tracker](https://github.com/carpentries-incubator/gap-lesson/issues)
 or send by email to [obk1@st-andrews.ac.uk](mailto:obk1@st-andrews.ac.uk). We also
 encourage you to collect and share the feedback using
-[sticky notes as minute cards](https://carpentries.github.io/instructor-training/06-feedback/index.html)
+[sticky notes as minute cards](https://carpentries.github.io/instructor-training/06-feedback.html#minute-cards)
 (in full or in the form of a summary). This will help us in further lesson development,
 to which you are welcome to contribute following the guidelines
 [here](https://github.com/carpentries-incubator/gap-lesson/blob/gh-pages/CONTRIBUTING.md).
 
-This lesson is published on Zenodo [here](https://doi.org/10.5281/zenodo.597073).
-To cite it, please use the format suggested there.
+This lesson is published on Zenodo [DOI 10.5281/zenodo.597073](https://doi.org/10.5281/zenodo.597073).
+To cite it, please use the format suggested in the
+[CITATION file](https://github.com/carpentries-incubator/gap-lesson/blob/main/CITATION).
 
 We acknowledge financial support from [CCP-CoDiMa](https://blogs.cs.st-andrews.ac.uk/codima/)
 (Collaborative Computational Project in the area of Computational Discrete Mathematics
