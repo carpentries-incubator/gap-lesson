@@ -309,7 +309,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Using regression tests</h1>
-        <p>Last updated on 2024-08-27 |
+        <p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -375,13 +375,17 @@ outputs with those in the test file and report any differences.</p>
 name them with the extension <code>.tst</code>. Now create the file
 <code>avgord.tst</code> in the current directory (to avoid typing the
 full path) with the following content:</p>
-<pre class="source"><code># tests for average order of a group element
-
-# permutation group
-gap&gt; S:=SymmetricGroup(9);
-Sym( [ 1 .. 9 ] )
-gap&gt; AvgOrdOfGroup(S);
-3291487/362880</code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>#<span class="co"> tests for average order of a group element</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>#<span class="co"> permutation group</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">9</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="va">Sym</span>( [ <span class="fl">1</span> <span class="op">..</span> <span class="fl">9</span> ] )</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">S</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fl">3291487</span><span class="op">/</span><span class="fl">362880</span></span></code></pre>
+</div>
 <p>As you see, the test file may include comments, with certain rules
 specifying where they may be placed, because one should be able to
 distinguish comments in the test file from GAP output started with
@@ -394,7 +398,11 @@ preceding GAP input.</p>
 documented <a href="https://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C" class="external-link">here</a>.
 For example (assuming that the function <code>AvgOrdOfGroup</code> is
 already loaded):</p>
-<pre class="source"><code><span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -410,43 +418,51 @@ test, as these are described in its documentation.</p>
 <p>Instead, we will now add more groups to <code>avgord.tst</code>, to
 demonstrate that the code also works with other kinds of groups, and to
 show various ways of combining commands in the test file:</p>
-<pre class="source"><code># tests for average order of a group element
-
-# permutation group
-gap&gt; S:=SymmetricGroup(9);
-Sym( [ 1 .. 9 ] )
-gap&gt; AvgOrdOfGroup(S);
-3291487/362880
-
-# pc group
-gap&gt; D:=DihedralGroup(512);
-&lt;pc group of size 512 with 9 generators&gt;
-gap&gt; AvgOrdOfGroup(D);
-44203/512
-gap&gt; G:=TrivialGroup();; # suppress output
-gap&gt; AvgOrdOfGroup(G);
-1
-
-# fp group
-gap&gt; F:=FreeGroup("a","b");
-&lt;free group on the generators [ a, b ]&gt;
-gap&gt; G:=F/ParseRelators(GeneratorsOfGroup(F),"a^8=b^2=1, b^-1ab=a^-1");
-&lt;fp group on the generators [ a, b ]&gt;
-gap&gt; IsFinite(G);
-true
-gap&gt; AvgOrdOfGroup(G);
-59/16
-
-# finite matrix group over integers
-gap&gt; AvgOrdOfGroup( Group( [[0,-1],[1,0]] ) );
-11/4
-
-# matrix group over a finite field
-gap&gt; AvgOrdOfGroup(SL(2,5));
-221/40</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>#<span class="co"> tests for average order of a group element</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>#<span class="co"> permutation group</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">9</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="va">Sym</span>( [ <span class="fl">1</span> <span class="op">..</span> <span class="fl">9</span> ] )</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">S</span>)<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fl">3291487</span><span class="op">/</span><span class="fl">362880</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>#<span class="co"> pc group</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">D</span><span class="op">:=</span><span class="bu">DihedralGroup</span>(<span class="fl">512</span>)<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="op">&lt;</span><span class="va">pc</span> <span class="va">group</span> <span class="va">of</span> <span class="va">size</span> <span class="fl">512</span> <span class="va">with</span> <span class="fl">9</span> <span class="va">generators</span><span class="op">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">D</span>)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fl">44203</span><span class="op">/</span><span class="fl">512</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="bu">TrivialGroup</span>()<span class="op">;;</span> #<span class="co"> suppress output</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="fl">1</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>#<span class="co"> fp group</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">F</span><span class="op">:=</span><span class="bu">FreeGroup</span>(<span class="st">"a"</span><span class="op">,</span><span class="st">"b"</span>)<span class="op">;</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="op">&lt;</span><span class="va">free</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="va">F</span><span class="op">/</span><span class="va">ParseRelators</span>(<span class="bu">GeneratorsOfGroup</span>(<span class="va">F</span>)<span class="op">,</span><span class="st">"a^8=b^2=1, b^-1ab=a^-1"</span>)<span class="op">;</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="op">&lt;</span><span class="va">fp</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">IsFinite</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="cn">true</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="fl">59</span><span class="op">/</span><span class="fl">16</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>#<span class="co"> finite matrix group over integers</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>( <span class="bu">Group</span>( [[<span class="fl">0</span><span class="op">,-</span><span class="fl">1</span>]<span class="op">,</span>[<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>]] ) )<span class="op">;</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="fl">11</span><span class="op">/</span><span class="fl">4</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>#<span class="co"> matrix group over a finite field</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">SL</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">5</span>))<span class="op">;</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="fl">221</span><span class="op">/</span><span class="fl">40</span></span></code></pre>
+</div>
 <p>Let us test the extended version of the test again and check that it
 works:</p>
-<pre class="source"><code><span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -458,18 +474,26 @@ so we need only to know the orders of conjugacy classes of elements and
 their representatives. The following code, which we add into
 <code>avgord.g</code>, reads into GAP and redefines
 <code>AvgOrdOfGroup</code> without any syntax errors:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local cc, sum, c;
-cc:=ConjugacyClasses(G);
-sum:=0;
-for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(cc);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">cc</span><span class="op">,</span> <span class="va">sum</span><span class="op">,</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="va">cc</span><span class="op">:=</span><span class="bu">ConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="cf">for</span> <span class="va">c</span> <span class="ex">in</span> <span class="va">cc</span> <span class="cf">do</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>( <span class="bu">Representative</span>(<span class="va">c</span>) ) <span class="op">*</span> <span class="bu">Size</span>(<span class="va">cc</span>)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>but when we run the test, here comes a surprise!</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -510,19 +534,27 @@ end;</code></pre>
 <p>Indeed, we made a typo (deliberately) and replaced
 <code>Size(c)</code> by <code>Size(cc)</code>. The correct version of
 course should look as follows:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local cc, sum, c;
-cc:=ConjugacyClasses(G);
-sum:=0;
-for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(c);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">cc</span><span class="op">,</span> <span class="va">sum</span><span class="op">,</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="va">cc</span><span class="op">:=</span><span class="bu">ConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="cf">for</span> <span class="va">c</span> <span class="ex">in</span> <span class="va">cc</span> <span class="cf">do</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>( <span class="bu">Representative</span>(<span class="va">c</span>) ) <span class="op">*</span> <span class="bu">Size</span>(<span class="va">c</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now we will fix this in <code>avgord.g</code>, and read and test it
 again to check that the tests run correctly.</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -606,8 +638,8 @@ effort.</li>
   "url": "https://carpentries-incubator.github.io/gap-lesson/instructor/04-testing.html",
   "identifier": "https://carpentries-incubator.github.io/gap-lesson/instructor/04-testing.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2024-08-27",
-  "datePublished": "2024-08-27"
+  "dateModified": "2024-08-28",
+  "datePublished": "2024-08-28"
 }
 
   </script><script>

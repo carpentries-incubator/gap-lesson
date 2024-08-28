@@ -309,7 +309,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Small groups search</h1>
-        <p>Last updated on 2024-08-27 |
+        <p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -392,15 +392,27 @@ gap&gt; List(last,IdGroup);
 </div>
 <p>We would like to use our own testing function, which we will create
 here, using inline notation (available for one-argument functions):</p>
-<pre class="source"><code><span><span class="va">TestOneGroup</span> <span class="op">:=</span> <span class="va">G</span> <span class="op">-&gt;</span> <span class="fu">IsInt</span><span class="op">(</span> <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">TestOneGroup</span> <span class="op">:=</span> <span class="va">G</span> <span class="op">-&gt;</span> <span class="bu">IsInt</span>( <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>) )<span class="op">;</span></span></code></pre>
+</div>
 <p>Now try, for example</p>
-<pre class="source"><code>List([TrivialGroup(),Group((1,2))],TestOneGroup);</code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">List</span>([<span class="bu">TrivialGroup</span>()<span class="op">,</span><span class="bu">Group</span>((<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>))]<span class="op">,</span><span class="va">TestOneGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>[ true, false ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">AllSmallGroups</span><span class="op">(</span><span class="va">Size</span>,<span class="fl">24</span>,<span class="va">TestOneGroup</span>,<span class="va">true</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">AllSmallGroups</span>(<span class="bu">Size</span><span class="op">,</span><span class="fl">24</span><span class="op">,</span><span class="va">TestOneGroup</span><span class="op">,</span><span class="cn">true</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -424,23 +436,35 @@ given order. It creates one group at a time, checks the desired
 property, and returns as soon as an example is discovered. Otherwise it
 returns <code>fail</code> which is a special kind of boolean variable in
 GAP.</p>
-<pre class="source"><code>TestOneOrderEasy := function(n)
-local i;
-for i in [1..NrSmallGroups(n)] do
-  if TestOneGroup( SmallGroup( n, i ) ) then
-    return [n,i];
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">n</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">do</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">TestOneGroup</span>( <span class="bu">SmallGroup</span>( <span class="va">n</span><span class="op">,</span> <span class="va">i</span> ) ) <span class="cf">then</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>For example,</p>
-<pre class="source"><code><span><span class="fu">TestOneOrderEasy</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span>(<span class="fl">1</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>[ 1, 1 ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">TestOneOrderEasy</span><span class="op">(</span><span class="fl">24</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span>(<span class="fl">24</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -468,21 +492,29 @@ For example, the next version of our testing function prints additional
 information about the number of the group being tested. It also supplies
 the testing function as an argument (why do you think this is
 better?).</p>
-<pre class="source"><code>TestOneOrder := function(f,n)
-local i, G;
-for i in [1..NrSmallGroups(n)] do
-  Print(n, ":", i, "/", NrSmallGroups(n), "\r");
-  G := SmallGroup( n, i );
-  if f(G) then
-    Print("\n");
-    return [n,i];
-  fi;
-od;
-Print("\n");
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="va">TestOneOrder</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">,</span> <span class="va">G</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">do</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="bu">Print</span>(<span class="va">n</span><span class="op">,</span> <span class="st">":"</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="st">"/"</span><span class="op">,</span> <span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">,</span> <span class="st">"\r"</span>)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="va">G</span> <span class="op">:=</span> <span class="bu">SmallGroup</span>( <span class="va">n</span><span class="op">,</span> <span class="va">i</span> )<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">f</span>(<span class="va">G</span>) <span class="cf">then</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="bu">Print</span>(<span class="st">"\n"</span>)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="bu">Print</span>(<span class="st">"\n"</span>)<span class="op">;</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>For example,</p>
-<pre class="source"><code><span><span class="fu">TestOneOrder</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">64</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">TestOneOrder</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">64</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>will display a changing counter during calculation and then return
 <code>fail</code>:</p>
 <div class="codewrapper">
@@ -495,18 +527,26 @@ end;</code></pre>
 function which will test all orders from 2 to <code>n</code> and stop as
 soon as it finds an example of a group with the average order of an
 element being an integer:</p>
-<pre class="source"><code>TestAllOrders:=function(f,n)
-local i, res;
-for i in [2..n] do
-  res:=TestOneOrder(f,i);
-  if res &lt;&gt; fail then
-    return res;
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">TestAllOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">2</span><span class="op">..</span><span class="va">n</span>] <span class="cf">do</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>  <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">i</span>)<span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>    <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>It reports that there is such a group of order 105:</p>
-<pre class="source"><code><span><span class="fu">TestAllOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">128</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="va">TestAllOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">128</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -531,7 +571,11 @@ end;</code></pre>
 <p>To explore it further, we can get its
 <code>StructureDescription</code> (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">here</a>
 for the explanation of the notation it uses):</p>
-<pre class="source"><code><span><span class="va">G</span><span class="op">:=</span><span class="fu">SmallGroup</span><span class="op">(</span><span class="fl">105</span>,<span class="fl">1</span><span class="op">)</span>; <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>; <span class="fu">StructureDescription</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">G</span><span class="op">:=</span><span class="bu">SmallGroup</span>(<span class="fl">105</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span> <span class="bu">StructureDescription</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -541,8 +585,12 @@ for the explanation of the notation it uses):</p>
 </div>
 <p>and then convert it to a finitely presented group to see its
 generators and relators:</p>
-<pre class="source"><code><span><span class="va">H</span><span class="op">:=</span><span class="fu">SimplifiedFpGroup</span><span class="op">(</span><span class="fu">Image</span><span class="op">(</span><span class="fu">IsomorphismFpGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>;</span>
-<span><span class="fu">RelatorsOfFpGroup</span><span class="op">(</span><span class="va">H</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="va">H</span><span class="op">:=</span><span class="bu">SimplifiedFpGroup</span>(<span class="bu">Image</span>(<span class="bu">IsomorphismFpGroup</span>(<span class="va">G</span>)))<span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="bu">RelatorsOfFpGroup</span>(<span class="va">H</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -552,7 +600,11 @@ generators and relators:</p>
 </div>
 <p>Now we want to try larger groups, starting from order 106 (we check
 that the other group of order 105 possesses no such property)</p>
-<pre class="source"><code><span><span class="fu">List</span><span class="op">(</span><span class="fu">AllSmallGroups</span><span class="op">(</span><span class="fl">105</span><span class="op">)</span>,<span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">List</span>(<span class="bu">AllSmallGroups</span>(<span class="fl">105</span>)<span class="op">,</span><span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -560,18 +612,26 @@ that the other group of order 105 possesses no such property)</p>
 </div>
 <p>With a little modification, we add an extra argument specifying the
 order from which to start:</p>
-<pre class="source"><code>TestRangeOfOrders:=function(f,n1,n2)
-local n, res;
-for n in [n1..n2] do
-  res:=TestOneOrder(f,n);
-  if res &lt;&gt; fail then
-    return res;
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n1</span><span class="op">,</span><span class="va">n2</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">n</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>    <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>But now we call it with</p>
-<pre class="source"><code><span><span class="fu">TestRangeOfOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">106</span>,<span class="fl">256</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">106</span><span class="op">,</span><span class="fl">256</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>and discover that testing 2328 groups of order 128 and additionally
 56092 groups of order 256 already takes too long.</p>
 <div id="dont-panic" class="callout">
@@ -594,21 +654,29 @@ the order of each conjugacy class of a non-identity element of the group
 is divisible by <em>p</em>; therefore, the average order of a group
 element may not be an integer. Therefore, <em>p</em>-groups can be
 excluded from calculation. So, the new version of the code is</p>
-<pre class="source"><code>TestRangeOfOrders:=function(f,n1,n2)
-local n, res;
-for n in [n1..n2] do
-  if not IsPrimePowerInt(n) then
-     res:=TestOneOrder(f,n);
-     if res &lt;&gt; fail then
-       return res;
-     fi;
-   fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n1</span><span class="op">,</span><span class="va">n2</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">n</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsPrimePowerInt</span>(<span class="va">n</span>) <span class="cf">then</span></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>     <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>     <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>       <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>     <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a>   <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>and using it we are able to discover a group of order 357 with the
 same property:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">TestRangeOfOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">106</span>,<span class="fl">512</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">TestRangeOfOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">106</span><span class="op">,</span><span class="fl">512</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -641,7 +709,11 @@ messages that may be switched on and off by setting appropriate
 switch the levels of verbosity of the output without error-prone
 approach of walking through the code and commenting <code>Print</code>
 statements in and out. It is achieved by creating an info class:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="va">InfoSmallGroupsSearch</span> <span class="op">:=</span> <span class="fu">NewInfoClass</span><span class="op">(</span><span class="st">"InfoSmallGroupsSearch"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">InfoSmallGroupsSearch</span> <span class="op">:=</span> <span class="bu">NewInfoClass</span>(<span class="st">"InfoSmallGroupsSearch"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -653,57 +725,61 @@ where <code>infolevel</code> is a positive integer specifying the level
 of verbosity. This level could be changed to <code>n</code> using the
 command <code>SetInfoLevel( InfoSmallGroupsSearch, n);</code>. See
 actual calls of <code>Info</code> in the code below:</p>
-<pre class="source"><code>TestOneOrderVariadic := function(f,n,r...)
-local n1, n2, i;
-
-if not Length(r) in [0..2] then
-  Error("The number of arguments must be 2,3 or 4\n" );
-fi;
-
-if not IsFunction( f ) then
-  Error("The first argument must be a function\n" );
-fi;
-
-if not IsPosInt( n ) then
-  Error("The second argument must be a positive integer\n" );
-fi;
-
-if IsBound(r[1]) then
-  n1:=r[1];
-  if not n1 in [1..NrSmallGroups(n)] then
-    Error("The 3rd argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
-  fi;
-else
-  n1:=1;
-fi;
-
-if IsBound(r[2]) then
-  n2:=r[2];
-  if not n2 in [1..NrSmallGroups(n)] then
-    Error("The 4th argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
-  elif n2 &lt; n1 then
-    Error("The 4th argument, if present, must be greater or equal to the 3rd \n" );
-  fi;
-else
-  n2:=NrSmallGroups(n);
-fi;
-
-Info( InfoSmallGroupsSearch, 1,
-      "Checking groups ", n1, " ... ", n2, " of order ", n );
-for i in [n1..n2] do
-  if InfoLevel( InfoSmallGroupsSearch ) &gt; 1 then
-    Print(i, "/", NrSmallGroups(n), "\r");
-  fi;
-  if f(SmallGroup(n,i)) then
-    Info( InfoSmallGroupsSearch, 1,
-          "Discovered counterexample: SmallGroup( ", n, ", ", i, " )" );
-    return [n,i];
-  fi;
-od;
-Info( InfoSmallGroupsSearch, 1,
-      "Search completed - no counterexample discovered" );
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="va">TestOneOrderVariadic</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span><span class="op">,</span><span class="va">r</span><span class="op">..</span>.)</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n1</span><span class="op">,</span> <span class="va">n2</span><span class="op">,</span> <span class="va">i</span><span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">Length</span>(<span class="va">r</span>) <span class="ex">in</span> [<span class="fl">0</span><span class="op">..</span><span class="fl">2</span>] <span class="cf">then</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The number of arguments must be 2,3 or 4\n"</span> )<span class="op">;</span></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsFunction</span>( <span class="va">f</span> ) <span class="cf">then</span></span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The first argument must be a function\n"</span> )<span class="op">;</span></span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsPosInt</span>( <span class="va">n</span> ) <span class="cf">then</span></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The second argument must be a positive integer\n"</span> )<span class="op">;</span></span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a><span class="cf">if</span> <span class="bu">IsBound</span>(<span class="va">r</span>[<span class="fl">1</span>]) <span class="cf">then</span></span>
+<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a>  <span class="va">n1</span><span class="op">:=</span><span class="va">r</span>[<span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb31-18"><a href="#cb31-18" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="va">n1</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">then</span></span>
+<span id="cb31-19"><a href="#cb31-19" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 3rd argument, if present, must belong to "</span><span class="op">,</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)]<span class="op">,</span> <span class="st">"\n"</span> )<span class="op">;</span></span>
+<span id="cb31-20"><a href="#cb31-20" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-21"><a href="#cb31-21" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb31-22"><a href="#cb31-22" tabindex="-1"></a>  <span class="va">n1</span><span class="op">:=</span><span class="fl">1</span><span class="op">;</span></span>
+<span id="cb31-23"><a href="#cb31-23" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-24"><a href="#cb31-24" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" tabindex="-1"></a><span class="cf">if</span> <span class="bu">IsBound</span>(<span class="va">r</span>[<span class="fl">2</span>]) <span class="cf">then</span></span>
+<span id="cb31-26"><a href="#cb31-26" tabindex="-1"></a>  <span class="va">n2</span><span class="op">:=</span><span class="va">r</span>[<span class="fl">2</span>]<span class="op">;</span></span>
+<span id="cb31-27"><a href="#cb31-27" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="va">n2</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">then</span></span>
+<span id="cb31-28"><a href="#cb31-28" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 4th argument, if present, must belong to "</span><span class="op">,</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)]<span class="op">,</span> <span class="st">"\n"</span> )<span class="op">;</span></span>
+<span id="cb31-29"><a href="#cb31-29" tabindex="-1"></a>  <span class="cf">elif</span> <span class="va">n2</span> <span class="op">&lt;</span> <span class="va">n1</span> <span class="cf">then</span></span>
+<span id="cb31-30"><a href="#cb31-30" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 4th argument, if present, must be greater or equal to the 3rd \n"</span> )<span class="op">;</span></span>
+<span id="cb31-31"><a href="#cb31-31" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-32"><a href="#cb31-32" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb31-33"><a href="#cb31-33" tabindex="-1"></a>  <span class="va">n2</span><span class="op">:=</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb31-34"><a href="#cb31-34" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-35"><a href="#cb31-35" tabindex="-1"></a></span>
+<span id="cb31-36"><a href="#cb31-36" tabindex="-1"></a><span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-37"><a href="#cb31-37" tabindex="-1"></a>      <span class="st">"Checking groups "</span><span class="op">,</span> <span class="va">n1</span><span class="op">,</span> <span class="st">" ... "</span><span class="op">,</span> <span class="va">n2</span><span class="op">,</span> <span class="st">" of order "</span><span class="op">,</span> <span class="va">n</span> )<span class="op">;</span></span>
+<span id="cb31-38"><a href="#cb31-38" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb31-39"><a href="#cb31-39" tabindex="-1"></a>  <span class="cf">if</span> <span class="bu">InfoLevel</span>( <span class="va">InfoSmallGroupsSearch</span> ) <span class="op">&gt;</span> <span class="fl">1</span> <span class="cf">then</span></span>
+<span id="cb31-40"><a href="#cb31-40" tabindex="-1"></a>    <span class="bu">Print</span>(<span class="va">i</span><span class="op">,</span> <span class="st">"/"</span><span class="op">,</span> <span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">,</span> <span class="st">"\r"</span>)<span class="op">;</span></span>
+<span id="cb31-41"><a href="#cb31-41" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-42"><a href="#cb31-42" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">f</span>(<span class="bu">SmallGroup</span>(<span class="va">n</span><span class="op">,</span><span class="va">i</span>)) <span class="cf">then</span></span>
+<span id="cb31-43"><a href="#cb31-43" tabindex="-1"></a>    <span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-44"><a href="#cb31-44" tabindex="-1"></a>          <span class="st">"Discovered counterexample: SmallGroup( "</span><span class="op">,</span> <span class="va">n</span><span class="op">,</span> <span class="st">", "</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="st">" )"</span> )<span class="op">;</span></span>
+<span id="cb31-45"><a href="#cb31-45" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb31-46"><a href="#cb31-46" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-47"><a href="#cb31-47" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb31-48"><a href="#cb31-48" tabindex="-1"></a><span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-49"><a href="#cb31-49" tabindex="-1"></a>      <span class="st">"Search completed - no counterexample discovered"</span> )<span class="op">;</span></span>
+<span id="cb31-50"><a href="#cb31-50" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb31-51"><a href="#cb31-51" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>The following example demonstrates how the output may now be
 controlled by switching the info level for
 <code>InfoSmallGroupsSearch</code>:</p>
@@ -846,8 +922,8 @@ than the brute-force approach.</li>
   "url": "https://carpentries-incubator.github.io/gap-lesson/05-small-groups.html",
   "identifier": "https://carpentries-incubator.github.io/gap-lesson/05-small-groups.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2024-08-27",
-  "datePublished": "2024-08-27"
+  "dateModified": "2024-08-28",
+  "datePublished": "2024-08-28"
 }
 
   </script><script>

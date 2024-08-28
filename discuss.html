@@ -305,7 +305,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Discussion</h1>
-        <p>Last updated on 2024-08-27 |
+        <p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/learners/discuss.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -442,22 +442,34 @@ itself.</p></li>
 <hr class="half-width"><ul><li>This is a simples approach to call GAP from a shell script. Create
 the shell script called <code>check-one-order.sh</code> with the
 following content:</li>
-</ul><pre class="source"><code>#!/bin/sh
-
-gap -r -b -q avgord.g &lt;&lt; EOI
-TestOneOrderEasy( $1 );
-quit;
-EOI</code></pre>
+</ul><div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>#<span class="co">!/bin/sh</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="va">gap</span> <span class="op">-</span><span class="va">r</span> <span class="op">-</span><span class="va">b</span> <span class="op">-</span><span class="va">q</span> <span class="va">avgord</span>.<span class="va">g</span> <span class="op">&lt;&lt;</span> <span class="va">EOI</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="va">TestOneOrderEasy</span>( $<span class="fl">1</span> )<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="va">quit</span><span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="va">EOI</span></span></code></pre>
+</div>
 <p>and make it executable using
 <code>chmod u+x check-one-order.sh</code>. Now you may call it as
 follows:</p>
-<pre class="source"><code>$ ./check-one-order.sh 24</code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>$ .<span class="op">/</span><span class="va">check</span><span class="op">-</span><span class="va">one</span><span class="op">-</span><span class="va">order</span>.<span class="va">sh</span> <span class="fl">24</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="va">fail</span></span></code></pre>
 </div>
-<pre class="source"><code>$ ./check-one-order.sh 105</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>$ .<span class="op">/</span><span class="va">check</span><span class="op">-</span><span class="va">one</span><span class="op">-</span><span class="va">order</span>.<span class="va">sh</span> <span class="fl">105</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -552,8 +564,8 @@ in particular at <code>IO_ReadLine</code> and
   "url": "https://carpentries-incubator.github.io/gap-lesson/discuss.html",
   "identifier": "https://carpentries-incubator.github.io/gap-lesson/discuss.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2024-08-27",
-  "datePublished": "2024-08-27"
+  "dateModified": "2024-08-28",
+  "datePublished": "2024-08-28"
 }
 
   </script><script>

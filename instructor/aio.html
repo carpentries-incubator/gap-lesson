@@ -363,7 +363,7 @@
         
 <section id="aio-01-command-line"><p>Content from <a href="01-command-line.html">First session with GAP</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/01-command-line.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 40 minutes</p>
@@ -427,9 +427,17 @@ semicolon! Practice entering <code>quit;</code> to leave GAP, and then
 starting a new GAP session. Before continuing, you may wish to enter the
 following command to display GAP prompts and user inputs in different
 colours:</p>
-<pre class="source"><code><span> <span class="fu">ColorPrompt</span><span class="op">(</span><span class="va">true</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a> <span class="bu">ColorPrompt</span>(<span class="cn">true</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>The easiest way to start trying GAP out is as a calculator:</p>
-<pre class="source"><code><span><span class="op">(</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">32</span> <span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>( <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">32</span> ) <span class="op">/</span> (<span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -438,7 +446,11 @@ colours:</p>
 <p>If you want to record what you did in a GAP session, so you can look
 over it later, you can enable logging with the <code>LogTo</code>
 function, like this.</p>
-<pre class="source"><code><span><span class="fu">LogTo</span><span class="op">(</span><span class="st">"gap-intro.log"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">LogTo</span>(<span class="st">"gap-intro.log"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>This will create a file file <code>gap-intro.log</code> in the
 current directory which will contain all subsequent input and output
 that appears on your terminal. To stop logging, you can call
@@ -449,7 +461,11 @@ if it already exists!</p>
 return to it in the future. A comment in GAP starts with the symbol
 <code>#</code> and continues to the end of the line. You can enter the
 following after the GAP prompt:</p>
-<pre class="source"><code><span><span class="co"># GAP Software Carpentry Lesson</span></span></code></pre>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>#<span class="co"> GAP Software Carpentry Lesson</span></span></code></pre>
+</div>
 <p>then after pressing the Return key, GAP will display a new prompt but
 the comment will be written to the log file.</p>
 <p>The log file records all interaction with GAP that happens after the
@@ -459,7 +475,11 @@ retyping it, we will use the Up and Down arrow keys to scroll the
 <em>command line history</em>. Repeat this until you see the formula
 again, then press Return (the location of the cursor in the command line
 does not matter):</p>
-<pre class="source"><code><span><span class="op">(</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">32</span> <span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>( <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">32</span> ) <span class="op">/</span> (<span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -471,7 +491,11 @@ replace 32 by 64 (some other useful shortcuts are Ctrl-A and Ctrl-E to
 move the cursor to the beginning and end of the line, respectively). Now
 press the Return key (at any position of the cursor in the command
 line):</p>
-<pre class="source"><code><span><span class="op">(</span> <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">64</span> <span class="op">)</span> <span class="op">/</span> <span class="op">(</span><span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>( <span class="fl">1</span> <span class="op">+</span> <span class="fl">2</span><span class="op">^</span><span class="fl">64</span> ) <span class="op">/</span> (<span class="fl">1</span> <span class="op">-</span> <span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -483,7 +507,11 @@ and using Up and Down arrow keys after that, to scroll only the lines
 that begin with the same string.</p>
 <p>If you want to store a value for later use, you can assign it to a
 name using <code>:=</code></p>
-<pre class="source"><code><span><span class="va">universe</span> <span class="op">:=</span> <span class="fl">6</span><span class="op">*</span><span class="fl">7</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">universe</span> <span class="op">:=</span> <span class="fl">6</span><span class="op">*</span><span class="fl">7</span><span class="op">;</span></span></code></pre>
+</div>
 <div id="and" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -510,7 +538,11 @@ before).</p></li>
 <p>Whitespace characters (i.e. Spaces, Tabs and Returns) are
 insignificant in GAP, except if they occur inside a string. For example,
 the previous input could be typed without spaces:</p>
-<pre class="source"><code><span><span class="op">(</span><span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">^</span><span class="fl">64</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>(<span class="fl">1</span><span class="op">+</span><span class="fl">2</span><span class="op">^</span><span class="fl">64</span>)<span class="op">/</span>(<span class="fl">1</span><span class="op">-</span><span class="fl">2</span><span class="op">*</span><span class="fl">3</span><span class="op">*</span><span class="fl">107</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -519,7 +551,11 @@ the previous input could be typed without spaces:</p>
 <p>Whitespace symbols are often used to format more complicated commands
 for better readability. For example, the following input which creates a
 3×3 matrix:</p>
-<pre class="source"><code>m:=[[1,2,3],[4,5,6],[7,8,9]];</code></pre>
+<div class="codewrapper sourceCode" id="cb14">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="va">m</span><span class="op">:=</span>[[<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span>]<span class="op">,</span>[<span class="fl">4</span><span class="op">,</span><span class="fl">5</span><span class="op">,</span><span class="fl">6</span>]<span class="op">,</span>[<span class="fl">7</span><span class="op">,</span><span class="fl">8</span><span class="op">,</span><span class="fl">9</span>]]<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -529,9 +565,13 @@ for better readability. For example, the following input which creates a
 of the full prompt <code>gap&gt;</code>, a partial prompt
 <code>&gt;</code> will be displayed until the user finishes the input
 with a semicolon:</p>
-<pre class="source"><code>gap&gt; m:=[[ 1, 2, 3 ],
-&gt;        [ 4, 5, 6 ],
-&gt;        [ 7, 8, 9 ]];</code></pre>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">m</span><span class="op">:=</span>[[ <span class="fl">1</span><span class="op">,</span> <span class="fl">2</span><span class="op">,</span> <span class="fl">3</span> ]<span class="op">,</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="op">&gt;</span>        [ <span class="fl">4</span><span class="op">,</span> <span class="fl">5</span><span class="op">,</span> <span class="fl">6</span> ]<span class="op">,</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a><span class="op">&gt;</span>        [ <span class="fl">7</span><span class="op">,</span> <span class="fl">8</span><span class="op">,</span> <span class="fl">9</span> ]]<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -539,7 +579,11 @@ with a semicolon:</p>
 </div>
 <p>You can use <code>Display</code> to pretty-print variables, including
 this matrix:</p>
-<pre class="source"><code><span><span class="fu">Display</span><span class="op">(</span><span class="va">m</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="bu">Display</span>(<span class="va">m</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -564,7 +608,11 @@ differences in these outputs later.</p>
 </div>
 </div>
 <p>Here are some examples of calling other GAP functions:</p>
-<pre class="source"><code><span><span class="fu">Factorial</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="bu">Factorial</span>(<span class="fl">100</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -574,14 +622,22 @@ differences in these outputs later.</p>
 </div>
 <p>(the exact width of output will depend on your terminal
 settings),</p>
-<pre class="source"><code><span><span class="fu">Determinant</span><span class="op">(</span><span class="va">m</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">Determinant</span>(<span class="va">m</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">0</span></span></code></pre>
 </div>
 <p>and</p>
-<pre class="source"><code><span><span class="fu">Factors</span><span class="op">(</span><span class="fl">2</span><span class="op">^</span><span class="fl">64</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="bu">Factors</span>(<span class="fl">2</span><span class="op">^</span><span class="fl">64</span><span class="op">-</span><span class="fl">1</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -592,7 +648,11 @@ arguments of other functions, for example, the <code>Filtered</code>
 function takes a list and a function, returning all elements of the list
 which satisfy the function. <code>IsEvenInt</code>, unsurprisingly,
 checks if an integer is even!</p>
-<pre class="source"><code>Filtered( [2,9,6,3,4,5], IsEvenInt);</code></pre>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="bu">Filtered</span>( [<span class="fl">2</span><span class="op">,</span><span class="fl">9</span><span class="op">,</span><span class="fl">6</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">5</span>]<span class="op">,</span> <span class="bu">IsEvenInt</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -602,7 +662,11 @@ checks if an integer is even!</p>
 completion of identifiers when the Tab key is pressed. For example, type
 <code>Fib</code> and then press the Tab key to complete the input to
 <code>Fibonacci</code>:</p>
-<pre class="source"><code><span><span class="fu">Fibonacci</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb28">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a><span class="bu">Fibonacci</span>(<span class="fl">100</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -622,7 +686,11 @@ Functions with names in <code>ALL_CAPITAL_LETTERS</code> are internal
 functions not intended for general use. Use them with extreme care!</p>
 <p>It is important to remember that GAP is case-sensitive. For example,
 the following input causes an error:</p>
-<pre class="source"><code><span><span class="fu">factorial</span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb30">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a><span class="va">factorial</span>(<span class="fl">100</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -681,7 +749,11 @@ running GAP on your own computer, you can set the help viewer to the
 default browser. If you are running GAP on a remote machine, this
 (probably) will not work. (see <code>?WriteGapIniFile</code> on how to
 make this setting permanent):</p>
-<pre class="source"><code><span><span class="fu">SetHelpViewer</span><span class="op">(</span><span class="st">"browser"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="bu">SetHelpViewer</span>(<span class="st">"browser"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>After that, invoke the help again, and see the difference!</p>
 <p>Let’s now copy the following input from the first example of the GAP
 Reference manual chapter on groups. It shows how to create permutations,
@@ -696,10 +768,18 @@ and one for writing code!</p>
 notation, and also shows common functions which are used with groups.
 Also, in some places two semi-colons are used at the end of a line. This
 stops GAP from showing the result of a computation.</p>
-<pre class="source"><code>a:=(1,2,3);;b:=(2,3,4);;</code></pre>
+<div class="codewrapper sourceCode" id="cb34">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="va">a</span><span class="op">:=</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span>)<span class="op">;;</span><span class="va">b</span><span class="op">:=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">4</span>)<span class="op">;;</span></span></code></pre>
+</div>
 <p>Next, let <code>G</code> be a group generated by <code>a</code> and
 <code>b</code>:</p>
-<pre class="source"><code><span><span class="va">G</span><span class="op">:=</span><span class="fu">Group</span><span class="op">(</span><span class="va">a</span>,<span class="va">b</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb35">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb35-1"><a href="#cb35-1" tabindex="-1"></a><span class="va">G</span><span class="op">:=</span><span class="bu">Group</span>(<span class="va">a</span><span class="op">,</span><span class="va">b</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -707,7 +787,11 @@ stops GAP from showing the result of a computation.</p>
 </div>
 <p>We may explore some properties of <code>G</code> and its
 generators:</p>
-<pre class="source"><code><span><span class="fu">Size</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>; <span class="fu">IsAbelian</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>; <span class="fu">StructureDescription</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>; <span class="fu">Order</span><span class="op">(</span><span class="va">a</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb37">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb37-1"><a href="#cb37-1" tabindex="-1"></a><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span> <span class="bu">IsAbelian</span>(<span class="va">G</span>)<span class="op">;</span> <span class="bu">StructureDescription</span>(<span class="va">G</span>)<span class="op">;</span> <span class="bu">Order</span>(<span class="va">a</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -723,7 +807,11 @@ not seem relevant, but the entry from the Reference manual is. It also
 explains the difference between using <code>AsSSortedList</code> and
 <code>AsList</code>. So, this is the list of elements of
 <code>G</code>:</p>
-<pre class="source"><code><span><span class="fu">AsList</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb39">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="bu">AsList</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -736,7 +824,11 @@ calculating it. Of course, we may use the command line history to
 restore the last command, edit it and call again. But instead, we will
 use <code>last</code> which is a special variable holding the last
 result returned by GAP:</p>
-<pre class="source"><code><span><span class="va">elts</span><span class="op">:=</span><span class="va">last</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb41">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb41-1"><a href="#cb41-1" tabindex="-1"></a><span class="va">elts</span><span class="op">:=</span><span class="va">last</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -745,7 +837,11 @@ result returned by GAP:</p>
 </div>
 <p>This is a list. Lists in GAP are indexed from 1. The following
 commands are (hopefully!) self-explanatory:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="va">elts</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>; <span class="va">elts</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span>; <span class="fu">Length</span><span class="op">(</span><span class="va">elts</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb43">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb43-1"><a href="#cb43-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">elts</span>[<span class="fl">1</span>]<span class="op">;</span> <span class="va">elts</span>[<span class="fl">3</span>]<span class="op">;</span> <span class="bu">Length</span>(<span class="va">elts</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -774,7 +870,11 @@ Tutorial: Lists and Records</a></p></li>
 <p>Many functions in GAP refer to <code>Set</code>s. A set in GAP is
 just a list that happens to have no repetitions, no holes, and elements
 in increasing order. Here are some examples:</p>
-<pre class="source"><code>gap&gt; IsSet([1,3,5]); IsSet([1,5,3]); IsSet([1,3,3]);</code></pre>
+<div class="codewrapper sourceCode" id="cb45">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">IsSet</span>([<span class="fl">1</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">5</span>])<span class="op">;</span> <span class="bu">IsSet</span>([<span class="fl">1</span><span class="op">,</span><span class="fl">5</span><span class="op">,</span><span class="fl">3</span>])<span class="op">;</span> <span class="bu">IsSet</span>([<span class="fl">1</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">3</span>])<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -788,16 +888,24 @@ will consider a few of them here.</p>
 <p>A <code>for</code> loop in GAP allows you to do something for every
 member of a collection. The general form of a <code>for</code> loop
 is:</p>
-<pre class="source"><code>for val in collection do
-  &lt;something with val&gt;
-od;</code></pre>
+<div class="codewrapper sourceCode" id="cb47">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="cf">for</span> <span class="va">val</span> <span class="ex">in</span> <span class="va">collection</span> <span class="cf">do</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a>  <span class="op">&lt;</span><span class="va">something</span> <span class="va">with</span> <span class="va">val</span><span class="op">&gt;</span></span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span></code></pre>
+</div>
 <p>For example, to find the average order of our group <code>G</code> we
 can do.</p>
-<pre class="source"><code>s:=0;;
-for g in elts do
-  s := s + Order(g);
-od;
-s/Length(elts);</code></pre>
+<div class="codewrapper sourceCode" id="cb48">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="va">s</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">elts</span> <span class="cf">do</span></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a>  <span class="va">s</span> <span class="op">:=</span> <span class="va">s</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a><span class="va">s</span><span class="op">/</span><span class="bu">Length</span>(<span class="va">elts</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -807,11 +915,15 @@ s/Length(elts);</code></pre>
 <code>G</code> (in general GAP will let you loop over most types of
 object). We have to switch to using <code>Size</code> instead of
 <code>Length</code>, as groups don’t have a length!</p>
-<pre class="source"><code>s:=0;;
-for g in G do
-  s := s + Order(g);
-od;
-s/Size(G);</code></pre>
+<div class="codewrapper sourceCode" id="cb50">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a><span class="va">s</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span></span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb50-3"><a href="#cb50-3" tabindex="-1"></a>  <span class="va">s</span> <span class="op">:=</span> <span class="va">s</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb50-4"><a href="#cb50-4" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb50-5"><a href="#cb50-5" tabindex="-1"></a><span class="va">s</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -820,11 +932,15 @@ s/Size(G);</code></pre>
 <p>There are other ways of looping. For example, we can instead loop
 over a range of integers, and accept <code>elts</code> like an
 array:</p>
-<pre class="source"><code>s:=0;;
-for i in [ 1 .. Length(elts) ] do
-  s := s + Order( elts[i] );
-od;
-s/Length(elts);</code></pre>
+<div class="codewrapper sourceCode" id="cb52">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="va">s</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span></span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [ <span class="fl">1</span> <span class="op">..</span> <span class="bu">Length</span>(<span class="va">elts</span>) ] <span class="cf">do</span></span>
+<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a>  <span class="va">s</span> <span class="op">:=</span> <span class="va">s</span> <span class="op">+</span> <span class="bu">Order</span>( <span class="va">elts</span>[<span class="va">i</span>] )<span class="op">;</span></span>
+<span id="cb52-4"><a href="#cb52-4" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb52-5"><a href="#cb52-5" tabindex="-1"></a><span class="va">s</span><span class="op">/</span><span class="bu">Length</span>(<span class="va">elts</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -832,7 +948,11 @@ s/Length(elts);</code></pre>
 </div>
 <p>However, often there are more compact ways of doing things. Here is a
 very short way:</p>
-<pre class="source"><code><span><span class="fu">Sum</span><span class="op">(</span> <span class="fu">List</span><span class="op">(</span> <span class="va">elts</span>, <span class="va">Order</span> <span class="op">)</span> <span class="op">)</span> <span class="op">/</span> <span class="fu">Length</span><span class="op">(</span> <span class="va">elts</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb54">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb54-1"><a href="#cb54-1" tabindex="-1"></a><span class="bu">Sum</span>( <span class="bu">List</span>( <span class="va">elts</span><span class="op">,</span> <span class="bu">Order</span> ) ) <span class="op">/</span> <span class="bu">Length</span>( <span class="va">elts</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -873,7 +993,11 @@ Here are some examples:</p>
 <ul>
 <li>finding all elements of <code>G</code> with no fixed points:</li>
 </ul>
-<pre class="source"><code>Filtered( elts, g -&gt; NrMovedPoints(g) = 4 );</code></pre>
+<div class="codewrapper sourceCode" id="cb56">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb56-1"><a href="#cb56-1" tabindex="-1"></a><span class="bu">Filtered</span>( <span class="va">elts</span><span class="op">,</span> <span class="va">g</span> <span class="op">-&gt;</span> <span class="bu">NrMovedPoints</span>(<span class="va">g</span>) <span class="op">=</span> <span class="fl">4</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -883,7 +1007,11 @@ Here are some examples:</p>
 <li>finding a permutation in <code>G</code> that conjugates (1,2) to
 (2,3)</li>
 </ul>
-<pre class="source"><code>First( elts, g -&gt; (1,2)^g = (2,3) );</code></pre>
+<div class="codewrapper sourceCode" id="cb58">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a><span class="bu">First</span>( <span class="va">elts</span><span class="op">,</span> <span class="va">g</span> <span class="op">-&gt;</span> (<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>)<span class="op">^</span><span class="va">g</span> <span class="op">=</span> (<span class="fl">2</span><span class="op">,</span><span class="fl">3</span>) )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -891,7 +1019,11 @@ Here are some examples:</p>
 </div>
 <p>Let’s check this (remember that in GAP permutations are multiplied
 from left to right!):</p>
-<pre class="source"><code>(1,2,3)^-1*(1,2)*(1,2,3)=(2,3);</code></pre>
+<div class="codewrapper sourceCode" id="cb60">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span>)<span class="op">^-</span><span class="fl">1</span><span class="op">*</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>)<span class="op">*</span>(<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span>)<span class="op">=</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">3</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -901,7 +1033,11 @@ from left to right!):</p>
 <li>checking whether all elements of <code>G</code> move the point 1 to
 2:</li>
 </ul>
-<pre class="source"><code>ForAll( elts, g -&gt; 1^g &lt;&gt; 2 );</code></pre>
+<div class="codewrapper sourceCode" id="cb62">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="bu">ForAll</span>( <span class="va">elts</span><span class="op">,</span> <span class="va">g</span> <span class="op">-&gt;</span> <span class="fl">1</span><span class="op">^</span><span class="va">g</span> <span class="op">&lt;&gt;</span> <span class="fl">2</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -911,7 +1047,11 @@ from left to right!):</p>
 <li>checking whether there is an element in <code>G</code> which moves
 exactly two points:</li>
 </ul>
-<pre class="source"><code>ForAny( elts, g -&gt; NrMovedPoints(g) = 2 );</code></pre>
+<div class="codewrapper sourceCode" id="cb64">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="bu">ForAny</span>( <span class="va">elts</span><span class="op">,</span> <span class="va">g</span> <span class="op">-&gt;</span> <span class="bu">NrMovedPoints</span>(<span class="va">g</span>) <span class="op">=</span> <span class="fl">2</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -962,7 +1102,7 @@ it.</control>
 </div>
 </div></section><section id="aio-02-some-objects"><p>Content from <a href="02-some-objects.html">Some more GAP objects</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/02-some-objects.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 20 minutes</p>
@@ -1010,14 +1150,22 @@ introduce new types of objects, but this is beyond the scope of this
 lesson!).</p>
 <p>Some other simple objects are floats, cyclotomics and finite field
 elements:</p>
-<pre class="source"><code><span><span class="fl">1.15</span>; <span class="fu">Float</span><span class="op">(</span><span class="fl">1232</span><span class="op">/</span><span class="fl">3456567</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fl">1.15</span><span class="op">;</span> <span class="va">Float</span>(<span class="fl">1232</span><span class="op">/</span><span class="fl">3456567</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">1.15</span></span>
 <span><span class="fl">0.000356423</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">E</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>; <span class="fu">E</span><span class="op">(</span><span class="fl">4</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>; <span class="fu">E</span><span class="op">(</span><span class="fl">6</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="va">E</span>(<span class="fl">4</span>)<span class="op">;</span> <span class="va">E</span>(<span class="fl">4</span>)<span class="op">^</span><span class="fl">2</span><span class="op">;</span> <span class="va">E</span>(<span class="fl">6</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1025,7 +1173,11 @@ elements:</p>
 <span><span class="op">-</span><span class="fl">1</span></span>
 <span><span class="op">-</span><span class="fu">E</span><span class="op">(</span><span class="fl">3</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">AsList</span><span class="op">(</span><span class="fu">GF</span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span>; <span class="fu">Z</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>; <span class="fu">Z</span><span class="op">(</span><span class="fl">5</span><span class="op">)</span><span class="op">^</span><span class="fl">4</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="bu">AsList</span>(<span class="va">GF</span>(<span class="fl">2</span>))<span class="op">;</span> <span class="va">Z</span>(<span class="fl">5</span>)<span class="op">;</span> <span class="va">Z</span>(<span class="fl">5</span>)<span class="op">^</span><span class="fl">4</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1038,32 +1190,52 @@ Z(5)^0</code></pre>
 their positions in the list, a record contains subobjects, called
 <em>record components</em>, which are indexed by their names. Elements
 of a record are accessed with <code>.</code></p>
-<pre class="source"><code><span><span class="va">date</span><span class="op">:=</span> <span class="fu">rec</span><span class="op">(</span><span class="va">year</span><span class="op">:=</span> <span class="fl">2015</span>, <span class="va">month</span><span class="op">:=</span> <span class="st">"Nov"</span>, <span class="va">day</span><span class="op">:=</span> <span class="fl">17</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">date</span><span class="op">:=</span> <span class="ex">rec</span>(<span class="va">year</span><span class="op">:=</span> <span class="fl">2015</span><span class="op">,</span> <span class="va">month</span><span class="op">:=</span> <span class="st">"Nov"</span><span class="op">,</span> <span class="va">day</span><span class="op">:=</span> <span class="fl">17</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fu">rec</span><span class="op">(</span> <span class="va">day</span> <span class="op">:=</span> <span class="fl">17</span>, <span class="va">month</span> <span class="op">:=</span> <span class="st">"Nov"</span>, <span class="va">year</span> <span class="op">:=</span> <span class="fl">2015</span> <span class="op">)</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="va">date.year</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="va">date</span>.<span class="va">year</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">2015</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="va">date.time</span><span class="op">:=</span> <span class="fu">rec</span><span class="op">(</span><span class="va">hour</span><span class="op">:=</span> <span class="fl">14</span>, <span class="va">minute</span><span class="op">:=</span> <span class="fl">55</span>, <span class="va">second</span><span class="op">:=</span> <span class="fl">12</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">date</span>.<span class="va">time</span><span class="op">:=</span> <span class="ex">rec</span>(<span class="va">hour</span><span class="op">:=</span> <span class="fl">14</span><span class="op">,</span> <span class="va">minute</span><span class="op">:=</span> <span class="fl">55</span><span class="op">,</span> <span class="va">second</span><span class="op">:=</span> <span class="fl">12</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fu">rec</span><span class="op">(</span> <span class="va">hour</span> <span class="op">:=</span> <span class="fl">14</span>, <span class="va">minute</span> <span class="op">:=</span> <span class="fl">55</span>, <span class="va">second</span> <span class="op">:=</span> <span class="fl">12</span> <span class="op">)</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="va">date</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">date</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fu">rec</span><span class="op">(</span> <span class="va">day</span> <span class="op">:=</span> <span class="fl">17</span>, <span class="va">month</span> <span class="op">:=</span> <span class="st">"Nov"</span>,</span>
 <span>  <span class="va">time</span> <span class="op">:=</span> <span class="fu">rec</span><span class="op">(</span> <span class="va">hour</span> <span class="op">:=</span> <span class="fl">14</span>, <span class="va">minute</span> <span class="op">:=</span> <span class="fl">55</span>, <span class="va">second</span> <span class="op">:=</span> <span class="fl">12</span> <span class="op">)</span>, <span class="va">year</span> <span class="op">:=</span> <span class="fl">2015</span> <span class="op">)</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">RecNames</span><span class="op">(</span><span class="va">date</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="bu">RecNames</span>(<span class="va">date</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1074,7 +1246,11 @@ of a record are accessed with <code>.</code></p>
 a string is really just a list of characters, and any function which
 takes a list will also take a string. In contrast, characters are simple
 objects like integers.</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="va">w</span><span class="op">:=</span><span class="st">"supercalifragilisticexpialidocious"</span>; <span class="fu">Length</span><span class="op">(</span><span class="va">w</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">w</span><span class="op">:=</span><span class="st">"supercalifragilisticexpialidocious"</span><span class="op">;</span> <span class="bu">Length</span>(<span class="va">w</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1083,7 +1259,11 @@ objects like integers.</p>
 </div>
 <p>Strings are denoted by double quotes, and characters by single
 ones.</p>
-<pre class="source"><code>gap&gt; "s" in w; 's' in w; IsSubset(w,"s");  IsSubset(w,['s','f']); ['c','a','t'] = "cat";</code></pre>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="st">"s"</span> <span class="ex">in</span> <span class="va">w</span><span class="op">;</span> <span class="st">'s'</span> <span class="ex">in</span> <span class="va">w</span><span class="op">;</span> <span class="bu">IsSubset</span>(<span class="va">w</span><span class="op">,</span><span class="st">"s"</span>)<span class="op">;</span>  <span class="bu">IsSubset</span>(<span class="va">w</span><span class="op">,</span>[<span class="st">'s'</span><span class="op">,</span><span class="st">'f'</span>])<span class="op">;</span> [<span class="st">'c'</span><span class="op">,</span><span class="st">'a'</span><span class="op">,</span><span class="st">'t'</span>] <span class="op">=</span> <span class="st">"cat"</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1094,7 +1274,11 @@ ones.</p>
 <span><span class="va">true</span></span></code></pre>
 </div>
 <p>Note that</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">PositionSublist</span><span class="op">(</span><span class="va">w</span>,<span class="st">"sf"</span><span class="op">)</span>; <span class="fu">PositionSublist</span><span class="op">(</span><span class="va">w</span>,<span class="st">"fr"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb21">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">PositionSublist</span>(<span class="va">w</span><span class="op">,</span><span class="st">"sf"</span>)<span class="op">;</span> <span class="bu">PositionSublist</span>(<span class="va">w</span><span class="op">,</span><span class="st">"fr"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1103,7 +1287,11 @@ ones.</p>
 </div>
 <p>Be careful! Some operations may create a new list, while others are
 destructive. For example:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">SortedList</span><span class="op">(</span><span class="va">w</span><span class="op">)</span>; <span class="va">w</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">SortedList</span>(<span class="va">w</span>)<span class="op">;</span> <span class="va">w</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1111,7 +1299,11 @@ destructive. For example:</p>
 <span><span class="st">"supercalifragilisticexpialidocious"</span></span></code></pre>
 </div>
 <p>but</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">Sort</span><span class="op">(</span><span class="va">w</span><span class="op">)</span>; <span class="va">w</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">Sort</span>(<span class="va">w</span>)<span class="op">;</span> <span class="va">w</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1119,7 +1311,11 @@ destructive. For example:</p>
 </div>
 <p>Which letter occurs in “supercalifragilisticexpialidocious” most
 often?</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="va">c</span> <span class="op">:=</span> <span class="fu">Collected</span><span class="op">(</span><span class="va">w</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">c</span> <span class="op">:=</span> <span class="bu">Collected</span>(<span class="va">w</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1127,7 +1323,11 @@ often?</p>
   [ 'i', 7 ], [ 'l', 3 ], [ 'o', 2 ], [ 'p', 2 ], [ 'r', 2 ], [ 's', 3 ],
   [ 't', 1 ], [ 'u', 2 ], [ 'x', 1 ] ]</code></pre>
 </div>
-<pre class="source"><code>gap&gt; k := Maximum( List( c, v -&gt; v[2] ) ); Filtered( c, v -&gt; v[2] = 7 );</code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">k</span> <span class="op">:=</span> <span class="bu">Maximum</span>( <span class="bu">List</span>( <span class="va">c</span><span class="op">,</span> <span class="va">v</span> <span class="op">-&gt;</span> <span class="va">v</span>[<span class="fl">2</span>] ) )<span class="op">;</span> <span class="bu">Filtered</span>( <span class="va">c</span><span class="op">,</span> <span class="va">v</span> <span class="op">-&gt;</span> <span class="va">v</span>[<span class="fl">2</span>] <span class="op">=</span> <span class="fl">7</span> )<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1170,7 +1370,7 @@ related data.</li>
 </div>
 </div></section><section id="aio-03-func"><p>Content from <a href="03-func.html">Functions in GAP</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/03-func.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 55 minutes</p>
@@ -1210,22 +1410,34 @@ sum of the orders of its elements divided by the order of the
 group).</p>
 <p>We begin with a very straightforward approach, iterating over all
 elements of the group in question:</p>
-<pre class="source"><code><span><span class="va">S</span><span class="op">:=</span><span class="fu">SymmetricGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">10</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Sym( [ 1 .. 10 ] )</code></pre>
 </div>
-<pre class="source"><code><span><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">0</span></span></code></pre>
 </div>
-<pre class="source"><code>for g in S do
-  sum := sum + Order(g);
-od;
-sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1235,7 +1447,11 @@ sum/Size(S);</code></pre>
 later repeat this calculation for some other groups. We may even
 reformat it to fit it into one line and use a double semicolon to
 suppress the output of <code>sum</code>:</p>
-<pre class="source"><code>sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span> <span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span> <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span> <span class="cf">od</span><span class="op">;</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1246,13 +1462,21 @@ time we need it. But here we see the first inconvenience: the code
 expects that the group in question must be stored in a variable named
 <code>S</code>, so either we have to reset <code>S</code> each time, or
 we need to edit the code:</p>
-<pre class="source"><code><span><span class="va">S</span><span class="op">:=</span><span class="fu">AlternatingGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">AlternatingGroup</span>(<span class="fl">10</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Alt( [ 1 .. 10 ] )</code></pre>
 </div>
-<pre class="source"><code>sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span> <span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span> <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span> <span class="cf">od</span><span class="op">;</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1294,14 +1518,18 @@ variable to store something else.</li>
 </ul>
 <p>The following function takes an argument <code>G</code> and computes
 the average order of its elements:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1309,7 +1537,11 @@ end;</code></pre>
 </div>
 <p>Now we can apply it to another group, passing the group as an
 argument:</p>
-<pre class="source"><code><span><span class="va">A</span><span class="op">:=</span><span class="fu">AlternatingGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>; <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">A</span><span class="op">)</span>; <span class="va">time</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">A</span><span class="op">:=</span><span class="bu">AlternatingGroup</span>(<span class="fl">10</span>)<span class="op">;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">A</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1328,25 +1560,33 @@ for calculations in future sessions.</p>
 previous Software Carpentry lessons), create a text file called
 <code>avgord.g</code> containing the following function code and
 comments (a good chance to practise using them!):</p>
-<pre class="source"><code>#####################################################################
-#
-# AvgOrdOfGroup(G)
-#
-# Calculating the average order of an element of G, where G meant to
-# be a group but in fact may be any collection of objects having
-# multiplicative order
-#
-AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>#<span class="co">####################################################################</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>#</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>#<span class="co"> AvgOrdOfGroup(G)</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>#</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>#<span class="co"> Calculating the average order of an element of G, where G meant to</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>#<span class="co"> be a group but in fact may be any collection of objects having</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>#<span class="co"> multiplicative order</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>#</span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now start a new GAP session and create another group, for example
 <code>MathieuGroup(11)</code>:</p>
-<pre class="source"><code><span><span class="va">M11</span><span class="op">:=</span><span class="fu">MathieuGroup</span><span class="op">(</span><span class="fl">11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">M11</span><span class="op">:=</span><span class="bu">MathieuGroup</span>(<span class="fl">11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1354,7 +1594,11 @@ end;</code></pre>
 </div>
 <p>Clearly, <code>AvgOrdOfGroup</code> is not defined in this session,
 so an attempt to call this function results in an error:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1364,10 +1608,18 @@ not in any function at line 2 of *stdin*</code></pre>
 <p>To be available, it should first be loaded using the function
 <code>Read</code>. Below we assume that the file is in the current
 directory, so no path is needed.</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>This loads the file into GAP, and the function
 <code>AvgOrdOfGroup</code> is now available:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1384,11 +1636,23 @@ been modified, and it has no errors (but possibly has warnings), the
 function will be overwritten. <strong>Never ignore the
 warnings!</strong></p>
 <p>For example, let us edit the file and replace the line</p>
-<pre class="source"><code>return sum/Size(G);</code></pre>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>by the line with a deliberate syntax error:</p>
-<pre class="source"><code>return Float(sum/Size(G);</code></pre>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">return</span> <span class="va">Float</span>(<span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>Now read this file with</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>and you will see an error message:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1400,7 +1664,11 @@ return Float(sum/Size(G);
 <p>Since there was an error, the <code>AvgOrdOfGroup</code> function in
 our session was not redefined, and remains the same as last time it was
 successfully read:</p>
-<pre class="source"><code><span><span class="fu">Print</span><span class="op">(</span><span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="bu">Print</span>(<span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1414,8 +1682,12 @@ end</code></pre>
 <p>Now correct the error by adding the missing closing bracket, read the
 file again and recalculate the average order of an element for
 <code>M11</code>:</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1426,16 +1698,24 @@ warning, it will redefine the function, and this may cause some
 unexpected result. To see what could happen, first edit the file to roll
 back the change in the type of the result (so it will return a rational
 instead of a float), and then comment out two lines as follows:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-# local sum, g;
-# sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>#<span class="co"> local sum, g;</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>#<span class="co"> sum := 0;</span></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now, when you read the file, you will see warnings:</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb34">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1463,7 +1743,11 @@ variables. Let us investigate what happened in slightly more detail:</p>
 <p>The function is now redefined, as we can see from its output (or can
 inspect with <code>PageSource(AvgOrdOfGroup)</code> which will also
 display any comments):</p>
-<pre class="source"><code><span><span class="fu">Print</span><span class="op">(</span><span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb36">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="bu">Print</span>(<span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1475,7 +1759,11 @@ display any comments):</p>
 end</code></pre>
 </div>
 <p>but an attempt to run it results in a break loop:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb38">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1488,20 +1776,32 @@ brk&gt;</code></pre>
 </div>
 <p>which you can exit using <code>quit;</code>.</p>
 <p>What happens next demonstrates how things may go wrong:</p>
-<pre class="source"><code>sum:=2^64; g:=[1];</code></pre>
+<div class="codewrapper sourceCode" id="cb40">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">2</span><span class="op">^</span><span class="fl">64</span><span class="op">;</span> <span class="va">g</span><span class="op">:=</span>[<span class="fl">1</span>]<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>18446744073709551616
 [ 1 ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb42">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">18446744073709604747</span><span class="op">/</span><span class="fl">7920</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="va">sum</span>; <span class="va">g</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="va">sum</span><span class="op">;</span> <span class="va">g</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1512,14 +1812,18 @@ brk&gt;</code></pre>
 last change by uncommenting the two commented lines, so that you have
 initial version of <code>AvgOrdOfGroup</code> in the file
 <code>avgord.g</code> again:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb46">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb46-6"><a href="#cb46-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb46-7"><a href="#cb46-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb46-8"><a href="#cb46-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <div id="paths" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1555,7 +1859,7 @@ to your future self and to others.</li>
 </div>
 </div></section><section id="aio-04-testing"><p>Content from <a href="04-testing.html">Using regression tests</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/04-testing.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
@@ -1618,13 +1922,17 @@ outputs with those in the test file and report any differences.</p>
 name them with the extension <code>.tst</code>. Now create the file
 <code>avgord.tst</code> in the current directory (to avoid typing the
 full path) with the following content:</p>
-<pre class="source"><code># tests for average order of a group element
-
-# permutation group
-gap&gt; S:=SymmetricGroup(9);
-Sym( [ 1 .. 9 ] )
-gap&gt; AvgOrdOfGroup(S);
-3291487/362880</code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>#<span class="co"> tests for average order of a group element</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>#<span class="co"> permutation group</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">9</span>)<span class="op">;</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="va">Sym</span>( [ <span class="fl">1</span> <span class="op">..</span> <span class="fl">9</span> ] )</span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">S</span>)<span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fl">3291487</span><span class="op">/</span><span class="fl">362880</span></span></code></pre>
+</div>
 <p>As you see, the test file may include comments, with certain rules
 specifying where they may be placed, because one should be able to
 distinguish comments in the test file from GAP output started with
@@ -1637,7 +1945,11 @@ preceding GAP input.</p>
 documented <a href="https://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C" class="external-link">here</a>.
 For example (assuming that the function <code>AvgOrdOfGroup</code> is
 already loaded):</p>
-<pre class="source"><code><span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1653,43 +1965,51 @@ test, as these are described in its documentation.</p>
 <p>Instead, we will now add more groups to <code>avgord.tst</code>, to
 demonstrate that the code also works with other kinds of groups, and to
 show various ways of combining commands in the test file:</p>
-<pre class="source"><code># tests for average order of a group element
-
-# permutation group
-gap&gt; S:=SymmetricGroup(9);
-Sym( [ 1 .. 9 ] )
-gap&gt; AvgOrdOfGroup(S);
-3291487/362880
-
-# pc group
-gap&gt; D:=DihedralGroup(512);
-&lt;pc group of size 512 with 9 generators&gt;
-gap&gt; AvgOrdOfGroup(D);
-44203/512
-gap&gt; G:=TrivialGroup();; # suppress output
-gap&gt; AvgOrdOfGroup(G);
-1
-
-# fp group
-gap&gt; F:=FreeGroup("a","b");
-&lt;free group on the generators [ a, b ]&gt;
-gap&gt; G:=F/ParseRelators(GeneratorsOfGroup(F),"a^8=b^2=1, b^-1ab=a^-1");
-&lt;fp group on the generators [ a, b ]&gt;
-gap&gt; IsFinite(G);
-true
-gap&gt; AvgOrdOfGroup(G);
-59/16
-
-# finite matrix group over integers
-gap&gt; AvgOrdOfGroup( Group( [[0,-1],[1,0]] ) );
-11/4
-
-# matrix group over a finite field
-gap&gt; AvgOrdOfGroup(SL(2,5));
-221/40</code></pre>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>#<span class="co"> tests for average order of a group element</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>#<span class="co"> permutation group</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">9</span>)<span class="op">;</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="va">Sym</span>( [ <span class="fl">1</span> <span class="op">..</span> <span class="fl">9</span> ] )</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">S</span>)<span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fl">3291487</span><span class="op">/</span><span class="fl">362880</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>#<span class="co"> pc group</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">D</span><span class="op">:=</span><span class="bu">DihedralGroup</span>(<span class="fl">512</span>)<span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="op">&lt;</span><span class="va">pc</span> <span class="va">group</span> <span class="va">of</span> <span class="va">size</span> <span class="fl">512</span> <span class="va">with</span> <span class="fl">9</span> <span class="va">generators</span><span class="op">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">D</span>)<span class="op">;</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a><span class="fl">44203</span><span class="op">/</span><span class="fl">512</span></span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="bu">TrivialGroup</span>()<span class="op">;;</span> #<span class="co"> suppress output</span></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a><span class="fl">1</span></span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a>#<span class="co"> fp group</span></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">F</span><span class="op">:=</span><span class="bu">FreeGroup</span>(<span class="st">"a"</span><span class="op">,</span><span class="st">"b"</span>)<span class="op">;</span></span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a><span class="op">&lt;</span><span class="va">free</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">G</span><span class="op">:=</span><span class="va">F</span><span class="op">/</span><span class="va">ParseRelators</span>(<span class="bu">GeneratorsOfGroup</span>(<span class="va">F</span>)<span class="op">,</span><span class="st">"a^8=b^2=1, b^-1ab=a^-1"</span>)<span class="op">;</span></span>
+<span id="cb4-22"><a href="#cb4-22" tabindex="-1"></a><span class="op">&lt;</span><span class="va">fp</span> <span class="va">group</span> <span class="va">on</span> <span class="va">the</span> <span class="va">generators</span> [ <span class="va">a</span><span class="op">,</span> <span class="va">b</span> ]<span class="op">&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">IsFinite</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-24"><a href="#cb4-24" tabindex="-1"></a><span class="cn">true</span></span>
+<span id="cb4-25"><a href="#cb4-25" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb4-26"><a href="#cb4-26" tabindex="-1"></a><span class="fl">59</span><span class="op">/</span><span class="fl">16</span></span>
+<span id="cb4-27"><a href="#cb4-27" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" tabindex="-1"></a>#<span class="co"> finite matrix group over integers</span></span>
+<span id="cb4-29"><a href="#cb4-29" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>( <span class="bu">Group</span>( [[<span class="fl">0</span><span class="op">,-</span><span class="fl">1</span>]<span class="op">,</span>[<span class="fl">1</span><span class="op">,</span><span class="fl">0</span>]] ) )<span class="op">;</span></span>
+<span id="cb4-30"><a href="#cb4-30" tabindex="-1"></a><span class="fl">11</span><span class="op">/</span><span class="fl">4</span></span>
+<span id="cb4-31"><a href="#cb4-31" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" tabindex="-1"></a>#<span class="co"> matrix group over a finite field</span></span>
+<span id="cb4-33"><a href="#cb4-33" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">SL</span>(<span class="fl">2</span><span class="op">,</span><span class="fl">5</span>))<span class="op">;</span></span>
+<span id="cb4-34"><a href="#cb4-34" tabindex="-1"></a><span class="fl">221</span><span class="op">/</span><span class="fl">40</span></span></code></pre>
+</div>
 <p>Let us test the extended version of the test again and check that it
 works:</p>
-<pre class="source"><code><span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1701,18 +2021,26 @@ so we need only to know the orders of conjugacy classes of elements and
 their representatives. The following code, which we add into
 <code>avgord.g</code>, reads into GAP and redefines
 <code>AvgOrdOfGroup</code> without any syntax errors:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local cc, sum, c;
-cc:=ConjugacyClasses(G);
-sum:=0;
-for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(cc);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">cc</span><span class="op">,</span> <span class="va">sum</span><span class="op">,</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="va">cc</span><span class="op">:=</span><span class="bu">ConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="cf">for</span> <span class="va">c</span> <span class="ex">in</span> <span class="va">cc</span> <span class="cf">do</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>( <span class="bu">Representative</span>(<span class="va">c</span>) ) <span class="op">*</span> <span class="bu">Size</span>(<span class="va">cc</span>)<span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>but when we run the test, here comes a surprise!</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1753,19 +2081,27 @@ end;</code></pre>
 <p>Indeed, we made a typo (deliberately) and replaced
 <code>Size(c)</code> by <code>Size(cc)</code>. The correct version of
 course should look as follows:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local cc, sum, c;
-cc:=ConjugacyClasses(G);
-sum:=0;
-for c in cc do
-  sum := sum + Order( Representative(c) ) * Size(c);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">cc</span><span class="op">,</span> <span class="va">sum</span><span class="op">,</span> <span class="va">c</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="va">cc</span><span class="op">:=</span><span class="bu">ConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="cf">for</span> <span class="va">c</span> <span class="ex">in</span> <span class="va">cc</span> <span class="cf">do</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>( <span class="bu">Representative</span>(<span class="va">c</span>) ) <span class="op">*</span> <span class="bu">Size</span>(<span class="va">c</span>)<span class="op">;</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now we will fix this in <code>avgord.g</code>, and read and test it
 again to check that the tests run correctly.</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">Test</span><span class="op">(</span><span class="st">"avgord.tst"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="va">Test</span>(<span class="st">"avgord.tst"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1791,7 +2127,7 @@ effort.</li>
 </div>
 </div></section><section id="aio-05-small-groups"><p>Content from <a href="05-small-groups.html">Small groups search</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/05-small-groups.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 55 minutes</p>
@@ -1873,15 +2209,27 @@ gap&gt; List(last,IdGroup);
 </div>
 <p>We would like to use our own testing function, which we will create
 here, using inline notation (available for one-argument functions):</p>
-<pre class="source"><code><span><span class="va">TestOneGroup</span> <span class="op">:=</span> <span class="va">G</span> <span class="op">-&gt;</span> <span class="fu">IsInt</span><span class="op">(</span> <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span> <span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">TestOneGroup</span> <span class="op">:=</span> <span class="va">G</span> <span class="op">-&gt;</span> <span class="bu">IsInt</span>( <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>) )<span class="op">;</span></span></code></pre>
+</div>
 <p>Now try, for example</p>
-<pre class="source"><code>List([TrivialGroup(),Group((1,2))],TestOneGroup);</code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="bu">List</span>([<span class="bu">TrivialGroup</span>()<span class="op">,</span><span class="bu">Group</span>((<span class="fl">1</span><span class="op">,</span><span class="fl">2</span>))]<span class="op">,</span><span class="va">TestOneGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>[ true, false ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">AllSmallGroups</span><span class="op">(</span><span class="va">Size</span>,<span class="fl">24</span>,<span class="va">TestOneGroup</span>,<span class="va">true</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">AllSmallGroups</span>(<span class="bu">Size</span><span class="op">,</span><span class="fl">24</span><span class="op">,</span><span class="va">TestOneGroup</span><span class="op">,</span><span class="cn">true</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1905,23 +2253,35 @@ given order. It creates one group at a time, checks the desired
 property, and returns as soon as an example is discovered. Otherwise it
 returns <code>fail</code> which is a special kind of boolean variable in
 GAP.</p>
-<pre class="source"><code>TestOneOrderEasy := function(n)
-local i;
-for i in [1..NrSmallGroups(n)] do
-  if TestOneGroup( SmallGroup( n, i ) ) then
-    return [n,i];
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">n</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">do</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">TestOneGroup</span>( <span class="bu">SmallGroup</span>( <span class="va">n</span><span class="op">,</span> <span class="va">i</span> ) ) <span class="cf">then</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>For example,</p>
-<pre class="source"><code><span><span class="fu">TestOneOrderEasy</span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span>(<span class="fl">1</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>[ 1, 1 ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">TestOneOrderEasy</span><span class="op">(</span><span class="fl">24</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">TestOneOrderEasy</span>(<span class="fl">24</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1951,21 +2311,29 @@ For example, the next version of our testing function prints additional
 information about the number of the group being tested. It also supplies
 the testing function as an argument (why do you think this is
 better?).</p>
-<pre class="source"><code>TestOneOrder := function(f,n)
-local i, G;
-for i in [1..NrSmallGroups(n)] do
-  Print(n, ":", i, "/", NrSmallGroups(n), "\r");
-  G := SmallGroup( n, i );
-  if f(G) then
-    Print("\n");
-    return [n,i];
-  fi;
-od;
-Print("\n");
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="va">TestOneOrder</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">,</span> <span class="va">G</span><span class="op">;</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">do</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="bu">Print</span>(<span class="va">n</span><span class="op">,</span> <span class="st">":"</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="st">"/"</span><span class="op">,</span> <span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">,</span> <span class="st">"\r"</span>)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>  <span class="va">G</span> <span class="op">:=</span> <span class="bu">SmallGroup</span>( <span class="va">n</span><span class="op">,</span> <span class="va">i</span> )<span class="op">;</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">f</span>(<span class="va">G</span>) <span class="cf">then</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>    <span class="bu">Print</span>(<span class="st">"\n"</span>)<span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a><span class="bu">Print</span>(<span class="st">"\n"</span>)<span class="op">;</span></span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>For example,</p>
-<pre class="source"><code><span><span class="fu">TestOneOrder</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">64</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">TestOneOrder</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">64</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>will display a changing counter during calculation and then return
 <code>fail</code>:</p>
 <div class="codewrapper">
@@ -1978,18 +2346,26 @@ end;</code></pre>
 function which will test all orders from 2 to <code>n</code> and stop as
 soon as it finds an example of a group with the average order of an
 element being an integer:</p>
-<pre class="source"><code>TestAllOrders:=function(f,n)
-local i, res;
-for i in [2..n] do
-  res:=TestOneOrder(f,i);
-  if res &lt;&gt; fail then
-    return res;
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">TestAllOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">i</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="fl">2</span><span class="op">..</span><span class="va">n</span>] <span class="cf">do</span></span>
+<span id="cb15-4"><a href="#cb15-4" tabindex="-1"></a>  <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">i</span>)<span class="op">;</span></span>
+<span id="cb15-5"><a href="#cb15-5" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb15-6"><a href="#cb15-6" tabindex="-1"></a>    <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb15-7"><a href="#cb15-7" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb15-8"><a href="#cb15-8" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb15-9"><a href="#cb15-9" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb15-10"><a href="#cb15-10" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>It reports that there is such a group of order 105:</p>
-<pre class="source"><code><span><span class="fu">TestAllOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">128</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="va">TestAllOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">128</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2014,7 +2390,11 @@ end;</code></pre>
 <p>To explore it further, we can get its
 <code>StructureDescription</code> (see <a href="https://www.gap-system.org/Manuals/doc/ref/chap39.html#X87BF1B887C91CA2E" class="external-link">here</a>
 for the explanation of the notation it uses):</p>
-<pre class="source"><code><span><span class="va">G</span><span class="op">:=</span><span class="fu">SmallGroup</span><span class="op">(</span><span class="fl">105</span>,<span class="fl">1</span><span class="op">)</span>; <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>; <span class="fu">StructureDescription</span><span class="op">(</span><span class="va">G</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">G</span><span class="op">:=</span><span class="bu">SmallGroup</span>(<span class="fl">105</span><span class="op">,</span><span class="fl">1</span>)<span class="op">;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">G</span>)<span class="op">;</span> <span class="bu">StructureDescription</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2024,8 +2404,12 @@ for the explanation of the notation it uses):</p>
 </div>
 <p>and then convert it to a finitely presented group to see its
 generators and relators:</p>
-<pre class="source"><code><span><span class="va">H</span><span class="op">:=</span><span class="fu">SimplifiedFpGroup</span><span class="op">(</span><span class="fu">Image</span><span class="op">(</span><span class="fu">IsomorphismFpGroup</span><span class="op">(</span><span class="va">G</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>;</span>
-<span><span class="fu">RelatorsOfFpGroup</span><span class="op">(</span><span class="va">H</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="va">H</span><span class="op">:=</span><span class="bu">SimplifiedFpGroup</span>(<span class="bu">Image</span>(<span class="bu">IsomorphismFpGroup</span>(<span class="va">G</span>)))<span class="op">;</span></span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="bu">RelatorsOfFpGroup</span>(<span class="va">H</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2035,7 +2419,11 @@ generators and relators:</p>
 </div>
 <p>Now we want to try larger groups, starting from order 106 (we check
 that the other group of order 105 possesses no such property)</p>
-<pre class="source"><code><span><span class="fu">List</span><span class="op">(</span><span class="fu">AllSmallGroups</span><span class="op">(</span><span class="fl">105</span><span class="op">)</span>,<span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">List</span>(<span class="bu">AllSmallGroups</span>(<span class="fl">105</span>)<span class="op">,</span><span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2043,18 +2431,26 @@ that the other group of order 105 possesses no such property)</p>
 </div>
 <p>With a little modification, we add an extra argument specifying the
 order from which to start:</p>
-<pre class="source"><code>TestRangeOfOrders:=function(f,n1,n2)
-local n, res;
-for n in [n1..n2] do
-  res:=TestOneOrder(f,n);
-  if res &lt;&gt; fail then
-    return res;
-  fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n1</span><span class="op">,</span><span class="va">n2</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">n</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb24-4"><a href="#cb24-4" tabindex="-1"></a>  <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb24-5"><a href="#cb24-5" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb24-6"><a href="#cb24-6" tabindex="-1"></a>    <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb24-7"><a href="#cb24-7" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb24-8"><a href="#cb24-8" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb24-9"><a href="#cb24-9" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb24-10"><a href="#cb24-10" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>But now we call it with</p>
-<pre class="source"><code><span><span class="fu">TestRangeOfOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">106</span>,<span class="fl">256</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">106</span><span class="op">,</span><span class="fl">256</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>and discover that testing 2328 groups of order 128 and additionally
 56092 groups of order 256 already takes too long.</p>
 <div id="dont-panic" class="callout">
@@ -2077,21 +2473,29 @@ the order of each conjugacy class of a non-identity element of the group
 is divisible by <em>p</em>; therefore, the average order of a group
 element may not be an integer. Therefore, <em>p</em>-groups can be
 excluded from calculation. So, the new version of the code is</p>
-<pre class="source"><code>TestRangeOfOrders:=function(f,n1,n2)
-local n, res;
-for n in [n1..n2] do
-  if not IsPrimePowerInt(n) then
-     res:=TestOneOrder(f,n);
-     if res &lt;&gt; fail then
-       return res;
-     fi;
-   fi;
-od;
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="va">TestRangeOfOrders</span><span class="op">:=</span><span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n1</span><span class="op">,</span><span class="va">n2</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n</span><span class="op">,</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" tabindex="-1"></a><span class="cf">for</span> <span class="va">n</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb26-4"><a href="#cb26-4" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsPrimePowerInt</span>(<span class="va">n</span>) <span class="cf">then</span></span>
+<span id="cb26-5"><a href="#cb26-5" tabindex="-1"></a>     <span class="va">res</span><span class="op">:=</span><span class="va">TestOneOrder</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" tabindex="-1"></a>     <span class="cf">if</span> <span class="va">res</span> <span class="op">&lt;&gt;</span> <span class="cn">fail</span> <span class="cf">then</span></span>
+<span id="cb26-7"><a href="#cb26-7" tabindex="-1"></a>       <span class="ex">return</span> <span class="va">res</span><span class="op">;</span></span>
+<span id="cb26-8"><a href="#cb26-8" tabindex="-1"></a>     <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb26-9"><a href="#cb26-9" tabindex="-1"></a>   <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb26-10"><a href="#cb26-10" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb26-11"><a href="#cb26-11" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>and using it we are able to discover a group of order 357 with the
 same property:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="fu">TestRangeOfOrders</span><span class="op">(</span><span class="va">TestOneGroup</span>,<span class="fl">106</span>,<span class="fl">512</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">TestRangeOfOrders</span>(<span class="va">TestOneGroup</span><span class="op">,</span><span class="fl">106</span><span class="op">,</span><span class="fl">512</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2124,7 +2528,11 @@ messages that may be switched on and off by setting appropriate
 switch the levels of verbosity of the output without error-prone
 approach of walking through the code and commenting <code>Print</code>
 statements in and out. It is achieved by creating an info class:</p>
-<pre class="source"><code><span><span class="va">gap</span><span class="op">&gt;</span> <span class="va">InfoSmallGroupsSearch</span> <span class="op">:=</span> <span class="fu">NewInfoClass</span><span class="op">(</span><span class="st">"InfoSmallGroupsSearch"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="va">InfoSmallGroupsSearch</span> <span class="op">:=</span> <span class="bu">NewInfoClass</span>(<span class="st">"InfoSmallGroupsSearch"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2136,57 +2544,61 @@ where <code>infolevel</code> is a positive integer specifying the level
 of verbosity. This level could be changed to <code>n</code> using the
 command <code>SetInfoLevel( InfoSmallGroupsSearch, n);</code>. See
 actual calls of <code>Info</code> in the code below:</p>
-<pre class="source"><code>TestOneOrderVariadic := function(f,n,r...)
-local n1, n2, i;
-
-if not Length(r) in [0..2] then
-  Error("The number of arguments must be 2,3 or 4\n" );
-fi;
-
-if not IsFunction( f ) then
-  Error("The first argument must be a function\n" );
-fi;
-
-if not IsPosInt( n ) then
-  Error("The second argument must be a positive integer\n" );
-fi;
-
-if IsBound(r[1]) then
-  n1:=r[1];
-  if not n1 in [1..NrSmallGroups(n)] then
-    Error("The 3rd argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
-  fi;
-else
-  n1:=1;
-fi;
-
-if IsBound(r[2]) then
-  n2:=r[2];
-  if not n2 in [1..NrSmallGroups(n)] then
-    Error("The 4th argument, if present, must belong to ", [1..NrSmallGroups(n)], "\n" );
-  elif n2 &lt; n1 then
-    Error("The 4th argument, if present, must be greater or equal to the 3rd \n" );
-  fi;
-else
-  n2:=NrSmallGroups(n);
-fi;
-
-Info( InfoSmallGroupsSearch, 1,
-      "Checking groups ", n1, " ... ", n2, " of order ", n );
-for i in [n1..n2] do
-  if InfoLevel( InfoSmallGroupsSearch ) &gt; 1 then
-    Print(i, "/", NrSmallGroups(n), "\r");
-  fi;
-  if f(SmallGroup(n,i)) then
-    Info( InfoSmallGroupsSearch, 1,
-          "Discovered counterexample: SmallGroup( ", n, ", ", i, " )" );
-    return [n,i];
-  fi;
-od;
-Info( InfoSmallGroupsSearch, 1,
-      "Search completed - no counterexample discovered" );
-return fail;
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="va">TestOneOrderVariadic</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">f</span><span class="op">,</span><span class="va">n</span><span class="op">,</span><span class="va">r</span><span class="op">..</span>.)</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">n1</span><span class="op">,</span> <span class="va">n2</span><span class="op">,</span> <span class="va">i</span><span class="op">;</span></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">Length</span>(<span class="va">r</span>) <span class="ex">in</span> [<span class="fl">0</span><span class="op">..</span><span class="fl">2</span>] <span class="cf">then</span></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The number of arguments must be 2,3 or 4\n"</span> )<span class="op">;</span></span>
+<span id="cb31-6"><a href="#cb31-6" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-7"><a href="#cb31-7" tabindex="-1"></a></span>
+<span id="cb31-8"><a href="#cb31-8" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsFunction</span>( <span class="va">f</span> ) <span class="cf">then</span></span>
+<span id="cb31-9"><a href="#cb31-9" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The first argument must be a function\n"</span> )<span class="op">;</span></span>
+<span id="cb31-10"><a href="#cb31-10" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-11"><a href="#cb31-11" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" tabindex="-1"></a><span class="cf">if</span> <span class="cn">not</span> <span class="bu">IsPosInt</span>( <span class="va">n</span> ) <span class="cf">then</span></span>
+<span id="cb31-13"><a href="#cb31-13" tabindex="-1"></a>  <span class="bu">Error</span>(<span class="st">"The second argument must be a positive integer\n"</span> )<span class="op">;</span></span>
+<span id="cb31-14"><a href="#cb31-14" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-15"><a href="#cb31-15" tabindex="-1"></a></span>
+<span id="cb31-16"><a href="#cb31-16" tabindex="-1"></a><span class="cf">if</span> <span class="bu">IsBound</span>(<span class="va">r</span>[<span class="fl">1</span>]) <span class="cf">then</span></span>
+<span id="cb31-17"><a href="#cb31-17" tabindex="-1"></a>  <span class="va">n1</span><span class="op">:=</span><span class="va">r</span>[<span class="fl">1</span>]<span class="op">;</span></span>
+<span id="cb31-18"><a href="#cb31-18" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="va">n1</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">then</span></span>
+<span id="cb31-19"><a href="#cb31-19" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 3rd argument, if present, must belong to "</span><span class="op">,</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)]<span class="op">,</span> <span class="st">"\n"</span> )<span class="op">;</span></span>
+<span id="cb31-20"><a href="#cb31-20" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-21"><a href="#cb31-21" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb31-22"><a href="#cb31-22" tabindex="-1"></a>  <span class="va">n1</span><span class="op">:=</span><span class="fl">1</span><span class="op">;</span></span>
+<span id="cb31-23"><a href="#cb31-23" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-24"><a href="#cb31-24" tabindex="-1"></a></span>
+<span id="cb31-25"><a href="#cb31-25" tabindex="-1"></a><span class="cf">if</span> <span class="bu">IsBound</span>(<span class="va">r</span>[<span class="fl">2</span>]) <span class="cf">then</span></span>
+<span id="cb31-26"><a href="#cb31-26" tabindex="-1"></a>  <span class="va">n2</span><span class="op">:=</span><span class="va">r</span>[<span class="fl">2</span>]<span class="op">;</span></span>
+<span id="cb31-27"><a href="#cb31-27" tabindex="-1"></a>  <span class="cf">if</span> <span class="cn">not</span> <span class="va">n2</span> <span class="ex">in</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)] <span class="cf">then</span></span>
+<span id="cb31-28"><a href="#cb31-28" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 4th argument, if present, must belong to "</span><span class="op">,</span> [<span class="fl">1</span><span class="op">..</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)]<span class="op">,</span> <span class="st">"\n"</span> )<span class="op">;</span></span>
+<span id="cb31-29"><a href="#cb31-29" tabindex="-1"></a>  <span class="cf">elif</span> <span class="va">n2</span> <span class="op">&lt;</span> <span class="va">n1</span> <span class="cf">then</span></span>
+<span id="cb31-30"><a href="#cb31-30" tabindex="-1"></a>    <span class="bu">Error</span>(<span class="st">"The 4th argument, if present, must be greater or equal to the 3rd \n"</span> )<span class="op">;</span></span>
+<span id="cb31-31"><a href="#cb31-31" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-32"><a href="#cb31-32" tabindex="-1"></a><span class="cf">else</span></span>
+<span id="cb31-33"><a href="#cb31-33" tabindex="-1"></a>  <span class="va">n2</span><span class="op">:=</span><span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">;</span></span>
+<span id="cb31-34"><a href="#cb31-34" tabindex="-1"></a><span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-35"><a href="#cb31-35" tabindex="-1"></a></span>
+<span id="cb31-36"><a href="#cb31-36" tabindex="-1"></a><span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-37"><a href="#cb31-37" tabindex="-1"></a>      <span class="st">"Checking groups "</span><span class="op">,</span> <span class="va">n1</span><span class="op">,</span> <span class="st">" ... "</span><span class="op">,</span> <span class="va">n2</span><span class="op">,</span> <span class="st">" of order "</span><span class="op">,</span> <span class="va">n</span> )<span class="op">;</span></span>
+<span id="cb31-38"><a href="#cb31-38" tabindex="-1"></a><span class="cf">for</span> <span class="va">i</span> <span class="ex">in</span> [<span class="va">n1</span><span class="op">..</span><span class="va">n2</span>] <span class="cf">do</span></span>
+<span id="cb31-39"><a href="#cb31-39" tabindex="-1"></a>  <span class="cf">if</span> <span class="bu">InfoLevel</span>( <span class="va">InfoSmallGroupsSearch</span> ) <span class="op">&gt;</span> <span class="fl">1</span> <span class="cf">then</span></span>
+<span id="cb31-40"><a href="#cb31-40" tabindex="-1"></a>    <span class="bu">Print</span>(<span class="va">i</span><span class="op">,</span> <span class="st">"/"</span><span class="op">,</span> <span class="bu">NrSmallGroups</span>(<span class="va">n</span>)<span class="op">,</span> <span class="st">"\r"</span>)<span class="op">;</span></span>
+<span id="cb31-41"><a href="#cb31-41" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-42"><a href="#cb31-42" tabindex="-1"></a>  <span class="cf">if</span> <span class="va">f</span>(<span class="bu">SmallGroup</span>(<span class="va">n</span><span class="op">,</span><span class="va">i</span>)) <span class="cf">then</span></span>
+<span id="cb31-43"><a href="#cb31-43" tabindex="-1"></a>    <span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-44"><a href="#cb31-44" tabindex="-1"></a>          <span class="st">"Discovered counterexample: SmallGroup( "</span><span class="op">,</span> <span class="va">n</span><span class="op">,</span> <span class="st">", "</span><span class="op">,</span> <span class="va">i</span><span class="op">,</span> <span class="st">" )"</span> )<span class="op">;</span></span>
+<span id="cb31-45"><a href="#cb31-45" tabindex="-1"></a>    <span class="ex">return</span> [<span class="va">n</span><span class="op">,</span><span class="va">i</span>]<span class="op">;</span></span>
+<span id="cb31-46"><a href="#cb31-46" tabindex="-1"></a>  <span class="cf">fi</span><span class="op">;</span></span>
+<span id="cb31-47"><a href="#cb31-47" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb31-48"><a href="#cb31-48" tabindex="-1"></a><span class="bu">Info</span>( <span class="va">InfoSmallGroupsSearch</span><span class="op">,</span> <span class="fl">1</span><span class="op">,</span></span>
+<span id="cb31-49"><a href="#cb31-49" tabindex="-1"></a>      <span class="st">"Search completed - no counterexample discovered"</span> )<span class="op">;</span></span>
+<span id="cb31-50"><a href="#cb31-50" tabindex="-1"></a><span class="ex">return</span> <span class="cn">fail</span><span class="op">;</span></span>
+<span id="cb31-51"><a href="#cb31-51" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>The following example demonstrates how the output may now be
 controlled by switching the info level for
 <code>InfoSmallGroupsSearch</code>:</p>
@@ -2273,7 +2685,7 @@ than the brute-force approach.</li>
 </div>
 </div></section><section id="aio-06-attributes"><p>Content from <a href="06-attributes.html">Attributes and Methods</a></p>
 <hr>
-<p>Last updated on 2024-08-27 |
+<p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/06-attributes.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 50 minutes</p>
@@ -2327,13 +2739,21 @@ needs to be calculated only once, as the next time it will return the
 same value. However, as we see from the runtimes below, each new call of
 <code>AvgOrdOfGroup</code> will repeat the same computation again, with
 slightly varying runtime:</p>
-<pre class="source"><code><span><span class="va">A</span><span class="op">:=</span><span class="fu">AlternatingGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">A</span><span class="op">:=</span><span class="bu">AlternatingGroup</span>(<span class="fl">10</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Alt( [ 1 .. 10 ] )</code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">AvgOrdOfCollection</span><span class="op">(</span><span class="va">A</span><span class="op">)</span>; <span class="va">time</span>; <span class="fu">AvgOrdOfCollection</span><span class="op">(</span><span class="va">A</span><span class="op">)</span>; <span class="va">time</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="va">AvgOrdOfCollection</span>(<span class="va">A</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span> <span class="va">AvgOrdOfCollection</span>(<span class="va">A</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2352,8 +2772,12 @@ convoluted and unreadable. On the other hand, GAP has the notion of an
 <em>attribute</em> – a data structure that is used to accumulate
 information that an object learns about itself during its lifetime.
 Consider the following example:</p>
-<pre class="source"><code>G:=Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ]);
-gap&gt; NrConjugacyClasses(G);time;NrConjugacyClasses(G);time;</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="va">G</span><span class="op">:=</span><span class="bu">Group</span>([ (<span class="fl">1</span><span class="op">,</span><span class="fl">2</span><span class="op">,</span><span class="fl">3</span><span class="op">,</span><span class="fl">4</span><span class="op">,</span><span class="fl">5</span><span class="op">,</span><span class="fl">6</span><span class="op">,</span><span class="fl">7</span><span class="op">,</span><span class="fl">8</span><span class="op">,</span><span class="fl">9</span><span class="op">,</span><span class="fl">10</span><span class="op">,</span><span class="fl">11</span>)<span class="op">,</span> (<span class="fl">3</span><span class="op">,</span><span class="fl">7</span><span class="op">,</span><span class="fl">11</span><span class="op">,</span><span class="fl">8</span>)(<span class="fl">4</span><span class="op">,</span><span class="fl">10</span><span class="op">,</span><span class="fl">5</span><span class="op">,</span><span class="fl">6</span>) ])<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="va">gap</span><span class="op">&gt;</span> <span class="bu">NrConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span><span class="va">time</span><span class="op">;</span><span class="bu">NrConjugacyClasses</span>(<span class="va">G</span>)<span class="op">;</span><span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2367,7 +2791,11 @@ gap&gt; NrConjugacyClasses(G);time;NrConjugacyClasses(G);time;</code></pre>
 it took 39 ms to establish that in the first call. The second call has
 zero cost since the result was stored in <code>G</code>, since
 <code>NrConjugacyClasses</code> is an attribute:</p>
-<pre class="source"><code><span><span class="va">NrConjugacyClasses</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="bu">NrConjugacyClasses</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2377,8 +2805,12 @@ zero cost since the result was stored in <code>G</code>, since
 <p>Since we already have a function <code>AvgOrdOfCollection</code>
 which does the calculation, the simplest way to turn it into an
 attribute is as follows:</p>
-<pre class="source"><code>AverageOrder := NewAttribute("AverageOrder", IsCollection);
-InstallMethod( AverageOrder, "for a collection", [IsCollection], AvgOrdOfCollection);</code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="va">AverageOrder</span> <span class="op">:=</span> <span class="bu">NewAttribute</span>(<span class="st">"AverageOrder"</span><span class="op">,</span> <span class="bu">IsCollection</span>)<span class="op">;</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="bu">InstallMethod</span>( <span class="va">AverageOrder</span><span class="op">,</span> <span class="st">"for a collection"</span><span class="op">,</span> [<span class="bu">IsCollection</span>]<span class="op">,</span> <span class="va">AvgOrdOfCollection</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>In this example, first we declared an attribute
 <code>AverageOrder</code> for objects in the category
 <code>IsCollection</code>, and then installed the function
@@ -2388,7 +2820,11 @@ of calling the function <code>AvgOrdOfCollection</code>, we may now call
 <p>Now we may check that subsequent calls of <code>AverageOrder</code>
 with the same argument are performed at zero cost. In this example the
 time is reduced from more than 16 seconds to zero:</p>
-<pre class="source"><code>S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;</code></pre>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">10</span>)<span class="op">;;</span> <span class="va">AverageOrder</span>(<span class="va">S</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span> <span class="va">AverageOrder</span>(<span class="va">S</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2413,12 +2849,20 @@ GAP’s <em>method selection</em> will choose the most efficient method
 based on the type of all arguments.</p>
 <p>To illustrate this, we will now install a method for
 <code>AverageOrder</code> for a group:</p>
-<pre class="source"><code>InstallMethod( AverageOrder, [IsGroup], AvgOrdOfGroup);</code></pre>
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="bu">InstallMethod</span>( <span class="va">AverageOrder</span><span class="op">,</span> [<span class="bu">IsGroup</span>]<span class="op">,</span> <span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>If you apply it to a group whose <code>AverageOrder</code> has
 already been computed, nothing will happen, since GAP will use the
 stored value. However, for a newly created group, this new method will
 be called:</p>
-<pre class="source"><code>S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;</code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">10</span>)<span class="op">;;</span> <span class="va">AverageOrder</span>(<span class="va">S</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span> <span class="va">AverageOrder</span>(<span class="va">S</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2449,16 +2893,24 @@ comments.</p></li>
 </div>
 <p>A <em>property</em> is a boolean-valued attribute. It can be created
 using <code>NewProperty</code></p>
-<pre class="source"><code><span><span class="va">IsIntegerAverageOrder</span> <span class="op">:=</span> <span class="fu">NewProperty</span><span class="op">(</span><span class="st">"IsIntegerAverageOrder"</span>, <span class="va">IsCollection</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">IsIntegerAverageOrder</span> <span class="op">:=</span> <span class="bu">NewProperty</span>(<span class="st">"IsIntegerAverageOrder"</span><span class="op">,</span> <span class="bu">IsCollection</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>Now we will install a method for <code>IsIntegerAverageOrder</code>
 for a collection. Observe that it is never necessary to create a
 function first and then install it as a method. The following method
 installation instead creates a new function as one of its arguments:</p>
-<pre class="source"><code>InstallMethod( IsIntegerAverageOrder,
-  "for a collection",
-  [IsCollection],
-  coll -&gt; IsInt( AverageOrder( coll ) )
-);</code></pre>
+<div class="codewrapper sourceCode" id="cb16">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a><span class="bu">InstallMethod</span>( <span class="va">IsIntegerAverageOrder</span><span class="op">,</span></span>
+<span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a>  <span class="st">"for a collection"</span><span class="op">,</span></span>
+<span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>  [<span class="bu">IsCollection</span>]<span class="op">,</span></span>
+<span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>  <span class="va">coll</span> <span class="op">-&gt;</span> <span class="bu">IsInt</span>( <span class="va">AverageOrder</span>( <span class="va">coll</span> ) )</span>
+<span id="cb16-5"><a href="#cb16-5" tabindex="-1"></a>)<span class="op">;</span></span></code></pre>
+</div>
 <p>Note that because <code>AverageOrder</code> is an attribute it will
 take care of the selection of the most suitable method.</p>
 <div id="does-such-a-method-always-exist" class="callout">
@@ -2480,13 +2932,21 @@ calculating the average order for large permutation groups via conjugacy
 classes of elements, for pc groups from the Small Groups Library it
 could be faster to iterate over their elements than to calculate
 conjugacy classes:</p>
-<pre class="source"><code>l:=List([1..1000],i-&gt;SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;</code></pre>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="va">l</span><span class="op">:=</span><span class="bu">List</span>([<span class="fl">1</span><span class="op">..</span><span class="fl">1000</span>]<span class="op">,</span><span class="va">i</span><span class="op">-&gt;</span><span class="bu">SmallGroup</span>(<span class="fl">1536</span><span class="op">,</span><span class="va">i</span>))<span class="op">;;</span> <span class="bu">List</span>(<span class="va">l</span><span class="op">,</span><span class="va">AvgOrdOfGroup</span>)<span class="op">;;</span><span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">56231</span></span></code></pre>
 </div>
-<pre class="source"><code>l:=List([1..1000],i-&gt;SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;</code></pre>
+<div class="codewrapper sourceCode" id="cb19">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="va">l</span><span class="op">:=</span><span class="bu">List</span>([<span class="fl">1</span><span class="op">..</span><span class="fl">1000</span>]<span class="op">,</span><span class="va">i</span><span class="op">-&gt;</span><span class="bu">SmallGroup</span>(<span class="fl">1536</span><span class="op">,</span><span class="va">i</span>))<span class="op">;;</span> <span class="bu">List</span>(<span class="va">l</span><span class="op">,</span><span class="va">AvgOrdOfCollection</span>)<span class="op">;;</span><span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2580,8 +3040,8 @@ tools helping to understand it.</li>
   "url": "https://carpentries-incubator.github.io/gap-lesson/instructor/aio.html",
   "identifier": "https://carpentries-incubator.github.io/gap-lesson/instructor/aio.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2024-08-27",
-  "datePublished": "2024-08-27"
+  "dateModified": "2024-08-28",
+  "datePublished": "2024-08-28"
 }
 
   </script><script>

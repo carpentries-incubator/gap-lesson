@@ -309,7 +309,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Functions in GAP</h1>
-        <p>Last updated on 2024-08-27 |
+        <p>Last updated on 2024-08-28 |
 
         <a href="https://github.com/carpentries-incubator/gap-lesson/edit/main/episodes/03-func.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -350,22 +350,34 @@ sum of the orders of its elements divided by the order of the
 group).</p>
 <p>We begin with a very straightforward approach, iterating over all
 elements of the group in question:</p>
-<pre class="source"><code><span><span class="va">S</span><span class="op">:=</span><span class="fu">SymmetricGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">SymmetricGroup</span>(<span class="fl">10</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Sym( [ 1 .. 10 ] )</code></pre>
 </div>
-<pre class="source"><code><span><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">0</span></span></code></pre>
 </div>
-<pre class="source"><code>for g in S do
-  sum := sum + Order(g);
-od;
-sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -375,7 +387,11 @@ sum/Size(S);</code></pre>
 later repeat this calculation for some other groups. We may even
 reformat it to fit it into one line and use a double semicolon to
 suppress the output of <code>sum</code>:</p>
-<pre class="source"><code>sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span> <span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span> <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span> <span class="cf">od</span><span class="op">;</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -386,13 +402,21 @@ time we need it. But here we see the first inconvenience: the code
 expects that the group in question must be stored in a variable named
 <code>S</code>, so either we have to reset <code>S</code> each time, or
 we need to edit the code:</p>
-<pre class="source"><code><span><span class="va">S</span><span class="op">:=</span><span class="fu">AlternatingGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="va">S</span><span class="op">:=</span><span class="bu">AlternatingGroup</span>(<span class="fl">10</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>Alt( [ 1 .. 10 ] )</code></pre>
 </div>
-<pre class="source"><code>sum:=0;; for g in S do sum := sum + Order(g); od; sum/Size(S);</code></pre>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">0</span><span class="op">;;</span> <span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">S</span> <span class="cf">do</span> <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span> <span class="cf">od</span><span class="op">;</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">S</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -430,14 +454,18 @@ accidentally overwritten just because of reusing the same name of the
 variable to store something else.</li>
 </ul><p>The following function takes an argument <code>G</code> and computes
 the average order of its elements:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -445,7 +473,11 @@ end;</code></pre>
 </div>
 <p>Now we can apply it to another group, passing the group as an
 argument:</p>
-<pre class="source"><code><span><span class="va">A</span><span class="op">:=</span><span class="fu">AlternatingGroup</span><span class="op">(</span><span class="fl">10</span><span class="op">)</span>; <span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">A</span><span class="op">)</span>; <span class="va">time</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="va">A</span><span class="op">:=</span><span class="bu">AlternatingGroup</span>(<span class="fl">10</span>)<span class="op">;</span> <span class="va">AvgOrdOfGroup</span>(<span class="va">A</span>)<span class="op">;</span> <span class="va">time</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -464,25 +496,33 @@ for calculations in future sessions.</p>
 previous Software Carpentry lessons), create a text file called
 <code>avgord.g</code> containing the following function code and
 comments (a good chance to practise using them!):</p>
-<pre class="source"><code>#####################################################################
-#
-# AvgOrdOfGroup(G)
-#
-# Calculating the average order of an element of G, where G meant to
-# be a group but in fact may be any collection of objects having
-# multiplicative order
-#
-AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb17">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>#<span class="co">####################################################################</span></span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a>#</span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>#<span class="co"> AvgOrdOfGroup(G)</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a>#</span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>#<span class="co"> Calculating the average order of an element of G, where G meant to</span></span>
+<span id="cb17-6"><a href="#cb17-6" tabindex="-1"></a>#<span class="co"> be a group but in fact may be any collection of objects having</span></span>
+<span id="cb17-7"><a href="#cb17-7" tabindex="-1"></a>#<span class="co"> multiplicative order</span></span>
+<span id="cb17-8"><a href="#cb17-8" tabindex="-1"></a>#</span>
+<span id="cb17-9"><a href="#cb17-9" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb17-11"><a href="#cb17-11" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb17-12"><a href="#cb17-12" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb17-13"><a href="#cb17-13" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb17-14"><a href="#cb17-14" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb17-15"><a href="#cb17-15" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb17-16"><a href="#cb17-16" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now start a new GAP session and create another group, for example
 <code>MathieuGroup(11)</code>:</p>
-<pre class="source"><code><span><span class="va">M11</span><span class="op">:=</span><span class="fu">MathieuGroup</span><span class="op">(</span><span class="fl">11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="va">M11</span><span class="op">:=</span><span class="bu">MathieuGroup</span>(<span class="fl">11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -490,7 +530,11 @@ end;</code></pre>
 </div>
 <p>Clearly, <code>AvgOrdOfGroup</code> is not defined in this session,
 so an attempt to call this function results in an error:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb20">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -500,10 +544,18 @@ not in any function at line 2 of *stdin*</code></pre>
 <p>To be available, it should first be loaded using the function
 <code>Read</code>. Below we assume that the file is in the current
 directory, so no path is needed.</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>This loads the file into GAP, and the function
 <code>AvgOrdOfGroup</code> is now available:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb23">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb23-1"><a href="#cb23-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -520,11 +572,23 @@ been modified, and it has no errors (but possibly has warnings), the
 function will be overwritten. <strong>Never ignore the
 warnings!</strong></p>
 <p>For example, let us edit the file and replace the line</p>
-<pre class="source"><code>return sum/Size(G);</code></pre>
+<div class="codewrapper sourceCode" id="cb25">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>by the line with a deliberate syntax error:</p>
-<pre class="source"><code>return Float(sum/Size(G);</code></pre>
+<div class="codewrapper sourceCode" id="cb26">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb26-1"><a href="#cb26-1" tabindex="-1"></a><span class="ex">return</span> <span class="va">Float</span>(<span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>Now read this file with</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb27">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <p>and you will see an error message:</p>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -536,7 +600,11 @@ return Float(sum/Size(G);
 <p>Since there was an error, the <code>AvgOrdOfGroup</code> function in
 our session was not redefined, and remains the same as last time it was
 successfully read:</p>
-<pre class="source"><code><span><span class="fu">Print</span><span class="op">(</span><span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="bu">Print</span>(<span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -550,8 +618,12 @@ end</code></pre>
 <p>Now correct the error by adding the missing closing bracket, read the
 file again and recalculate the average order of an element for
 <code>M11</code>:</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span>
-<span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -562,16 +634,24 @@ warning, it will redefine the function, and this may cause some
 unexpected result. To see what could happen, first edit the file to roll
 back the change in the type of the result (so it will return a rational
 instead of a float), and then comment out two lines as follows:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-# local sum, g;
-# sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb33">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" tabindex="-1"></a>#<span class="co"> local sum, g;</span></span>
+<span id="cb33-3"><a href="#cb33-3" tabindex="-1"></a>#<span class="co"> sum := 0;</span></span>
+<span id="cb33-4"><a href="#cb33-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb33-5"><a href="#cb33-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb33-6"><a href="#cb33-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb33-7"><a href="#cb33-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb33-8"><a href="#cb33-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <p>Now, when you read the file, you will see warnings:</p>
-<pre class="source"><code><span><span class="fu">Read</span><span class="op">(</span><span class="st">"avgord.g"</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb34">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a><span class="bu">Read</span>(<span class="st">"avgord.g"</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -599,7 +679,11 @@ variables. Let us investigate what happened in slightly more detail:</p>
 <p>The function is now redefined, as we can see from its output (or can
 inspect with <code>PageSource(AvgOrdOfGroup)</code> which will also
 display any comments):</p>
-<pre class="source"><code><span><span class="fu">Print</span><span class="op">(</span><span class="va">AvgOrdOfGroup</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb36">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a><span class="bu">Print</span>(<span class="va">AvgOrdOfGroup</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -611,7 +695,11 @@ display any comments):</p>
 end</code></pre>
 </div>
 <p>but an attempt to run it results in a break loop:</p>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb38">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb38-1"><a href="#cb38-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -624,20 +712,32 @@ brk&gt;</code></pre>
 </div>
 <p>which you can exit using <code>quit;</code>.</p>
 <p>What happens next demonstrates how things may go wrong:</p>
-<pre class="source"><code>sum:=2^64; g:=[1];</code></pre>
+<div class="codewrapper sourceCode" id="cb40">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a><span class="va">sum</span><span class="op">:=</span><span class="fl">2</span><span class="op">^</span><span class="fl">64</span><span class="op">;</span> <span class="va">g</span><span class="op">:=</span>[<span class="fl">1</span>]<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>18446744073709551616
 [ 1 ]</code></pre>
 </div>
-<pre class="source"><code><span><span class="fu">AvgOrdOfGroup</span><span class="op">(</span><span class="va">M11</span><span class="op">)</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb42">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span>(<span class="va">M11</span>)<span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code><span><span class="fl">18446744073709604747</span><span class="op">/</span><span class="fl">7920</span></span></code></pre>
 </div>
-<pre class="source"><code><span><span class="va">sum</span>; <span class="va">g</span>;</span></code></pre>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a><span class="va">sum</span><span class="op">;</span> <span class="va">g</span><span class="op">;</span></span></code></pre>
+</div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -648,14 +748,18 @@ brk&gt;</code></pre>
 last change by uncommenting the two commented lines, so that you have
 initial version of <code>AvgOrdOfGroup</code> in the file
 <code>avgord.g</code> again:</p>
-<pre class="source"><code>AvgOrdOfGroup := function(G)
-local sum, g;
-sum := 0;
-for g in G do
-  sum := sum + Order(g);
-od;
-return sum/Size(G);
-end;</code></pre>
+<div class="codewrapper sourceCode" id="cb46">
+<h3 class="code-label">GAP<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode gap" tabindex="0"><code class="sourceCode gap"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="va">AvgOrdOfGroup</span> <span class="op">:=</span> <span class="fu">function</span>(<span class="va">G</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="ex">local</span> <span class="va">sum</span><span class="op">,</span> <span class="va">g</span><span class="op">;</span></span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a><span class="va">sum</span> <span class="op">:=</span> <span class="fl">0</span><span class="op">;</span></span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a><span class="cf">for</span> <span class="va">g</span> <span class="ex">in</span> <span class="va">G</span> <span class="cf">do</span></span>
+<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a>  <span class="va">sum</span> <span class="op">:=</span> <span class="va">sum</span> <span class="op">+</span> <span class="bu">Order</span>(<span class="va">g</span>)<span class="op">;</span></span>
+<span id="cb46-6"><a href="#cb46-6" tabindex="-1"></a><span class="cf">od</span><span class="op">;</span></span>
+<span id="cb46-7"><a href="#cb46-7" tabindex="-1"></a><span class="ex">return</span> <span class="va">sum</span><span class="op">/</span><span class="bu">Size</span>(<span class="va">G</span>)<span class="op">;</span></span>
+<span id="cb46-8"><a href="#cb46-8" tabindex="-1"></a><span class="fu">end</span><span class="op">;</span></span></code></pre>
+</div>
 <div id="paths" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -747,8 +851,8 @@ to your future self and to others.</li>
   "url": "https://carpentries-incubator.github.io/gap-lesson/03-func.html",
   "identifier": "https://carpentries-incubator.github.io/gap-lesson/03-func.html",
   "dateCreated": "2014-10-21",
-  "dateModified": "2024-08-27",
-  "datePublished": "2024-08-27"
+  "dateModified": "2024-08-28",
+  "datePublished": "2024-08-28"
 }
 
   </script><script>
