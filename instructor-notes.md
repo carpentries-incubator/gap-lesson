@@ -94,10 +94,10 @@ permalink: /guide/
   this special kind of error messages.
 
 - For extending GAP with new types of objects, refer to
-  [Creating New Objects](https://www.gap-system.org/Manuals/doc/ref/chap79.html)
-  and [Examples of Extending the System](https://www.gap-system.org/Manuals/doc/ref/chap80.html)
+  [Creating New Objects](https://docs.gap-system.org/doc/ref/chap79.html)
+  and [Examples of Extending the System](https://docs.gap-system.org/doc/ref/chap80.html)
   of the GAP Reference Manual.
-  Also, the [Circle package](https://www.gap-system.org/Packages/circle.html)
+  Also, the [Circle package](https://gap-packages.github.io/circle/)
   provides an example of extending GAP with new multiplicative objects.
 
 1. Solution of the challenge:

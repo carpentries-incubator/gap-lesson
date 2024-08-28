@@ -273,8 +273,8 @@ or `NaturalHomomorphismByNormalSubgroup` using completion.
 The way functions are named in GAP will hopefully help you to memorise or even guess names
 of library functions. If a variable name consists of several words then the
 first letter of each word is capitalised (remember that GAP is case-sensitive!).
-Further details on naming conventions used in GAP are documented in the GAP
-manual [here](https://www.gap-system.org/Manuals/doc/ref/chap5.html#X81F732457F7BC851).
+Further details on naming conventions used in GAP are documented
+[in the GAP manual here](https://docs.gap-system.org/doc/ref/chap5.html#X81F732457F7BC851).
 Functions with names in `ALL_CAPITAL_LETTERS` are internal functions not intended
 for general use. Use them with extreme care!
 
@@ -438,7 +438,7 @@ gap> elts[1]; elts[3]; Length(elts);
 
 - Not required to contain objects of the same type
 
-- See more in [GAP Tutorial: Lists and Records](https://www.gap-system.org/Manuals/doc/tut/chap3.html)
+- See more in [GAP Tutorial: Lists and Records](https://docs.gap-system.org/doc/tut/chap3.html)
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
