@@ -35,7 +35,7 @@ be calculated only once, as the next time it will return the same value.
 However, as we see from the runtimes below, each new call of `AvgOrdOfGroup`
 will repeat the same computation again, with slightly varying runtime:
 
-```source
+```gap
 A:=AlternatingGroup(10);
 ```
 
@@ -43,7 +43,7 @@ A:=AlternatingGroup(10);
 Alt( [ 1 .. 10 ] )
 ```
 
-```source
+```gap
 AvgOrdOfCollection(A); time; AvgOrdOfCollection(A); time;
 ```
 
@@ -65,7 +65,7 @@ and unreadable. On the other hand, GAP has the notion of an *attribute* -- a
 data structure that is used to accumulate information that an object learns about itself
 during its lifetime. Consider the following example:
 
-```source
+```gap
 G:=Group([ (1,2,3,4,5,6,7,8,9,10,11), (3,7,11,8)(4,10,5,6) ]);
 gap> NrConjugacyClasses(G);time;NrConjugacyClasses(G);time;
 ```
@@ -82,7 +82,7 @@ In this case, the group `G` has 10 conjugacy classes, and it took 39 ms to
 establish that in the first call. The second call has zero cost since the
 result was stored in `G`, since `NrConjugacyClasses` is an attribute:
 
-```source
+```gap
 NrConjugacyClasses;
 ```
 
@@ -96,7 +96,7 @@ Since we already have a function `AvgOrdOfCollection` which
 does the calculation, the simplest way to turn it into
 an attribute is as follows:
 
-```source
+```gap
 AverageOrder := NewAttribute("AverageOrder", IsCollection);
 InstallMethod( AverageOrder, "for a collection", [IsCollection], AvgOrdOfCollection);
 ```
@@ -110,7 +110,7 @@ Now we may check that subsequent calls of `AverageOrder` with the same argument
 are performed at zero cost. In this example the time is reduced from more than
 16 seconds to zero:
 
-```source
+```gap
 S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ```
 
@@ -137,7 +137,7 @@ based on the type of all arguments.
 
 To illustrate this, we will now install a method for `AverageOrder` for a group:
 
-```source
+```gap
 InstallMethod( AverageOrder, [IsGroup], AvgOrdOfGroup);
 ```
 
@@ -145,7 +145,7 @@ If you apply it to a group whose `AverageOrder` has already been computed, nothi
 will happen, since GAP will use the stored value. However, for a newly created group,
 this new method will be called:
 
-```source
+```gap
 S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 ```
 
@@ -168,13 +168,13 @@ S:=SymmetricGroup(10);; AverageOrder(S); time; AverageOrder(S); time;
 
 - `ApplicableMethod` in combination with `PageSource` may point you to
   the source code with all the comments.
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
 A *property* is a boolean-valued attribute. It can be created using `NewProperty`
 
-```source
+```gap
 IsIntegerAverageOrder := NewProperty("IsIntegerAverageOrder", IsCollection);
 ```
 
@@ -183,7 +183,7 @@ Observe that it is never necessary to create
 a function first and then install it as a method. The following method installation
 instead creates a new function as one of its arguments:
 
-```source
+```gap
 InstallMethod( IsIntegerAverageOrder,
   "for a collection",
   [IsCollection],
@@ -210,7 +210,7 @@ the average order for large permutation groups via conjugacy classes of
 elements, for pc groups from the Small Groups Library it could be faster
 to iterate over their elements than to calculate conjugacy classes:
 
-```source
+```gap
 l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;
 ```
 
@@ -218,7 +218,7 @@ l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfGroup);;time;
 56231
 ```
 
-```source
+```gap
 l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 ```
 
@@ -235,7 +235,7 @@ l:=List([1..1000],i->SmallGroup(1536,i));; List(l,AvgOrdOfCollection);;time;
 
 - Estimate practical boundaries of its feasibility. Can you find an example
   of a pc group where iterating is slower than calculating conjugacy classes?
-  
+
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 

@@ -85,22 +85,22 @@ permalink: /discuss/
 
 - Don't ask for more than you need as this may have performance implications.
   For example:
-  
+
   - If the property is an invariant of a conjugacy class (of elements or of
     subgroups), you may be interested only at looking at the representatives
     of conjugacy classes.
-  
+
   - If you are interested in a list of elements of a collection, without a
     particular order, use `AsList` instead of `AsSSortedList`.
-  
+
   - Do not calculate conjugacy classes of all subgroups, if e.g. you are
     interested only in normal or maximal subgroups - there are special
     methods to compute them.
-  
+
   - If you are looking for *p*\-subgroups, first you may calculate
     a Sylow *p*\-subgroup of a group, and then look at its subgroups
     and their conjugates.
-  
+
   - Representation matters: it may be worth to convert a group from fp group
     to an isomorphic pc group or a permutation group to use faster methods.
 
@@ -111,11 +111,11 @@ permalink: /discuss/
 - Subscribe to the **[GAP Forum](https://www.gap-system.org/Contacts/Forum/forum.html)**.
 
 - If you need help, choose among these three options, dependently on the question:
-  
+
   - ask questions in the [GAP Forum](https://www.gap-system.org/Contacts/Forum/forum.html)
-  
+
   - send them to the [GAP Support](https://www.gap-system.org/Contacts/People/supportgroup.html)
-  
+
   - post them at the [Mathematics Q\&A site](https://math.stackexchange.com/questions/tagged/gap?sort=frequent&pageSize=50)
 
 ## Contributing to GAP
@@ -142,7 +142,7 @@ permalink: /discuss/
 - This is a simples approach to call GAP from a shell script. Create the shell
   script called `check-one-order.sh` with the following content:
 
-```source
+```gap
 #!/bin/sh
 
 gap -r -b -q avgord.g << EOI
@@ -154,7 +154,7 @@ EOI
 and make it executable using `chmod u+x check-one-order.sh`. Now you may call
 it as follows:
 
-```source
+```gap
 $ ./check-one-order.sh 24
 ```
 
@@ -162,7 +162,7 @@ $ ./check-one-order.sh 24
 fail
 ```
 
-```source
+```gap
 $ ./check-one-order.sh 105
 ```
 

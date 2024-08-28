@@ -49,7 +49,7 @@ GAP test files are just text files, but the common practice is to name
 them with the extension `.tst`. Now create the file `avgord.tst` in the current directory (to
 avoid typing the full path) with the following content:
 
-```source
+```gap
 # tests for average order of a group element
 
 # permutation group
@@ -70,7 +70,7 @@ To run the test, one should use the function `Test`, as documented
 [here](https://www.gap-system.org/Manuals/doc/ref/chap7.html#X87712F9D8732193C).
 For example (assuming that the function `AvgOrdOfGroup` is already loaded):
 
-```source
+```gap
 Test("avgord.tst");
 ```
 
@@ -90,7 +90,7 @@ Instead, we will now add more groups to `avgord.tst`, to demonstrate that the
 code also works with other kinds of groups, and to show various ways of
 combining commands in the test file:
 
-```source
+```gap
 # tests for average order of a group element
 
 # permutation group
@@ -129,7 +129,7 @@ gap> AvgOrdOfGroup(SL(2,5));
 
 Let us test the extended version of the test again and check that it works:
 
-```source
+```gap
 Test("avgord.tst");
 ```
 
@@ -143,7 +143,7 @@ know the orders of conjugacy classes of elements and their representatives. The
 following code, which we add into `avgord.g`, reads into GAP and redefines
 `AvgOrdOfGroup` without any syntax errors:
 
-```source
+```gap
 AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -157,7 +157,7 @@ end;
 
 but when we run the test, here comes a surprise!
 
-```source
+```gap
 Read("avgord.g");
 Test("avgord.tst");
 ```
@@ -201,7 +201,7 @@ false
 Indeed, we made a typo (deliberately) and replaced `Size(c)` by `Size(cc)`.
 The correct version of course should look as follows:
 
-```source
+```gap
 AvgOrdOfGroup := function(G)
 local cc, sum, c;
 cc:=ConjugacyClasses(G);
@@ -216,7 +216,7 @@ end;
 Now we will fix this in `avgord.g`, and read and test it again to check that
 the tests run correctly.
 
-```source
+```gap
 Read("avgord.g");
 Test("avgord.tst");
 ```
