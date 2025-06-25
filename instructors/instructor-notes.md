@@ -40,7 +40,7 @@ permalink: /guide/
 - To use color prompt when GAP is started with `-r` option to ignore all user
   preferences, including this (if set), call `ColorPrompt(true);`.
 
-## [First session with GAP]({% link \_episodes/01-command-line.md %})
+## [First session with GAP](../episodes/01-command-line.md)
 
 - Emphasize that the banner contains version info useful for citing GAP or
   reporting bugs. Selection of packages may differ, but missing **IO** and
@@ -81,7 +81,7 @@ permalink: /guide/
 1. Solution of the challenge: `Filtered( elts, g -> 2^g = 2 );` and
   `Filtered( elts, g -> (1,2)^g = (1,2) );`.
 
-## [Some more GAP objects]({% link \_episodes/02-some-objects.md %})
+## [Some more GAP objects](../episodes/02-some-objects.md)
 
 - Floats, cyclotomics, finite fields elements are not used further in the
   lesson, but we mention them briefly to show that they exist.
@@ -103,7 +103,7 @@ permalink: /guide/
 1. Solution of the challenge:
   `r:=c[1]; for i in [2..Length(c)] do if c[i][2]>r[2] then r:=c[i]; fi; od; r;`
 
-## [Functions in GAP]({% link \_episodes/03-func.md %})
+## [Functions in GAP](../episodes/03-func.md)
 
 - Spend some time on the structure of the GAP function: keywords `function`,
   `local`, `return`, `end`, and other language constructions exposed there.
@@ -111,7 +111,7 @@ permalink: /guide/
 - Tell how to explore the break loop while showing an example of an error
   message.
 
-## [Using regression tests]({% link \_episodes/01-command-line.md %})(04-testing.html)
+## [Using regression tests](../episodes/04-testing.md)
 
 - Learners may need help with formatting the test because of misplaced comments
   and/or different formatting of the output.
@@ -126,7 +126,7 @@ permalink: /guide/
 
 - Mention profiling and code coverage tools.
 
-## [Small groups search]({% link \_episodes/05-small-groups.md %})
+## [Small groups search](../episodes/05-small-groups.md)
 
 - Give an overview of `SmallGroup`, `AllSmallGroups`, `NrSmallGroups` and
   `SmallGroupsInformation` with some examples.
@@ -145,7 +145,7 @@ permalink: /guide/
   In addition to `SmallGroup(105,1)` and `SmallGroup(357,1)`, another
   group is `SmallGroup(1785,1)`.
 
-## [Attributes and Methods]({% link \_episodes/06-attributes.md %})
+## [Attributes and Methods](../episodes/06-attributes.md)
 
 - Why it is not a good idea to declare `Random` as an attribute?
 
